@@ -31,7 +31,7 @@ Create your own branch of the project by forking the repository (top-right **For
 
 ![github-fork](img/github-fork.png)
 
-The workflow described in [GitHub guide](https://guides.github.com/introduction/flow/) is the one used in the OpenSILEX community : each additionnal development is made in separate branches forked from a master branch. The changes made in those branches are then added to the master branch through pull requests.
+The workflow described in [GitHub guide](https://guides.github.com/introduction/flow/) is the one used in the OpenSILEX community : each additionnal development is made in separate branches forked from a master branch. The changes made in those branches are then integrated to the master branch through pull requests.
 
 Forking the master branch should lead you to your own branch, accessible through GitHub.
 In our example, the local branch is access to through the URL https://github.com/pierreetiennealary/community-dev :
@@ -60,17 +60,36 @@ The URL to be used after `git clone` can be found by clicking on the green **Clo
 
 ### How to edit an ongoing OpenSILEX development ?
 
-
-
 On the local repository cloned from your branch, so can create, read, edit and delete files and folders.
+For example, I have created the present file called *github.md*.
+The modifications
 
+### checkout
 
+### get
 
-create a file, eg github.md
+### add
 
 git status
 git add github.md
 
 git status -> it's green !
 
+### commit
+
+enregistrement des modifications locales vers sa branche
+
 git commit -m "github.md added"
+
+### push
+
+```
+git push origin master
+```
+
+### pull request
+
+## Good practices
+
+- git checkout and git pull every morning before working on a development
+- git push every evening after working on a development
