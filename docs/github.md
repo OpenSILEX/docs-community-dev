@@ -1,4 +1,6 @@
-# Collaborative development using GitHub
+# Using git
+
+This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
 
 ## Requirements
 
@@ -15,19 +17,30 @@ git --version
 git --help
 ```
 
+If you are new to git, you can check out this [git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
+
 Create a GitHub profile on [https://github.com/](https://github.com/).
 You can find INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
-## Contributing to an ongoing OpenSILEX development
+## Join a development
 
-The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
-When collaborating to an other repository, just change *[community-dev]* displayed in the examples to the name of the repository you are interested in.
+### OpenSILEX repositories
+
+OpenSILEX development projects are organized in separate repositories.
 All OpenSILEX repositories are listed in the [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/).
 
-### How to join an ongoing OpenSILEX development ?
+The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX development project.
+When collaborating to an other repository, just change *[community-dev]* displayed in the examples to the name of the repository you are interested in.
+
+How to join an ongoing OpenSILEX development project ?
+
+1. Create your own branch of the development project's repository
+2. Clone your branch on your computer
+
+### Create a branch
 
 First, go with a browser to the URL of the repository you are interested in, e.g. https://github.com/OpenSILEX/community-dev.
-Create your own branch of the project by forking the repository (top-right **Fork** button) :
+Create your own branch of the development project by forking the repository (top-right **Fork** button) :
 
 ![github-fork](img/github-fork.png)
 
@@ -37,6 +50,8 @@ Forking the master branch should lead you to your own branch, accessible through
 In our example, the local branch is access to through the URL https://github.com/pierreetiennealary/community-dev :
 
 ![github-branch](img/github-branch.png)
+
+### Clone your branch
 
 Then, you want to make a local copy of your branch on your computer.
 From your branch GitHub page, copy the URL of your branch you want to clone by clicking on the green **Clone or download** button, on the right of your own repository webpage.
@@ -58,7 +73,12 @@ The URL to be used after `git clone` can be found by clicking on the green **Clo
 
 ![git-terminal-clone](img/git-terminal-clone.png)
 
-### How to edit an ongoing OpenSILEX development ?
+## Edit a development (short)
+
+1. before any modification to your branch, verify that it's up-to-date with the master branch : `git ???`
+2. add your local modifications to your branch as you ??? : `git add`
+
+## Edit a development (detailed)
 
 On the local repository cloned from your branch, so can create, read, edit and delete files and folders.
 For example, I have created the present file called *github.md*.
@@ -73,6 +93,8 @@ The modifications
 git status
 git add github.md
 
+![git-status](img/git-status.png)
+
 git status -> it's green !
 
 ### commit
@@ -80,6 +102,10 @@ git status -> it's green !
 enregistrement des modifications locales vers sa branche
 
 git commit -m "github.md added"
+
+![git-commit](img/git-commit.png)
+
+![git-new-file](img/git-new-file.png)
 
 ### push
 
@@ -89,7 +115,18 @@ git push origin master
 
 ### pull request
 
+![github-pull-request](img/github-pull-request.png)
+
+![github-create-pull-request](img/github-create-pull-request.png)
+
+![github-comment-pull-request](img/github-comment-pull-request.png)
+
+![github-pull-request-decline](img/github-pull-request-declined.png)
+
+
+
 ## Good practices
 
-- git checkout and git pull every morning before working on a development
-- git push every evening after working on a development
+- `git checkout` and `git pull` every morning before working on a development
+- check for typos and errors before `git commit`
+- `git push` every evening after working on a development
