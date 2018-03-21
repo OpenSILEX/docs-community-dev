@@ -77,6 +77,7 @@ The URL to be used after `git clone` can be found by clicking on the green **Clo
 
 1. before any modification to your branch, verify that it's up-to-date with the master branch : `git ???`
 2. add your local modifications to your branch as you ??? : `git add`
+3. todo
 
 ## Edit a development (detailed)
 
@@ -88,14 +89,25 @@ The modifications
 
 ### get
 
+todo
+
 ### add
 
-git status
-git add github.md
+`git status`
 
 ![git-status](img/git-status.png)
 
+Note that you can use `git status -s` for a shorter answer (less verbose).
+
+`git add` followed by the name of the file you created or changed, e.g. this markdown document *github.md*.
+
+![git-add](img/git-add.png)
+
 git status -> it's green !
+
+Note that the command is also `git add` when you remove a file locally and then want it to be removed from the repository.
+
+![git-delete](img/git-delete.png)
 
 ### commit
 
