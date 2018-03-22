@@ -20,6 +20,13 @@ git --help
 If you are new to git, you can check out this [git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
+```
+git config --global user.email "<your email>"
+git config --global user.name "<the name that will appear on the git log>"
+```
+
+more on https://git-scm.com/docs/git-config
+
 Create a GitHub profile on [https://github.com/](https://github.com/).
 You can find INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
@@ -39,6 +46,8 @@ How to join an ongoing OpenSILEX development project ?
 2. Clone your branch on your computer
 
 ### Create a branch
+
+Here's the official tutorial : https://help.github.com/articles/fork-a-repo/
 
 First, go with a browser to the URL of the repository you are interested in, e.g. https://github.com/OpenSILEX/community-dev.
 Create your own branch of the development project by forking the repository (top-right **Fork** button) :
@@ -64,7 +73,16 @@ Another option is to download a compressed version of the repository using the *
 Choose a local directory on your computer where you want the git repository to be cloned.
 There, you can open a terminal and use the `git clone` command.
 From an UNIX terminal, the command would be `git clone https://github.com/[your_username]/[repository_name].git`.
-For me it was :
+
+Using SSH is preferable to the HTTPS protocol (in order not to have to provide your username each time you want to update your branch) :
+
+```
+git ssh git@github.com:pierreetiennealary/community-dev.git
+```
+
+see also https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+The alternative (less recommended) is using `git clone` :
 
 ```
 git clone https://github.com/pierreetiennealary/community-dev.git
@@ -73,6 +91,12 @@ git clone https://github.com/pierreetiennealary/community-dev.git
 The URL to be used after `git clone` can be found by clicking on the green **Clone or download** button of the repository main webpage.
 
 ![git-terminal-clone](img/git-terminal-clone.png)
+
+then :
+
+`git remote -v`
+
+`git remote add upstream https://github.com/OpenSILEX/community-dev.git`
 
 ## Edit a development (short)
 
@@ -88,17 +112,25 @@ The modifications
 
 ### checkout
 
-### get
+### fetch upstream
 
+(you didn't make new modifications to you branch since your last git push)
 
+`git fetch upstream`
+
+`git rebase`
 
 ### add
+
+which files have been modified ?
 
 `git status`
 
 ![git-status](img/git-status.png)
 
 Note that you can use `git status -s` for a shorter answer (less verbose).
+
+check the changes made to a file with `git diff <filename>`.
 
 `git add` followed by the name of the file you created or changed, e.g. this markdown document *github.md*.
 
