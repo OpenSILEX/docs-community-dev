@@ -18,6 +18,7 @@ git --help
 ```
 
 If you are new to git, you can check out this [git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
+The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
 Create a GitHub profile on [https://github.com/](https://github.com/).
 You can find INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
@@ -89,7 +90,7 @@ The modifications
 
 ### get
 
-todo
+
 
 ### add
 
