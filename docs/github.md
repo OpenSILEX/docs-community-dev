@@ -2,33 +2,63 @@
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
 
+Summary of this chapter's recommendations :
+- you can install git from [https://git-scm.com/](https://git-scm.com/)
+- OpenSILEX repositories are hosted on [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/)
+- OpenSILEX developments follow the [GitHub guide](https://guides.github.com/introduction/flow/) recommendations
+- create your own branch of the repository you want to contribute to
+- clone your branch in order to perform local modifications
+1. check every morning if your branch is up-to-date with the master repository
+2. modify you branch locally
+3. push to your branch the changes you made locally
+4. create a pull request every evening to ask for the changes you pushed to your branch to be integrated to the master repository
+
 ## Requirements
 
-Install git from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on ubuntu terminal :
+### Installing git
+
+Install git from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a linux terminal :
 
 ```
 apt-get install git
 ```
 
-On linux, you can check your version of git and display its documentation using :
+On linux, you can check your version of git and display its documentation from the terminal :
 
 ```
 git --version
 git --help
 ```
 
+On windows, open "git bash" (instead of git GUI) in order to be able to use the commands presented in this documentation.
+At the moment, the present documentation provides no information on how to use git GUI.
+
+On mac operating system, ... TODO
+
 If you are new to git, you can check out this [git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
+
+
+### Configurating git
+
+A local configuration of git has to be done only once.
+From a terminal (linux terminal, mac terminal, or git bash on windows), you can indicate your name and you email address with the command lines :
 
 ```
 git config --global user.email "<your email>"
 git config --global user.name "<the name that will appear on the git log>"
 ```
 
-more on https://git-scm.com/docs/git-config
+TODO : more on https://git-scm.com/docs/git-config
+
+### Join GitHub
 
 Create a GitHub profile on [https://github.com/](https://github.com/).
-You can find INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
+
+If you are an INRA agent, you have to specify it on your profile, using the @INRA tag.
+You can find more INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
+
+TODO : how to link your GitHub account to your local git. example with SSH.
 
 ## Join a development
 
@@ -38,7 +68,7 @@ OpenSILEX development projects are organized in separate repositories.
 All OpenSILEX repositories are listed in the [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/).
 
 The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX development project.
-When collaborating to an other repository, just change *[community-dev]* displayed in the examples to the name of the repository you are interested in.
+When collaborating to an other repository, just change *<community-dev>* displayed in the examples to the name of the repository you are interested in.
 
 How to join an ongoing OpenSILEX development project ?
 
@@ -47,24 +77,28 @@ How to join an ongoing OpenSILEX development project ?
 
 ### Create a branch
 
-Here's the official tutorial : https://help.github.com/articles/fork-a-repo/
+The instructions for creating a branch are available on the official GitHub tutorial : https://help.github.com/articles/fork-a-repo/
 
 First, go with a browser to the URL of the repository you are interested in, e.g. https://github.com/OpenSILEX/community-dev.
-Create your own branch of the development project by forking the repository (top-right **Fork** button) :
+From this GitHub webpage, create your own branch of the development project by forking the repository (top-right **Fork** button) :
 
 ![github-fork](img/github-fork.png)
+
+![github-fork-zoom](img/github-fork-zoom.png)
 
 The workflow described in [GitHub guide](https://guides.github.com/introduction/flow/) is the one used in the OpenSILEX community : each additionnal development is made in separate branches forked from a master branch. The changes made in those branches are then integrated to the master branch through pull requests.
 
 Forking the master branch should lead you to your own branch, accessible through GitHub.
-In our example, the local branch is access to through the URL https://github.com/pierreetiennealary/community-dev :
+In our example, the branch that has been created by forking *OpenSILEX/community-dev* is accessed to through the URL https://github.com/pierreetiennealary/community-dev.
 
 ![github-branch](img/github-branch.png)
 
 ### Clone your branch
 
+TODO
+
 Then, you want to make a local copy of your branch on your computer.
-From your branch GitHub page, copy the URL of your branch you want to clone by clicking on the green **Clone or download** button, on the right of your own repository webpage.
+From your branch's GitHub page, copy the URL of your branch you want to clone by clicking on the green **Clone or download** button, on the right of your own repository webpage.
 
 ![github-clone](img/github-clone.png)
 
