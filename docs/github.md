@@ -1,41 +1,45 @@
-# Using git
+# Versionning using git
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
 
 Summary of this chapter's recommendations :
-- you can install git from [https://git-scm.com/](https://git-scm.com/)
+- you can install **git** from [https://git-scm.com/](https://git-scm.com/)
 - OpenSILEX repositories are hosted on [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/)
-- OpenSILEX developments follow the [GitHub guide](https://guides.github.com/introduction/flow/) recommendations
+- checkout [GitHub guides](https://guides.github.com) recommendations
 - create your own branch of the repository you want to contribute to
 - clone your branch in order to perform local modifications
-1. check every morning if your branch is up-to-date with the master repository
-2. modify you branch locally
-3. push to your branch the changes you made locally
-4. create a pull request every evening to ask for the changes you pushed to your branch to be integrated to the master repository
+- introduce developments little by little using [GitHub flow](https://guides.github.com/introduction/flow/) :
+  1. every morning, check if your branch is up-to-date with the master repository
+  2. modify you branch locally
+  3. every evening, push to your branch the changes you made locally
+  4. create a pull request from your branch when you want to ask for the changes you pushed to your branch to be integrated to the master repository
 
 ## Requirements
 
 ### Installing git
 
-Install git from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a linux terminal :
+Install the version control system **git** from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a linux terminal :
 
 ```
 apt-get install git
 ```
 
-On linux, you can check your version of git and display its documentation from the terminal :
+On linux, you can check your version of **git** and display its documentation from the terminal :
 
 ```
 git --version
 git --help
 ```
+If installing **git** on windows, make sure you include "Git Bash Here" in Windows Explorer.
 
-On windows, open "git bash" (instead of git GUI) in order to be able to use the commands presented in this documentation.
-At the moment, the present documentation provides no information on how to use git GUI.
+![github-windows](img/git-windows.PNG)
 
-On mac operating system, ... TODO
+On windows, open **git** from any Explorer window with a right-click > Git Bash Here (instead of Git GUI Here) in order to be able to use the commands presented in this documentation.
+At the moment, the present documentation provides no information on how to use Git GUI.
 
-If you are new to git, you can check out this [git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
+![git-bash](img/git-open-bash.PNG)
+
+If you are new to **git**, you can check out this [git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
 
@@ -49,7 +53,7 @@ git config --global user.email "<your email>"
 git config --global user.name "<the name that will appear on the git log>"
 ```
 
-TODO : more on https://git-scm.com/docs/git-config
+The complete documentation of the git config command is available on [git official website](https://git-scm.com/docs/git-config).
 
 ### Join GitHub
 
@@ -58,7 +62,7 @@ Create a GitHub profile on [https://github.com/](https://github.com/).
 If you are an INRA agent, you have to specify it on your profile, using the @INRA tag.
 You can find more INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
-TODO : how to link your GitHub account to your local git. example with SSH.
+You can link your GitHub account to your local **git** from Settings > SSH and GPG keys on any GitHub webpage if you are signed in.
 
 ## Join a development
 
@@ -95,8 +99,6 @@ In our example, the branch that has been created by forking *OpenSILEX/community
 
 ### Clone your branch
 
-TODO
-
 Then, you want to make a local copy of your branch on your computer.
 From your branch's GitHub page, copy the URL of your branch you want to clone by clicking on the green **Clone or download** button, on the right of your own repository webpage.
 
@@ -111,7 +113,7 @@ From an UNIX terminal, the command would be `git clone https://github.com/[your_
 Using SSH is preferable to the HTTPS protocol (in order not to have to provide your username each time you want to update your branch) :
 
 ```
-git ssh git@github.com:pierreetiennealary/community-dev.git
+TODO git ssh git@github.com:pierreetiennealary/community-dev.git
 ```
 
 see also https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
@@ -201,7 +203,6 @@ git push origin master
 ![github-comment-pull-request](img/github-comment-pull-request.png)
 
 ![github-pull-request-decline](img/github-pull-request-declined.png)
-
 
 
 ## Good practices
