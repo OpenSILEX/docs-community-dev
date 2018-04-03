@@ -43,14 +43,20 @@ If you are new to **git**, you can check out this [git guide](http://rogerdudler
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
 
-### Configurating git
+### Git configuration
 
 A local configuration of git has to be done only once.
 From a terminal (linux terminal, mac terminal, or git bash on windows), you can indicate your name and you email address with the command lines :
 
 ```
-git config --global user.email "<your email>"
+git config --global user.email "<the email you use on GitHub>"
 git config --global user.name "<the name that will appear on the git log>"
+```
+
+You can verify your configuration :
+
+```
+git config --list
 ```
 
 The complete documentation of the git config command is available on [git official website](https://git-scm.com/docs/git-config).
@@ -62,7 +68,18 @@ Create a GitHub profile on [https://github.com/](https://github.com/).
 If you are an INRA agent, you have to specify it on your profile, using the @INRA tag.
 You can find more INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
+### Connexion through SSH
+
 You can link your GitHub account to your local **git** from Settings > SSH and GPG keys on any GitHub webpage if you are signed in.
+
+![GitHub-SSH-keys](img/github-ssh-new.png)
+
+```
+ssh -T git@github.com
+```
+
+
+
 
 ## Join a development
 
@@ -112,13 +129,19 @@ From an UNIX terminal, the command would be `git clone https://github.com/[your_
 
 Using SSH is preferable to the HTTPS protocol (in order not to have to provide your username each time you want to update your branch) :
 
+The command `git clone` can be used either with SSH or HTTPS.
+
+![clone-ssh](img/clone-ssh.png)
+
 ```
-TODO git ssh git@github.com:pierreetiennealary/community-dev.git
+git clone git@github.com:pierreetiennealary/community-dev.git
 ```
 
-see also https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+see also GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 
-The alternative (less recommended) is using `git clone` :
+This ...
+
+The alternative (less recommended) is using `git clone` and then HTTPS :
 
 ```
 git clone https://github.com/pierreetiennealary/community-dev.git
@@ -132,13 +155,23 @@ then :
 
 `git remote -v`
 
+TODO
+
+git remote add <name branch> <path branch>
+
 `git remote add upstream https://github.com/OpenSILEX/community-dev.git`
+
+Complete documentation on how to add a remote is available on GitHub help webpage [Adding a remote](https://help.github.com/articles/adding-a-remote/).
+
+`git checkout master`
 
 ## Edit a development (short)
 
-1. before any modification to your branch, verify that it's up-to-date with the master branch : `git ???`
-2. add your local modifications to your branch as you ??? : `git add`
-3. todo
+1. before any modification to your branch, verify that it's up-to-date with the master branch : `git pull upstream <your branch>`
+2. add your local modifications to your branch as you edit local files : `git add <modified files>`
+3. commit your added modifications : `git commit -m <a short message>`
+4. idealy every evening, push your commited modifications to your branch : `git push origin <your branch>`
+5.
 
 ## Edit a development (detailed)
 
@@ -148,13 +181,15 @@ The modifications
 
 ### checkout
 
-### fetch upstream
+### pull upstream
 
 (you didn't make new modifications to you branch since your last git push)
 
 `git fetch upstream`
 
 `git rebase`
+
+help github removing-a-remote
 
 ### add
 
@@ -210,3 +245,13 @@ git push origin master
 - `git checkout` and `git pull` every morning before working on a development
 - check for typos and errors before `git commit`
 - `git push` every evening after working on a development
+
+## TODO
+
+repo :
+* origin (mine)
+* upstream (OpenSILEX)
+
+branch :
+* master (branche principale)
+* potentially other
