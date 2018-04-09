@@ -12,7 +12,7 @@ Summary of this chapter's recommendations :
   1. every morning, check if your branch is up-to-date with the master repository
   2. modify you branch locally
   3. every evening, push to your branch the changes you made locally
-  4. create a pull request from your branch when you want to ask for the changes you pushed to your branch to be integrated to the master repository
+  4. create a pull request from your repository when your it is ready to be merged to the master repository
 
 ## Requirements
 
@@ -30,6 +30,7 @@ On linux, you can check your version of **git** and display its documentation fr
 git --version
 git --help
 ```
+
 If installing **git** on windows, make sure you include "Git Bash Here" in Windows Explorer.
 
 ![github-windows](img/git-windows.PNG)
@@ -46,7 +47,7 @@ The [official GitHub guide](https://guides.github.com/activities/hello-world/) i
 ### Git configuration
 
 A local configuration of git has to be done only once.
-From a terminal (linux terminal, mac terminal, or git bash on windows), you can indicate your name and you email address with the command lines :
+From a terminal (linux terminal, mac terminal, or Git Bash Here on windows), you can indicate your name and you email address with the command lines :
 
 ```
 git config --global user.email "<the email you use on GitHub>"
@@ -68,18 +69,34 @@ Create a GitHub profile on [https://github.com/](https://github.com/).
 If you are an INRA agent, you have to specify it on your profile, using the @INRA tag.
 You can find more INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
-### Connexion through SSH
+### SSH connexion
 
-You can link your GitHub account to your local **git** from Settings > SSH and GPG keys on any GitHub webpage if you are signed in.
+You can link your GitHub account to your local **git** using a SSH key.
+
+See GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
+
+According to this tutorial, genrating both a public and a private RSA key is done with a `ssh-keygen` command :
+
+```
+ssh-keygen -t rsa -b 4096 -C "<the email you use on GitHub>"
+```
+
+You can then copy the generated public key displayed in the text file `id_rsa.pub`.
+
+Go to [GitHub Settings > SSH and GPG keys](https://github.com/settings/keys) when you are signed in.
+Click on the `New SSH key` button.
 
 ![GitHub-SSH-keys](img/github-ssh-new.png)
+
+Paste the copied public key in the empty **Key** field.
+
+You can then check if the connection is open from a terminal :
 
 ```
 ssh -T git@github.com
 ```
 
-
-
+The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear : it works !
 
 ## Join a development
 
@@ -114,6 +131,8 @@ In our example, the branch that has been created by forking *OpenSILEX/community
 
 ![github-branch](img/github-branch.png)
 
+Make sure that you fork the repository owned by OpenSILEX, and not someone else's repository forked from *OpenSILEX/<name of the repository>*.
+
 ### Clone your branch
 
 Then, you want to make a local copy of your branch on your computer.
@@ -121,33 +140,34 @@ From your branch's GitHub page, copy the URL of your branch you want to clone by
 
 ![github-clone](img/github-clone.png)
 
-Another option is to download a compressed version of the repository using the **Download ZIP** button.
+Another option is to download a compressed version of the repository using the **Download ZIP** button below.
 
 Choose a local directory on your computer where you want the git repository to be cloned.
-There, you can open a terminal and use the `git clone` command.
-From an UNIX terminal, the command would be `git clone https://github.com/[your_username]/[repository_name].git`.
-
-Using SSH is preferable to the HTTPS protocol (in order not to have to provide your username each time you want to update your branch) :
+There, you can open a terminal (linux) or Git Bash Here (windows) and use the `git clone` command.
+From an UNIX terminal and using the HTTPS protocol, the command would be `git clone https://github.com/[your_username]/[repository_name].git`.
+However, using SSH is preferable to the HTTPS protocol (in order not to have to provide your username each time you want to update your branch) :
 
 The command `git clone` can be used either with SSH or HTTPS.
 
+The URL to be used after `git clone` can be found by clicking on the green **Clone or download** button of the repository main webpage.
+Click on the green **Clone or download** button (and <u>Use SSH</u> if necessary), and copy the remote SSH URL.
+
 ![clone-ssh](img/clone-ssh.png)
 
+Choose on your computer the directory where you want to create a local copy of the cloned repository.
+From this directory, open a terminal (linux) or Git Bash Here (windows), and then type `git clone` followed by the SSH URL you just copied from GitHub.
+
 ```
-git clone git@github.com:pierreetiennealary/community-dev.git
+git clone <copied SSH URL>
 ```
 
-see also GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-
-This ...
+You haven't configured an SSH connexion yet ? Go to the previous [SSH connexion](../Using-git/#SSH-connexion) section.
 
 The alternative (less recommended) is using `git clone` and then HTTPS :
 
 ```
-git clone https://github.com/pierreetiennealary/community-dev.git
+git clone <copied HTTPS URL>
 ```
-
-The URL to be used after `git clone` can be found by clicking on the green **Clone or download** button of the repository main webpage.
 
 ![git-terminal-clone](img/git-terminal-clone.png)
 
