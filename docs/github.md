@@ -127,7 +127,7 @@ From this GitHub webpage, create your own branch of the development project by f
 The workflow described in [GitHub guide](https://guides.github.com/introduction/flow/) is the one used in the OpenSILEX community : each additionnal development is made in separate branches forked from a master branch. The changes made in those branches are then integrated to the master branch through pull requests.
 
 Forking the master branch should lead you to your own branch, accessible through GitHub.
-In our example, the branch that has been created by forking *OpenSILEX/community-dev* is accessed to through the URL https://github.com/pierreetiennealary/community-dev.
+In our example, the branch that has been created by forking *OpenSILEX/community-dev* is accessed to through the a new URL of the form `https://github.com/*user.name*/community-dev`.
 
 ![github-branch](img/github-branch.png)
 
@@ -171,35 +171,55 @@ git clone <copied HTTPS URL>
 
 ![git-terminal-clone](img/git-terminal-clone.png)
 
-then :
+### Manage branches
 
-`git remote -v`
+The `git remote -v` command gets you the list of the remote repositories.
 
-TODO
+You can add upstream repositories associated to the list of the remotes using `git remote add <name branch> <path branch>`.
 
-git remote add <name branch> <path branch>
+You should name "upstream" the master repository owned by OpenSILEX.
 
-`git remote add upstream https://github.com/OpenSILEX/community-dev.git`
+![git-remote-add](img/git-remote-add.png)
+
+"origin" is by default the name of ypur local repository.
 
 Complete documentation on how to add a remote is available on GitHub help webpage [Adding a remote](https://help.github.com/articles/adding-a-remote/).
 
-`git checkout master`
-
 ## Edit a development (short)
 
-1. before any modification to your branch, verify that it's up-to-date with the master branch : `git pull upstream <your branch>`
+1. before any modification to your branch, ideally every morning, verify that it's up-to-date with the master branch : `git pull upstream <your branch>`
 2. add your local modifications to your branch as you edit local files : `git add <modified files>`
 3. commit your added modifications : `git commit -m <a short message>`
 4. idealy every evening, push your commited modifications to your branch : `git push origin <your branch>`
-5.
+5. when a development is complete, ask to OpenSILEX to integrate it in the main repository, through a pull request you have to open from the GitHub webpage of your own repository
 
 ## Edit a development (detailed)
 
-On the local repository cloned from your branch, so can create, read, edit and delete files and folders.
+On the local repository cloned from your branch, you can create, read, edit and delete files and folders.
 For example, I have created the present file called *github.md*.
-The modifications
+The modifications I make locally can be passed on to my repository and then to the OpenSILEX main repository.
 
-### checkout
+### Checkout branches
+
+You can change the branch you are working on using `git checkout <name of the branch>`, e.g. `git checkout master` to see if the master branch is in advance compared to yours.
+
+![git-checkout](img/git-checkout.png)
+
+Your can also create additionnal branches (not recommanded) using `git checkout -b <new-branch-name>`.
+
+be carefull when using git checkout
+
+git branch : list of branches & verify on which branch you are
+
+git branch <new.branch.name>
+
+git checkout <new.branch.name>
+
+git push origin <new.branch.name>
+
+if new git pull needed : git checkout newB then git pull orgin master then pull request on master of upstream then pull upstream master then git push origin master (pour le récupérer dans le master). Fix fini, donc on supprime la nouvelle branche. On reste dans son master : git branch -d new.branch.name puis git push origin :new.branch.name (les : sont importants)
+
+![git-branch](img/git-branch.png)
 
 ### pull upstream
 
@@ -207,9 +227,13 @@ The modifications
 
 `git fetch upstream`
 
+![git-pull-upstream-master](img/git-pull-upstream-master.png)
+
 `git rebase`
 
 help github removing-a-remote
+
+look for conflicts
 
 ### add
 
@@ -257,21 +281,28 @@ git push origin master
 
 ![github-comment-pull-request](img/github-comment-pull-request.png)
 
+Your pull request can be declined..
+
 ![github-pull-request-decline](img/github-pull-request-declined.png)
 
 
 ## Good practices
 
+See the Code of Conduct within `Insight > Community` of each OpenSILEX repository for specific
+
 - `git checkout` and `git pull` every morning before working on a development
 - check for typos and errors before `git commit`
 - `git push` every evening after working on a development
 
-## TODO
+## notes - to delete
 
 repo :
-* origin (mine)
+* origin (mine, local)
 * upstream (OpenSILEX)
 
 branch :
 * master (branche principale)
 * potentially other
+
+eg. upstream master = master branch of the OpenSILEX repository
+origin master = master branch of my local repository
