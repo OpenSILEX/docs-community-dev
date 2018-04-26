@@ -263,7 +263,7 @@ After having made modifications to your local repository, you can check which fi
 Note that you can use `git status -s` for a shorter answer (less verbose).
 If a file appears in red, its means that it has been modified but not yet "added" to the list of files whose changes are to be commited to your branch.
 
-You can visualize line per line the changes you made to a file with `git diff <filename>`.
+You can visualise line per line the changes you made to a file with `git diff <filename>`.
 For example, you would use `git diff github.md` in order to see the changes made to the file *github.md*.
 
 An important step is the selection of the created or changed files whose changes you would like to record to the repository (i.e. commit).
@@ -306,28 +306,40 @@ This is achieved through a `git push` folllowed by the name of the target reposi
 git push origin master
 ```
 
+A good practice would be to push to the master branch local changes made during the day every evening before leaving the workplace.
+
 ### Request your changes to be pulled
 
-The changes pushed to the origin remote should then be added to the upstream repository.
-This can be achieved with a **Pull Request** from the GitHub page of your own repository.
+The changes pushed to the master branch of the origin remote should be integrated into the upstream repository, *OpenSILEX/community-dev* in our example.
+This can be achieved directly from the GitHub page of your own repository through the **New pull request** button.
+Maintainers of the upstream repository would then have to accept your pull request.
 
 ![github-pull-request](img/github-pull-request.png)
 
-You can then visualise where are the changes you made.
+You can then visualise all the changes you made through the **Comparing changes** window.
+In order to go on with the pull request process, click on the green **Create pull request** button.
 
 ![github-create-pull-request](img/github-create-pull-request.png)
 
+From the **Open a pull request** window, you can name your pull request and add comments if you consider the messages associated with the commits not to be sufficient.
+
 ![github-comment-pull-request](img/github-comment-pull-request.png)
 
-Your pull request can be declined.
+The last step consists in merging the pull request.
+If you do not have the authorization to change the OpenSILEX repository, you have to wait for an OpenSILEX maintainer to merge your pull request.
+
+The pull request is closed, either because it has been merge, either because it has been refused.
+If a maintainer declines your pull request, she/he states as a comment what was wrong in the changes made.
 
 ![github-pull-request-decline](img/github-pull-request-declined.png)
-
 
 ## Good practices
 
 See the Code of Conduct within `Insight > Community` of each OpenSILEX repository for specific indications on how to contribute to each development project.
 
+Concerning the use of git and GitHub, here are the main OpenSILEX recommendations :
+- write in English
+- follow the official [GitHub flow](https://guides.github.com/introduction/flow/)
 - `git checkout` and `git pull upstream master` every morning before working on a development
 - check for typos and errors before using `git add` and then `git commit`
 - `git push` every evening after working on a development
