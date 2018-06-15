@@ -64,7 +64,7 @@ To run mongodb, use following command line:
 
 ##### Robo3t
 
-Download [sources files](https://studio3t.com/download-now/).
+Download [sources files](https://robomongo.org/download).
 Extract:
 ```
   tar -xvf ~/Downloads/robo3t[...].tar.gz ~
@@ -79,7 +79,7 @@ Now to run robo3t you do:
 Open a shell and tape:
 ```
  sudo apt-get update
- sudo apt-get postgresql
+ sudo apt-get install postgresql
  sudo apt-get install postgresql-9.5-postgis-2.2
 ```
 ##### Postgresql configuration
@@ -99,7 +99,7 @@ Restart service:
 In first install jdk as you want but you need to keep in mind its location.  
 If jdk is already installed you can go to the next section, [Netbeans](#netbeans).
 
-Download the lastest version sources (e.g. tar.gz archive) [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).  
+Download the jdk 8 sources (e.g. tar.gz archive) [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).  
 Create a jdk folder.  
 For example:
 
@@ -129,7 +129,7 @@ Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate
 
 ```
   sudo apt-get update
-  sudo apt-get install php
+  sudo apt-get install php php-mbstring php-dm
 ```
 
 #### Apache-Tomcat + rdf4j
@@ -137,7 +137,7 @@ Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate
 
 To have a better control on the installation of tomcat you will install tomcat from sources files (e.g. tar.gz archive).  
 
-You can download tomcat8.5 archive  [here](mirrors.ircam.fr/pub/apache/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz) or choose your version [here](http://tomcat.apache.org/download-80.cgi).
+You can download tomcat9.0 archive  [here](https://tomcat.apache.org/download-90.cgi).
 
 Create a folder installation for Tomcat. To simplify what follows you should to create a tomcat folder in /home:
 
@@ -198,6 +198,8 @@ to:
               redirectPort="8443" />
    -->
 ```
+You have to allow encoded slash in the /home/tomcat/apache-tomcat/conf/catalina.properties. If you have the line "org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=false", change false value by true.  
+If you don't have this line add "org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true" at the end of file.
 
 Restart the service:
 ```
@@ -227,7 +229,7 @@ You can already copy .war files to the tomcat webapps folder:
 With this installation configuration files are in /etc/apache2 folder.  
 To change the port you need to edit the file port.conf:
 ```
-  nano /etc/apche2/port.conf
+  nano /etc/apche2/ports.conf
 ```
 change line **LISTEN xx** to **LISTEN 80**.
 
@@ -240,7 +242,7 @@ Restart service apache2:
 Sometimes when you install composer from ubuntu package, composer does not run correctly. To avoid problems, you shall install composer from the composer installer file, via the following command line:
 
 ```
-  curl -sS https://getcomposer.org/installer | sudo php -- --install-dir = /usr/local/bin --filename=composer
+  curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
 Install now the plugin that you need to use composer.
@@ -358,12 +360,12 @@ Clic **upload**
 ### Postgresql database
 #### Creating phis users
 ```
-  sudo -i -u postgre
+  sudo -i -u postgres
   psql
   CREATE USER phis;
   ALTER ROLE phis WITH CREATEDB;
   ALTER ROLE phis WITH SUPERUSER;
-  ALTER USER phs WITH ENCRYPTED PASSWORD "azerty";
+  ALTER USER phis WITH ENCRYPTED 'azerty';
   \q #leave psql
   exit #disconnect postgre
 ```
@@ -390,10 +392,22 @@ Clic **upload**
 To deploy a webservice with tomcat you need a war file.  
 To generate a war file until a project the easiest solution is used netbeans.
 
+#### Folders
+```
+  mkdir -p /home/phis2ws/documents/instance
+  mkdir /var/www/html/images
+  mkdir /var/www/html/layers
+  chown -R [username]:[username] /var/www/html/images
+  chown -R [username]:[username] /var/www/html/layers
+  chown -R [username]:[username] /home/phis2ws/documents/
+  chmod -R 775 /var/www/html/images
+  chmod -R 775 /var/www/html/layers
+  chmod -R 775 /home/phis2ws/documents/
+```
 #### Open project
 Run netbeans:
 ```
-  ~/netbeans/bin/netbeans.sh
+  ~/netbeans/bin/netbeans
 ```
 Netbeans frequently meets error when he starts. If you have an error please go to the [current error](#problems-with-netbeans) section.
 
@@ -415,16 +429,30 @@ If you use netbeans to deploy war file in tomcat server, default port is 8084 bu
 The choice of deploy ourselves is justificated by the universality of the procedure. Netbeans is heavy and some pc can have difficulty to run netbeans and other softwares in same time.  
 If you can use netbeans you have advantage to can modify files and deploy more quickly._
 
+_Attention:
+Every time you use localhost address you need use ip address 127.0.0.1 and not the name localhost_
+
 Edit these files:
   - *services.properties*  
 You have to adapt paths but if you are doing exactly like in this document, default values are good.  
 You need change port with the port choose for Tomcat, in our case 8080.
+You have to adapt lines 63 to 69:
+* uploadFileServerIP=127.0.0.1
+* uploadFileServerUsername=[linux session name]
+* uploadFileServerPassword=[linux session password]
+* uploadFileServerDirectory=/home/phis2ws/documents/instance
+* uploadImageServerDirectory=/var/www/html/images
+* layerFileServerDirectory=/var/www/html/layers
+* layerFileServerAddress=http://127.0.0.1/layers  
 
-  - *phis_sql_config.properties*  
+
+  - *phis_sql_config.properties*
 Adapt second line:  
 url = jdb:postgresql://127.0.0.1:5432/diaphen
 * 5432: your postgresql service ports  
-* diaphen: database name  
+* diaphen: database name
+* username=phis
+* password=azerty  
 
 
   - *mogodb_nosql_config.properties*  
@@ -443,7 +471,6 @@ repositoryID=diaphen
 * red4j-server: name of .war file deployed after rdf4j download
 * diaphen: name of your repository create with rdf4j web service.
 
-
 #### Generate war file
 
 When all configuration files are correctly change you can generate the war file.  
@@ -460,15 +487,23 @@ Rename and copy the war archive in tomcat webapps folder:
 #### Check web service
 
 Your webservice is directly deployed. You can check that:  
-Go to http://localhost:8080/
+Go to http://127.0.0.1:8080/  
+_It is necessary you don't use localhost._  
 You are in tomcat server home page, clic on **manager app**, connect with tomcat user.  
 Search **phis2ws** in the list, if isn't run clic start, and clic on the name **phis2ws**.  
-You are on your service web, if it correctly configurate you have 2 opperationnal link.
+You are on your service web, if it correctly configurate you have 2 opperationnal link.  
+_You can go directly with http://127.0.0.1:8080/phis2ws_
 
 To check you are correctly configurate your web service:
 Go to **Documentation link**, try **brapiv1token**:
-post -> clic on example -> try it out: <image>  
-If you haven't like on the picture please go to [current error](#errors-with-th-web-service) section.
+post -> clic on example -> try it out  
+If you haven't:
+```
+Response Code
+
+201
+```
+please go to [current error](#errors-with-th-web-service) section.
 
 ### Web application
 
@@ -480,7 +515,7 @@ The web application deployment is did by apache2. You have to copy webapp folder
 Change right on this folder:
 ```
   chown -R [username]:www-data /var/www/html/phis-webapp
-  chmod 775 -R [username]:www-data /var/www/html/phis-webapp
+  chmod 775 -R /var/www/html/phis-webapp
 ```
 *information:  
 www-data is the default apache2 username. But in rare case it can be a different name, you can check that in /etc/apache2/envars file.*
@@ -497,7 +532,7 @@ Configuration files are in: /var/www/html/phis-webapp/config
 Edit:
   - *webservices.php*  
 Adapt the last line with the correct URL in our case is:
-http://www.localhost:8080/phis2ws/rest  
+http://www.127.0.0.1:8080/phis2ws/rest  
 
 If you are all exactly doing like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
 
@@ -516,7 +551,7 @@ It can be so longer, and perhaps you will need install some php-smth packages:
 While you don't obtain a successful issue, fix errors and rerun **composer update**.
 
 So now, normally you have a operationnal phis application on your localhost.
-Go to http://localhost:80/phis-webapp and test with log in.
+Go to http://127.0.0.1:80/phis-webapp and test with log in.
 
 If you have problems search on **Current errors** section.
 
@@ -591,7 +626,7 @@ If it another problem you can try fix him with resolve button. But if the proble
 
 + Not ressources / 404 or other problems with web service
 
-Recheck path and port in web service file services.properties. If all was do exactly like this document you should have:
+Recheck path and port in web service file services.properties. If all was do exactly like thi:
 ```
 [...]
 logDirectory=/home/tomcat/phis2ws/logs
@@ -611,8 +646,8 @@ webAppApiBasePath=/phis2ws/resources
 uploadFileServerPort=22
 # Adresse de sauvegarde des donn\u00e9es
 uploadFileServerIP=127.0.0.1
-uploadFileServerUsername=username
-uploadFileServerPassword=password
+uploadFileServerUsername=[linux session username]
+uploadFileServerPassword=[linux session password]
 uploadFileServerDirectory=/home/phis2ws/documents/instance
 uploadImageServerDirectory=/var/www/html/images
 layerFileServerDirectory=/var/www/html/layers
@@ -630,7 +665,7 @@ sudo systemctl restart postgresql
 ```
 If the service running but you have a problem it comes from the configurations files, verify paths, URL and port in service.properties file and URL, port and database name in phis_sql_config file.
 
-All your configuration files are good but you have an error it is possible there is a mistake in your database.
+If all your configurations files are good it can be a mistake in your database.
 
 ### Errors with the web application
 
