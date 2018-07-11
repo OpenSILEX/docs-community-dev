@@ -14,7 +14,7 @@ Summary of this chapter's recommendations :
   3. push to your master branch the commited modifications using `git push origin master`
   4. create a pull request from your repository when it is ready to be merged to the upstream repository
 
-If the concepts of repositories and branches are confusing, go to the [Repositories, branches and the GitHub Flow](../Using-git/#repositories-branches-and-the-github-flow) section of this tutorial.
+If the concepts of repositories and branches are confusing, go to the [Repositories and branches](../Using-git/#repositories-and-branches) section of this tutorial.
 
 ## Requirements
 
@@ -114,7 +114,7 @@ When joining an ongoing OpenSILEX development project, there are two initial ste
 1. Create your own branch(es) of the development project's repository by forking it
 2. Clone your branch(es) on your computer
 
-### Repositories, branches and the GitHub Flow
+### Repositories and branches
 
 As the [first GitHub guide](https://guides.github.com/activities/hello-world/) states, **repositories** are used to organize single projects. They can contain folders and files, images, videos, spreadsheets and data sets, while **branches** are different versions of a repository. By default, a repository has only one branch named `master` which is considered to be the definitive branch.
 
