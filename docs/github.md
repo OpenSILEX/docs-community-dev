@@ -114,7 +114,7 @@ When joining an ongoing OpenSILEX development project, there are two initial ste
 1. Create your own branch(es) of the development project's repository by forking it
 2. Clone your branch(es) on your computer
 
-### Repositories  and branches
+### Repositories and branches
 
 As the [first GitHub guide](https://guides.github.com/activities/hello-world/) states, **repositories** are used to organize single projects. They can contain folders and files, images, videos, spreadsheets and data sets, while **branches** are different versions of a repository. By default, a repository has only one branch named `master` which is considered to be the definitive branch.
 
