@@ -14,7 +14,7 @@ Summary of this chapter's recommendations :
   3. push to your master branch the commited modifications using `git push origin master`
   4. create a pull request from your repository when it is ready to be merged to the upstream repository
 
-If the concepts of repositories and branches are confusing, go to the [Repositories, branches and the GitHub Flow](../Using-git/#Repositories,-branches-and-the-GitHub-Flow) section of this tutorial.
+If the concepts of repositories and branches are confusing, go to the [Repositories, branches and the GitHub Flow](../Using-git/#repositories-branches-and-the-github-flow) section of this tutorial.
 
 ## Requirements
 
