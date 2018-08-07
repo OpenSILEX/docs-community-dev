@@ -172,7 +172,7 @@ and add lines:
 
 To configure port edit server.xml:
 ```
-  nano /home/tomcat/apache-tomcat/conf/server.example
+  nano /home/tomcat/apache-tomcat/conf/server.xml
 ```
 and change:
 
