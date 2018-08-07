@@ -29,6 +29,10 @@
     - [Errors with the web application](#errors-with-the-web-application)
     - [Other problems concerned webapp and web service](#other-problems-concerned-webapp-and-web-service)
 
+## Introduction  
+This document explain you how to deploy PHIS on your personnal computer.  
+In this document commands lines are for Ubuntu 16.04, but for the majority of them, they are compatible with all Debian distribution which have the package manager Aptitude.
+
 ## Prerequisite
 ### Software
 #### Mongodb + robo3t
@@ -223,7 +227,7 @@ You can already copy .war files to the tomcat webapps folder:
 ##### Apache Installation
 ```
   sudo apt-get update
-  sudo apt-get install apache2
+  sudo apt-get install apache2 libapache2-mod-php7.0
 ```
 ##### Apache Configuration
 With this installation configuration files are in /etc/apache2 folder.  
