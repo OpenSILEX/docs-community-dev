@@ -37,7 +37,7 @@ In this document commands lines are for Ubuntu 16.04, but for the majority of th
 ### Software
 #### Mongodb + robo3t
 ##### Mongodb
-All the information you need to install mongodb correctly is [here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
+All information you need to install mongodb correctly are on  [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
 Now you have a Mongodb service.
 You can change path to database in the /etc/mongod.conf file. But your location need to exist before starting mongodb service and you have to attribute correct rights on this folder:
@@ -68,7 +68,7 @@ To run mongodb, use following command line:
 
 ##### Robo3t
 
-Download [sources files](https://robomongo.org/download).
+Download [robomongo](https://robomongo.org/download).
 Extract:
 ```
   tar -xvf ~/Downloads/robo3t[...].tar.gz ~
@@ -103,7 +103,7 @@ Restart service:
 In first install jdk as you want but you need to keep in mind its location.  
 If jdk is already installed you can go to the next section, [Netbeans](#netbeans).
 
-Download the jdk 8 sources (e.g. tar.gz archive) [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).  
+Download the jdk 8 sources (e.g. tar.gz archive) [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).  
 Create a jdk folder.  
 For example:
 
@@ -117,7 +117,7 @@ Extract the archive in this folder:
 ```
 ##### Netbeans
 
-Download the full version [here](https://netbeans.org/downloads/start.html?platform=linux&lang=en&option=all).  
+Download the full version [netbeans.org](https://netbeans.org/downloads/start.html?platform=linux&lang=en&option=all).  
 Run the script:
 
 ```
@@ -141,7 +141,7 @@ Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate
 
 To have a better control on the installation of tomcat you will install tomcat from sources files (e.g. tar.gz archive).  
 
-You can download tomcat9.0 archive  [here](https://tomcat.apache.org/download-90.cgi).
+You can download tomcat9.0 archive  [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
 
 Create a folder installation for Tomcat. To simplify what follows you should to create a tomcat folder in /home:
 
@@ -213,7 +213,7 @@ Restart the service:
 
 ##### Rdf4j
 
-Download archive zip file [here](http://rdf4j.org/download/).
+Download archive zip file [rdf4j.org](http://rdf4j.org/download/).
 Extract, for example:
 ```
   unzip ~/Downloads/eclipse-rdf4j-x.x.x-sdk.zip -d ~/
@@ -260,7 +260,7 @@ Git is already installed on ubuntu 16 default install, but if is not you can ins
 ```
   sudo apt-get install git
 ```
-To learn to used git, you should read [this](github.md).
+To learn to used git, you should read [github.md](github.md).
 
 #### Check install
 
@@ -496,7 +496,7 @@ _It is necessary you don't use localhost._
 You are in tomcat server home page, clic on **manager app**, connect with tomcat user.  
 Search **phis2ws** in the list, if isn't run clic start, and clic on the name **phis2ws**.  
 You are on your service web, if it correctly configurate you have 2 opperationnal link.  
-_You can go directly with http://127.0.0.1:8080/phis2ws_
+_You can go directly with http://127.0.0.1:8080/phis2ws __
 
 To check you are correctly configurate your web service:
 Go to **Documentation link**, try **brapiv1token**:
@@ -630,7 +630,7 @@ If it another problem you can try fix him with resolve button. But if the proble
 
 + Not ressources / 404 or other problems with web service
 
-Recheck path and port in web service file services.properties. If all was do exactly like thi:
+Recheck path and port in web service file services.properties. If all was do exactly like this:
 ```
 [...]
 logDirectory=/home/tomcat/phis2ws/logs
@@ -675,7 +675,7 @@ If all your configurations files are good it can be a mistake in your database.
 
 + No home page
 
-Browser can't access to the page, it can come from right on the web application files in /var/www/html/phis-webapp. Check rights with ls -l command line, and make change if something is wrong.  
+Browser can't access to the page, it can come from right on the web application files in /var/www/html/phis-webapp. Check rights with `ls -l` command line, and make change if something is wrong.  
 You have to all files:  
 owner: username (name of your session on the pc)  
 group: www-data (or the name of you apache user)  
