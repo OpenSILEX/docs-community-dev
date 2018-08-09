@@ -7,3 +7,4 @@ extra_css:
 pages:
    - Home: index.md
    - Using git: github.md
+   - Coding Style : quality.md
