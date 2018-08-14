@@ -2,7 +2,7 @@
 
 ## Comments
 
-Comments must be only in english. Each complicated code should be explained with comments.
+Comments must be only in english. Each complicated code should be explained with comments. This rules are design for *Java* and *Php* and must be respected as much as possible for other languages.
 
 ### Files headers
 
@@ -25,7 +25,7 @@ Comments must be only in english. Each complicated code should be explained with
  * @author Morgane Vidal <morgane.vidal@inra.fr>, Arnaud Charleroy <arnaud.charleroy@inra.fr>
  */
  public class UriGenerator {
-   //comments which explaint the attribute purpose with an example if needed
+   //comment which explains the attribute purpose with an example if needed
    String attribute;
  }
 ```
@@ -33,7 +33,7 @@ Comments must be only in english. Each complicated code should be explained with
 
 ```java
 /**
-  * generates a new vector uri. a vector uri has the following form :
+  * Generate a new vector uri. A vector uri has the following form :
   * <prefix>:<year>/<unic_code>
   * <unic_code> = 1 letter type + 2 numbers year + auto incremented number
   * with 3 digits (per year)
@@ -62,18 +62,16 @@ If the function returns a boolean, the @return should be presented as the follow
 
 ## Coding style
 
-A Space between *if* and *)* is required. No space after *)* et before *(*. The *{* are mandatory. The same rules are applied to for and while.
+A Space between *if* and *)* is required. No space after *)* and before *(*. The *{* are mandatory. The same rules apply to *for* and *while*.
 
 ```java
 if (expression) {
 }
 
 for (expression) {
-
 }
 
 while (expression) {
-
 }
 ```
 
@@ -106,7 +104,7 @@ Used to highlight a test code block.
 //\SILEX:test
 
 //SILEX:conception
-Used to highlight a block whom code design / architecture should be review or add ideas about that.
+Used to highlight a block whom code design / architecture should be review or add ideas about.
 //\SILEX:conception
 
 //SILEX:todo
