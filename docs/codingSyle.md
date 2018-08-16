@@ -60,8 +60,10 @@ If the function returns a boolean, the @return should be presented as the follow
   */
 ```
 
-## Coding style
+## Coding style, Blank Spaces
 
+Blank spaces should be used in the following circumstances:
+* A keyword followed by a parenthesis should be separated by a space.
 A Space between *if* and *)* is required. No space after *)* and before *(*. The *{* are mandatory. The same rules apply to *for* and *while*.
 
 ```java
@@ -74,7 +76,23 @@ for (expression) {
 while (expression) {
 }
 ```
+Note that a blank space should not be used between a method name and its opening parenthesis. This helps to distinguish keywords from method calls.
 
+```java
+callMethod();
+this.myMethod();
+```
+
+* Variable affectation: a space between *=* is also required.
+```java
+  myVariable = 33 ;
+```
+
+* All **binary operators** (+, +=, ++, etc.) except *.* should be separated from their operands by spaces. Blank spaces should never separate unary operators such as unary minus, increment ("++"), and decrement ("--") from their operands.
+```java
+a += c + d;
+a = (a + b) / (c * d);
+```
 
 ## Tags
 
