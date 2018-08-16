@@ -8,4 +8,4 @@ pages:
    - Home: index.md
    - Using git: github.md
    - Local Installation: localInstallation.md
-   - Coding Style: codingSyle.md
+   - Coding Style: codingStyle.md
