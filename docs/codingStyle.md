@@ -60,7 +60,53 @@ If the function returns a boolean, the @return should be presented as the follow
   */
 ```
 
-## Coding style, Blank Spaces
+## Blank Lines
+
+**Two blank lines** should always be used in the following circumstances:
+* Between sections of a source file
+* Between class and interface definitions
+
+**One blank line** should always be used in the following circumstances:
+* Between methods
+* Between the local variables in a method and its first statement
+* Before a block or single-line comment
+* Between logical sections inside a method to improve readability
+
+```java
+/**
+* comment
+**/
+public interface MyInterface {
+    Boolean isEmptyMethod();
+}
+
+
+/**
+* comment
+**/
+class Sample extends Object {
+    int ivar1;
+    int ivar2;
+    
+    Sample(int i, int j) {
+        int k;
+        
+        i = k;
+        
+        /* comment */
+        ivar1 = i;
+        ivar2 = j;     
+    }
+    
+    int emptyMethod() {}
+    
+    Boolean isEmptyMethod() {}
+    ...
+}
+```
+
+
+## Blank Spaces
 
 Blank spaces should be used in the following circumstances:
 * A keyword followed by a parenthesis should be separated by a space.
