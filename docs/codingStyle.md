@@ -6,11 +6,14 @@ Comments must be only in english. Each complicated code should be explained with
 
 ### Files headers
 
+Date must be in english format, for example April 3rd 2014
+
 ```java
 //******************************************************************************
 //                                       ${nameAndExt}
 // SILEX-PHIS
 // Copyright © INRA ${date?date?string("yyyy")}
+// Creation date: ${date}
 // Contact: ${userEmail}, anne.tireau@inra.fr, pascal.neveu@inra.fr
 //******************************************************************************
 ```
