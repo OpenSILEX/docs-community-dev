@@ -1,4 +1,5 @@
 # Developping a new BrAPI service
+You can see BrAPI documentation in [https://brapi.org](https://brapi.org/)
 
 ## Return new call informations in the Calls service
 
@@ -34,9 +35,9 @@ public class CallsResourceService implements BrapiCall {
 register(new AbstractBinder() {
     @Override
     protected void configure() {
-        // cree la session a partir du sessionId reçu
+        // create the session from the last sessionId received
         bindFactory(SessionFactory.class).to(Session.class);
-        // Injection de la session grace au type definit dans SessionInjectResolver
+        // Session injection thanks to the type defined in SessionInjectResolver
         bind(SessionInjectResolver.class)
                 .to(new TypeLiteral<InjectionResolver<SessionInject>>() {
                 })
