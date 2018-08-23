@@ -342,7 +342,7 @@ Get source from github,
 
 #### Database file
 
-Download the database dump file [phis_dump.sql](phis_dump.sql).
+Download the database dump file [phis_st_dump.sql](phis_st_dump.sql).
 
 
 ## Phis Installation
@@ -390,7 +390,7 @@ Clic **Parcourir...** selection **oepo.owl** file get previously from GitHub rep
 
 Add it in the context   **<http://www.phenome-fppn.fr/vocabulary/2017>** with base URI and context fields.
 
-In **RDFData format** select **RDF/XML**. 
+In **RDFData format** select **RDF/XML**.
 
 Clic **Upload**  
 
@@ -431,14 +431,14 @@ Add [oa.rdf](oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
 #### Initialising Database
 Importing data with:
 ```bash
-  psql -U phis diaphen < ~/Phis/phis_dump.sql
+  psql -U phis diaphen < ~/Phis/phis_st_dump.sql
 ```
-You can find [dump file](phis_dump.sql).
+You can find [dump file](phis_st_dump.sql).
 
 With specific access rights you can get a dump from demonstration version.
 ```bash
 # from postres server
-pg_dump -O -U phis diaphen > phis_dump.sql
+pg_dump -O -U phis diaphen > phis_st_dump.sql
 # -O : --no-owner
 # -s : only schema
 # -h <IP> : postgres host
@@ -452,9 +452,9 @@ If you need to generate a MD5 password, you can use:
 
 #### Initialising Users
 To start using or try Phis, two users are created automatically:
-* admin/admin for administrative rights
-* guest/guest for restricted rights
-See Phis user documentation for explanation.
+* admin@phis.fr/admin for administrative rights
+* guest@phis.fr/guest for restricted rights
+See Phis user documentation for explanation and add other users.
 
 
 ### Web service
