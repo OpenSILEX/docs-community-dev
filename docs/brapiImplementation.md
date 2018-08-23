@@ -1,9 +1,5 @@
 ## Developping a new BrAPI service
 
-# Add a new ResourceService.java file
-The classes which are building the web services are located in the phis2ws.service.resources package.
-You can create a new class to develop your web service "NewBrapi", it should be named like this: NewBrAPIResourceService.Java.
-
 # Return new call informations in the Calls service
 
 The service Calls returns information from every Phis web services which are BrAPI compliant.
