@@ -11,6 +11,7 @@ More information on SILEX is available at [SILEX wiki](https://mulcyber.toulouse
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
 - Anne Tireau
+- Alice Boizet
 - Morgane Vidal
 - Pierre-Etienne Alary
 - Sammy Gilles

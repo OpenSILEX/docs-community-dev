@@ -9,3 +9,4 @@ pages:
    - Using git: github.md
    - Local Installation: localInstallation.md
    - Coding Style: codingStyle.md
+   - Functionality Validation: functionalityValidation.md
