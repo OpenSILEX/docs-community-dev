@@ -1,6 +1,6 @@
-## Developping a new BrAPI service
+# Developping a new BrAPI service
 
-# Return new call informations in the Calls service
+## Return new call informations in the Calls service
 
 The service Calls returns information from every Phis web services which are BrAPI compliant.
 So when you create a new BrAPI service, in order to retrieve your call information in the calls service, you need to follow these instructions:

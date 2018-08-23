@@ -1,6 +1,6 @@
-## Webapp
+# Webapp
 
-# Form style
+## Form style
 
 When you create a new form, think to specify the bootstrap class .well like it is presented below in `views/experiment/_form.php`  for the experiment form :
 
