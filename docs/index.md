@@ -3,8 +3,7 @@
 ## Background
 Phis (Phenotyping Hybrid Information System) is developped for high-throughput plant phenotyping in close interaction to plant phenotyping communities.
 Phis is part of SILEX collaborative meta-project developped at MISTEA joint research unit (INRA - SupAgro).
-More information on SILEX is availbale at [SILEX wiki](https://mulcyber.toulouse.inra.fr/plugins/mediawiki/wiki/silex/index.php/Accueil "SILEX wiki Main Page").
-The present documentation is a resource material related to the Phis version developped for field phenotyping, which complete name is SILEX-PHIS-FIELD.
+More information on SILEX is available at [montpellier.inra.fr](https://www6.montpellier.inra.fr/mistea/Projets/Silex "SILEX Main Page").
 
 ![phis-architecture](img/phis-architecture.png)
 
@@ -29,4 +28,4 @@ If a Phis user wish to point out a flaw in this documentation, he is welcomed to
 Concerning issues with Phis itself, users are invited to report them via another channel, which has not been set up to this day.
 
 ## Version
-&copy; INRA MISTEA 2014-2018 (SILEX-PHIS v.2.2 - 18 January 2018)
+&copy; INRA MISTEA 2014-2018 (SILEX-PHIS v.2.5 - August 24th 2018)
