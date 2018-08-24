@@ -128,3 +128,7 @@ form div.required label.control-label:after {
 .li_tiret:before {
    content: '- ';
 }
+
+p > img {
+	width : 100%
+	}
