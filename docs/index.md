@@ -1,15 +1,15 @@
-# PHIS developpers documentation
+# OpenSILEX developpers documentation
 
 ## Background
-Phis (Phenotyping Hybrid Information System) is developped for high-throughput plant phenotyping in close interaction to plant phenotyping communities.
-Phis is part of SILEX collaborative meta-project developped at MISTEA joint research unit (INRA - SupAgro).
-More information on SILEX is available at [montpellier.inra.fr](https://www6.montpellier.inra.fr/mistea/Projets/Silex "SILEX Main Page").
+OpenSILEX is a collaborative meta-project developped at MISTEA joint research unit (INRA - SupAgro).
+More information on OpenSILEX is available at [montpellier.inra.fr](https://www6.montpellier.inra.fr/mistea/Projets/Silex "SILEX Main Page").
+The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), which is developped for high-throughput plant phenotyping in close interaction to plant phenotyping communities.
 
-![phis-architecture](img/phis-architecture.png)
-
-Phis is organized around three layers : the layer of the data storage (first layer), which the users do not access directly, but using clients (3rd layer) which interact with the data layer through the web services layer (2nd layer).
-
-![phis-architecture](img/phisArchitecture.png)
+The main sections of the present documentation concern...
+- code versionning with git and integration workflow : [Using git](../Using-git/#versionning-using-git)
+- instruction for the installation of Phis : [Local Installation](../Local-Installation/phis-deployment)
+- code style used in OpenSILEX developments : [Coding Style](../Coding-Style/#coding-style)
+- validation of development tasks : [Functionality Validation](../Functionality-Validation/#functionality-validation)
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
@@ -20,12 +20,12 @@ Contributors to this documentation are agents of the joint research unit MISTEA 
 - Alice Boizet
 - Sammy Gilles
 
-Every Phis user is welcomed to enrich this repository with her/his experience of the information system.
+Every OpenSILEX main developper or contributor is welcomed to enrich this repository with its experience of the development of information systems (e.g. PHIS) produced within OpenSILEX.
 
 ## Issues
 This documentation is currently under developpement.
-If a Phis user wish to point out a flaw in this documentation, he is welcomed to do so in this repository's [GitHub issues](https://github.com/OpenSILEX/docs-community-dev/issues).
-Concerning issues with Phis itself, users are invited to report them via another channel, which has not been set up to this day.
+If an user of OpenSILEX developments wish to point out a flaw in this documentation, (s)he is welcomed to do so in this repository's [GitHub issues](https://github.com/OpenSILEX/docs-community-dev/issues).
+Concerning issues with developments of OpenSILEX, users are invited to report them via another channel, which has not been set up to this day.
 
 ## Version
 &copy; INRA MISTEA 2014-2018 (SILEX-PHIS v.2.5 - August 24th 2018)
