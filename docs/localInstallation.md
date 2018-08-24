@@ -334,10 +334,15 @@ Get source from github,
   git clone https://github.com/OpenSILEX/phis-webapp.git
 ```
 
+#### Ontology files
+```bash
+  cd ~Phis
+  git clone https://github.com/OpenSILEX/ontology-phis-oepo-field
+```
 
-#### Database and ontologies
+#### Database file
 
-Download the database dump file [phis_dump.sql](phis_dump.sql) and the ontology file [oepo.owl](oepo.owl).
+Download the database dump file [phis_st_dump.sql](phis_st_dump.sql).
 
 
 ## Phis Installation
@@ -374,14 +379,24 @@ Clic **next**, check if all is as on this second picture:
 ![rdf4j-nr2](img/rdf4j-nr2.png)
 Clic **create**.  
 
-You will do these steps three times with the three .owl files:  
+You will do these steps many times :  
+
 Now, clic **Add** in *Modify* menu.  
+
 ![rdf4j-add](img/rdf4j-add.png)
-Clic **Parcourir...** selection one .owl file downloading previously in db_ontologies folder.  
-Erase URI with: *http://www.phenome-fppn.fr/vocabulary/2017*  
-and clic on context chan. Normally, he automaticaly changes.  
-In **data format** select RDF/XML.  
-Clic **upload**  
+
+
+Clic **Parcourir...** selection **oepo.owl** file get previously from GitHub repository **ontology-phis-oepo-field**
+
+Add it in the context   **<http://www.phenome-fppn.fr/vocabulary/2017>** with base URI and context fields.
+
+In **RDFData format** select **RDF/XML**.
+
+Clic **Upload**  
+
+
+Add also a new context for the ontology annotation
+Add [oa.rdf](oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
 
 
 
@@ -416,14 +431,14 @@ Clic **upload**
 #### Initialising Database
 Importing data with:
 ```bash
-  psql -U phis diaphen < ~/phis/phis_dump.sql
+  psql -U phis diaphen < ~/Phis/phis_st_dump.sql
 ```
-You can find [dump file](phis_dump.sql).
+You can find [dump file](phis_st_dump.sql).
 
 With specific access rights you can get a dump from demonstration version.
 ```bash
 # from postres server
-pg_dump -O -U phis diaphen > phis_dump.sql
+pg_dump -O -U phis diaphen > phis_st_dump.sql
 # -O : --no-owner
 # -s : only schema
 # -h <IP> : postgres host
@@ -434,6 +449,12 @@ If you need to generate a MD5 password, you can use:
 ```bash
    echo -n bonjour | md5sum
 ```
+
+#### Initialising Users
+To start using or try Phis, two users are created automatically:
+* admin@phis.fr/admin for administrative rights
+* guest@phis.fr/guest for restricted rights
+See Phis user documentation for explanation and add other users.
 
 
 ### Web service

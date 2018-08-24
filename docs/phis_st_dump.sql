@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.12
--- Dumped by pg_dump version 9.5.12
+-- Dumped from database version 9.5.14
+-- Dumped by pg_dump version 9.5.14
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -246,13 +246,6 @@ COPY public.at_group_trial (trial_uri, group_uri) FROM stdin;
 --
 
 COPY public.at_group_users (users_email, group_uri) FROM stdin;
-morgane.vidal@inra.fr	http://www.phenome-fppn.fr/diaphen/INRA-MISTEA-GAMMA
-anne.tireau@inra.fr	http://www.phenome-fppn.fr/diaphen/INRA-MISTEA-GAMMA
-welckler@supagro.inra.fr	http://www.phenome-fppn.fr/diaphen/INRA-LEPSE-DROPS
-tardieu@supagro.inra.fr	http://www.phenome-fppn.fr/diaphen/INRA-LEPSE-DROPS
-romain.chapuis@inra.fr	http://www.phenome-fppn.fr/diaphen/INRA-LEPSE-DROPS
-romain.chapuis@inra.fr	http://www.phenome-fppn.fr/diaphen/INRA.GDEC-PHACC
-jacques.le-gouis@inra.fr	http://www.phenome-fppn.fr/diaphen/INRA.GDEC-PHACC
 \.
 
 
@@ -269,20 +262,6 @@ COPY public.at_project_project (uri_project, uri_parent_project) FROM stdin;
 --
 
 COPY public.at_project_users (project_uri, users_email, type) FROM stdin;
-http://www.phenome-fppn.fr/diaphen/DROPS	tardieu@supagro.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ProjectCoordinator
-http://www.phenome-fppn.fr/diaphen/DROPS	welckler@supagro.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificContact
-http://www.phenome-fppn.fr/diaphen/DROPS	tardieu@supagro.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificContact
-http://www.phenome-fppn.fr/diaphen/SelGen	tardieu@supagro.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ProjectCoordinator
-http://www.phenome-fppn.fr/diaphen/SelGen	santiago.alvarez-prado@supagro.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificContact
-http://www.phenome-fppn.fr/diaphen/Amaizing	charcos@moulon.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ProjectCoordinator
-http://www.phenome-fppn.fr/diaphen/Amaizing	charcos@moulon.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificContact
-http://www.phenome-fppn.fr/diaphen/BacterBle	romain.chapuis@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#AdministrativeContact
-http://www.phenome-fppn.fr/diaphen/HeatWheat	romain.chapuis@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#AdministrativeContact
-http://www.phenome-fppn.fr/diaphen/HeatWheat	stephane.lafarge@biogemma.com	http://www.phenome-fppn.fr/vocabulary/2017/#ProjectCoordinator
-http://www.phenome-fppn.fr/diaphen/HeatWheat	jacques.le-gouis@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificContact
-http://www.phenome-fppn.fr/diaphen/solace	romain.chapuis@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#AdministrativeContact
-http://www.phenome-fppn.fr/diaphen/solace	philippe.hinsinger@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ProjectCoordinator
-http://www.phenome-fppn.fr/diaphen/solace	pierre.roumet@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificContact
 \.
 
 
@@ -291,9 +270,6 @@ http://www.phenome-fppn.fr/diaphen/solace	pierre.roumet@inra.fr	http://www.pheno
 --
 
 COPY public.at_trial_project (project_uri, trial_uri) FROM stdin;
-http://www.phenome-fppn.fr/diaphen/Amaizing	http://www.phenome-fppn.fr/diaphen/DIA2017-1
-http://www.phenome-fppn.fr/diaphen/DROPS	http://www.phenome-fppn.fr/diaphen/DIA2017-1
-http://www.phenome-fppn.fr/diaphen/Amaizing	http://www.phenome-fppn.fr/diaphen/DIA2017-2
 \.
 
 
@@ -302,10 +278,6 @@ http://www.phenome-fppn.fr/diaphen/Amaizing	http://www.phenome-fppn.fr/diaphen/D
 --
 
 COPY public.at_trial_users (trial_uri, users_email, type) FROM stdin;
-http://www.phenome-fppn.fr/diaphen/DIA2017-1	welckler@supagro.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificSupervisor
-http://www.phenome-fppn.fr/diaphen/DIA2017-1	romain.chapuis@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#TechnicalSupervisor
-http://www.phenome-fppn.fr/diaphen/DIA2017-2	welckler@supagro.inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#ScientificSupervisor
-http://www.phenome-fppn.fr/diaphen/DIA2017-2	romain.chapuis@inra.fr	http://www.phenome-fppn.fr/vocabulary/2017/#TechnicalSupervisor
 \.
 
 
@@ -314,9 +286,6 @@ http://www.phenome-fppn.fr/diaphen/DIA2017-2	romain.chapuis@inra.fr	http://www.p
 --
 
 COPY public."group" (name, level, description, uri) FROM stdin;
-INRA-LEPSE-DROPS	Owner	Le groupe qui a accès aux essais de drops	http://www.phenome-fppn.fr/diaphen/INRA-LEPSE-DROPS
-INRA-MISTEA-GAMMA	Owner	The activities of the JRU (Joint Research Unit) concern the development of mathematical, statistical and computer science methods dedicated to analysis and decision support for Agronomy and Environment, with particular emphasis on modeling, dynamical systems and complex systems.	http://www.phenome-fppn.fr/diaphen/INRA-MISTEA-GAMMA
-INRA.GDEC-PHACC	Guest	For data visualisation of all the trials managed by the INRA GDEC team	http://www.phenome-fppn.fr/diaphen/INRA.GDEC-PHACC
 \.
 
 
@@ -349,8 +318,6 @@ COPY public.spatial_ref_sys  FROM stdin;
 --
 
 COPY public.trial (uri, start_date, end_date, field, campaign, place, alias, comment, keywords, objective, crop_species) FROM stdin;
-http://www.phenome-fppn.fr/diaphen/DIA2017-1	2017-03-29	2017-03-31	dia2017	2017	Mauguio	AF_17	test de phis	test, phenome	test de phis	maize, appletree
-http://www.phenome-fppn.fr/diaphen/DIA2017-2	2017-05-15	2017-10-31	MAD1	2017	MA4	Amaizing-PG		Maize Water stress Genetic progress Leaf Yield components	Genetic progress of maize hybrids	Maize
 \.
 
 
@@ -359,17 +326,8 @@ http://www.phenome-fppn.fr/diaphen/DIA2017-2	2017-05-15	2017-10-31	MAD1	2017	MA4
 --
 
 COPY public.users (email, first_name, family_name, address, password, available, phone, orcid, affiliation, isadmin, uri) FROM stdin;
-morgane.vidal@inra.fr	Morgane	Vidal	2 Place Pierre Viala, 34000 Montpellier	f02368945726d5fc2a14eb576f7276c0	f	04 99 61 29 05	\N	INRA MISTEA	t	\N
-charcos@moulon.inra.fr	Alain	Charcosset	Ferme du Moulon 91190 Gif-sur-Yvette		t	01 69 33 23 35		INRA - Génétique Quantitative et Évolution-Le Moulon	f	\N
-welckler@supagro.inra.fr	Claude	Welckler	2 Place Pierre Viala, 34000 Montpellier		t	04 99 61 29 53		INRA LEPSE	f	\N
-tardieu@supagro.inra.fr	François	Tardieu	2 Place Pierre Viala, 34000 Montpellier		f	04 99 61 26 32		INRA LEPSE	f	\N
-santiago.alvarez-prado@supagro.inra.fr	Santiago	Alvarez Prado	2 Place Pierre Viala, 34000 Montpellier		t	04 99 61 31 85		INRA LEPSE	f	\N
-anne.tireau@inra.fr	Anne	Tireau	2 Place Pierre Viala, 34000 Montpellier	f02368945726d5fc2a14eb576f7276c0	t	04 99 61 22 76		INRA MISTEA	t	\N
-romain.chapuis@inra.fr	Romain	Chapuis		f02368945726d5fc2a14eb576f7276c0	f			INRA DiaScope	t	\N
-jacques.le-gouis@inra.fr	Jacques	Le-Gouis		f02368945726d5fc2a14eb576f7276c0	t			INRA UMR GDEC	f	\N
-pierre.roumet@inra.fr	Pierre	Roumet		f02368945726d5fc2a14eb576f7276c0	t			INRA UMR AGAP Ge2Pop	f	\N
-stephane.lafarge@biogemma.com	Stephane	Lafarge		f02368945726d5fc2a14eb576f7276c0	t			Biogemma	f	\N
-philippe.hinsinger@inra.fr	Philippe	Hinsinger	2 place Viala 34060 Montpellier Cedex 2 France	f02368945726d5fc2a14eb576f7276c0	t	+33 4 99 61 22 49		UMR Eco&Sols	f	\N
+admin@phis.fr	Admin	Phis	2 Place Pierre Viala, 34000 Montpellier	21232f297a57a5a743894a0e4a801fc3	t			PHIS	t	http://www.phenome-fppn.fr/diaphen/id/agent/admin_phis
+guest@phis.fr	Guest	Phis	2 Place Pierre Viala, 34000 Montpellier	084e0343a0486ff05530df6c705c8bb4	t			PHIS	t	http://www.phenome-fppn.fr/diaphen/id/agent/guest_phis
 \.
 
 
