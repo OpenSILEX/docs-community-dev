@@ -254,7 +254,7 @@ Restart service apache2:
 
 
 #### Composer
-Sometimes when you install composer from ubuntu package, composer does not run correctly. To avoid problems, you shall install composer from the composer installer file, via the following command line:
+Sometimes when you install composer from ubuntu package, composer does not run correctly. To avoid problems, you should install composer from the composer installer file, via the following command line:
 
 ```bash
   curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
@@ -269,11 +269,11 @@ Install now the plugin that you need to use composer.
 
 #### Git
 You need git to download phis web service and web application.  
-Git is already installed on ubuntu 16 default install, but if is not you can install them:
+Git is already installed on ubuntu 16 default install, but if it is not, you can install it :
 ```bash
   sudo apt-get install git
 ```
-To learn to used git, you should read [github.md](github.md).
+Go to the [Using git](github.md) section of this documentation to check how OpenSILEX developpers use git.
 
 
 #### Check install
@@ -314,7 +314,7 @@ N.B.: If you didn't install programs exactly like in this document, it is possib
 
 
 ### Files
-I recommand you to create a folder where you will download all needing files.
+I recommand you to create a folder where you will download all required files.
 ```bash
   mkdir ~/Phis
 ```
@@ -460,7 +460,7 @@ See Phis user documentation for explanation and add other users.
 ### Web service
 
 To deploy a webservice with Tomcat you need a war file.  
-To generate a war file until a project the easiest solution is used Netbeans.
+To generate a war file from a project the easiest solution is to use Netbeans.
 
 
 #### Folders
@@ -493,7 +493,7 @@ If problems can't be resolved like that please go to the [current error](#errors
 
 #### Configuration Files
 
-This section isn't necessary doing with netbeans. If netbeans running slowly on your pc you can used a classical text editor (nano, vim, gedit...) to edit configuration files.
+This section isn't necessary doing with netbeans. If netbeans running slowly on your pc you can use a classical text editor (nano, vim, gedit...) to edit configuration files.
 
 Netbeans users: configuration files are located in **phis2ws -> other sources -> src/main/resources -> default package**.
 
