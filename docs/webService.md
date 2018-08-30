@@ -34,7 +34,6 @@ public class ExampleDTO {
     return url;
   }
 
-  @Required
   @Valid
   public SecondExample getSecondExample() {
     return secondExample;
@@ -44,7 +43,7 @@ public class ExampleDTO {
 
 ### Create a custom constraint validation
 
-Create the custom validation annotation in the package `service.resources.dto.validation.validators`.
+Create the custom validation annotation in the package `service.resources.validation.validators`.
 
 ```java
 public class URLListValidator implements ConstraintValidator<URL, List<String>> {
@@ -86,7 +85,7 @@ public class URLListValidator implements ConstraintValidator<URL, List<String>> 
 }
 ```
 
-Create the custom validation annotation interface in the package `service.resources.dto.validation.interfaces`.
+Create the custom validation annotation interface in the package `service.resources.validation.interfaces`.
 
 ```java
 @Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER})
@@ -110,4 +109,6 @@ public @interface URL {
     }
 }
 ```
-You can then use the constraint validator such as the built in constraints by using `@URL`.
+You can then use your custom constraint validator such as the [built in constraints](https://beanvalidation.org/2.0/spec/#builtinconstraints) by using `@URL`.
+
+For more examples see the others custom constraints validators of the web services in the packages `service.resources.validation.validators` and `service.resources.validation.interfaces`.
