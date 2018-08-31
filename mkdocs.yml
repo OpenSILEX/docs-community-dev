@@ -12,3 +12,4 @@ pages:
    - Functionality Validation: functionalityValidation.md
    - BrAPI Implementation: brapiImplementation.md
    - Webapp: webapp.md
+   - Web Service: webService.md
