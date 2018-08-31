@@ -99,7 +99,7 @@ public @interface URL {
     Class<? extends Payload>[] payload() default {};
 
     /**
-     * This code block is used to applied the validator to a list of elements.
+     * This code block is used to apply the validator to a list of elements.
      */
     @Target(value = {METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER})
     @Retention(value =RUNTIME)
