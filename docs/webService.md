@@ -121,4 +121,6 @@ public @interface URL {
 ```
 You can then use your custom constraint validator such as the [built in constraints](https://beanvalidation.org/2.0/spec/#builtinconstraints) by using `@URL`.
 
+When you use a built in constraint validation, please check if the annotation can be applied on lists (not all built in constraint are implemeted for lists).
+
 For more examples see the others custom constraints validators of the web services in the packages `service.resources.validation.validators` and `service.resources.validation.interfaces`.
