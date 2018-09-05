@@ -64,7 +64,7 @@ Every time you change **mongod.conf** file, you need restart mongod service.
 ```
   sudo systemctl restart mongod
 ```
-In this document, we use default folder **/var/lib/mongod**.  
+In this document, we use default folder **/var/lib/mongodb**.  
 To run mongodb, use following command line:
 ```
   sudo mongod --config /etc/mongod.conf
@@ -145,7 +145,7 @@ Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate
 #### PHP
 ```bash
   sudo apt-get update
-  sudo apt-get install php php-mbstring php-dm
+  sudo apt-get install php php-mbstring php-dom
 ```
 
 
@@ -167,7 +167,7 @@ Create an installation folder for Tomcat. To simplify what follows you should cr
 and extract archive in this folder:
 ```bash
   cd /home/tomcat/
-  sudo tar -xvzf --owner=<user> ~/Downloads/apache-tomcat.tar.gz
+  sudo tar --owner=<user> -xvzf ~/Downloads/apache-tomcat.tar.gz
 ```
 
 With this procedure, Tomcat is not recognized by Ubuntu services control (systemctl or services). So you need to execute scripts which are in Tomcat **bin** folder (ex: **startup.sh** to run and **shutdown.sh** to stop). You also need to change rights on files.
