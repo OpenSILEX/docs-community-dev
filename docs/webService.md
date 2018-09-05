@@ -99,14 +99,14 @@ Create the custom validation annotation interface in the package `service.resour
 
 ```java
 @Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER}) //The annotation can be applied to a method, a parameter, etc.
-@Retention(RUNTIME) //Annotations are to be recorded in the class file by the compiler and retained by the VM at run time, so they may be read reflectively. (see https://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html)
+@Retention(RUNTIME) //The annotation should be available for reflection at runtime. Example : @Deprecated (see https://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html)
 @Constraint(validatedBy = {URLValidator.class,URLListValidator.class}) //The constraint is validated by the URLValidator and the URLListValidator (to validate lists of url)
 public @interface URL {
-    String message() default "is not an URL";
+    String message() default "is not an URL"; //The message element value is used to create the error message. (see https://beanvalidation.org/2.0/spec/#validationapi-message)
 
-    Class<?>[] groups() default {};
+    Class<?>[] groups() default {}; //Every constraint annotation must define a groups element that specifies the processing groups with which the constraint declaration is associated. The type of the groups parameter is Class<?>[] (see https://beanvalidation.org/2.0/spec/#constraintsdefinitionimplementation-constraintdefinition-properties-groups)
 
-    Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {}; //The annotation should be available for reflection at runtime. (see https://beanvalidation.org/2.0/spec/#constraintsdefinitionimplementation-constraintdefinition-properties-payload)
 
     /**
      * This code block is used to applied the validator to a list of elements.
