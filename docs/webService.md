@@ -1,4 +1,4 @@
-# Web Service
+  # Web Service
 
 ## Java Bean Validation (JSR 380)
 
@@ -110,5 +110,15 @@ public @interface URL {
 }
 ```
 You can then use your custom constraint validator such as the [built in constraints](https://beanvalidation.org/2.0/spec/#builtinconstraints) by using `@URL`.
+
+Several annotations don't work on `List`. For example, `@Email` only works on `String`. You can create your own validator as showed above or use type level annotations. In Bean Validation (2.0), all provided constraints have `ElementType.TYPE_USE`.
+
+The example below shows how to work with list of emails using `@Email`.
+
+```java
+public ArrayList<@Email String> getUsersEmails() {
+       return usersEmails;
+   }
+```
 
 For more examples see the others custom constraints validators of the web services in the packages `service.resources.validation.validators` and `service.resources.validation.interfaces`.
