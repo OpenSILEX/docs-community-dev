@@ -123,4 +123,15 @@ You can then use your custom constraint validator such as the [built in constrai
 
 When you use a built in constraint validation, please check if the annotation can be applied on lists (not all built in constraint are implemeted for lists).
 
+Several annotations don't work on `List`. For example, `@Email` only works on `String`. You can create your own validator as showed above or use type level annotations. In Bean Validation (2.0), all provided constraints have `ElementType.TYPE_USE`. For more information [reads the definition](https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html) .
+For example, if the annotation type `@Email` is meta-annotated with @target(ElementType.TYPE_USE), then  `ArrayList<@Email String>` could be treated by a type checker as indicating that all string of this ArrayList are well formatted e-mails.
+
+The example below shows how to work with list of emails using `@Email`.
+
+```java
+public ArrayList<@Email String> getUsersEmails() {
+       return usersEmails;
+   }
+```
+
 For more examples see the others custom constraints validators of the web services in the packages `service.resources.validation.validators` and `service.resources.validation.interfaces`.
