@@ -2,11 +2,19 @@
 
 ## Java Bean Validation (JSR 380)
 
-When you create a new service, you must use the [Java Bean Validation](https://beanvalidation.org/2.0/spec/#builtinconstraints) to validate the input parameters.
+When you create a new service, you must use the [Java Bean Validation](https://beanvalidation.org/2.0/spec/#builtinconstraints) to validate the input parameters. The JSR 380 uses annotations to validate parameters.
 
-### Use an existing constraint
+### Use an existing constraint validation
 
-You can add a verification on the DTO for the post and the ResourceService classes for the get parameters.
+You can add a verification on the DTO for the post and the ResourceService classes for the get parameters. To do that, you must add an annotation such as `@Required`.
+
+In the folowing example, the parameter `url` of the method `get` of the `ExampleResourceService` is required (`@Required`) and must be a valid url (`@Url`).
+
+For the `post` method, we needs to validate the list of `ExampleDTO`. The `@Valid` annotation is used to validate the attributes of a complex object. In the following example, the `@Valid` is used to validate the content of the list `examples` of the `post` method, in `ExampleResourceService`.
+
+The `ExampleDTO` class contains the constraint validation of its attributes. The constraint annotations are in our case applied to the `getter` methods. For example, the url attribute is required (`@Required`) and must be a valid url (`@Url`). The secondExample parameter is a complex type. To validate it, we use the `@Valid` annotation as the explained earlier.
+
+
 
 ```java
 public class ExampleResourceService {
@@ -43,7 +51,9 @@ public class ExampleDTO {
 
 ### Create a custom constraint validation
 
-Create the custom validation annotation in the package `service.resources.validation.validators`.
+You can create custom constraint validation. For examplen the `@URL` is define in the following code blocks.
+
+In our case, create the custom validation annotation in the package `service.resources.validation.validators`.
 
 ```java
 public class URLListValidator implements ConstraintValidator<URL, List<String>> {
@@ -88,27 +98,29 @@ public class URLListValidator implements ConstraintValidator<URL, List<String>> 
 Create the custom validation annotation interface in the package `service.resources.validation.interfaces`.
 
 ```java
-@Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER})
-@Retention(RUNTIME)
-@Constraint(validatedBy = {URLValidator.class,URLListValidator.class})
+@Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER}) //The annotation can be applied to a method, a parameter, etc.
+@Retention(RUNTIME) //The annotation should be available for reflection at runtime. Example : @Deprecated (see https://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html)
+@Constraint(validatedBy = {URLValidator.class,URLListValidator.class}) //The constraint is validated by the URLValidator and the URLListValidator (to validate lists of url)
 public @interface URL {
-    String message() default "is not an URL";
+    String message() default "is not an URL"; //The message element value is used to create the error message. (see https://beanvalidation.org/2.0/spec/#validationapi-message)
 
-    Class<?>[] groups() default {};
+    Class<?>[] groups() default {}; //Every constraint annotation must define a groups element that specifies the processing groups with which the constraint declaration is associated. The type of the groups parameter is Class<?>[] (see https://beanvalidation.org/2.0/spec/#constraintsdefinitionimplementation-constraintdefinition-properties-groups)
 
-    Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {}; //The annotation should be available for reflection at runtime. (see https://beanvalidation.org/2.0/spec/#constraintsdefinitionimplementation-constraintdefinition-properties-payload)
 
     /**
      * This code block is used to applied the validator to a list of elements.
      */
     @Target(value = {METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER})
-    @Retention(value =RUNTIME)
-    @Documented
+    @Retention(RUNTIME)
+    @Documented //Apply @Documented when defining an annotation, to ensure that classes using your annotation show this in their generated JavaDoc.
     public @interface List {
         public URL[] value();
     }
 }
 ```
 You can then use your custom constraint validator such as the [built in constraints](https://beanvalidation.org/2.0/spec/#builtinconstraints) by using `@URL`.
+
+When you use a built in constraint validation, please check if the annotation can be applied on lists (not all built in constraint are implemeted for lists).
 
 For more examples see the others custom constraints validators of the web services in the packages `service.resources.validation.validators` and `service.resources.validation.interfaces`.
