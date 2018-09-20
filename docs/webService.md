@@ -109,7 +109,7 @@ public @interface URL {
     Class<? extends Payload>[] payload() default {}; //The annotation should be available for reflection at runtime. (see https://beanvalidation.org/2.0/spec/#constraintsdefinitionimplementation-constraintdefinition-properties-payload)
 
     /**
-     * This code block is used to applied the validator to a list of elements.
+     * This code block is used to apply the validator to a list of elements.
      */
     @Target(value = {METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER})
     @Retention(RUNTIME)
