@@ -321,24 +321,28 @@ I recommand you to create a folder where you will download all required files.
 
 
 #### Web service folder
-Get source from github,
+Get source from github, directly from the phis-ws development repository:
 ```bash
   cd ~Phis
   git clone https://github.com/OpenSILEX/phis-ws.git
 ```
-
+Preferably, get the source from the last release at [phis-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
 
 #### Web application folder
+Get source from github, directly from the phis-webapp development repository:
 ```bash
   cd ~Phis
   git clone https://github.com/OpenSILEX/phis-webapp.git
 ```
+Preferably, get the source from the last release at [phis-webapp/releases](https://github.com/OpenSILEX/phis-webapp/releases).
 
 #### Ontology files
+Get source from github, directly from the ontology-phis-oepo-field development repository:
 ```bash
   cd ~Phis
   git clone https://github.com/OpenSILEX/ontology-phis-oepo-field
 ```
+Preferably, get the source from the last release at [ontology-phis-oepo-field/releases](https://github.com/OpenSILEX/ontology-phis-oepo-field/releases).
 
 #### Database file
 
@@ -553,7 +557,7 @@ repositoryID=diaphen
 When all configuration files are correctly change you can generate the war file.  
 To do that, in netbeans:  
 **clic right on project -> build with depedencies**
-Your war is generating in **~/Phis/phis-ws/target**
+Your war is generated in **~/Phis/phis-ws/target**
 
 
 #### Deploy war file
