@@ -257,14 +257,19 @@ Restart service apache2:
 Sometimes when you install composer from ubuntu package, composer does not run correctly. To avoid problems, you should install composer from the composer installer file, via the following command line:
 
 ```bash
-  curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+  sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
+
+Maybe you should create a symbolic link between the new version of composer in /usr/bin or use the complete command. e.g. php /usr/local/bin/composer
+
 
 Install now the plugin that you need to use composer.
 
 ```bash
-  composer global require "fxp/composer-asset-plugin:^1.2.0"
+  sudo composer global require "fxp/composer-asset-plugin:^1.2.0"
 ```
+
+
 
 
 #### Git
@@ -597,12 +602,12 @@ please go to [current error](#errors-with-th-web-service) section.
 
 The web application deployment is did by apache2. You have to copy webapp folder in apache root folder in our case /var/www/html.
 ```
-  cp -r ~/Phis/phis-webapp /var/www/html
+  sudo cp -r ~/Phis/phis-webapp /var/www/html
 ```
 Change right on this folder:
 ```
-  chown -R [username]:www-data /var/www/html/phis-webapp
-  chmod 775 -R /var/www/html/phis-webapp
+  sudo chown -R [username]:www-data /var/www/html/phis-webapp
+  sudo chmod 775 -R /var/www/html/phis-webapp
 ```
 *information:  
 www-data is the default apache2 username. But in rare case it can be a different name, you can check that in /etc/apache2/envars file.*
@@ -634,7 +639,7 @@ If you are all exactly doing like in this document, it's the only configuration 
 Got to your webapp folder and applicate **composer update**:
 ```
   cd /var/www/html/phis-webapp
-  composer update
+  sudo composer update
 ```
 It can be so longer, and perhaps you will need install some php-smth packages:  
 ```
@@ -646,8 +651,8 @@ While you don't obtain a successful issue, fix errors and rerun **composer updat
 
 Maybe you need to change some owner and rights properties of new files. So, you can do :
 ```
-  chown -R [username]:www-data /var/www/html/phis-webapp
-  chmod 775 -R /var/www/html/phis-webapp
+  sudo chown -R [username]:www-data /var/www/html/phis-webapp
+  sudo chmod 775 -R /var/www/html/phis-webapp
 ```
 
 So now, normally you have a operationnal phis application on your localhost.
@@ -670,11 +675,11 @@ ls -l ~/.netbeans/8.2
 ```
 To run netbeans, owner of all files/folders should be the regular pc user. You can fix it with:
 ```
-chown -R [username]:[username] ~/.netbeans
+sudo chown -R [username]:[username] ~/.netbeans
 ```
 Netbeans need also regular user can read and write all files of the folder. To fix it:
 ```
-chmod -R ug+rw ~/.netbeans
+sudo chmod -R ug+rw ~/.netbeans
 ```
 
 + Errors concerned jdk/jre:
@@ -787,11 +792,11 @@ You have to all files:
 owner: username (name of your session on the pc)  
 group: www-data (or the name of you apache user)  
 ```
-  chown -R [username]:www-data /var/html/phis-webapp
+  sudo chown -R [username]:www-data /var/html/phis-webapp
 ```
 rights: rwxrwxr-x  
 ```
-  chmod -R 775 /var/html/phis-webapp
+  sudo chmod -R 775 /var/html/phis-webapp
 ```
 + Can't log in
 
