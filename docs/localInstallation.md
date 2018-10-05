@@ -799,6 +799,10 @@ It can be a configuration file of the web application (/var/www/html/phis-webapp
 In your configurations file check URL and port.
 With psql check if your database isn't wrong.
 
++ Githun token
+
+If you get an error "GitHub API limit (60 calls/hr) is exhausted..." during composer insallation, you need to connect Github and get a Personal access tokens. See https://github.com/settings/tokens.
+
 
 
 #### Other problems concerned webapp and web service
