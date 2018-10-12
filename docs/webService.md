@@ -135,3 +135,19 @@ public ArrayList<@Email String> getUsersEmails() {
 ```
 
 For more examples see the others custom constraints validators of the web services in the packages `service.resources.validation.validators` and `service.resources.validation.interfaces`.
+
+## Rdf Resource Definition
+To represents and manipulate the rdf resources definitions, we have created models, DAO and DTO.
+
+### Rdf Resource Definition model
+When a new rdf concept is added in the webservice, we extends the RdfResourceDefinition model, such as the following example.
+
+![rdf-resource-definition-model](img/rdfResourceDefinition.png)
+
+### Property DAO
+To manipulate the properties extracted from a semantic triplestore, we use the PropertyDAOSesame class.
+
+### Rdf Resource Definiton DTO
+A few services returns more or less the same rdf resource definition JSON format. We have created a few DTO which are extended. In the following example, the RadiometricTargetDTO extends the RdfResourceDefinitionDTO and the RadiometricTargetPostDTO extends the RdfResourceDefinitionPostDTO. We have created a specific package which will contain all the DTO of the radiometric targets.
+
+![rdf-resource-definition-dto](img/rdfResourceDefinitionDTO.png)
