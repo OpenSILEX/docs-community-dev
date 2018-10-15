@@ -26,6 +26,8 @@ Install the version control system **git** from [https://git-scm.com/](https://g
 apt-get install git
 ```
 
+Super-user priviledge may be required. If so, execute `sudo apt-get install git`.
+
 On linux, you can check your version of **git** and display its documentation from the terminal :
 
 ```
