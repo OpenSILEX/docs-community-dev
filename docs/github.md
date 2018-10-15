@@ -45,14 +45,14 @@ At the moment, the present documentation provides no information on how to use G
 
 ![git-bash](img/git-open-bash.PNG)
 
-If you are new to **git**, you can check out this [simple git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
+If you are new to **git**, you can check out this [simple git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
 
 ### Git configuration
 
 The local configuration of git has to be done only once.
-From a terminal (linux terminal, mac terminal, or Git Bash Here on Windows), you can indicate your name and you email address with the command lines :
+From a terminal (linux terminal, mac terminal, or Git Bash Here on Windows), you can indicate your name and you email address with the command lines (without the `<` and `>`) :
 
 ```
 git config --global user.email "<the email you use on GitHub>"
