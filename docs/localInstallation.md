@@ -493,7 +493,7 @@ If problems can't be resolved like that please go to the [current error](#errors
 
 #### Configuration Files
 
-This section isn't necessary doing with netbeans. If netbeans running slowly on your pc you can use a classical text editor (nano, vim, gedit...) to edit configuration files.
+You don't need to edit your configuration files specifically with netbeans, you can use a classical text editor (nano, vim, gedit...) to edit them.
 
 Maven profiles are used to generate war file with different configurations
 
@@ -502,7 +502,7 @@ Three profiles exists by default:
 - **test**: Profile used for testing purpose with no values by default
 - **prod**: Profile used for production with no values by default
 
-Profiles specific configurations are defined in a **config.properties** file which is located in folder **phis2-ws/src/main/{profile name}/**
+Specific profiles configurations are defined in a **config.properties** file which is located in folder **phis2-ws/src/main/{profile name}/**
 
 Netbeans users: configuration files are located in **phis2ws -> other sources -> src/main/profiles -> {profile name}**.
 
