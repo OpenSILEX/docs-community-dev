@@ -502,11 +502,26 @@ If problems can't be resolved like that please go to the [current error](#errors
 
 #### Configuration Files
 
-This section isn't necessary doing with netbeans. If netbeans running slowly on your pc you can use a classical text editor (nano, vim, gedit...) to edit configuration files.
+You don't need to edit your configuration files specifically with netbeans, you can use a classical text editor (nano, vim, gedit...) to edit them.
 
-Netbeans users: configuration files are located in **phis2ws -> other sources -> src/main/resources -> default package**.
+Maven profiles are used to generate war file with different configurations
 
-Other users: configuration files are in **~/Phis/phis-ws/phis2ws/src/main/resouces**
+Three profiles exists by default:
+- **dev** (default): Profile used for local developpement with default values
+- **test**: Profile used for testing purpose with no values by default
+- **prod**: Profile used for production with no values by default
+
+Specific profiles configurations are defined in a **config.properties** file which is located in folder **phis2-ws/src/main/{profile name}/**
+
+Netbeans users: configuration files are located in **phis2ws -> other sources -> src/main/profiles -> {profile name}**.
+
+Profile could be used with the following command line (-P option): 
+
+```bash
+mvn install -Ptest
+```
+
+With no -P option dev profile is used.
 
 _Informations:  
 If you use netbeans to deploy war file in tomcat server, default port is 8084 but in this document we choose to deploy ourselves war file so the port need to be tomcat service port (8080).  
@@ -516,46 +531,53 @@ If you can use netbeans you have advantage to can modify files and deploy more q
 _Attention:
 Every time you use localhost address you need use ip address 127.0.0.1 and not the name localhost_
 
-
-Edit these files:
-  - **services.properties**  
-You have to adapt paths but if you are doing exactly like in this document, default values are good.  
+Edit the file **config.properties** of the **dev** profile:
+You have to adapt values between **< >** but if you are doing exactly like in this document, other values are good.
 You need change port with the port choose for Tomcat, in our case 8080.
-You have to adapt lines 63 to 69:
-* uploadFileServerIP=127.0.0.1
-* uploadFileServerUsername=[linux session name]
-* uploadFileServerPassword=[linux session password]
-* uploadFileServerDirectory=/home/<user>/phis2ws/documents/instance
-* uploadImageServerDirectory=/var/www/html/images
-* layerFileServerDirectory=/var/www/html/layers
-* layerFileServerAddress=http://127.0.0.1/layers  
 
+```properties
+# MongoDB configuration
+mongo.host=127.0.0.1
+mongo.port=27017
+mongo.db=<MongoDB database name, eg. diaphen>
 
-  - **phis_sql_config.properties**
-Adapt second line:  
-url = jdb:postgresql://127.0.0.1:5432/diaphen
-* 5432: your postgresql service ports  
-* diaphen: database name
-* username=phis
-* password=azerty  
+# PostgreSQL configuration
+pg.host=127.0.0.1
+pg.port=5432
+pg.db=<PostgreSQL database name, eg. diaphen>
+pg.user=<PostgreSQL user name, eg. phis>
+pg.password=<PostgreSQL user password, eg. azerty>
 
+# RDF4J Configuration
+rdf.host=127.0.0.1
+rdf.port=<8080>
+rdf.path=<Rdf4j .war file name, eg. rdf4j-server>
+rdf.infra=<Rdf4j infrastructure name, eg. diaphen>
+rdf.repo=<Rdf4j repository name, eg. diaphen>
 
-  - **mogodb_nosql_config.properties**  
-Like previously, you must adapt port, URL, and database.  
-url=mongodb://127.0.0.1:27017
-db=diaphen  
-* 27017: your mongodb service port
-* diaphen: name of your mongodb database, create with robo3t
+# Webservice configuration
+ws.log.dir=/home/tomcat/phis2ws/logs
 
+ws.host=127.0.0.1
+ws.port=<8080>
+ws.target=phis2ws
+ws.baseUrl=rest
 
-  - **sesame_rdf.config**  
-sesameServer=http://127.0.0.1:8080/rdf4j-server/  
-platform=diaphen  
-repositoryID=diaphen  
-* 8080: tomcat port
-* red4j-server: name of .war file deployed after rdf4j download
-* diaphen: name of your repository create with rdf4j web service.
+ws.doc.host=127.0.0.1
+ws.doc.port=<8080>
+ws.doc.name=phis2ws
 
+ws.updir.host=127.0.0.1
+ws.updir.user=<Linux session name>
+ws.updir.password=<Linux session password>
+ws.updir.doc=/home/phis2ws/documents/instance
+
+ws.images.dir=/var/www/html/images
+ws.images.url=http://127.0.0.1/images
+
+ws.layers.dir=/var/www/html/layers
+ws.layers.url=http://127.0.0.1/layers
+```
 
 #### Generate war file
 
@@ -567,9 +589,9 @@ Your war is generated in **~/Phis/phis-ws/target**
 
 #### Deploy war file
 
-Rename and copy the war archive in tomcat webapps folder:
-```
-  cp /home/Phis/phis-ws/target/phis2ws-v0.1.war /home/tomcat/apache-tomcat/webapps/phis2ws.war
+Copy the war archive in tomcat webapps folder:
+```bash
+  cp /home/Phis/phis-ws/target/phis2ws.war /home/tomcat/apache-tomcat/webapps/phis2ws.war
 ```
 
 
