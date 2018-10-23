@@ -100,6 +100,8 @@ ssh -T git@github.com
 
 The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear : it works !
 
+Official help pages are listed in the [Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) webpage.
+
 ## Join a development
 
 ### OpenSILEX repositories
@@ -196,16 +198,30 @@ git clone <copied HTTPS URL>
 
 The `git remote -v` command gets you the list of the remote repositories.
 
-You can add upstream repositories associated to the list of the remotes using `git remote add <name branch> <path branch>`.
-
-You should name "upstream" the main repository owned by OpenSILEX, e.g. `git remote add upstream https://github.com/OpenSILEX/community-dev.git`.
+You can add upstream repositories associated to the list of the remotes using `git remote add <name remote> <path remote>`.
+If you choose to name "upstream" (recommended) the main remote repository owned by OpenSILEX, the command line would be :
+```
+git remote add upstream https://github.com/OpenSILEX/community-dev.git
+```
 
 ![git-remote-add](img/git-remote-add.png)
 
-"origin" is by default the name of your local repository.
+By default, "origin" is the name of the repository you created by forking the OpenSILEX repository (the "upstream" repository).
 
 Complete documentation on how to add a remote is available on GitHub help webpage [Adding a remote](https://help.github.com/articles/adding-a-remote/).
 There is also an official documentation for [removing remotes](https://help.github.com/articles/removing-a-remote/).
+As with any git command, you can get the official documentation from the shell adding `--help`, as in the example below :
+
+```
+git remote --help
+```
+
+If you have set up a connexion to GitHub via SSH, as described in the [SSH connexion](../Using-git/#SSH-connexion) section, you might want to change your remote URLs from HTTPS to SSH, as described in the [GitHub documentation](https://help.github.com/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh) :
+```
+git remote set-url origin git@github.com:[your_username]/[repository_name].git
+git remote set-url upstream git@github.com:OpenSILEX/[repository_name].git
+```
+
 
 ## Edit a development (short)
 
