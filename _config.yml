@@ -1,6 +1,4 @@
 theme: jekyll-theme-midnight
-include:- Home: index.md
-include:- Local Installation: localInstallation.md
-include:- Coding Style: codingStyle.md
-include:- Functionality Validation: functionalityValidation.md
+include: 4p.md
+
         
