@@ -1,4 +1,6 @@
 theme: jekyll-theme-midnight
+
+git push
 include: docs.md
 include: img.md
         
