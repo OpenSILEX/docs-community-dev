@@ -1,11 +1,13 @@
 theme: jekyll-theme-cayman
 include:
-   - Home: index.md
-   - Using git: github.md
-   - Local Installation: localInstallation.md
-   - Coding Style: codingStyle.md
-   - Functionality Validation: functionalityValidation.md
-   - BrAPI Implementation: brapiImplementation.md
-   - Webapp: webapp.md
-   - Web Service: webService.md
-   - 4P : 4p.md
+  - Home: index.md
+  - Using git: github.md
+  - Local Installation: localInstallation.md
+  - Coding Style: codingStyle.md
+  - Functionality Validation: functionalityValidation.md
+  - BrAPI Implementation: brapiImplementation.md
+  - Webapp: webapp.md
+  - Web Service: webService.md
+  - 4P : 4p.md
+twitter:
+  username: PHISphenomics
