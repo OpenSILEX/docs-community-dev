@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 theme: jekyll-theme-cayman
 include:
    - Home: index.md
@@ -9,3 +10,6 @@ include:
    - Webapp: webapp.md
    - Web Service: webService.md
    - 4P : 4p.md
+=======
+theme: jekyll-theme-cayman
+>>>>>>> 11d65570cd66c82caed2da7eaa81c9a62357eb4b
