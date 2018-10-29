@@ -20,7 +20,7 @@ If the concepts of repositories and branches are confusing, go to the [Repositor
 
 ### Installing git
 
-Install the version control system **git** from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a linux terminal :
+Install the version control system **Git** from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a Linux terminal :
 
 ```
 apt-get install git
@@ -28,31 +28,31 @@ apt-get install git
 
 Super-user priviledge may be required. If so, execute `sudo apt-get install git`.
 
-On linux, you can check your version of **git** and display its documentation from the terminal :
+On Linux, you can check your version of **Git** and display its documentation from the terminal :
 
 ```
 git --version
 git --help
 ```
 
-These commands can also be used on Windows operating system through **Git Bash Here**.
-When installing **git** on Windows, make sure you include Git Bash Here in Windows Explorer.
+These commands can also be used on Windows operating systems through `Git Bash Here`.
+When installing **Git** on Windows, make sure you include Git Bash Here in Windows Explorer:
 
 ![github-windows](img/git-windows.PNG)
 
-On Windows, open **git** from any Explorer window with a right-click > Git Bash Here (instead of Git GUI Here) in order to be able to use the commands presented in this documentation.
+On Windows, open **Git** from any Explorer window with a right-click > Git Bash Here (instead of Git GUI Here) in order to be able to use the commands presented in this documentation.
 At the moment, the present documentation provides no information on how to use Git GUI.
 
 ![git-bash](img/git-open-bash.PNG)
 
-If you are new to **git**, you can check out this [simple git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
+If you are new to **Git**, you can check out this [simple Git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [Git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [Git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
 
 ### Git configuration
 
 The local configuration of git has to be done only once.
-From a terminal (linux terminal, mac terminal, or Git Bash Here on Windows), you can indicate your name and you email address with the command lines (without the `<` and `>`) :
+From a terminal (Linux terminal, Mac terminal, or Git Bash Here on Windows), you can indicate your name and your email address with the command lines (without the `<` and `>`) :
 
 ```
 git config --global user.email "<the email you use on GitHub>"
@@ -65,40 +65,37 @@ You can verify your configuration using :
 git config --list
 ```
 
-The complete documentation of the git config command is available on [git official website](https://git-scm.com/docs/git-config).
+The complete documentation of the git config command is available on [Git official website](https://git-scm.com/docs/git-config).
 
 ### Join GitHub
 
 Create a GitHub profile on [https://github.com/](https://github.com/).
 
 If you are an INRA agent, you have to specify it on your profile, using the `@INRA` tag.
-You can find more INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
+You can find more INRA recommendations regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
 ### SSH connexion
 
-You can link your GitHub account to your local **git** using a SSH key.
-See GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
-According to this tutorial, generating both a public and a private RSA key is done with a `ssh-keygen` command :
+You can link your GitHub account to your local **Git** using a SSH key.
 
-```
-ssh-keygen -t rsa -b 4096 -C "<the email you use on GitHub>"
-```
+Follow the steps GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
 
-You can then copy the generated public key displayed in the text file `id_rsa.pub`.
 
-Go to [GitHub Settings > SSH and GPG keys](https://github.com/settings/keys) when you are signed in.
+This procedure generates a public key in the text file `/home/<you>/.ssh/id_rsa.pub`. Copy it.
+
+Sign in GitHub and go to [GitHub Settings > SSH and GPG keys](https://github.com/settings/keys).
 Click on the `New SSH key` button.
 
 ![GitHub-SSH-keys](img/github-ssh-new.png)
 
 Paste the copied public key in the empty **Key** field.
-You can then check if the connection is open from a linux terminal :
+You can then check if the connection is open from a Linux terminal :
 
 ```
 ssh -T git@github.com
 ```
 
-The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear : it works !
+The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear: it works !
 
 Official help pages are listed in the [Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) webpage.
 
@@ -106,14 +103,14 @@ Official help pages are listed in the [Connecting to GitHub with SSH](https://he
 
 ### OpenSILEX repositories
 
-OpenSILEX development projects are organized in separate repositories.
-All OpenSILEX repositories are listed in the [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/).
+Open SILEX development projects are organized in separate repositories.
+All Open SILEX repositories are listed in the [Open SILEX GitHub webpage](https://github.com/OpenSILEX/).
 
-The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
+The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an Open SILEX project.
 When collaborating to an other repository, just change *community-dev* displayed in the examples to the name of the repository you are interested in.
 Note that the present *community-dev* repository differs from the other repositories since it displays no code, but only a developper-orientated documentation.
 
-When joining an ongoing OpenSILEX development project, there are two initial steps that need to be executed :
+When joining an ongoing Open SILEX development project, there are two initial steps that need to be executed :
 
 1. Create your own branch(es) of the development project's repository by forking it
 2. Clone your branch(es) on your computer
