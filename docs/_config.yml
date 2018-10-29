@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
-include:
+pages:
   - Home: index.md
   - Using git: github.md
   - Local Installation: localInstallation.md
