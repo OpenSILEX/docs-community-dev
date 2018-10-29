@@ -52,7 +52,7 @@ Set the owner on the MongoDB file:
 ```bash
 sudo chown -R mongodb:mongodb <path_to_mongo_db_file>
 ```
-In **/etc/mongod.conf** file, you should add line: `fork: true` after
+In `/etc/mongod.conf` file, you should add line: `fork: true` after
 ```
 # how the process run
 processManagement:*
@@ -175,13 +175,13 @@ Create an installation folder for Tomcat. We advise you to create the Tomcat fol
 sudo mkdir /home/tomcat
 ```
 
-Extract the archive in this folder (replace `<user>`` by your user and `<version>` by the version you downloaded):
+Extract the archive in this folder (replace `<user>` by your user and `<version>` by the version you downloaded):
 ```bash
 cd /home/tomcat/
 sudo tar --owner=<user> -xvzf ~/Downloads/apache-tomcat<version>.tar.gz
 ```
 
-With this procedure, Tomcat is not recognized by Ubuntu services control (`systemctl` or ``services`). So you need to execute scripts which are in Tomcat ``bin` folder (ex: ```startup.sh``` to run and `shutdown.sh` to stop). You also need to change rights on files.
+With this procedure, Tomcat is not recognized by Ubuntu services control (`systemctl` or `services`). So you need to execute scripts which are in Tomcat `bin` folder (e.g: `startup.sh` to run and `shutdown.sh` to stop). You also need to change rights on files.
 
 ##### Apache-Tomcat configuration
 
@@ -369,77 +369,112 @@ Create a connection:
 Configure your connection:
 ![robo3t-connection2](img/robo3t-connexion2.png)
 Create your database:
-clic right on connection name -> create a database -> enter a name (in this document it will be "diaphen")
-Now, you can close Robo 3T.
+right click on connection name -> `Create Database` -> enter a name (`mongodb_phis` in this document).
 
-### Rdf4j ontologies
+### Rdf4j Ontologies
 
-Go to http://localhost:8080/
-You are in tomcat server home page, clic on **manager app**, connect with tomcat user.  
-Search **rdf4j-workbench** in the list, if isn't run clic start, and clic on the name **rdf4j-workbench**.  
-Clic **New repository** and complete as in the picture:
+Go to http://localhost:8080/. You are in Tomcat server home page.
+
+Click on `manager app`, connect with your  Tomcat user (a default user is configured in the `home/tomcat/apache-tomcat<version>/tomcat-users.xml` configuration file).  
+
+
+Search `rdf4j-workbench` in the list, if isn't running, click on `Start`)
+
+Click on the `rdf4j-workbench` link.
+
+
+Click `New repository` and complete as in the picture:
 ![rdf4j-nr1](img/rdf4j-nr1.png)
-Clic **next**, check if all is as on this second picture:
+Click `Next` and check if is corresponds to this:
 ![rdf4j-nr2](img/rdf4j-nr2.png)
-Clic **create**.  
+Click `Create`.  
 
-You will do these steps many times :  
+You will do these steps many times:  
 
-Now, clic **Add** in *Modify* menu.  
+Now, Click `Add` in the `Modify` submenu.  
 
 ![rdf4j-add](img/rdf4j-add.png)
 
-Clic **Parcourir...** selection **oepo.owl** file get previously from GitHub repository **ontology-OpenSILEX-oepo-field**
+Click on the button next to `RDF Data File` in order to select a RDF Data File.
 
-Add it in the context   **<http://www.phenome-fppn.fr/vocabulary/2017>** with base URI and context fields.
 
-In **RDFData format** select **RDF/XML**.
+Selec the `oepo.owl` file got previously from GitHub in the repository `ontology-OpenSILEX-oepo-field`.
 
-Clic **Upload**  
+Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
 
-Add also a new context for the ontology annotation
-Add [oa.rdf](oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
+In the `Data format` field, select `RDF/XML`.
+
+Click `Upload`.
+
+Add also a new context for the Ontology Annotation (with the `RDF Data File` `oa.rdf` downloadedable [here](http://www.w3.org/ns/oa.rdf) and with the `Base URI` value `http://www.w3.org/ns/oa`.
 
 ### PostgreSQL database
 
-#### Creating OpenSILEX users
-
-```SQL
-  sudo -i -u postgres
-  psql
-  CREATE USER OpenSILEX;
-  ALTER ROLE OpenSILEX WITH CREATEDB;
-  ALTER ROLE OpenSILEX WITH SUPERUSER;
-  ALTER USER OpenSILEX WITH ENCRYPTED PASSWORD 'azerty';
-  \q #leave psql
-  exit #disconnect postgre
-```
-
-#### Creating Database
-
-```SQL
-  sudo -i -u postgres
-  psql
-  CREATE DATABASE diaphen OWNER OpenSILEX;
-  \q
-  exit
-  psql -U OpenSILEX diaphen #connection like OpenSILEX user on the dipahen database
-  CREATE EXTENSION postgis;
-  select postgis_full_version();
-  \q
-```
-#### Initialising Database
-
-Importing data with:
+Connect to Postgre:
 ```bash
-psql -U OpenSILEX diaphen < ~/OpenSILEX/OpenSILEX_st_dump.sql
+sudo -i -u postgres
 ```
-You can find [dump file](OpenSILEX_st_dump.sql).
 
-With specific access rights you can get a dump from demonstration version.
+#### Create the open_silex user
+
+
+Start the SQL editor:
+```bash
+psql
+```
+
+Run the following commands:
+```sql
+CREATE USER open_silex;
+ALTER ROLE open_silex WITH CREATEDB;
+ALTER ROLE open_silex WITH SUPERUSER;
+ALTER USER open_silex WITH ENCRYPTED PASSWORD 'azerty';
+```
+
+#### Create the database
+
+```sql
+CREATE DATABASE open_silex OWNER open_silex;
+```
+
+Exit the SQL connection:
+```bash
+\q
+```
+
+#### Create the PostGIS EXTENSION
+
+Connect to the database with the `open_silex` user:
+
+```bash
+psql -U open_silex -h 127.0.0.1 -d open_silex
+```
+and enter open_silex's current password `azerty` when asked.
+
+Finally run these commands to create the extension:
+```SQL
+CREATE EXTENSION postgis;
+select postgis_full_version();
+```
+
+Exit the SQL editor:
+```
+\q
+```
+
+#### Initialise Database
+
+Download the dump file to import [here](OpenSILEX_st_dump.sql) (make shure you download it in a folder where you are fully owner - like the `Downloads` folder -  because of PosgreSQL ownership issue when importing data).
+
+Import data with (replace `<location>` by de the location of the downloaded dump file):
+```bash
+psql -U open_silex -h 127.0.0.1 open_silex < <location>/OpenSILEX_st_dump.sql
+```
+
+With specific access rights, you can get a dump from the demonstration version:
 ```bash
 # from postres server
-pg_dump -O -U OpenSILEX diaphen > OpenSILEX_st_dump.sql
+pg_dump -O -U OpenSILEX open_silex > OpenSILEX_st_dump.sql
 # -O : --no-owner
 # -s : only schema
 # -h <IP> : postgres host
@@ -451,16 +486,16 @@ If you need to generate a MD5 password, you can use:
  echo -n bonjour | md5sum
 ```
 
-#### Initialising Users
+#### Initialise Users
 
 To start using or try OpenSILEX, two users are created automatically:
 * admin@OpenSILEX.fr/admin for administrative rights
 * guest@OpenSILEX.fr/guest for restricted rights
 See OpenSILEX user documentation for explanation and add other users.
 
-### Web service
+### Web Service
 
-To deploy a webservice with Tomcat you need a war file.  
+To deploy a web service with Tomcat you need a war file.  
 To generate a war file from a project the easiest solution is to use Netbeans.
 
 #### Folders
@@ -488,7 +523,7 @@ Netbeans frequently meets error when he starts. If you have an error please go t
 
 When netbeans started, open OpenSILEX2ws project. He is located in /home/OpenSILEX/OpenSILEX-ws/.
 
-If problems are detected in the project: clic right on the project name -> resolve problems -> resolve.  
+If problems are detected in the project: click right on the project name -> resolve problems -> resolve.  
 If problems can't be resolved like that please go to the [current error](#errors-with-the-web-service) section.
 
 #### Configuration Files
@@ -530,12 +565,12 @@ You need change port with the port choose for Tomcat, in our case 8080.
 # MongoDB configuration
 mongo.host=127.0.0.1
 mongo.port=27017
-mongo.db=<MongoDB database name, eg. diaphen>
+mongo.db=<MongoDB database name, eg. open_silex>
 
 # PostgreSQL configuration
 pg.host=127.0.0.1
 pg.port=5432
-pg.db=<PostgreSQL database name, eg. diaphen>
+pg.db=<PostgreSQL database name, eg. open_silex>
 pg.user=<PostgreSQL user name, eg. OpenSILEX>
 pg.password=<PostgreSQL user password, eg. azerty>
 
@@ -543,8 +578,8 @@ pg.password=<PostgreSQL user password, eg. azerty>
 rdf.host=127.0.0.1
 rdf.port=<8080>
 rdf.path=<Rdf4j .war file name, eg. rdf4j-server>
-rdf.infra=<Rdf4j infrastructure name, eg. diaphen>
-rdf.repo=<Rdf4j repository name, eg. diaphen>
+rdf.infra=<Rdf4j infrastructure name, eg. open_silex>
+rdf.repo=<Rdf4j repository name, eg. open_silex>
 
 # Webservice configuration
 ws.log.dir=/home/tomcat/OpenSILEX2ws/logs
@@ -574,7 +609,7 @@ ws.layers.url=http://127.0.0.1/layers
 
 When all configuration files are correctly change you can generate the war file.  
 To do that, in netbeans:  
-**clic right on project -> build with depedencies**
+**click right on project -> build with depedencies**
 Your war is generated in **~/OpenSILEX/OpenSILEX-ws/target**
 
 #### Deploy war file
@@ -590,15 +625,15 @@ Your webservice is directly deployed. You can check that:
 Go to http://127.0.0.1:8080/  
 
 _It is necessary you don't use localhost._  
-You are in Tomcat server home page, clic on **manager app**, connect with Tomcat user.  
-Search **OpenSILEX2ws** in the list, if isn't run clic start, and clic on the name **OpenSILEX2ws**.  
+You are in Tomcat server home page, click on **manager app**, connect with Tomcat user.  
+Search **OpenSILEX2ws** in the list, if isn't run click start, and click on the name **OpenSILEX2ws**.  
 You are on your service web, if it correctly configurate you have 2 opperationnal link.  
 
 _You can go directly with http://127.0.0.1:8080/OpenSILEX2ws __
 
 To check you are correctly configurate your web service:
 Go to **Documentation link**, try **brapiv1token**:
-post -> clic on example -> try it out  
+post -> click on example -> try it out  
 If you haven't:
 ```
 Response Code
@@ -736,7 +771,7 @@ sudo systemctl restart postgresql
 + Errors with generation of war file  
 
 In netbeans:
-Clic right on project name -> resolve problems
+Click right on project name -> resolve problems
 If it detects plugins problems I recommand you to fix them yourself with tool menu -> plugins.
 If it another problem you can try fix him with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find her or close project and reopen or remove all OpenSILEX web service files and redownload.
 
