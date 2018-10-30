@@ -15,7 +15,7 @@ PostgreSQL# OpenSILEX Deployment
       - [Web service folder](#web-service-folder)
       - [Web application folder](#web-application-folder)
       - [Database and ontologies](#database-and-ontologies)
-+ [Installation](#open-silex-installation)
++ [Installation](#opensilex-installation)
     - [MongoDB Database](#mongodb-database)
     - [Postgresql Database](#postgresql-database)
     - [Rdf4j ontologies](#rdf4j-ontologies)
@@ -65,9 +65,9 @@ processManagement:*
 ```
 
 **Note**<br/>
-This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` for no doubt.
+This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` to be sure.
 
-Every time you change the `mongod.conf` file, you need to restart the mongod service:
+Every time you change the `mongod.conf` file, you need to restart the `mongod` service:
 ```bash  
 sudo systemctl restart mongod
 ```
@@ -114,7 +114,7 @@ To change the port of the service, edit the `postgresql.conf` file:
 ```bash  
 nano /etc/postgresql/9.5/main/postgresql.conf
 ```
-In the **Connection and Authentication** section, replace `port = XXXX` by `port = 5432`.
+In the `Connection and Authentication` section, replace `port = XXXX` by `port = 5432`.
 
 Then restart the service to take the changes into account:
 ```bash
@@ -138,6 +138,8 @@ In the created folder, extract the archive with this command:
 ```bash
 tar -xvf ~/Downloads/jdk-X.X.X_linux-x64_bin.tar.gz ~/jdk/
 ```
+
+When the installation is done, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`
 
 ##### Netbeans
 
@@ -309,8 +311,7 @@ Otherwise you have two options:
 - remember the differences and ajust for the next steps
 - return to the related section ([Tomcat](#apache-tomcat-configuration), [Apache2](#apache-configuration), [PostgreSQL](#postgresql-configuration))
 
-**Note**
-
+**Note**<br/>
  If you didn't install the programs exactly like in this document, it is possible that configuration files aren't located exactly like us.
 
 ### Files
@@ -327,7 +328,7 @@ Get source from GitHub, directly from the `phis-ws` development repository:
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-ws.git
 ```
-Preferably, get the source from the last release at [OpenSILEX-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
+Preferably, get the source from the last release at [opensilex-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
 
 #### Web application folder
 
@@ -369,19 +370,17 @@ Create a connection:
 Configure your connection:
 ![robo3t-connection2](img/robo3t-connexion2.png)
 Create your database:
-right click on connection name -> `Create Database` -> enter a name (`mongodb_phis` in this document).
+right click on connection name -> `Create Database` -> enter a name (`opensilex` in this document).
 
 ### Rdf4j Ontologies
 
 Go to http://localhost:8080/. You are in Tomcat server home page.
 
-Click on `manager app`, connect with your  Tomcat user (a default user is configured in the `home/tomcat/apache-tomcat<version>/tomcat-users.xml` configuration file).  
-
+Click on `Manager App`, connect with your  Tomcat user (a default user is configured in the `home/tomcat/apache-tomcat<version>/tomcat-users.xml` configuration file).  
 
 Search `rdf4j-workbench` in the list, if isn't running, click on `Start`)
 
 Click on the `rdf4j-workbench` link.
-
 
 Click `New repository` and complete as in the picture:
 ![rdf4j-nr1](img/rdf4j-nr1.png)
@@ -396,7 +395,6 @@ Now, Click `Add` in the `Modify` submenu.
 ![rdf4j-add](img/rdf4j-add.png)
 
 Click on the button next to `RDF Data File` in order to select a RDF Data File.
-
 
 Selec the `oepo.owl` file got previously from GitHub in the repository `ontology-OpenSILEX-oepo-field`.
 
@@ -415,8 +413,7 @@ Connect to Postgre:
 sudo -i -u postgres
 ```
 
-#### Create the open_silex user
-
+#### Create the opensilex user
 
 Start the SQL editor:
 ```bash
@@ -425,16 +422,16 @@ psql
 
 Run the following commands:
 ```sql
-CREATE USER open_silex;
-ALTER ROLE open_silex WITH CREATEDB;
-ALTER ROLE open_silex WITH SUPERUSER;
-ALTER USER open_silex WITH ENCRYPTED PASSWORD 'azerty';
+CREATE USER opensilex;
+ALTER ROLE opensilex WITH CREATEDB;
+ALTER ROLE opensilex WITH SUPERUSER;
+ALTER USER opensilex WITH ENCRYPTED PASSWORD 'azerty';
 ```
 
 #### Create the database
 
 ```sql
-CREATE DATABASE open_silex OWNER open_silex;
+CREATE DATABASE opensilex OWNER opensilex;
 ```
 
 Exit the SQL connection:
@@ -444,12 +441,12 @@ Exit the SQL connection:
 
 #### Create the PostGIS EXTENSION
 
-Connect to the database with the `open_silex` user:
+Connect to the database with the `opensilex` user:
 
 ```bash
-psql -U open_silex -h 127.0.0.1 -d open_silex
+psql -U opensilex -h 127.0.0.1 -d opensilex
 ```
-and enter open_silex's current password `azerty` when asked.
+and enter opensilex's current password `azerty` when asked.
 
 Finally run these commands to create the extension:
 ```SQL
@@ -464,17 +461,17 @@ Exit the SQL editor:
 
 #### Initialise Database
 
-Download the dump file to import [here](OpenSILEX_st_dump.sql) (make shure you download it in a folder where you are fully owner - like the `Downloads` folder -  because of PosgreSQL ownership issue when importing data).
+Download the dump file to import [here](opensilex_st_dump.sql) (make shure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder -  because of PosgreSQL ownership issue when importing data).
 
-Import data with (replace `<location>` by de the location of the downloaded dump file):
+Import data with :
 ```bash
-psql -U open_silex -h 127.0.0.1 open_silex < <location>/OpenSILEX_st_dump.sql
+psql -U opensilex -h 127.0.0.1 opensilex < /var/lib/postgresql/opensilex_st_dump.sql
 ```
 
 With specific access rights, you can get a dump from the demonstration version:
 ```bash
 # from postres server
-pg_dump -O -U OpenSILEX open_silex > OpenSILEX_st_dump.sql
+pg_dump -O -U opensilex opensilex > opensilex_st_dump.sql
 # -O : --no-owner
 # -s : only schema
 # -h <IP> : postgres host
@@ -489,28 +486,28 @@ If you need to generate a MD5 password, you can use:
 #### Initialise Users
 
 To start using or try OpenSILEX, two users are created automatically:
-* admin@OpenSILEX.fr/admin for administrative rights
-* guest@OpenSILEX.fr/guest for restricted rights
-See OpenSILEX user documentation for explanation and add other users.
+* admin@phis.fr/admin for administrative rights
+* guest@phis.fr/guest for restricted rights
+See OpenSILEX user documentation for more informations and to add other users.
 
 ### Web Service
 
-To deploy a web service with Tomcat you need a war file.  
-To generate a war file from a project the easiest solution is to use Netbeans.
+To deploy a web service with Tomcat, you need a war file.  
+To generate a war file from a project, the easiest solution is to use Netbeans.
 
 #### Folders
 
-Create directories for images and
+Create directories for images and layers:
 ```bash
-mkdir -p /home/<user>/OpenSILEX2ws/documents/instance
-  mkdir /var/www/html/images
-  mkdir /var/www/html/layers
-  chown -R [username]:[username] /var/www/html/images
-  chown -R [username]:[username] /var/www/html/layers
-  chown -R [username]:[username] /home/<user>/OpenSILEX2ws/documents/
-  chmod -R 775 /var/www/html/images
-  chmod -R 775 /var/www/html/layers
-  chmod -R 775 /home/<user>/OpenSILEX2ws/documents/
+mkdir -p ~/opensilex-ws/documents/instance
+sudo mkdir /var/www/html/images
+sudo mkdir /var/www/html/layers
+sudo chown -R <user>:<user> /var/www/html/images
+sudo chown -R <user>:<user> /var/www/html/layers
+sudo chown -R <user>:<user> ~/opensilex-ws/documents/
+sudo chmod -R 775 /var/www/html/images
+sudo chmod -R 775 /var/www/html/layers
+sudo chmod -R 775 ~/opensilex-ws/documents/
 ```
 
 #### Open project
@@ -519,84 +516,85 @@ Run netbeans:
 ```
 ~/netbeans/bin/netbeans
 ```
+**Note**<br/>
 Netbeans frequently meets error when he starts. If you have an error please go to the [current error](#problems-with-netbeans) section.
 
-When netbeans started, open OpenSILEX2ws project. He is located in /home/OpenSILEX/OpenSILEX-ws/.
+When Netbeans starts, open the `phis2-ws` project located in the `phis-ws` GitHub project.
 
-If problems are detected in the project: click right on the project name -> resolve problems -> resolve.  
+If problems are detected in the project: click right on the project name -> `Resolve problems` -> `Resolve`.  
 If problems can't be resolved like that please go to the [current error](#errors-with-the-web-service) section.
 
 #### Configuration Files
 
 You don't need to edit your configuration files specifically with netbeans, you can use a classical text editor (nano, vim, gedit...) to edit them.
 
-Maven profiles are used to generate war file with different configurations
+Maven profiles are used to generate war files with different configurations.
 
 Three profiles exists by default:
-- **dev** (default): Profile used for local developpement with default values
-- **test**: Profile used for testing purpose with no values by default
-- **prod**: Profile used for production with no values by default
+- `dev` (default): Profile used for local developpement with default values
+- `test`: Profile used for testing purpose with no values by default
+- `prod`: Profile used for production with no values by default
 
-Specific profiles configurations are defined in a **config.properties** file which is located in folder **OpenSILEX2-ws/src/main/<profile name>/**
+Specific profile configurations are defined in the `config.properties` file which is located in `phis2-ws/src/main/<profile name>/`.
 
-Netbeans users: configuration files are located in **OpenSILEX2ws -> other sources -> src/main/profiles -> <profile name>**.
+Netbeans users: configuration files are located in `phis2-ws` -> `Other Sources` -> `src/main/profiles` -> `<profile name>`.
 
-Profile could be used with the following command line (-P option):
+Profile could be used with the following command line (`-P` option):
 
 ```bash
 mvn install -Ptest
 ```
 
-With no -P option dev profile is used.
+With no `-P` option, `dev` profile is used.
 
-_Informations:  
-If you use netbeans to deploy war file in tomcat server, default port is 8084 but in this document we choose to deploy ourselves war file so the port need to be tomcat service port (8080).  
-The choice of deploy ourselves is justificated by the universality of the procedure. Netbeans is heavy and some pc can have difficulty to run netbeans and other softwares in same time.  
-If you can use netbeans you have advantage to can modify files and deploy more quickly._
+**Note**<br/>
+If you use netbeans to deploy war file in the Tomcat server, the default port is **8084** but in this document we choose to deploy ourselves our war files so the port need to be the Tomcat service port **8080**.  
+The choice of deploying ourselves our war files is justified by the universality of the procedure. Netbeans is heavy and some pc can have difficulty to run it and other softwares at the same time.
+Using Netbeans enables you to deploy more quickly.
 
-_Attention:
-Every time you use localhost address you need use ip address 127.0.0.1 and not the name localhost_
+**Warning**
 
-Edit the file **config.properties** of the **dev** profile:
-You have to adapt values between **< >** but if you are doing exactly like in this document, other values are good.
-You need change port with the port choose for Tomcat, in our case 8080.
+Every time you use the localhost address, you need to use the IP address `127.0.0.1` and not the name `localhost`.
+
+Edit the file `config.properties` of the `dev` profile (you have to adapt values between `< >`).
+You need to change the port with the value chosen for Tomcat (in our case 8080):
 
 ```properties
 # MongoDB configuration
 mongo.host=127.0.0.1
 mongo.port=27017
-mongo.db=<MongoDB database name, eg. open_silex>
+mongo.db=opensilex
 
 # PostgreSQL configuration
 pg.host=127.0.0.1
 pg.port=5432
-pg.db=<PostgreSQL database name, eg. open_silex>
-pg.user=<PostgreSQL user name, eg. OpenSILEX>
-pg.password=<PostgreSQL user password, eg. azerty>
+pg.db=opensilex
+pg.user=opensilex
+pg.password=azerty
 
 # RDF4J Configuration
 rdf.host=127.0.0.1
-rdf.port=<8080>
-rdf.path=<Rdf4j .war file name, eg. rdf4j-server>
-rdf.infra=<Rdf4j infrastructure name, eg. open_silex>
-rdf.repo=<Rdf4j repository name, eg. open_silex>
+rdf.port=8080
+rdf.path=rdf4j-server
+rdf.infra=opensilex
+rdf.repo=opensilex
 
 # Webservice configuration
-ws.log.dir=/home/tomcat/OpenSILEX2ws/logs
+ws.log.dir=/home/tomcat/apache-tomcat<versions>/logs/opensilex-ws
 
 ws.host=127.0.0.1
-ws.port=<8080>
-ws.target=OpenSILEX2ws
+ws.port=8080
+ws.target=phis2ws
 ws.baseUrl=rest
 
 ws.doc.host=127.0.0.1
-ws.doc.port=<8080>
-ws.doc.name=OpenSILEX2ws
+ws.doc.port=8080
+ws.doc.name=phis2ws
 
 ws.updir.host=127.0.0.1
 ws.updir.user=<Linux session name>
 ws.updir.password=<Linux session password>
-ws.updir.doc=/home/OpenSILEX2ws/documents/instance
+ws.updir.doc=~/opensilex-ws/documents/instance
 
 ws.images.dir=/var/www/html/images
 ws.images.url=http://127.0.0.1/images
@@ -605,42 +603,42 @@ ws.layers.dir=/var/www/html/layers
 ws.layers.url=http://127.0.0.1/layers
 ```
 
-#### Generate war file
+#### Generate WAR file
 
-When all configuration files are correctly change you can generate the war file.  
-To do that, in netbeans:  
-**click right on project -> build with depedencies**
-Your war is generated in **~/OpenSILEX/OpenSILEX-ws/target**
+When all configuration files are correctly set up you can generate the `.war` file: right click on the project's name -> `Build with depedencies`.
+The `.war` file is generated in `<phis-ws git repository>/phis2-ws/target/phis2ws.war`.
 
 #### Deploy war file
 
-Copy the war archive in tomcat webapps folder:
+Copy the WAR archive into the Tomcat `webapps` folder (replace `<>` with the right phis-ws git repository and the Tomcat version):
 ```bash
-cp /home/OpenSILEX/OpenSILEX-ws/target/OpenSILEX2ws.war /home/tomcat/apache-tomcat/webapps/OpenSILEX2ws.war
+cp <phis-ws git repository>/target/phis2ws.war /home/tomcat/apache-tomcat<version>/webapps/phis2ws.war
 ```
 
 #### Check web service
 
-Your webservice is directly deployed. You can check that:  
-Go to http://127.0.0.1:8080/  
+Your web service is directly deployed. You can check that at http://127.0.0.1:8080/ (it is necessary not to use `localhost`).
 
-_It is necessary you don't use localhost._  
-You are in Tomcat server home page, click on **manager app**, connect with Tomcat user.  
-Search **OpenSILEX2ws** in the list, if isn't run click start, and click on the name **OpenSILEX2ws**.  
-You are on your service web, if it correctly configurate you have 2 opperationnal link.  
+On the Tomcat server home page, click on `Manager App` and connect with the Tomcat user.  
+Search `phis2ws` in the list (if it isn't running, click on `Start`) and click on the name `/phis2ws`.  
+You are now on your web service! if it is correctly set up, you have 2 opperationnal links.  
 
-_You can go directly with http://127.0.0.1:8080/OpenSILEX2ws __
+**Note** </br>
+You can directly go on the web service with the URL http://127.0.0.1:8080/phisws
 
-To check you are correctly configurate your web service:
-Go to **Documentation link**, try **brapiv1token**:
-post -> click on example -> try it out  
-If you haven't:
+To check if you have correctly set up your web service :
+ - Click on the `Documentation link`
+ - Find the line `brapiv1token` and click on it
+ - Click on `POST`
+ - Click on the example field
+ - Click on the `Try it out!` button  
+
+The `Response Code` you get should be:
 ```
-Response Code
-
 201
 ```
-please go to [current error](#errors-with-th-web-service) section.
+
+Otherwise, please go to the [current error](#errors-with-th-web-service) section.
 
 ### Web application
 
