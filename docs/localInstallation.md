@@ -439,7 +439,7 @@ Exit the SQL connection:
 \q
 ```
 
-#### Create the PostGIS EXTENSION
+#### Create the PostGIS extension
 
 Connect to the database with the `opensilex` user:
 
@@ -459,7 +459,7 @@ Exit the SQL editor:
 \q
 ```
 
-#### Initialise Database
+#### Set up the database
 
 Download the dump file to import [here](opensilex_st_dump.sql) (make shure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder -  because of PosgreSQL ownership issue when importing data).
 
@@ -483,12 +483,13 @@ If you need to generate a MD5 password, you can use:
  echo -n bonjour | md5sum
 ```
 
-#### Initialise Users
+#### Set up the users
 
 To start using or try OpenSILEX, two users are created automatically:
 * admin@phis.fr/admin for administrative rights
 * guest@phis.fr/guest for restricted rights
-See OpenSILEX user documentation for more informations and to add other users.
+
+Check the OpenSILEX [user documentation](https://github.com/OpenSILEX/phis-docs-community) for more informations and to add other users.
 
 ### Web Service
 
@@ -644,61 +645,54 @@ Otherwise, please go to the [current error](#errors-with-th-web-service) section
 
 #### Folder
 
-The web application deployment is did by apache2. You have to copy webapp folder in apache root folder in our case /var/www/html.
+The web application deployment is done by Apache2. You have to copy the webapp folder in the Apache root folder (in our case `/var/www/html`).
+```bash
+sudo cp -r <GitHub folder>/phis-webapp /var/www/html
 ```
-sudo cp -r ~/OpenSILEX/OpenSILEX-webapp /var/www/html
+Change the permissions of this folder:
 ```
-Change right on this folder:
+sudo chown -R <username>:www-data /var/www/html/phis-webapp
+sudo chmod 775 -R /var/www/html/phis-webapp
 ```
-sudo chown -R [username]:www-data /var/www/html/OpenSILEX-webapp
-  sudo chmod 775 -R /var/www/html/OpenSILEX-webapp
-```
-*information:  
-www-data is the default apache2 username. But in rare case it can be a different name, you can check that in /etc/apache2/envars file.*
+**Note**</br>
+`www-data` is the default Apache2 username. But in rare case it can be different. You can check the value of `APACHE_RUN_USER` it in the `/etc/apache2/envars` file to be sure.
 
 #### Configuration
 
-To deploy in localhost it isn't necessary to open webapp with netbeans , you only need adapt configuration files so you can use classical editor.  
-Netbeans users:  
-Open the webapp folder with netbeans, like a php project.
-
-open project -> **/var/www/html/OpenSILEX-webapp** -> open  
-Configuration files are in: *OpenSILEX-webapp* -> *sources files* -> *config*  
-Other users:  
-Configuration files are in: **/var/www/html/OpenSILEX-webapp/config**   
-
-Edit:
-  - *webservices.php*  
-Adapt the last line with the correct URL in our case is:
-**http://127.0.0.1:8080/OpenSILEX2ws/rest**
-
-If you are all exactly doing like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
+To deploy the web application in localhost, it isn't necessary to open it with Netbeans:
+- Edit `/var/www/html/phis-webapp/config/web_services.php`
+- Set the value of `WS_PHIS_PATH_DOC`to `http://127.0.0.1:8080/phis2ws/rest`
 
 #### Composer
 
-Got to your webapp folder and applicate **composer update**:
+Got to your webapp folder:
+```bash
+cd /var/www/html/phis-webapp
 ```
-cd /var/www/html/OpenSILEX-webapp
-  sudo composer update
+Run `composer update`:
+```bash
+sudo composer update
 ```
-It can be so longer, and perhaps you will need install some php-smth packages:  
-```
-sudo apt-get install php-smth1 php-smth2
-```
-*(adapt smth with name given by composer)*
+It takes some time.  
 
-While you don't obtain a successful issue, fix errors and rerun **composer update**.
-
-Maybe you need to change some owner and rights properties of new files. So, you can do :
+It may ends in error telling that a PHP package is missing. In this case, install this package:  
 ```
-sudo chown -R [username]:www-data /var/www/html/OpenSILEX-webapp
-  sudo chmod 775 -R /var/www/html/OpenSILEX-webapp
+sudo apt-get install php-<name of the package given by composer>
+```
+Re-run `composer update`. It may ends again in error like previously.
+
+Repeat the steps until it ends successfully.
+
+You may need to change some owner and permission properties of the new files:
+```bash
+sudo chown -R <username>:www-data /var/www/html/phis-webapp
+sudo chmod 775 -R /var/www/html/phis-webapp
 ```
 
-So now, normally you have a operationnal OpenSILEX application on your localhost.
-Go to **http://127.0.0.1:80/OpenSILEX-webapp** and test with log in.
+You should now have an operationnal OpenSILEX application on your localhost!
+Go to http://127.0.0.1:80/phis-webapp and test it by logging in.
 
-If you have problems search on **Current errors** section.
+If you have any problem, please check the following **Current errors** section.
 
 ## Current errors
 
@@ -713,7 +707,7 @@ ls -l ~/.netbeans/8.2
 ```
 To run netbeans, owner of all files/folders should be the regular pc user. You can fix it with:
 ```
-sudo chown -R [username]:[username] ~/.netbeans
+sudo chown -R <username>:<username> ~/.netbeans
 ```
 Netbeans need also regular user can read and write all files of the folder. To fix it:
 ```
@@ -735,7 +729,7 @@ If doesn't fix the problem please check [composer troubleshooting page](#https:/
 
 + FATAL: authentification peer:  
 
-Edit file **/etc/postgresql/9.5/main/pg_hba.conf** and change line 90:
+Edit file `/etc/postgresql/9.5/main/pg_hba.conf` and change the line 90:
 ```bash
 local all all peer
 ```
@@ -743,110 +737,116 @@ by
 ```bash
 local all all md5
 ```
-and restart service:
+and restart the service:
 ```bash
 sudo systemctl restart postgresql
 ```
 + Distance connection impossible
 
-Edit file /etc/var/postgresql/9.5/main/pg_hba.conf
-You need to adapt all with correct ip address, for example:
+Edit the `/etc/var/postgresql/9.5/main/pg_hba.conf` file.
+You need to adapt the values with the correct IP address:
 ```
 hosts all all <ipaddress> md5
 ```
-Edit file /etc/var/postgresql/9.5/main/postgresql.conf
-change line:
+Edit the `/etc/var/postgresql/9.5/main/postgresql.conf` file and edit the line:
 ```
 listen_addresses: '*'
 ```
-and restart service:
-```
+and restart the service:
+```bash
 sudo systemctl restart postgresql
 ```
 
 ### Errors with the web service
 
-+ Errors with generation of war file  
++ Errors with the generation of the WAR file  
 
-In netbeans:
-Click right on project name -> resolve problems
-If it detects plugins problems I recommand you to fix them yourself with tool menu -> plugins.
-If it another problem you can try fix him with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find her or close project and reopen or remove all OpenSILEX web service files and redownload.
+In Netbeans, right click on the project name -> `Resolve problems`.
 
-+ Not ressources / 404 or other problems with web service
+If it detects plugin problems, I recommand you to fix them yourself with the menu : `Tools` -> `Plugins`.
+If it appears to be another problem, you can try to fix it with the `Resolve` button.
 
-Recheck path and port in web service file services.properties. If all was do exactly like this:
+But if the problem persists, it probably comes from a modification in a project file. You can try to find it, to reopen the project or to remove all the OpenSILEX web service files and reload them).
+
++ No ressources / 404 or other problems with the web service
+
+Recheck paths and ports in the web service file `services.properties`. If all was done exactly like this:
 ```
 [...]
-logDirectory=/home/tomcat/OpenSILEX2ws/logs
+logDirectory=/home/tomcat/phis2ws/logs
 
 [...]
 host=127.0.0.1:8080
-basePath=/OpenSILEX2ws/rest
+basePath=/phisws/rest
 [...]
 webAppHost=127.0.0.1
 webAppPort=8080
 [...]
-webAppApiDocsName=OpenSILEX2ws
+webAppApiDocsName=phis2ws
 [...]
-webAppApiBasePath=/OpenSILEX2ws/resources
+webAppApiBasePath=/phis2ws/resources
 
 [...]
 uploadFileServerPort=22
 # Adresse de sauvegarde des donn\u00e9es
 uploadFileServerIP=127.0.0.1
-uploadFileServerUsername=[linux session username]
-uploadFileServerPassword=[linux session password]
-uploadFileServerDirectory=/home/<user>/OpenSILEX2ws/documents/instance
+uploadFileServerUsername=<linux session username>
+uploadFileServerPassword=<linux session password>
+uploadFileServerDirectory=/home/<user>/OpenSILEws/documents/instance
 uploadImageServerDirectory=/var/www/html/images
 layerFileServerDirectory=/var/www/html/layers
 layerFileServerAddress=http://127.0.0.1/layers
 [...]
 
 ```
-+ Error with test brapiv1token
++ Error with test `brapiv1token`
 
-Your database is inaccessible or wrong.
-Verify you PostgreSQL server with nmap or your favorite tool for port gestion.
-If it isn't running, restart the service:
-```
+Your database is inaccessible or is wrongly set up.
+Check your PostgreSQL server with `nmap` or any  tool for port management.
+If PostgreSQL isn't running, restart the service:
+```bash
 sudo systemctl restart postgresql
 ```
-If the service running but you have a problem it comes from the configurations files, verify paths, URL and port in service.properties file and URL, port and database name in OpenSILEX_sql_config file.
+If the service is running but you still have an issue, it comes from the configuration files.
+Check paths, URLs and ports in the `service.properties` file and check the URLs, ports and database name in the `opensilex_sql_config` file.
 
-If all your configurations files are good it can be a mistake in your database.
+If all these configuration files are correct, it probably is an error in your database.
 
 ### Errors with the web application
 
 + No home page
 
-Browser can't access to the page, it can come from right on the web application files in /var/www/html/OpenSILEX-webapp. Check rights with `ls -l` command line, and make change if something is wrong.  
-You have to all files:  
-owner: username (name of your session on the pc)  
-group: www-data (or the name of you apache user)  
-```
-sudo chown -R [username]:www-data /var/html/OpenSILEX-webapp
-```
+If your web browser can't access to the home page, it may come from the permissions on the web application files in `/var/www/html/phis-webapp`. Check the permissions with the `ls -l` command line and make changes if something is wrong. You must have all files set up as follows:
+```  
+owner: <username of your session>
+group: <www-data or the name of you apache user>
 rights: rwxrwxr-x  
 ```
-sudo chmod -R 775 /var/html/OpenSILEX-webapp
+To set the files up correctly with the right permissions, run the following commends:
+```bash
+sudo chown -R <username>:www-data /var/html/phis-webapp
+sudo chmod -R 775 /var/html/phis-webapp
 ```
-+ Can't log in
++ Cannot log in
 
-It can be a configuration file of the web application (/var/www/html/OpenSILEX-webapp/config) or a configuration file of the web service or a problem with de postgresql database.
-In your configurations file check URL and port.
-With psql check if your database isn't wrong.
+It can be
+- A problem with the configuration file of the web application (`/var/www/html/phis-webapp/config`)
+- A problem with the configuration file of the web service
+- A problem with the PostgreSQL database.
 
-+ Githun token
+In your configuration files, check the URLs and ports.
+With `psql`, check if your database isn't malfunctionning.
 
-If you get an error "GitHub API limit (60 calls/hr) is exhausted..." during composer insallation, you need to connect Github and get a Personal access tokens. See https://github.com/settings/tokens.
++ GitHub token
 
-#### Other problems concerned webapp and web service
+If you get an error `GitHub API limit (60 calls/hr) is exhausted...` during the installation of Composer, you need to connect Github and get a Personal access token (see https://github.com/settings/tokens).
 
-In lot of case problems come from configuration files verify every informations in these files.
+#### Other problems with the webapp and the web service
 
-When you modify a web service configuration you have to rebuild and redeploy war file.
-Think to remove old version in tomcat webapp folder before copy your new version.
+In lots of cases, problems come from configuration files. Check every informations in these files.
+
+When you modify a web service configuration file, you have to rebuild and redeploy the WAR file.
+Consider to remove the old version in the Tomcat webapp folder before copying the new version.
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTYzNTc4MjA2NiwtMTcyMzM0Njc1OCwtMT
 A5OTg1NTI4MiwtOTUyOTI4MTM4XX0=
