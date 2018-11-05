@@ -346,7 +346,7 @@ Get the source from GitHub, directly from the `ontology-phis-oepo-field` develop
 cd ~OpenSILEX
 git clone https://github.com/OpenSILEX/ontology-phis-oepo-field
 ```
-Preferably, get the source from the last release at [ontology-phis-oepo-field/releases](https://github.com/OpenSILEX/ontology-phis-oepo-field/releases).
+Preferably, get the source from the last release at [ontology-OpenSILEX-oepo-field/releases](https://github.com/OpenSILEX/ontology-phis-oepo-field/releases).
 
 #### Database file
 
