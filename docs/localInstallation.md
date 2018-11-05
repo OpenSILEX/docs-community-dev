@@ -396,7 +396,7 @@ Now, Click `Add` in the `Modify` submenu.
 
 Click on the button next to `RDF Data File` in order to select a RDF Data File.
 
-Selec the `oepo.owl` file got previously from GitHub in the repository `ontology-OpenSILEX-oepo-field`.
+Selec the `oepo.owl` file got previously from GitHub in the repository `ontology-phis-oepo-field`.
 
 Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
 
