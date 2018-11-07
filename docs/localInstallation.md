@@ -1,4 +1,4 @@
-PostgreSQL# OpenSILEX Deployment
+# OpenSILEX Deployment
 
 1. [Prerequisite](#prerequisite)  
   + [Software](#software)  
