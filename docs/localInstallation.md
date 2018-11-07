@@ -218,7 +218,7 @@ by:
               connectionTimeout="20000"
               redirectPort="8443" />
 ```
-You have to allow `encoded slash` in `/home/tomcat/apache-tomcat&lt;version>/conf/catalina.properties`. If you have the line `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=false`, change `false` value by `true`.  
+You have to allow `encoded slash` in `/home/tomcat/apache-tomcat<version>/conf/catalina.properties`. If you have the line `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=false`, change `false` value by `true`.  
 If you don't have this line, add `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true` at the end of file.
 
 Start the service:
