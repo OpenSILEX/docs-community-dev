@@ -1,10 +1,10 @@
 theme: jekyll-theme-cayman
 pages:
-  - Home: index.md
-  - Using git: github.md
+  - Home: index
+  - Using git: github
   - Local Installation: localInstallation.md
-  - Coding Style: codingStyle.md
-  - Functionality Validation: functionalityValidation.md
+  - Coding Style: codingStyle
+  - Functionality Validation: functionalityValidation
   - BrAPI Implementation: brapiImplementation.md
   - Webapp: webapp.md
   - Web Service: webService.md
