@@ -1,6 +1,6 @@
 theme: jekyll-theme-cayman
 pages:
-  - Home: index
+  - Home: index.md
   - Using git: github
   - Local Installation: localInstallation.md
   - Coding Style: codingStyle
