@@ -407,11 +407,11 @@ Click `Upload`.
 With the same method, add new contexts for the following ontologies :
  - **Ontology of Experimental Events**:
    - `RDF Data File` -> `oeev.rdf` available in the GitHub repository `TODO`
-   - `Data Format` -> `RDF Data File`
+   - `Data Format` -> `RDF/XML`
    - `Base URI` -> `http://www.phenome-fppn.fr/vocabulary/2018/oeev`
  - **Web Annotation Vocabulary**:
    - `RDF Data File` -> `oa.rdf` downloadable [here](http://www.w3.org/ns/oa.rdf)
-   - `Data Format` -> `RDF Data File`
+   - `Data Format` -> `RDF/XML`
    - `Base URI` -> `http://www.w3.org/ns/oa`
 
 ### PostgreSQL database
