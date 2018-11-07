@@ -6,7 +6,7 @@ PostgreSQL# OpenSILEX Deployment
       - [PostgreSQL + PostGIS](#postgresql--postgis)
       - [Netbeans + JDK](#netbeans--jdk)
       - [PHP](#php)
-      - [Apache-Tomcat + rdf4j](#apache-tomcat-rdf4j)
+      - [Apache-Tomcat + RDF4J](#apache-tomcat-rdf4j)
       - [Apache2](#apache2)
       - [Composer](#composer)
       - [Git](#git)
@@ -17,22 +17,22 @@ PostgreSQL# OpenSILEX Deployment
       - [Database and ontologies](#database-and-ontologies)
 + [Installation](#opensilex-installation)
     - [MongoDB Database](#mongodb-database)
-    - [Postgresql Database](#postgresql-database)
+    - [PostgreSQL Database](#postgresql-database)
     - [Rdf4j ontologies](#rdf4j-ontologies)
     - [Web service](#web-service)
     - [Web application](#web-application)
 + [Current errors](#current-errors)
-    - [Problems with netbeans](#problems-with-netbeans)
+    - [Problems with Netbeans](#problems-with-netbeans)
     - [Problems with Composer](#problems-with-composer)
-    - [Errors with postgresql](#errors-with-postgresql)
+    - [Errors with PostgreSQL](#errors-with-postgresql)
     - [Errors with the web service](#errors-with-the-web-service)
     - [Errors with the web application](#errors-with-the-web-application)
-    - [Other problems concerned webapp and web service](#other-problems-concerned-webapp-and-web-service)
+    - [Other problems concerning the web application and the web service](#other-problems-concerned-webapp-and-web-service)
 
 ## Introduction  
 
 This document explains you how to deploy OpenSILEX on your personnal computer.  
-In this document commands lines are for **Ubuntu 16.04**, but for the majority of them, they are compatible with all Debian distribution which have the package manager Aptitude.
+In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
 ## Prerequisite
 
@@ -163,7 +163,7 @@ sudo apt-get update
 sudo apt-get install php php-mbstring php-dom
 ```
 
-#### Apache-Tomcat + rdf4j
+#### Apache-Tomcat + RDF4J
 
 ##### Apache-Tomcat installation
 
