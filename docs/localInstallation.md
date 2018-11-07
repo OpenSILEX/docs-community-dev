@@ -337,7 +337,7 @@ Get source from GitHub, directly from the OpenSILEX-webapp development repositor
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-webapp.git
 ```
-Preferably, get the source from the last release at [OpenSILEX-webapp/releases](https://github.com/OpenSILEX/OpenSILEX-webapp/releases).
+Preferably, get the source from the last release at [phis-webapp/releases](https://github.com/OpenSILEX/phis-webapp/releases).
 
 #### Ontology files
 
