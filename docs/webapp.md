@@ -1,3 +1,7 @@
+---
+title: Webapp
+layout: webapp
+---
 # Webapp
 
 ## Form style

@@ -1,3 +1,7 @@
+---
+title: Web Service
+layout: webService
+---
 # Web Service
 
 ## Java Bean Validation (JSR 380)

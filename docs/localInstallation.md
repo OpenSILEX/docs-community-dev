@@ -1,3 +1,7 @@
+---
+title: Phis Deployment
+layout: localInstallation
+---
 # Phis Deployment
 
 1. [Prerequisite](#prerequisite)  
@@ -515,7 +519,7 @@ Specific profiles configurations are defined in a **config.properties** file whi
 
 Netbeans users: configuration files are located in **phis2ws -> other sources -> src/main/profiles -> {profile name}**.
 
-Profile could be used with the following command line (-P option): 
+Profile could be used with the following command line (-P option):
 
 ```bash
 mvn install -Ptest

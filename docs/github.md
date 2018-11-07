@@ -1,3 +1,7 @@
+---
+title: Versionning using git
+layout: github
+---
 # Versionning using git
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.

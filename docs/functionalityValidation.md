@@ -1,3 +1,7 @@
+---
+title: Functionality Validation
+layout: functionalityValidation
+---
 # Functionality Validation
 
 ## Completed task
