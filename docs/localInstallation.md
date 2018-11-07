@@ -696,34 +696,34 @@ If you have any problem, please check the following **Current errors** section.
 
 ## Current errors
 
-### Problems with netbeans
+### Problems with Netbeans
 
-+ Exit without error message when he is starting  
++ Exit without error message when starting  
 
-Some ressources are not find ou not accessible.
-Check rights on files/folders in ~/.netbeans/8.2.
-```
+Some ressources are not found or accessible.
+Check rights on files/folders in `~/.netbeans/8.2`.
+```bash
 ls -l ~/.netbeans/8.2
 ```
-To run netbeans, owner of all files/folders should be the regular pc user. You can fix it with:
-```
+To run Netbeans, the owner of all files/folders should be the your username. You can fix it with:
+```bash
 sudo chown -R <username>:<username> ~/.netbeans
 ```
-Netbeans need also regular user can read and write all files of the folder. To fix it:
-```
+Netbeans need also the user to be able to read and write all the files in the folder:
+```bash
 sudo chmod -R ug+rw ~/.netbeans
 ```
 
 + Errors concerned jdk/jre:
 
-Netbeans doesn't find jdk installation, to fix it check if you are indicate the correct jdk folder to netbeans. To do that edit file ~/netbeans-8.2/etc/netbeans.conf and adapt jdk path line 57.
-If the error persists it can be your jdk installation wasn't did correctly, uninstall jdk and use [this procedure](#jdk) to reinstall.
+Netbeans doesn't find your JDK installation. To fix it, check if you have indicated the correct JDK folder to Netbeans in the `~/netbeans-8.2/etc/netbeans.conf` file (line 57).
+If the error persists, your JDK installation may haven't been done correctly. Uninstall JDK and use [this procedure](#jdk) to reinstall.
 
-### Problems with composer
+### Problems with Composer
 
-If you are installed composer with apt from ubuntu packages, please uninstall composer (think to remove cache and configuration files in ~/.cache and /etc folders) and reinstall with [this porcedure](#composer).
+If you have installed Composer with `apt` from Ubuntu packages, please uninstall Composer (consider deleting the cache and the configuration files in the `~/.cache` and `/etc` folders) and reinstall Composer with [this porcedure](#composer).
 
-If doesn't fix the problem please check [composer troubleshooting page](#https://getcomposer.org/doc/articles/troubleshooting.md).
+If doesn't fix the problem, please check [composer troubleshooting page](#https://getcomposer.org/doc/articles/troubleshooting.md).
 
 ### Errors with PostgreSQL
 
