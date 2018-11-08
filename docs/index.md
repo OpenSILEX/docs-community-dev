@@ -10,10 +10,10 @@ More information on OpenSILEX is available at [montpellier.inra.fr](https://www6
 The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), which is developped for high-throughput plant phenotyping in close interaction to plant phenotyping communities.
 
 The main sections of the present documentation concern...
-- code versionning with git and integration workflow : [Using git](../Using-git/#versionning-using-git)
+- code versionning with git and integration workflow : [Using git](github/#versionning-using-git)
 - instruction for the installation of Phis : [Local Installation](localInstallation)
-- code style used in OpenSILEX developments : [Coding Style](../Coding-Style/#coding-style)
-- validation of development tasks : [Functionality Validation](functionalityValidation.md)
+- code style used in OpenSILEX developments : [Coding Style](codingStyle/#coding-style)
+- validation of development tasks : [Functionality Validation](functionalityValidation)
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
