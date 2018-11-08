@@ -1,3 +1,7 @@
+---
+title: OpenSILEX developpers documentation
+layout: index.md
+---
 # OpenSILEX developpers documentation
 
 ## Background
