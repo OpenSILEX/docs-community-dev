@@ -1,10 +1,4 @@
----
-title: OpenSILEX developpers documentation
-layout: index.md
----
 # OpenSILEX developpers documentation
-
-TEST: this is the index.md page
 
 ## Background
 OpenSILEX is a collaborative meta-project developped at MISTEA joint research unit (INRA - SupAgro).
