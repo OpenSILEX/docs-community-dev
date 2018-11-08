@@ -11,9 +11,9 @@ The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), w
 
 The main sections of the present documentation concern...
 - code versionning with git and integration workflow : [Using git](../Using-git/#versionning-using-git)
-- instruction for the installation of Phis : [Local Installation](../Local-Installation/phis-deployment)
+- instruction for the installation of Phis : [Local Installation](localInstallation)
 - code style used in OpenSILEX developments : [Coding Style](../Coding-Style/#coding-style)
-- validation of development tasks : [Functionality Validation](../Functionality-Validation/#functionality-validation)
+- validation of development tasks : [Functionality Validation](functionalityValidation.md)
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
