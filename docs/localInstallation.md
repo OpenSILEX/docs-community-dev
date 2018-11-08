@@ -1,6 +1,6 @@
 ---
 title: Phis Deployment
-layout: localInstallation
+layout: default
 ---
 # Phis Deployment
 
