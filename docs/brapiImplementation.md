@@ -1,6 +1,6 @@
 ---
 title: Developping a new BrAPI service
-layout: brapiImplementation
+layout: default
 ---
 # Developping a new BrAPI service
 You can see BrAPI documentation in [https://brapi.org](https://brapi.org/)

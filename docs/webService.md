@@ -1,6 +1,6 @@
 ---
 title: Web Service
-layout: webService
+layout: default
 ---
 # Web Service
 

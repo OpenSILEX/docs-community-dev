@@ -1,6 +1,6 @@
 ---
 title: Coding style
-layout: codingStyle
+layout: default
 ---
 # Coding style
 

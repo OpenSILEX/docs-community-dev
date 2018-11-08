@@ -1,6 +1,6 @@
 ---
 title: Webapp
-layout: webapp
+layout: default
 ---
 # Webapp
 

@@ -1,6 +1,6 @@
 ---
 title: Versionning using git
-layout: github
+layout: default
 ---
 # Versionning using git
 

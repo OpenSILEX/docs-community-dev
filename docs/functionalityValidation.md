@@ -1,6 +1,6 @@
 ---
 title: Functionality Validation
-layout: functionalityValidation
+layout: default
 ---
 # Functionality Validation
 
