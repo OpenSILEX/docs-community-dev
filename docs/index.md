@@ -1,6 +1,6 @@
 ---
 title: OpenSILEX developpers documentation
-layout: index.md
+layout: default
 ---
 # OpenSILEX developpers documentation
 
