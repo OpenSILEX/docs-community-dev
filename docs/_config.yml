@@ -1,4 +1,5 @@
 theme: jekyll-theme-cayman
+markdown: kramdown
 include:
   - Home: index.md
   - Using git: github.md
