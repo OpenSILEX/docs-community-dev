@@ -1,4 +1,8 @@
-PostgreSQL# OpenSILEX Deployment
+---
+title: Phis Deployment
+layout: default
+---
+# OpenSILEX Deployment
 
 1. [Prerequisite](#prerequisite)  
   + [Software](#software)  
