@@ -1,3 +1,7 @@
+---
+title: Versionning using git
+layout: default
+---
 # Versionning using git
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
@@ -14,7 +18,7 @@ Summary of this chapter's recommendations :
   3. push to your master branch the commited modifications using `git push origin master`
   4. create a pull request from your repository when it is ready to be merged to the upstream repository
 
-If the concepts of repositories and branches are confusing, go to the [Repositories and branches](../Using-git/#repositories-and-branches) section of this tutorial.
+If the concepts of repositories and branches are confusing, go to the [Repositories and branches](#repositories-and-branches) section of this tutorial.
 
 ## Requirements
 
@@ -181,7 +185,7 @@ From this directory, open a terminal (linux) or Git Bash Here (Windows), and the
 git clone <copied SSH URL>
 ```
 
-You haven't configured an SSH connexion yet ? Go to the previous [SSH connexion](../Using-git/#SSH-connexion) section.
+You haven't configured an SSH connexion yet ? Go to the previous [SSH connexion](#SSH-connexion) section.
 
 The alternative (less recommended) is using `git clone` and then HTTPS :
 
@@ -213,7 +217,7 @@ As with any git command, you can get the official documentation from the shell a
 git remote --help
 ```
 
-If you have set up a connexion to GitHub via SSH, as described in the [SSH connexion](../Using-git/#SSH-connexion) section, you might want to change your remote URLs from HTTPS to SSH, as described in the [GitHub documentation](https://help.github.com/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh) :
+If you have set up a connexion to GitHub via SSH, as described in the [SSH connexion](#SSH-connexion) section, you might want to change your remote URLs from HTTPS to SSH, as described in the [GitHub documentation](https://help.github.com/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh) :
 ```
 git remote set-url origin git@github.com:[your_username]/[repository_name].git
 git remote set-url upstream git@github.com:OpenSILEX/[repository_name].git
@@ -265,7 +269,7 @@ Getting the newest developments made on the master branch of the upstream reposi
 git pull upstream master
 ```
 
-This works only if you have previously named "upstream" the OpenSILEX repository that you have forked (instructions given in the previous [Manage remotes](../Using-git/#manage-remotes) section).
+This works only if you have previously named "upstream" the OpenSILEX repository that you have forked (instructions given in the previous [Manage remotes](#manage-remotes) section).
 
 When you use the `git pull` command, make sure that you haven't previously made any new modifications to you branch, otherwise this would be generating conflicts.
 
