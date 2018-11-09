@@ -1,3 +1,7 @@
+---
+title: Functionality Validation
+layout: default
+---
 # Functionality Validation
 
 ## Completed task

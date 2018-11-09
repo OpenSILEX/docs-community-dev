@@ -1,3 +1,7 @@
+---
+title: OpenSILEX developpers documentation
+layout: default
+---
 # OpenSILEX developpers documentation
 
 ## Background
@@ -5,11 +9,11 @@ OpenSILEX is a collaborative meta-project developped at MISTEA joint research un
 More information on OpenSILEX is available at [montpellier.inra.fr](https://www6.montpellier.inra.fr/mistea/Projets/Silex "SILEX Main Page").
 The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), which is developped for high-throughput plant phenotyping in close interaction to plant phenotyping communities.
 
-The main sections of the present documentation concern...
-- code versionning with git and integration workflow : [Using git](../Using-git/#versionning-using-git)
-- instruction for the installation of Phis : [Local Installation](../Local-Installation/phis-deployment)
-- code style used in OpenSILEX developments : [Coding Style](../Coding-Style/#coding-style)
-- validation of development tasks : [Functionality Validation](../Functionality-Validation/#functionality-validation)
+## Documentation structure
+
+| Collaborate to OpenSILEX        | Install and use Phis          |
+|:------------- |:--------------|
+| - code versionning with git and integration workflow : [Versionning using git](github)<br>- validation of development tasks : [Functionality Validation](functionalityValidation)<br>- learning the code style used in OpenSILEX developments : [Coding Style](codingStyle)<br><br>| - instructions for the deployment of Phis : [Local Installation](localInstallation)<br>- instructions for integrating BrAPI calls : [BrAPI Implementation](brapiImplementation)<br>- Specifics linked to the 4P instance : [4P](4p)<br>- contributing to the WS : [Web Service](webService)<br>- contributing to the App : [Web App](webapp) |
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
