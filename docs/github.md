@@ -1,13 +1,13 @@
 ---
-title: Versionning using git
+title: Versionning using Git
 layout: default
 ---
-# Versionning using git
+# Versionning using Git
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
 
 Summary of this chapter's recommendations :
-- you can install **git** from [https://git-scm.com/](https://git-scm.com/)
+- you can install **Git** from [https://git-scm.com/](https://git-scm.com/)
 - OpenSILEX repositories are hosted on [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/)
 - checkout [GitHub guides](https://guides.github.com) recommendations
 - create your own branch of the repository you want to contribute to
@@ -52,10 +52,9 @@ At the moment, the present documentation provides no information on how to use G
 If you are new to **Git**, you can check out this [simple Git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [Git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [Git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
-
 ### Git configuration
 
-The local configuration of git has to be done only once.
+The local configuration of Git has to be done only once.
 From a terminal (Linux terminal, Mac terminal, or Git Bash Here on Windows), you can indicate your name and your email address with the command lines (without the `<` and `>`) :
 
 ```
@@ -69,7 +68,7 @@ You can verify your configuration using :
 git config --list
 ```
 
-The complete documentation of the git config command is available on [Git official website](https://git-scm.com/docs/git-config).
+The complete documentation of the Git config command is available on [Git official website](https://git-scm.com/docs/git-config).
 
 ### Join GitHub
 
@@ -82,8 +81,7 @@ You can find more INRA recommendations regarding the use of GitHub on this [docu
 
 You can link your GitHub account to your local **Git** using a SSH key.
 
-Follow the steps GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
-
+Follow the steps in the GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
 
 This procedure generates a public key in the text file `/home/<you>/.ssh/id_rsa.pub`. Copy it.
 
@@ -107,14 +105,14 @@ Official help pages are listed in the [Connecting to GitHub with SSH](https://he
 
 ### OpenSILEX repositories
 
-Open SILEX development projects are organized in separate repositories.
-All Open SILEX repositories are listed in the [Open SILEX GitHub webpage](https://github.com/OpenSILEX/).
+OpenSILEX development projects are organized in separate repositories.
+All OpenSILEX repositories are listed in the [Open SILEX GitHub webpage](https://github.com/OpenSILEX/).
 
-The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an Open SILEX project.
+The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
 When collaborating to an other repository, just change *community-dev* displayed in the examples to the name of the repository you are interested in.
 Note that the present *community-dev* repository differs from the other repositories since it displays no code, but only a developper-orientated documentation.
 
-When joining an ongoing Open SILEX development project, there are two initial steps that need to be executed :
+When joining an ongoing OpenSILEX development project, there are two initial steps that need to be executed :
 
 1. Create your own branch(es) of the development project's repository by forking it
 2. Clone your branch(es) on your computer
@@ -166,7 +164,7 @@ From your repository's GitHub page, copy the URL of the branch you want to clone
 
 Another option is to download a compressed version of the repository using the **Download ZIP** button below, but the OpenSILEX community strongly advises otherwise.
 
-Choose a local directory on your computer where you want the git repository to be cloned.
+Choose a local directory on your computer where you want the Git repository to be cloned.
 There, you can open a terminal (linux) or Git Bash Here (Windows) and use the `git clone` command.
 From an UNIX terminal and using the SSH protocol, the command would be `git clone git@github.com:[your_username]/[repository_name].git`. Using the HTTPS protocol, the command would be `git clone https://github.com/[your_username]/[repository_name].git`.
 However, using SSH is preferable to HTTPS (in order not to have to provide your username every time you want to update your branch).
@@ -244,7 +242,7 @@ You can change the branch you are working on using `git checkout <name of the br
 
 ![git-checkout](img/git-checkout.png)
 
-Be carefull when using git checkout, since you can also create additionnal branches (not recommanded) using `git checkout -b <new_branch_name>`.
+Be carefull when using `git checkout`, since you can also create additionnal branches (not recommanded) using `git checkout -b <new_branch_name>`.
 When adding a new branch, the `git branch <new_branch_name>` is preferred.
 The difference between the two commands is that `git checkout -b <new_branch_name>` creates a new branch and then switches to the new branch, while `git branch <new_branch_name>` only creates a new branch.
 
