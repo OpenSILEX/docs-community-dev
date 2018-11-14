@@ -102,7 +102,7 @@ Run the installation program:
 
 #### Postgresql & PostGIS
 
-##### PostgreSQL Installation
+##### PostgreSQL & PostGIS installation
 
 In a terminal, run these commands:
 ```bash  
@@ -191,7 +191,7 @@ With this procedure, Tomcat is not recognized by Ubuntu services control (`syste
 
 ##### Apache-Tomcat configuration
 
-Tomcat configuration files are located in the `/home/tomcat/apache-tomcat&lt;version>/conf` folder.  
+Tomcat configuration files are located in the `/home/tomcat/apache-tomcat<version>/conf` folder.  
 To use Tomcat manager page you need to define an admin user.  
 To do that edit the `tomcat-users` file:
 ```bash
@@ -332,7 +332,7 @@ Get source from GitHub, directly from the `phis-ws` development repository:
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-ws.git
 ```
-Preferably, get the source from the last release at [opensilex-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
+Preferably, get the source from the last release at [phis-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
 
 #### Web application folder
 
@@ -723,11 +723,11 @@ sudo chmod -R ug+rw ~/.netbeans
 Netbeans doesn't find your JDK installation. To fix it, check if you have indicated the correct JDK folder to Netbeans in the `~/netbeans-8.2/etc/netbeans.conf` file (line 57).
 If the error persists, your JDK installation may haven't been done correctly. Uninstall JDK and use [this procedure](#jdk) to reinstall.
 
-### Problems with Composer
+### Issues with Composer
 
 If you have installed Composer with `apt` from Ubuntu packages, please uninstall Composer (consider deleting the cache and the configuration files in the `~/.cache` and `/etc` folders) and reinstall Composer with [this porcedure](#composer).
 
-If doesn't fix the problem, please check [composer troubleshooting page](#https://getcomposer.org/doc/articles/troubleshooting.md).
+If it doesn't fix the problem, please check the [composer troubleshooting page](https://getcomposer.org/doc/articles/troubleshooting.md).
 
 ### Errors with PostgreSQL
 
@@ -796,7 +796,7 @@ uploadFileServerPort=22
 uploadFileServerIP=127.0.0.1
 uploadFileServerUsername=<linux session username>
 uploadFileServerPassword=<linux session password>
-uploadFileServerDirectory=/home/<user>/OpenSILEws/documents/instance
+uploadFileServerDirectory=/home/<user>/opensilex-ws/documents/instance
 uploadImageServerDirectory=/var/www/html/images
 layerFileServerDirectory=/var/www/html/layers
 layerFileServerAddress=http://127.0.0.1/layers
