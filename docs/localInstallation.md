@@ -629,7 +629,7 @@ Search `phis2ws` in the list (if it isn't running, click on `Start`) and click o
 You are now on your web service! if it is correctly set up, you have 2 opperationnal links.  
 
 **Note** </br>
-You can directly go on the web service with the URL http://127.0.0.1:8080/phisws
+You can directly go on the web service with the URL http://127.0.0.1:8080/phis2ws
 
 To check if you have correctly set up your web service :
  - Click on the `Documentation link`
@@ -665,7 +665,7 @@ sudo chmod 775 -R /var/www/html/phis-webapp
 
 To deploy the web application in localhost, it isn't necessary to open it with Netbeans:
 - Edit `/var/www/html/phis-webapp/config/web_services.php`
-- Set the value of `WS_PHIS_PATH_DOC`to `http://127.0.0.1:8080/phis2ws/rest`
+- Set the value of `WS_PHIS_PATH_DOC`to `http://127.0.0.1:8080/phis2ws`
 
 #### Composer
 
