@@ -1,0 +1,15 @@
+toc:
+- title: Collaborate to OpenSILEX
+    subItems:
+      - page: Versionning using git
+        url: github
+      - page: Functionality Validation
+        url: functionalityValidation
+      - page: Coding Style
+        url: codingStyle
+  - title: Install and use Phis
+    subItems:
+      - page: Local Installation
+        url: localInstallation
+      - page: BrAPI Implementation
+        url: brapiImplementation

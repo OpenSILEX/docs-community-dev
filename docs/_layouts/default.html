@@ -35,9 +35,14 @@
     </header>
 
     <nav>
+      {% for item in site.data.menu.toc %}
+        <h3>{{ item.title }}</h3>
         <ul>
-            <li>DA FUCK</li>
+          {% for entry in item.subItems %}
+            <li><a href="{{ entry.url }}">{{ entry.page }}</a></li>
+          {% endfor %}
         </ul>
+      {% endfor %}   
     </nav>
 
     <main id="content" class="main-content" role="main">
