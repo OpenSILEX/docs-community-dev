@@ -1,7 +1,12 @@
 html,
 body {
     height: 100%;
+    width: 100%;
     text-align: justify;
+}
+
+body {
+    margin: 0 auto;
 }
 
 .navbar-default{
@@ -131,4 +136,19 @@ form div.required label.control-label:after {
 
 p > img {
 	width : 100%
-	}
+}
+
+main {
+    width: 80%;
+    height: 100%;
+    border: thin solid red;
+    box-sizing: border-box;
+}
+  
+
+nav {
+    width: 20%;
+    height: 100%;
+    border: thin solid green;
+    box-sizing: border-box;    
+}
