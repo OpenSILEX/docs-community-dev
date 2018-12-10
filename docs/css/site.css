@@ -141,6 +141,7 @@ p > img {
 main {
     width: 80%;
     height: 100%;
+    float: left;
     border: thin solid red;
     box-sizing: border-box;
 }
@@ -149,6 +150,7 @@ main {
 nav {
     width: 20%;
     height: 100%;
+    float: left;
     border: thin solid green;
     box-sizing: border-box;    
 }
