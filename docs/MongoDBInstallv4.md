@@ -1,7 +1,7 @@
 # Install MongoDB 4.0 and enable transactions features
 
 If you already have an installed version of MongoDB please follow this tutorial:
-@see (V2.7 - Upgrade MongoDB from 3.4 to 4.0)
+@see [V2.7 - Upgrade MongoDB from 3.4 to 4.0](MongoDBUpgradeTov4)
 
 ## Install MongoDB on Ubuntu or Debian
 
