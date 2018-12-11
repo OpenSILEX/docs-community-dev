@@ -23,6 +23,8 @@ Contributors to this documentation are agents of the joint research unit MISTEA 
 - Anne Tireau
 - Alice Boizet
 - Sammy Gilles
+- Vincent Migot
+- Andreas Garcia
 
 Every OpenSILEX main developper or contributor is welcomed to enrich this repository with its experience of the development of information systems (e.g. PHIS) produced within OpenSILEX.
 
