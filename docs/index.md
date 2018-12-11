@@ -13,7 +13,7 @@ The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), w
 
 | Collaborate to OpenSILEX        | Install and use Phis          |
 |:------------- |:--------------|
-| - code versionning with git and integration workflow : [Versionning using git](github)<br>- validation of development tasks : [Functionality Validation](functionalityValidation)<br>- learning the code style used in OpenSILEX developments : [Coding Style](codingStyle)<br><br>| - instructions for the deployment of Phis : [Local Installation](localInstallation)<br>- instructions for integrating BrAPI calls : [BrAPI Implementation](brapiImplementation)<br>- Specifics linked to the 4P instance : [4P](4p)<br>- contributing to the WS : [Web Service](webService)<br>- contributing to the App : [Web App](webapp) |
+| - code versionning with git and integration workflow : [Versionning using git](github)<br>- validation of development tasks : [Functionality Validation](functionalityValidation)<br>- learning the code style used in OpenSILEX developments : [Coding Style](codingStyle)<br><br>| - instructions for the deployment of Phis : [Local Installation](localInstallation)<br>- instructions for integrating BrAPI calls : [BrAPI Implementation](brapiImplementation)<br>- contributing to the WS : [Web Service](webService)<br>- contributing to the App : [Web App](webapp) |
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
@@ -23,6 +23,8 @@ Contributors to this documentation are agents of the joint research unit MISTEA 
 - Anne Tireau
 - Alice Boizet
 - Sammy Gilles
+- Vincent Migot
+- Andreas Garcia
 
 Every OpenSILEX main developper or contributor is welcomed to enrich this repository with its experience of the development of information systems (e.g. PHIS) produced within OpenSILEX.
 
@@ -32,4 +34,4 @@ If an user of OpenSILEX developments wish to point out a flaw in this documentat
 Concerning issues with developments of OpenSILEX, users are invited to report them via another channel, which has not been set up to this day.
 
 ## Version
-&copy; INRA MISTEA 2014-2018 (SILEX-PHIS v.2.5 - August 24th 2018)
+&copy; OpenSILEX - PHIS v.2.6 - 20 September 2018 ; Software is licensed under AGPL-3.0 and data under CC BY-NC-SA 4.0
