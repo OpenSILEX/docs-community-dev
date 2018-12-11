@@ -7,8 +7,8 @@ This repository contains OpenSILEX developpers documentation.
 OpenSILEX is collaborative meta-project developped at MISTEA joint research unit (INRA - SupAgro).
 More information on OpenSILEX is available at [SILEX web page](https://www6.montpellier.inra.fr/mistea_eng/Projects/Silex "SILEX web page on INRA-MISTEA website").
 
-## Roadmap
-Next releases of Phis (nov. 2018) will display :
+## New feature
+Phis release 2.6 added new features :
 - environmental characterization
 - association between sensors and environmental variables
 - radiometric targets associated to UAVs
@@ -27,8 +27,10 @@ Contributors to this documentation are agents of the joint research unit MISTEA 
 - Morgane Vidal
 - Pierre-Etienne Alary
 - Sammy Gilles
+- Vincent Migot
+- Andreas Garcia
 
 Every OpenSILEX main developper or contributor is welcomed to enrich this repository with its experience of the development of information systems (e.g. PHIS) produced within OpenSILEX.
 
 ## Version
-&copy; INRA MISTEA 2014-2018 (SILEX-PHIS v.2.5 - August 24th 2018)
+&copy; OpenSILEX - PHIS v.2.6 - 20 September 2018 ; Software is licensed under AGPL-3.0 and data under CC BY-NC-SA 4.0
