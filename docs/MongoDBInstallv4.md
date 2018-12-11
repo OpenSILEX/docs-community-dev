@@ -5,9 +5,8 @@ If you already have an installed version of MongoDB please follow this tutorial:
 
 ## Install MongoDB on Ubuntu or Debian
 
-You can find install process for other Linux distribution on https://docs.mongodb.com/manual/administration/install-on-linux/
+You can find install process for other Linux distribution on [Install on linux](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
-@see https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
 ### 1. Register MongoDB 4.0 public GPG Key
 
@@ -19,8 +18,8 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD7
 
 This command line is specific to Debian 9, to get the right one for your distribution:
 
-- For Ubuntu (14.04, 16.04 or 18.04), go to https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
-- For Debian (8 "Jessie" or 9 "Stretch"), go to https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
+- For Ubuntu (14.04, 16.04 or 18.04), go to [Install on Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+- For Debian (8 "Jessie" or 9 "Stretch"), go to [Install on Debian](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/)
 
 ```
 echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
@@ -76,8 +75,8 @@ To permanently disable this reminder, run the following command: db.disableFreeM
 ## Enable transaction features
 
 This is achieved by creating a replica set
-@see https://docs.mongodb.com/manual/core/transactions/#transactions-and-replica-sets
-@see https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/
+- [Transactions and replica sets](https://docs.mongodb.com/manual/core/transactions/#transactions-and-replica-sets)
+- [Convert standalone to replica set](https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/)
 
 ### 1. Edit your config file
 
