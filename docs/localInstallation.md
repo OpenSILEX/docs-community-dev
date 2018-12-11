@@ -355,7 +355,7 @@ Preferably, get the source from the last release at [ontology-phis-oepo-field/re
 
 #### Database file
 
-Download the database dump file [phis_st_dump.sql](phis_st_dump.sql).
+Download the database dump file [phis_st_dump.sql](assets/phis_st_dump.sql).
 
 
 ## Phis Installation
@@ -409,7 +409,7 @@ Clic **Upload**
 
 
 Add also a new context for the ontology annotation
-Add [oa.rdf](oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
+Add [oa.rdf](assets/oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
 
 
 
@@ -435,7 +435,7 @@ Add [oa.rdf](oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
   CREATE DATABASE diaphen OWNER phis;
   \q
   exit
-  psql -U phis diaphen #connection like phis user on the dipahen database
+  psql -U phis diaphen #connection like phis user on the diaphen database
   CREATE EXTENSION postgis;
   select postgis_full_version();
   \q
@@ -446,7 +446,7 @@ Importing data with:
 ```bash
   psql -U phis diaphen < ~/Phis/phis_st_dump.sql
 ```
-You can find [dump file](phis_st_dump.sql).
+You can find [dump file](assets/phis_st_dump.sql).
 
 With specific access rights you can get a dump from demonstration version.
 ```bash
