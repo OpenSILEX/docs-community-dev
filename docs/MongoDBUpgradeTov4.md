@@ -1,7 +1,7 @@
 # Upgrade MongoDB from 3.4 to 4.0 and enable transactions features
 
 If you don't have any previous installation of MongoDB, please follow this tutorial:
-@see [Install MongoDB 4.0](MongoDBInstallv4)
+[Install MongoDB 4.0](MongoDBInstallv4)
 
 ## Dump your database
 
