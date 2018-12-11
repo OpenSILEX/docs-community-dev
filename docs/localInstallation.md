@@ -46,9 +46,12 @@ In this document commands lines are for **Ubuntu 16.04**, but for the majority o
 ##### MongoDB
 All information you need to install mongodb correctly are on  [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
-In case of a new installation, please follow this link: [Install MongoDB 4.0](MongoDBInstallv4)
+The next release (v2.7) will require at least MongoDB v4.0, which can already be used for the current release (v2.6), the following links detail how to install or upgrade MongoDB for Ubuntu and Debian system:
 
-In case of an upgrade of a previously installed MongoDB version, please follow this link: [V2.7 - Upgrade MongoDB from 3.4 to 4.0](MongoDBUpgradeTov4)
+- In case of a new installation, please follow: [V2.7 - Install MongoDB 4.0](./MongoDBInstallv4.md)
+
+- In case of an upgrade of a previously installed MongoDB version, please follow: [V2.7 - Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
+
 Now you have a Mongodb service.
 
 You can change path to database in the **/etc/mongod.conf** file. But your location need to exist before starting mongodb service and you have to attribute correct rights on this folder:
