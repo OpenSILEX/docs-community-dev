@@ -20,3 +20,15 @@ toc:
       - 
         page: BrAPI Implementation
         url: brapiImplementation
+      - 
+        page: Contributing to the Webservice
+        url: webService
+      - 
+        page: Contributing to the Web app
+        url: webapp   
+  - 
+    title: Specific installations
+    subItems:         
+        - 
+          page: INRA Avignon - 4P
+          url: 4p              

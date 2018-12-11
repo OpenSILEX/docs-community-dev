@@ -6,11 +6,11 @@ layout: default
 
 1. [Prerequisite](#prerequisite)  
   + [Software](#software)  
-      - [Mongodb + robo3t](#mongodb-robo3t)
-      - [Postgresql + postgis](#postgresql-postgis)
-      - [Netbeans + jdk](#netbeans-jdk)
+      - [MongoDB and Robo3t](#mongodb-and-robo3t)
+      - [Postgresql and Postgis](#postgresql-and-postgis)
+      - [Netbeans and JDK](#netbeans-and-jdk)
       - [Php](#php)
-      - [Apache-tomcat + rdf4j](#apache-tomcat-rdf4j)
+      - [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
       - [Apache2](#apache2)
       - [Composer](#composer)
       - [Git](#git)
@@ -41,9 +41,9 @@ In this document commands lines are for **Ubuntu 16.04**, but for the majority o
 
 ### Software
 
-#### Mongodb + robo3t
+#### MongoDB and Robo3t
 
-##### Mongodb
+##### MongoDB
 All information you need to install mongodb correctly are on  [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
 Now you have a Mongodb service.
@@ -111,8 +111,7 @@ Restart service:
   sudo systemctl restart postgresql
 ```
 
-
-#### Netbeans + jdk
+#### Netbeans and JDK
 
 
 ##### Jdk
@@ -153,10 +152,10 @@ Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate
 ```
 
 
-#### Apache-Tomcat + rdf4j
+#### Apache Tomcat and RDF4J
 
 
-##### Apache-Tomcat installation
+##### Apache Tomcat installation
 
 To have a better control on the installation of Tomcat you will install tomcat from sources files (e.g. tar.gz archive).  
 
@@ -177,7 +176,7 @@ and extract archive in this folder:
 With this procedure, Tomcat is not recognized by Ubuntu services control (systemctl or services). So you need to execute scripts which are in Tomcat **bin** folder (ex: **startup.sh** to run and **shutdown.sh** to stop). You also need to change rights on files.
 
 
-##### Apache-Tomcat configuration
+##### Apache Tomcat configuration
 Tomcat configuration files are located in the **/home/tomcat/apache-tomcat/conf** folder.  
 To use Tomcat manager page you need to define an admin user.  
 To do that edit the **tomcat-users** file:
@@ -218,7 +217,7 @@ Start the service:
 ```
 
 
-##### Rdf4j
+##### RDF4J
 
 Download archive zip file [rdf4j.org](http://rdf4j.org/download/).
 Extract, for example:
@@ -412,8 +411,7 @@ Add also a new context for the ontology annotation
 Add [oa.rdf](assets/oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
 
 
-
-### Postgresql database
+### Postgresql and Postgis
 
 
 #### Creating phis users
