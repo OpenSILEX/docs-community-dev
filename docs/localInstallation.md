@@ -34,7 +34,7 @@ layout: default
     - [Other problems concerned webapp and web service](#other-problems-concerned-webapp-and-web-service)
 
 ## Introduction  
-This document explains you how to deploy OpenSILEX on your personnal computer.  
+This document explains you how to deploy Phis on your personnal computer.  
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
 ## Prerequisite
@@ -62,7 +62,7 @@ after
   processManagement:*
 ```
 (In classical case newline should be line 29)  
-This line is not an obligation, in default mode mongodb runs as fork (i.e. as a deamon) but is advised to force it by *fork: true* and avoid problems.
+This line is not mandatory, in default mode mongodb runs as fork (i.e. as a deamon) but it is advised to force it by *fork: true* and avoid problems.
 
 Every time you change **mongod.conf** file, you need restart mongod service.
 ```
@@ -157,7 +157,7 @@ Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate
 
 ##### Apache Tomcat installation
 
-To have a better control over the installation of Tomcat you will install tomcat from sources files (e.g. tar.gz archive).  
+To have a better control over the installation of Tomcat you will install Tomcat from sources files (e.g. tar.gz archive).  
 
 You can download Tomcat9.0 archive, core distribution, [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
 
@@ -383,7 +383,7 @@ Now, you can close robo3t.
 ### Rdf4j ontologies
 
 Go to http://localhost:8080/
-You are in tomcat server home page, click on **manager app**, connect with tomcat-admin user.  
+You are in Tomcat server home page, click on **manager app**, connect with tomcat-admin user.  
 Search **rdf4j-workbench** in the list, if it isn't in the list,deploy it, and click on the name **rdf4j-workbench**.  
 Click **New repository** and complete as in the picture:
 ![rdf4j-nr1](img/rdf4j-nr1.png)
@@ -404,7 +404,7 @@ Add it in the context   **<http://www.phenome-fppn.fr/vocabulary/2017>** with ba
 
 In **RDFData format** select **RDF/XML**.
 
-Clic **Upload**  
+Click **Upload**  
 
 
 Add also a new context for the ontology annotation
@@ -438,7 +438,7 @@ Add [oa.rdf](assets/oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
   select postgis_full_version();
   \q
 ```
-If you have error connecting to the user phis (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
+If you have an error connecting to the user phis (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
 
 #### Initialising Database
 Importing data with:
@@ -586,7 +586,7 @@ ws.layers.url=http://127.0.0.1/layers
 
 When all configuration files are correct you can generate the war file.  
 To do that, in netbeans:  
-**clic right on project -> build with depedencies**
+**click right on project -> build with depedencies**
 Your war is generated in **~/Phis/phis-ws/target**
 
 
@@ -605,7 +605,7 @@ Go to http://127.0.0.1:8080/
 
 _It is necessary you don't use localhost._  
 You are in Tomcat server home page, click on **manager app**, connect with Tomcat user.  
-Search **phis2ws** in the list, if it isn't in the list, deploy it, then clic on the name **phis2ws**.  
+Search **phis2ws** in the list, if it isn't in the list, deploy it, then click on the name **phis2ws**.  
 You are on your service web, if it is correctly configurated you have 2 opperationnal links.  
 
 _You can go directly with http://127.0.0.1:8080/phis2ws __
@@ -763,7 +763,7 @@ sudo systemctl restart postgresql
 + Errors with generation of war file  
 
 In netbeans:
-Clic right on project name -> resolve problems
+Click right on project name -> resolve problems
 If it detects plugins problems I recommand you to fix them yourself with tool menu -> plugins.
 If it another problem you can try fix him with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find it or close project and reopen or remove all phis web service files and download again.
 
