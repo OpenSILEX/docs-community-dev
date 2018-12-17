@@ -697,7 +697,7 @@ If you have problems search on **Current errors** section.
 
 + Exit without error message when he is starting  
 
-Some ressources are not found ou not accessible.
+Some ressources are not found or not accessible.
 Check rights on files/folders in ~/.netbeans/8.2.
 ```
 ls -l ~/.netbeans/8.2
@@ -765,7 +765,7 @@ sudo systemctl restart postgresql
 In netbeans:
 Click right on project name -> resolve problems
 If it detects plugins problems I recommand you to fix them yourself with tool menu -> plugins.
-If it another problem you can try fix him with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find it or close project and reopen or remove all phis web service files and download again.
+If you still have problems you can try fix them with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find it or close project and reopen or remove all phis web service files and download again.
 
 + Not ressources / 404 or other problems with web service
 
@@ -817,7 +817,7 @@ If all your configurations files are good it can be a mistake in your database.
 + No home page
 
 Browser can't access to the page, it can come from right on the web application files in /var/www/html/phis-webapp. Check rights with `ls -l` command line, and make change if something is wrong.  
-Each files have:  
+Each file has:  
 owner: username (name of your session on the pc)  
 group: www-data (or the name of you apache user)  
 ```
@@ -841,7 +841,7 @@ If you get an error "GitHub API limit (60 calls/hr) is exhausted..." during comp
 
 #### Other problems concerning the webapp and the web service
 
-In most case problems come from configuration files, verify every informations in these files.
+In most cases problems come from configuration files, verify every informations in these files.
 
 When you modify a web service configuration you have to rebuild and redeploy war file.
 Think to remove old version in tomcat webapp folder before copy your new version.
