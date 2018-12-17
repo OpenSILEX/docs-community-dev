@@ -34,8 +34,8 @@ layout: default
     - [Other problems concerned webapp and web service](#other-problems-concerned-webapp-and-web-service)
 
 ## Introduction  
-This document explains you how to deploy PHIS on your personnal computer.  
-In this document commands lines are for **Ubuntu 16.04**, but for the majority of them, they are compatible with all Debian distribution which have the package manager Aptitude.
+This document explains you how to deploy Phis on your personnal computer.  
+In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
 ## Prerequisite
 
@@ -44,7 +44,7 @@ In this document commands lines are for **Ubuntu 16.04**, but for the majority o
 #### MongoDB and Robo3t
 
 ##### MongoDB
-All information you need to install mongodb correctly are on  [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
+All the information needed to install MongoDB is available at [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
 Now you have a Mongodb service.
 
@@ -62,7 +62,7 @@ after
   processManagement:*
 ```
 (In classical case newline should be line 29)  
-This line is not an obligation, in default mode mongodb runs as fork (i.e. as a deamon) but I prefer force it by *fork: true* for no doubt.
+This line is not mandatory, in default mode mongodb runs as fork (i.e. as a deamon) but it is advised to force it by *fork: true* and avoid problems.
 
 Every time you change **mongod.conf** file, you need restart mongod service.
 ```
@@ -92,7 +92,7 @@ Now to run robo3t do:
 #### Postgresql + postgis
 
 ##### Postgresql Installation
-Open a shell and tape:
+Open a terminal and run:
 ```
  sudo apt-get update
  sudo apt-get install postgresql
@@ -115,7 +115,7 @@ Restart service:
 
 
 ##### Jdk
-In first install jdk where you want but you need to keep in mind its location.  
+Install jdk where you want but you need to keep in mind its location.  
 If jdk is already installed you can go to the next section, [Netbeans](#netbeans).
 
 Download the jdk 8 sources (e.g. tar.gz archive) [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).  
@@ -157,7 +157,7 @@ Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate
 
 ##### Apache Tomcat installation
 
-To have a better control on the installation of Tomcat you will install tomcat from sources files (e.g. tar.gz archive).  
+To have a better control over the installation of Tomcat you will install Tomcat from sources files (e.g. tar.gz archive).  
 
 You can download Tomcat9.0 archive, core distribution, [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
 
@@ -202,7 +202,7 @@ and change:
               redirectPort="8443" />
 ```
 
-to:
+by:
 ```XML
 <Connector port="8080" protocol="HTTP/1.1"
               connectionTimeout="20000"
@@ -288,14 +288,14 @@ Go to the [Using git](github.md) section of this documentation to check how Open
 
 For a good start you shall check  the configuration of apache2, tomcat and postgresql servers.
 
-To do a quickly check tape following commands lines:
+To do a quickly check, run the following commands lines:
 ```bash
   sudo systemctl start apache2
   sudo systemctl start postgresql
   /home/tomcat/apache-tomcat/bin/startup
   nmap 127.0.0.1
 ```
-If nmap is not installed on your PC, you do not install it because it is only used for checking ports.
+If nmap is not installed on your PC, don't install it because it is only used for checking ports.
 
 The answer should be:
 ```
@@ -322,7 +322,7 @@ N.B.: If you didn't install programs exactly like in this document, it is possib
 
 
 ### Files
-I recommand you to create a folder where you will download all required files.
+I recommand you to create a folder where you will download all the required files.
 ```bash
   mkdir ~/Phis
 ```
@@ -372,10 +372,10 @@ Run robot3t:
 ```
 Create a connexion:
 ![robo3t-connexion1](img/robo3t-connexion1.png)
-Configure your connexion:
+Configure your connection:
 ![robo3t-connexion2](img/robo3t-connexion2.png)
 Create your database:
-clic right on connection name -> create a database -> enter a name (in this document it will be "diaphen")
+Right click on connection name -> create a database -> enter a name (in this document it will be "diaphen")
 Now, you can close robo3t.
 
 
@@ -383,28 +383,28 @@ Now, you can close robo3t.
 ### Rdf4j ontologies
 
 Go to http://localhost:8080/
-You are in tomcat server home page, clic on **manager app**, connect with tomcat user.  
-Search **rdf4j-workbench** in the list, if isn't run clic start, and clic on the name **rdf4j-workbench**.  
-Clic **New repository** and complete as in the picture:
+You are in Tomcat server home page, click on **manager app**, connect with tomcat-admin user.  
+Search **rdf4j-workbench** in the list, if it isn't in the list,deploy it, and click on the name **rdf4j-workbench**.  
+Click **New repository** and complete as in the picture:
 ![rdf4j-nr1](img/rdf4j-nr1.png)
-Clic **next**, check if all is as on this second picture:
+Click **next**, check if all is as on this second picture:
 ![rdf4j-nr2](img/rdf4j-nr2.png)
-Clic **create**.  
+Click **create**.  
 
 You will do these steps many times :  
 
-Now, clic **Add** in *Modify* menu.  
+Now, click **Add** in *Modify* menu.  
 
 ![rdf4j-add](img/rdf4j-add.png)
 
 
-Clic **Parcourir...** selection **oepo.owl** file get previously from GitHub repository **ontology-phis-oepo-field**
+Click **Parcourir...** selection **oepo.owl** file get previously from GitHub repository **ontology-phis-oepo-field**
 
 Add it in the context   **<http://www.phenome-fppn.fr/vocabulary/2017>** with base URI and context fields.
 
 In **RDFData format** select **RDF/XML**.
 
-Clic **Upload**  
+Click **Upload**  
 
 
 Add also a new context for the ontology annotation
@@ -438,6 +438,7 @@ Add [oa.rdf](assets/oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
   select postgis_full_version();
   \q
 ```
+If you have an error connecting to the user phis (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
 
 #### Initialising Database
 Importing data with:
@@ -496,9 +497,9 @@ Run netbeans:
 ```
 Netbeans frequently meets error when he starts. If you have an error please go to the [current error](#problems-with-netbeans) section.
 
-When netbeans started, open phis2ws project. He is located in /home/Phis/phis-ws/.
+When netbeans starts, open phis2ws project. It is located in ~/Phis/phis-ws/.
 
-If problems are detected in the project: clic right on the project name -> resolve problems -> resolve.  
+If problems are detected in the project: right click on the project name -> resolve problems -> resolve.  
 If problems can't be resolved like that please go to the [current error](#errors-with-the-web-service) section.
 
 
@@ -506,7 +507,7 @@ If problems can't be resolved like that please go to the [current error](#errors
 
 You don't need to edit your configuration files specifically with netbeans, you can use a classical text editor (nano, vim, gedit...) to edit them.
 
-Maven profiles are used to generate war file with different configurations
+Maven profiles are used to generate war files with different configurations.
 
 Three profiles exists by default:
 - **dev** (default): Profile used for local developpement with default values
@@ -515,7 +516,7 @@ Three profiles exists by default:
 
 Specific profiles configurations are defined in a **config.properties** file which is located in folder **phis2-ws/src/main/{profile name}/**
 
-Netbeans users: configuration files are located in **phis2ws -> other sources -> src/main/profiles -> {profile name}**.
+Netbeans users: configuration files are located in `~/Phis/phis-ws/phis2-ws/src/main/profiles {profile name}`.
 
 Profile could be used with the following command line (-P option):
 
@@ -523,12 +524,12 @@ Profile could be used with the following command line (-P option):
 mvn install -Ptest
 ```
 
-With no -P option dev profile is used.
+Without -P option dev profile is used.
 
 _Informations:  
 If you use netbeans to deploy war file in tomcat server, default port is 8084 but in this document we choose to deploy ourselves war file so the port need to be tomcat service port (8080).  
-The choice of deploy ourselves is justificated by the universality of the procedure. Netbeans is heavy and some pc can have difficulty to run netbeans and other softwares in same time.  
-If you can use netbeans you have advantage to can modify files and deploy more quickly._
+The choice of deploying ourselves is justified by the universality of the procedure. Netbeans is heavy and some pc can have difficulty to run netbeans and other softwares at the same time.  
+If you can use netbeans you have the advantage to modify files and deploy them faster._
 
 _Attention:
 Every time you use localhost address you need use ip address 127.0.0.1 and not the name localhost_
@@ -583,9 +584,9 @@ ws.layers.url=http://127.0.0.1/layers
 
 #### Generate war file
 
-When all configuration files are correctly change you can generate the war file.  
+When all configuration files are correct you can generate the war file.  
 To do that, in netbeans:  
-**clic right on project -> build with depedencies**
+**click right on project -> build with depedencies**
 Your war is generated in **~/Phis/phis-ws/target**
 
 
@@ -593,7 +594,7 @@ Your war is generated in **~/Phis/phis-ws/target**
 
 Copy the war archive in tomcat webapps folder:
 ```bash
-  cp /home/Phis/phis-ws/target/phis2ws.war /home/tomcat/apache-tomcat/webapps/phis2ws.war
+  cp ~/Phis/phis-ws/target/phis2ws.war /home/tomcat/apache-tomcat/webapps/phis2ws.war
 ```
 
 
@@ -603,15 +604,15 @@ Your webservice is directly deployed. You can check that:
 Go to http://127.0.0.1:8080/  
 
 _It is necessary you don't use localhost._  
-You are in Tomcat server home page, clic on **manager app**, connect with Tomcat user.  
-Search **phis2ws** in the list, if isn't run clic start, and clic on the name **phis2ws**.  
-You are on your service web, if it correctly configurate you have 2 opperationnal link.  
+You are in Tomcat server home page, click on **manager app**, connect with Tomcat user.  
+Search **phis2ws** in the list, if it isn't in the list, deploy it, then click on the name **phis2ws**.  
+You are on your service web, if it is correctly configurated you have 2 opperationnal links.  
 
 _You can go directly with http://127.0.0.1:8080/phis2ws __
 
-To check you are correctly configurate your web service:
+To check you are correctly configurating your web service:
 Go to **Documentation link**, try **brapiv1token**:
-post -> clic on example -> try it out  
+post -> click on example -> try it out  
 If you haven't:
 ```
 Response Code
@@ -628,7 +629,7 @@ please go to [current error](#errors-with-th-web-service) section.
 #### Folder
 
 
-The web application deployment is did by apache2. You have to copy webapp folder in apache root folder in our case /var/www/html.
+The web application deployment is done by apache2. You have to copy webapp folder in apache root folder. In our case /var/www/html.
 ```
   sudo cp -r ~/Phis/phis-webapp /var/www/html
 ```
@@ -644,7 +645,7 @@ www-data is the default apache2 username. But in rare case it can be a different
 #### Configuration
 
 
-To deploy in localhost it isn't necessary to open webapp with netbeans , you only need adapt configuration files so you can use classical editor.  
+To deploy in localhost it isn't necessary to open webapp with netbeans, you only need to adapt configuration files so you can use classical editor.  
 Netbeans users:  
 Open the webapp folder with netbeans, like a php project.
 
@@ -658,18 +659,18 @@ Edit:
 Adapt the last line with the correct URL in our case is:
 **http://127.0.0.1:8080/phis2ws/rest**
 
-If you are all exactly doing like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
+If you are doing exactly like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
 
 
 
 #### Composer
 
-Got to your webapp folder and applicate **composer update**:
+Go to your webapp folder and applicate **composer update**:
 ```
   cd /var/www/html/phis-webapp
   sudo composer update
 ```
-It can be so longer, and perhaps you will need install some php-smth packages:  
+It can be very long, and perhaps you will need install some php-smth packages:  
 ```
   sudo apt-get install php-smth1 php-smth2
 ```
@@ -696,7 +697,7 @@ If you have problems search on **Current errors** section.
 
 + Exit without error message when he is starting  
 
-Some ressources are not find ou not accessible.
+Some ressources are not found or not accessible.
 Check rights on files/folders in ~/.netbeans/8.2.
 ```
 ls -l ~/.netbeans/8.2
@@ -712,15 +713,15 @@ sudo chmod -R ug+rw ~/.netbeans
 
 + Errors concerned jdk/jre:
 
-Netbeans doesn't find jdk installation, to fix it check if you are indicate the correct jdk folder to netbeans. To do that edit file ~/netbeans-8.2/etc/netbeans.conf and adapt jdk path line 57.
-If the error persists it can be your jdk installation wasn't did correctly, uninstall jdk and use [this procedure](#jdk) to reinstall.
+Netbeans doesn't find jdk installation, to fix it check if you indicate the correct jdk folder to netbeans. To do that edit file ~/netbeans-8.2/etc/netbeans.conf and adapt jdk path line 57.
+If the error persists it can be your jdk installation wasn't done correctly, uninstall jdk and use [this procedure](#jdk) to reinstall.
 
 
 ### Problems with composer
 
-If you are installed composer with apt from ubuntu packages, please uninstall composer (think to remove cache and configuration files in ~/.cache and /etc folders) and reinstall with [this porcedure](#composer).
+If you installed composer with apt from ubuntu packages, please uninstall composer (think to remove cache and configuration files in ~/.cache and /etc folders) and reinstall with [this porcedure](#composer).
 
-If doesn't fix the problem please check [composer troubleshooting page](#https://getcomposer.org/doc/articles/troubleshooting.md).
+If it doesn't fix the problem please check [composer troubleshooting page](#https://getcomposer.org/doc/articles/troubleshooting.md).
 
 
 ### Errors with postgresql
@@ -762,13 +763,13 @@ sudo systemctl restart postgresql
 + Errors with generation of war file  
 
 In netbeans:
-Clic right on project name -> resolve problems
+Click right on project name -> resolve problems
 If it detects plugins problems I recommand you to fix them yourself with tool menu -> plugins.
-If it another problem you can try fix him with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find her or close project and reopen or remove all phis web service files and redownload.
+If you still have problems you can try fix them with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find it or close project and reopen or remove all phis web service files and download again.
 
 + Not ressources / 404 or other problems with web service
 
-Recheck path and port in web service file services.properties. If all was do exactly like this:
+Recheck path and port in web service file services.properties. If every lines are exactly like this:
 ```
 [...]
 logDirectory=/home/tomcat/phis2ws/logs
@@ -805,7 +806,7 @@ If it isn't running, restart the service:
 ```
 sudo systemctl restart postgresql
 ```
-If the service running but you have a problem it comes from the configurations files, verify paths, URL and port in service.properties file and URL, port and database name in phis_sql_config file.
+If the service is running but you have a problem it comes from the configurations files, verify paths, URL and port in service.properties file and URL, port and database name in phis_sql_config file.
 
 If all your configurations files are good it can be a mistake in your database.
 
@@ -816,7 +817,7 @@ If all your configurations files are good it can be a mistake in your database.
 + No home page
 
 Browser can't access to the page, it can come from right on the web application files in /var/www/html/phis-webapp. Check rights with `ls -l` command line, and make change if something is wrong.  
-You have to all files:  
+Each file has:  
 owner: username (name of your session on the pc)  
 group: www-data (or the name of you apache user)  
 ```
@@ -832,15 +833,15 @@ It can be a configuration file of the web application (/var/www/html/phis-webapp
 In your configurations file check URL and port.
 With psql check if your database isn't wrong.
 
-+ Githun token
++ Github token
 
 If you get an error "GitHub API limit (60 calls/hr) is exhausted..." during composer insallation, you need to connect Github and get a Personal access tokens. See https://github.com/settings/tokens.
 
 
 
-#### Other problems concerned webapp and web service
+#### Other problems concerning the webapp and the web service
 
-In lot of case problems come from configuration files verify every informations in these files.
+In most cases problems come from configuration files, verify every informations in these files.
 
 When you modify a web service configuration you have to rebuild and redeploy war file.
 Think to remove old version in tomcat webapp folder before copy your new version.
