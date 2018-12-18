@@ -27,14 +27,13 @@ To manipulate a resource (instance or concept), we extends the RdfResourceDefini
 
 ![rdf-resource-definition-model](img/rdfResourceDefinition.png)
 
-### Property DAO
-To manipulate the properties extracted from a semantic triplestore, we use the PropertyDAOSesame class.
-
 ### Rdf Resource Definiton DTO
 A few services returns more or less the same rdf resource definition JSON format. We have created a few DTO which are extended. In the following example, the RadiometricTargetDTO extends the RdfResourceDefinitionDTO and the RadiometricTargetPostDTO extends the RdfResourceDefinitionPostDTO. We have created a specific package which will contain all the DTO of the radiometric targets.
 
 ![rdf-resource-definition-dto](img/rdfResourceDefinitionDTO.png)
 
+### Property DAO
+To manipulate the properties extracted from a semantic triplestore, we use the PropertyDAOSesame class.
 
 
 ## Java Bean Validation (JSR 380)
