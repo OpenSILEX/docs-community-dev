@@ -288,11 +288,11 @@ Go to the [Using git](github.md) section of this documentation to check how Open
 
 For a good start you shall check  the configuration of apache2, tomcat and postgresql servers.
 
-To do a quickly check, run the following commands lines:
+To do a rapid check, run the following commands lines:
 ```bash
   sudo systemctl start apache2
   sudo systemctl start postgresql
-  /home/tomcat/apache-tomcat/bin/startup
+  /home/tomcat/apache-tomcat/bin/startup.sh
   nmap 127.0.0.1
 ```
 If nmap is not installed on your PC, don't install it because it is only used for checking ports.
@@ -528,7 +528,7 @@ Without -P option dev profile is used.
 
 _Informations:  
 If you use netbeans to deploy war file in tomcat server, default port is 8084 but in this document we choose to deploy ourselves war file so the port need to be tomcat service port (8080).  
-The choice of deploying ourselves is justified by the universality of the procedure. Netbeans is heavy and some pc can have difficulty to run netbeans and other softwares at the same time.  
+The choice of deploying ourselves is justified by the universality of the procedure. Netbeans is heavy and some computer can have hard time running netbeans and other softwares at the same time.  
 If you can use netbeans you have the advantage to modify files and deploy them faster._
 
 _Attention:
@@ -604,7 +604,7 @@ Your webservice is directly deployed. You can check that:
 Go to http://127.0.0.1:8080/  
 
 _It is necessary you don't use localhost._  
-You are in Tomcat server home page, click on **manager app**, connect with Tomcat user.  
+You are in Tomcat server home page, click on **manager app**, connect with *tomcat-admin* user.  
 Search **phis2ws** in the list, if it isn't in the list, deploy it, then click on the name **phis2ws**.  
 You are on your service web, if it is correctly configurated you have 2 opperationnal links.  
 
@@ -655,8 +655,8 @@ Other users:
 Configuration files are in: **/var/www/html/phis-webapp/config**   
 
 Edit:
-  - *webservices.php*  
-Adapt the last lines with the correct URL in our case is:
+  - *web_services.php*  
+Adapt the last lines with the correct URL in our case is:  
 **define('WS_PHIS_PATH', 'http://localhost:8080/phis2ws/rest/');**
 **define('WS_PHIS_PATH_DOC', 'http://localhost:8080/phis2ws');**
 
@@ -687,6 +687,7 @@ Maybe you need to change some owner and rights properties of new files. So, you 
 
 So now, normally you have a operationnal phis application on your localhost.
 Go to **http://127.0.0.1:80/phis-webapp** and test with log in.
+You need to start `apache-tomcat` in order to deploy the service.
 
 If you have problems search on **Current errors** section.
 
