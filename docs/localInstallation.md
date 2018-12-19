@@ -656,8 +656,9 @@ Configuration files are in: **/var/www/html/phis-webapp/config**
 
 Edit:
   - *webservices.php*  
-Adapt the last line with the correct URL in our case is:
-**http://127.0.0.1:8080/phis2ws/rest**
+Adapt the last lines with the correct URL in our case is:
+**define('WS_PHIS_PATH', 'http://localhost:8080/phis2ws/rest/');**
+**define('WS_PHIS_PATH_DOC', 'http://localhost:8080/phis2ws');**
 
 If you are doing exactly like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
 
