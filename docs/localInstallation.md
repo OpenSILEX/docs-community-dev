@@ -691,8 +691,10 @@ You need to start `apache-tomcat` in order to deploy the service.
 
 If you have problems search on **Current errors** section.
 
-
-
+In the future, to start Phis Localhost, you'll only need to run apache-tomcat service.You can also create an alias using this command :
+```
+alias phis='apache-tomcat/bin/startup.sh;xdg-open http://localhost/phis-webapp/web'
+```
 ## Current errors
 
 ### Problems with netbeans
