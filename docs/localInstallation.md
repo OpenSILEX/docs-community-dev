@@ -187,7 +187,7 @@ and add lines:
 ```bash
 <role rolename="manager"/>
 <role rolename="manager-gui"/>
-<user username="tomcat-admin" password="azerty" roles="manager, manager-gui"/>
+<user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
 
 To configure port, edit **server.xml**:
