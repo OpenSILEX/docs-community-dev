@@ -1,3 +1,7 @@
+---
+title: Coding style
+layout: default
+---
 # Coding style
 
 ## Comments
@@ -90,19 +94,19 @@ public interface MyInterface {
 class Sample extends Object {
     int ivar1;
     int ivar2;
-    
+
     Sample(int i, int j) {
         int k;
-        
+
         i = k;
-        
+
         /* comment */
         ivar1 = i;
         ivar2 = j;     
     }
-    
+
     int emptyMethod() {}
-    
+
     Boolean isEmptyMethod() {}
     ...
 }

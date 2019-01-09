@@ -1,3 +1,7 @@
+---
+title: Versionning using git
+layout: default
+---
 # Versionning using git
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
@@ -14,7 +18,7 @@ Summary of this chapter's recommendations :
   3. push to your master branch the commited modifications using `git push origin master`
   4. create a pull request from your repository when it is ready to be merged to the upstream repository
 
-If the concepts of repositories and branches are confusing, go to the [Repositories and branches](../Using-git/#repositories-and-branches) section of this tutorial.
+If the concepts of repositories and branches are confusing, go to the [Repositories and branches](#repositories-and-branches) section of this tutorial.
 
 ## Requirements
 
@@ -25,6 +29,8 @@ Install the version control system **git** from [https://git-scm.com/](https://g
 ```
 apt-get install git
 ```
+
+Super-user priviledge may be required. If so, execute `sudo apt-get install git`.
 
 On linux, you can check your version of **git** and display its documentation from the terminal :
 
@@ -43,14 +49,14 @@ At the moment, the present documentation provides no information on how to use G
 
 ![git-bash](img/git-open-bash.PNG)
 
-If you are new to **git**, you can check out this [simple git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf).
+If you are new to **git**, you can check out this [simple git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
 
 
 ### Git configuration
 
 The local configuration of git has to be done only once.
-From a terminal (linux terminal, mac terminal, or Git Bash Here on Windows), you can indicate your name and you email address with the command lines :
+From a terminal (linux terminal, mac terminal, or Git Bash Here on Windows), you can indicate your name and you email address with the command lines (without the `<` and `>`) :
 
 ```
 git config --global user.email "<the email you use on GitHub>"
@@ -97,6 +103,8 @@ ssh -T git@github.com
 ```
 
 The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear : it works !
+
+Official help pages are listed in the [Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) webpage.
 
 ## Join a development
 
@@ -180,7 +188,7 @@ From this directory, open a terminal (linux) or Git Bash Here (Windows), and the
 git clone <copied SSH URL>
 ```
 
-You haven't configured an SSH connexion yet ? Go to the previous [SSH connexion](../Using-git/#SSH-connexion) section.
+You haven't configured an SSH connexion yet ? Go to the previous [SSH connexion](#SSH-connexion) section.
 
 The alternative (less recommended) is using `git clone` and then HTTPS :
 
@@ -194,16 +202,30 @@ git clone <copied HTTPS URL>
 
 The `git remote -v` command gets you the list of the remote repositories.
 
-You can add upstream repositories associated to the list of the remotes using `git remote add <name branch> <path branch>`.
-
-You should name "upstream" the main repository owned by OpenSILEX, e.g. `git remote add upstream https://github.com/OpenSILEX/community-dev.git`.
+You can add upstream repositories associated to the list of the remotes using `git remote add <name remote> <path remote>`.
+If you choose to name "upstream" (recommended) the main remote repository owned by OpenSILEX, the command line would be :
+```
+git remote add upstream https://github.com/OpenSILEX/community-dev.git
+```
 
 ![git-remote-add](img/git-remote-add.png)
 
-"origin" is by default the name of your local repository.
+By default, "origin" is the name of the repository you created by forking the OpenSILEX repository (the "upstream" repository).
 
 Complete documentation on how to add a remote is available on GitHub help webpage [Adding a remote](https://help.github.com/articles/adding-a-remote/).
 There is also an official documentation for [removing remotes](https://help.github.com/articles/removing-a-remote/).
+As with any git command, you can get the official documentation from the shell adding `--help`, as in the example below :
+
+```
+git remote --help
+```
+
+If you have set up a connexion to GitHub via SSH, as described in the [SSH connexion](#SSH-connexion) section, you might want to change your remote URLs from HTTPS to SSH, as described in the [GitHub documentation](https://help.github.com/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh) :
+```
+git remote set-url origin git@github.com:[your_username]/[repository_name].git
+git remote set-url upstream git@github.com:OpenSILEX/[repository_name].git
+```
+
 
 ## Edit a development (short)
 
@@ -250,7 +272,7 @@ Getting the newest developments made on the master branch of the upstream reposi
 git pull upstream master
 ```
 
-This works only if you have previously named "upstream" the OpenSILEX repository that you have forked (instructions given in the previous [Manage remotes](../Using-git/#manage-remotes) section).
+This works only if you have previously named "upstream" the OpenSILEX repository that you have forked (instructions given in the previous [Manage remotes](#manage-remotes) section).
 
 When you use the `git pull` command, make sure that you haven't previously made any new modifications to you branch, otherwise this would be generating conflicts.
 

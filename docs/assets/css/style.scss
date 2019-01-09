@@ -1,0 +1,25 @@
+---
+---
+
+@import "{{ site.theme }}";
+html,
+body {
+    overflow: auto;
+    width: 100%;
+}
+
+main.main-content {
+    width: 80%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    max-width: none;
+}
+  
+nav {
+    width: 20%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;    
+    padding: 2rem;
+}
