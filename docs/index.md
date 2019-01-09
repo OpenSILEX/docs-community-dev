@@ -25,6 +25,7 @@ Contributors to this documentation are agents of the joint research unit MISTEA 
 - Sammy Gilles
 - Vincent Migot
 - Andreas Garcia
+- Arnaud Charleroy
 
 Every OpenSILEX main developper or contributor is welcomed to enrich this repository with its experience of the development of information systems (e.g. PHIS) produced within OpenSILEX.
 

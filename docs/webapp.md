@@ -21,16 +21,17 @@ If you want to activate animated multiple background images feature, go to `view
 **Usage**
 
 ``` php
-    \SILEX:info
-        echo FullScreenImageSliderWidget::widget([
-            FullScreenImageSliderWidget::IMAGES_URL_LINK => [ // local image links
-                "background/wallpaper_grapes_vine.jpg",
-                "background/wallpaper_leaf.jpg",
-                "background/wallpaper_tomato.jpg",
-                "background/wallpaper_vine.jpg"
-            ],
-           // FullScreenImageSliderWidget::DURATION_PER_IMAGE => 10 // time in seconds between two images
-        ]);
+      <?= 
+         FullScreenImageSliderWidget::widget([
+               FullScreenImageSliderWidget::IMAGES_URL_LINK => [ // local image links
+                  "background/wallpaper_grapes_vine.jpg",
+                  "background/wallpaper_leaf.jpg",
+                  "background/wallpaper_tomato.jpg",
+                  "background/wallpaper_vine.jpg"
+               ],
+            // FullScreenImageSliderWidget::DURATION_PER_IMAGE => 10 // time in seconds between two images
+         ]);
+      ?>
 ```
 
 **More information**
