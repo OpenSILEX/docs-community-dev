@@ -573,7 +573,7 @@ ws.doc.name=phis2ws
 ws.updir.host=127.0.0.1
 ws.updir.user=<Linux session name>
 ws.updir.password=<Linux session password>
-ws.updir.doc=/home/phis2ws/documents/instance
+ws.updir.doc=/home/<user>/phis2ws/documents/instance
 
 ws.images.dir=/var/www/html/images
 ws.images.url=http://127.0.0.1/images
