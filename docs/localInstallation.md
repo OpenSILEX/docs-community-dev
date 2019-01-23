@@ -467,7 +467,7 @@ If you need to generate a MD5 password, you can use:
 To start using or try Phis, two users are created automatically:
 * admin@opensilex.org/admin for administrative rights
 * guest@opensilex.org/guest for restricted rights
-See Phis user documentation for explanation and add other users.
+See [Phis user documentation](https://opensilex.github.io/phis-docs-community/) for further explanation on users management and how to add new users.
 We recommand you to change the admin password.
 
 
