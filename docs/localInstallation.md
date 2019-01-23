@@ -398,14 +398,15 @@ Now, click **Add** in *Modify* menu.
 ![rdf4j-add](img/rdf4j-add.png)
 
 
-Click **Parcourir...** selection **oepo.owl** file get previously from GitHub repository **ontology-phis-oepo-field**
+Click **Parcourir...** selection **oeso.owl** file get previously from GitHub repository **ontology-vocabularies**
 
-Add it in the context   **<http://www.phenome-fppn.fr/vocabulary/2017>** with base URI and context fields.
+Add it in the context   **<http://www.opensilex.org/vocabulary/oeso>** with base URI and context fields.
 
 In **RDFData format** select **RDF/XML**.
 
 Click **Upload**  
 
+Add also a the context **<http://www.opensilex.org/vocabulary/oeev>** for the event ontology (**ontology-vocabulary/oeev.owl**).
 
 Add also a new context for the ontology annotation
 Add [oa.rdf](assets/oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
@@ -464,9 +465,10 @@ If you need to generate a MD5 password, you can use:
 
 #### Initialising Users
 To start using or try Phis, two users are created automatically:
-* admin@phis.fr/admin for administrative rights
-* guest@phis.fr/guest for restricted rights
+* admin@opensilex.org/admin for administrative rights
+* guest@opensilex.org/guest for restricted rights
 See Phis user documentation for explanation and add other users.
+We recommand you to change the admin password.
 
 
 ### Web service
