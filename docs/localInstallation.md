@@ -6,9 +6,9 @@ layout: default
 
 1. [Prerequisite](#prerequisite)  
   + [Software](#software)  
-      - [MongoDB and Robo3t](#mongodb-and-robo3t)
+      - [MongoDB and Robo 3T](#mongodb-and-robo3t)
       - [Netbeans and JDK](#netbeans-and-jdk)
-      - [Postgresql and Postgis](#postgresql-and-postgis)
+      - [Postgresql and PostGIS](#postgresql-and-postgis)
       - [PHP](#php)
       - [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
       - [Apache2](#apache2)
@@ -44,7 +44,7 @@ In this document, commands are for **Ubuntu 16.04**. However, the majority of th
 
 ### Software
 
-#### MongoDB and Robo3t
+#### MongoDB and Robo 3T
 
 ##### MongoDB
 All the information needed to install MongoDB is available at [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
@@ -81,7 +81,6 @@ after
   # how the process runs
   processManagement:*
 ```
-(In classical case newline should be line 29)  
 This line is not an obligation, in default mode mongodb runs as fork (i.e. as a deamon) but I prefer force it by *fork: true* for no doubt.
 
 **Note**<br/>
@@ -146,7 +145,7 @@ sudo systemctl restart postgresql
 
 
 ##### Jdk
-If jdk is already installed you can go to the next section, [Netbeans](#netbeans).
+If JDK is already installed you can go to the next section, [Netbeans](#netbeans).
 
 Otherwise, download the JDK 8 sources (e.g. `tar.gz` archive) at [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
@@ -174,7 +173,7 @@ Follow the installation steps.
 
 Check that the **PHP** and **Glassfish/JEE** modules are installed.
 
-Choose your installation folder for Netbeans (here `~/netbeans`) and select the jdk installation folder (in our case `~/jdk`).
+Choose your installation folder for Netbeans (here `~/netbeans`) and select the JDK installation folder (in our case `~/jdk`).
 
 #### PHP
 
@@ -204,8 +203,14 @@ sudo mkdir /home/tomcat
 Extract the archive in this folder (replace `<user>` by your user and `<version>` by the version you downloaded):
 ```bash
 cd /home/tomcat/
-sudo tar --owner=<user> -xvzf ~/Downloads/apache-tomcat<version>.tar.gz
+tar --owner=<user> -xvzf ~/Downloads/apache-tomcat<version>.tar.gz
 ```
+
+To be consistent with the OpenSILEX PHIS documentation, we recommand you to rename the Apache Tomcat folder so that the version does not appear :
+```bash
+mv apache-tomcat<version> apache-tomcat
+```
+
 
 With this procedure, Tomcat is not recognized by Ubuntu services control (`systemctl` or `services`). So you need to execute scripts which are in Tomcat `bin` folder (e.g: `startup.sh` to run and `shutdown.sh` to stop). You also need to change rights on files.
 
