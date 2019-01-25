@@ -4,6 +4,42 @@ layout: default
 ---
 # Web Service
 
+## Software Architecture
+
+We are using the DTO (Data Transfert Object) and the DAO (Data Access Object) design patterns.
+
+### DTO
+![dto-schema](img/dto.png)
+
+The DTO objects corresponds to the formats used to exchange with the clients.
+
+### DAO
+![dao-schema](img/dao.png)
+
+The DAO (Data Access Object) manipulates only models. It does the CRUD access to the different data sources (e.g. triplestore, relational database, nosql, other web services, ...).
+
+### Models
+The models are used to represents the concepts which are gonna be manipulated inside the web service. The DAO only manipulates models and does not know the DTO structures. Before using a DAO, we must convert the DTO given by the user in a model. The DAO will then return a model which will be converted in the DTO corresponding to the representation of the object that will be returned.
+
+![dao-dto-model](img/global_dao_dto_model.png)
+
+## Rdf Resource Definition
+To represents and manipulate the triplestore resources (instances or concepts), we have created models, DAO and DTO.
+
+### Rdf Resource Definition model
+To manipulate a resource (instance or concept), we extends the RdfResourceDefinition model, such as the following example.
+
+![rdf-resource-definition-model](img/rdfResourceDefinition.png)
+
+### Rdf Resource Definiton DTO
+A few services returns more or less the same rdf resource definition JSON format. We have created a few DTO which are extended. In the following example, the RadiometricTargetDTO extends the RdfResourceDefinitionDTO and the RadiometricTargetPostDTO extends the RdfResourceDefinitionPostDTO. We have created a specific package which will contain all the DTO of the radiometric targets.
+
+![rdf-resource-definition-dto](img/rdfResourceDefinitionDTO.png)
+
+### Property DAO
+To manipulate the properties extracted from a semantic triplestore, we use the PropertyDAOSesame class.
+
+
 ## Java Bean Validation (JSR 380)
 
 When you create a new service, you must use the [Java Bean Validation](https://beanvalidation.org/2.0/spec/#builtinconstraints) to validate the input parameters. The JSR 380 uses annotations to validate parameters.

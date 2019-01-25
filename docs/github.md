@@ -108,9 +108,9 @@ Official help pages are listed in the [Connecting to GitHub with SSH](https://he
 OpenSILEX development projects are organized in separate repositories.
 All OpenSILEX repositories are listed in the [Open SILEX GitHub webpage](https://github.com/OpenSILEX/).
 
-The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
-When collaborating to an other repository, just change *community-dev* displayed in the examples to the name of the repository you are interested in.
-Note that the present *community-dev* repository differs from the other repositories since it displays no code, but only a developper-orientated documentation.
+The present repository, *docs-community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
+When collaborating to an other repository, just change *docs-community-dev* displayed in the examples to the name of the repository you are interested in.
+Note that the present *docs-community-dev* repository differs from the other repositories since it displays no code, but only a developper-orientated documentation.
 
 When joining an ongoing OpenSILEX development project, there are two initial steps that need to be executed :
 
@@ -121,12 +121,12 @@ When joining an ongoing OpenSILEX development project, there are two initial ste
 
 As the [first GitHub guide](https://guides.github.com/activities/hello-world/) states, **repositories** are used to organize single projects. They can contain folders and files, images, videos, spreadsheets and data sets, while **branches** are different versions of a repository. By default, a repository has only one branch named `master` which is considered to be the definitive branch.
 
-Let's consider the *community-dev* development project :
-- *OpenSILEX/community-dev* is the main repository
-- *pierreetiennealary/community-dev* is a repository that I have created when I forked the master branch of the *OpenSILEX/community-dev* repository
+Let's consider the *docs-community-dev* development project :
+- *OpenSILEX/docs-community-dev* is the main repository
+- *pierreetiennealary/community-dev* is a repository that I have created when I forked the master branch of the *OpenSILEX/docs-community-dev* repository (you'll notice that it can display a different name, but it is not advised)
 - both repository display only one branch each : a main branch named "master"
 
-From my perspective, *OpenSILEX/community-dev* is the "upstream" repository, while *pierreetiennealary/community-dev* is my own repository, which I named locally "origin".
+From my perspective, *OpenSILEX/docs-community-dev* is the "upstream" repository, while *pierreetiennealary/community-dev* is my own repository, which I named locally "origin".
 
 In order to fix a bug or to add a new developments, I can create additionnal branches to my repository.
 Once the changes made to these new branches have been completed and checked, the new branches' code is merged into the master branch, and the new branches are deleted.
@@ -136,7 +136,7 @@ This procedure is described in [GitHub Flow](https://guides.github.com/introduct
 
 The instructions for creating a branch are available on the official GitHub tutorial : https://help.github.com/articles/fork-a-repo/
 
-First, go with a browser to the URL of the repository you are interested in, e.g. https://github.com/OpenSILEX/community-dev.
+First, go with a browser to the URL of the repository you are interested in, e.g. https://github.com/OpenSILEX/docs-community-dev.
 From this GitHub webpage, create your own branch of the development project by forking the repository (top-right **Fork** button) :
 
 <!---
@@ -149,7 +149,7 @@ The workflow described in [GitHub guide](https://guides.github.com/introduction/
 When the aim of a new branch has been achieved, e.g. fixing a given bug, the new branch should be pushed to the master branch and then deleted.
 
 Forking the master branch should lead you to your own branch, accessible through GitHub.
-In our example, the branch that has been created by forking *OpenSILEX/community-dev* is accessed to through the a new URL of the form `https://github.com/[your_username]/community-dev`.
+In our example, the branch that has been created by forking *OpenSILEX/docs-community-dev* is accessed to through the a new URL of the form `https://github.com/[your_username]/docs-community-dev`.
 
 ![github-branch](img/github-branch.png)
 
@@ -200,7 +200,7 @@ The `git remote -v` command gets you the list of the remote repositories.
 You can add upstream repositories associated to the list of the remotes using `git remote add <name remote> <path remote>`.
 If you choose to name "upstream" (recommended) the main remote repository owned by OpenSILEX, the command line would be :
 ```
-git remote add upstream https://github.com/OpenSILEX/community-dev.git
+git remote add upstream https://github.com/OpenSILEX/docs-community-dev.git
 ```
 
 ![git-remote-add](img/git-remote-add.png)
@@ -327,7 +327,7 @@ A good practice would be to push to the master branch local changes made during 
 
 ### Request your changes to be pulled
 
-The changes pushed to the master branch of the origin remote should be integrated into the upstream repository, *OpenSILEX/community-dev* in our example.
+The changes pushed to the master branch of the origin remote should be integrated into the upstream repository, *OpenSILEX/docs-community-dev* in our example.
 This can be achieved directly from the GitHub page of your own repository through the **New pull request** button.
 Maintainers of the upstream repository would then have to accept your pull request.
 

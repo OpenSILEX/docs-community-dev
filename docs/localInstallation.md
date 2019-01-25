@@ -6,11 +6,11 @@ layout: default
 
 1. [Prerequisite](#prerequisite)  
   + [Software](#software)  
-      - [MongoDB + Robo 3T](#mongodb--Robo3T)
-      - [PostgreSQL + PostGIS](#postgresql--postgis)
-      - [Netbeans + JDK](#netbeans--jdk)
+      - [MongoDB and Robo3t](#mongodb-and-robo3t)
+      - [Netbeans and JDK](#netbeans-and-jdk)
+      - [Postgresql and Postgis](#postgresql-and-postgis)
       - [PHP](#php)
-      - [Apache-Tomcat + RDF4J](#apache-tomcat-rdf4j)
+      - [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
       - [Apache2](#apache2)
       - [Composer](#composer)
       - [Git](#git)
@@ -34,6 +34,8 @@ layout: default
     - [Other problems concerning the web application and the web service](#other-problems-concerned-webapp-and-web-service)
 
 ## Introduction  
+This document explains you how to deploy Phis on your personnal computer.  
+In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
 This document explains you how to deploy OpenSILEX on your personnal computer.  
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
@@ -42,11 +44,18 @@ In this document, commands are for **Ubuntu 16.04**. However, the majority of th
 
 ### Software
 
-#### MongoDB + Robo 3T
+#### MongoDB and Robo3t
 
 ##### MongoDB
+All the information needed to install MongoDB is available at [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
-All the information needed to install MongoDB is available at  [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
+The next release (v2.7) will require at least MongoDB v4.0, which can already be used for the current release (v2.6), the following links detail how to install or upgrade MongoDB for Ubuntu and Debian system:
+
+- In case of a new installation, please follow: [V2.7 - Install MongoDB 4.0](./MongoDBInstallv4.md)
+
+- In case of an upgrade of a previously installed MongoDB version, please follow: [V2.7 - Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
+
+Now you have a Mongodb service.
 
 Now MongoDB is installed.
 
@@ -67,6 +76,13 @@ as follows :
 processManagement:*
   fork: true
 ```
+after
+```
+  # how the process runs
+  processManagement:*
+```
+(In classical case newline should be line 29)  
+This line is not an obligation, in default mode mongodb runs as fork (i.e. as a deamon) but I prefer force it by *fork: true* for no doubt.
 
 **Note**<br/>
 This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` to be sure.
@@ -104,6 +120,7 @@ Run the installation program:
 
 ##### PostgreSQL & PostGIS installation
 
+##### Postgresql Installation
 In a terminal, run these commands:
 ```bash  
  sudo apt-get update
@@ -125,10 +142,10 @@ Then restart the service to take the changes into account:
 sudo systemctl restart postgresql
 ```
 
-#### Netbeans + jdk
+#### Netbeans and JDK
+
 
 ##### Jdk
-
 If jdk is already installed you can go to the next section, [Netbeans](#netbeans).
 
 Otherwise, download the JDK 8 sources (e.g. `tar.gz` archive) at [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -169,7 +186,10 @@ sudo apt-get install php php-mbstring php-dom
 
 #### Apache-Tomcat + RDF4J
 
-##### Apache-Tomcat installation
+#### Apache Tomcat and RDF4J
+
+
+##### Apache Tomcat installation
 
 To have a better control on the installation of Tomcat, install Tomcat from sources files (e.g. `tar.gz` archive).  
 
@@ -191,7 +211,8 @@ With this procedure, Tomcat is not recognized by Ubuntu services control (`syste
 
 ##### Apache-Tomcat configuration
 
-Tomcat configuration files are located in the `/home/tomcat/apache-tomcat<version>/conf` folder.  
+##### Apache Tomcat configuration
+Tomcat configuration files are located in the **/home/tomcat/apache-tomcat/conf** folder.  
 To use Tomcat manager page you need to define an admin user.  
 To do that edit the `tomcat-users` file:
 ```bash
@@ -201,7 +222,7 @@ and add lines:
 ```bash
 <role rolename="manager"/>
 <role rolename="manager-gui"/>
-<user username="tomcat-admin" password="azerty" roles="manager, manager-gui"/>
+<user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
 
 To configure port, edit `server.xml`:
@@ -230,7 +251,8 @@ Start the service:
 /home/tomcat/apache-tomcat<version>/bin/startup.sh
 ```
 
-##### Rdf4j
+
+##### RDF4J
 
 Download archive zip file [rdf4j.org](http://rdf4j.org/download/) and extract it (replace `<version>` by the version downloaded):
 ```bash
@@ -297,6 +319,8 @@ sudo systemctl start postgresql
 /home/tomcat/apache-tomcat<version>/bin/startup
 nmap 127.0.0.1
 ```
+If nmap is not installed on your PC, you do not install it because it is only used for checking ports.
+
 The answer should be:
 ```
 PORT     STATE SERVICE
@@ -354,7 +378,7 @@ Preferably, get the source from the last release at [ontology-phis-oepo-field/re
 
 #### Database file
 
-Download the database dump file [phis_st_dump.sql](phis_st_dump.sql).
+Download the database dump file [phis_st_dump.sql](assets/phis_st_dump.sql).
 
 ## OpenSILEX Installation
 
@@ -400,8 +424,10 @@ Now, Click `Add` in the `Modify` submenu.
 
 Click on the button next to `RDF Data File` in order to select a RDF Data File.
 
+Click **Parcourir...** selection **oeso.owl** file get previously from GitHub repository **ontology-vocabularies**
 Selec the `oepo.owl` file got previously from GitHub in the repository `ontology-phis-oepo-field`.
 
+Add it in the context   **<http://www.opensilex.org/vocabulary/oeso>** with base URI and context fields.
 Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
 
 In the `Data format` field, select `RDF/XML`.
@@ -457,6 +483,7 @@ Finally run these commands to create the extension:
 CREATE EXTENSION postgis;
 select postgis_full_version();
 ```
+If you have an error connecting to the user phis (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
 
 Exit the SQL editor:
 ```
@@ -471,6 +498,7 @@ Import data with :
 ```bash
 psql -U opensilex -h 127.0.0.1 opensilex < /var/lib/postgresql/opensilex_st_dump.sql
 ```
+You can find [dump file](phis_st_dump.sql).
 
 With specific access rights, you can get a dump from the demonstration version:
 ```bash
@@ -487,11 +515,12 @@ If you need to generate a MD5 password, you can use:
  echo -n bonjour | md5sum
 ```
 
-#### Set up the users
-
-To start using or try OpenSILEX, two users are created automatically:
-* admin@phis.fr/admin for administrative rights
-* guest@phis.fr/guest for restricted rights
+#### Initialising Users
+To start using or try Phis, two users are created automatically:
+* admin@opensilex.org/admin for administrative rights
+* guest@opensilex.org/guest for restricted rights
+See [Phis user documentation](https://opensilex.github.io/phis-docs-community/) for further explanation on users management and how to add new users.
+We recommand you to change the admin password.
 
 Check the OpenSILEX [user documentation](https://github.com/OpenSILEX/phis-docs-community) for more informations and to add other users.
 
@@ -542,7 +571,7 @@ Three profiles exists by default:
 
 Specific profile configurations are defined in the `config.properties` file which is located in `phis2-ws/src/main/<profile name>/`.
 
-Netbeans users: configuration files are located in `phis2-ws` -> `Other Sources` -> `src/main/profiles` -> `<profile name>`.
+Netbeans users: configuration files are located in `~/Phis/phis-ws/phis2-ws/src/main/profiles {profile name}`.
 
 Profile could be used with the following command line (`-P` option):
 
@@ -666,6 +695,24 @@ sudo chmod 775 -R /var/www/html/phis-webapp
 To deploy the web application in localhost, it isn't necessary to open it with Netbeans:
 - Edit `/var/www/html/phis-webapp/config/web_services.php`
 - Set the value of `WS_PHIS_PATH_DOC`to `http://127.0.0.1:8080/phis2ws`
+
+To deploy in localhost it isn't necessary to open webapp with netbeans , you only need adapt configuration files so you can use classical editor.  
+Netbeans users:  
+Open the webapp folder with netbeans, like a php project.
+
+open project -> **/var/www/html/phis-webapp** -> open  
+Configuration files are in: *phis-webapp* -> *sources files* -> *config*  
+Other users:  
+Configuration files are in: **/var/www/html/phis-webapp/config**   
+
+Edit:
+  - *webservices.php*  
+Adapt the last line with the correct URL in our case is:
+**http://127.0.0.1:8080/phis2ws/rest**
+
+If you are all exactly doing like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
+
+
 
 #### Composer
 
