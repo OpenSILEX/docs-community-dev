@@ -1,13 +1,13 @@
 ---
-title: Versionning using git
+title: Versionning using Git
 layout: default
 ---
-# Versionning using git
+# Versionning using Git
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
 
 Summary of this chapter's recommendations :
-- you can install **git** from [https://git-scm.com/](https://git-scm.com/)
+- you can install **Git** from [https://git-scm.com/](https://git-scm.com/)
 - OpenSILEX repositories are hosted on [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/)
 - checkout [GitHub guides](https://guides.github.com) recommendations
 - create your own branch of the repository you want to contribute to
@@ -24,7 +24,7 @@ If the concepts of repositories and branches are confusing, go to the [Repositor
 
 ### Installing git
 
-Install the version control system **git** from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a linux terminal :
+Install the version control system **Git** from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a Linux terminal :
 
 ```
 apt-get install git
@@ -32,31 +32,30 @@ apt-get install git
 
 Super-user priviledge may be required. If so, execute `sudo apt-get install git`.
 
-On linux, you can check your version of **git** and display its documentation from the terminal :
+On Linux, you can check your version of **Git** and display its documentation from the terminal :
 
 ```
 git --version
 git --help
 ```
 
-These commands can also be used on Windows operating system through **Git Bash Here**.
-When installing **git** on Windows, make sure you include Git Bash Here in Windows Explorer.
+These commands can also be used on Windows operating systems through `Git Bash Here`.
+When installing **Git** on Windows, make sure you include Git Bash Here in Windows Explorer:
 
 ![github-windows](img/git-windows.PNG)
 
-On Windows, open **git** from any Explorer window with a right-click > Git Bash Here (instead of Git GUI Here) in order to be able to use the commands presented in this documentation.
+On Windows, open **Git** from any Explorer window with a right-click > Git Bash Here (instead of Git GUI Here) in order to be able to use the commands presented in this documentation.
 At the moment, the present documentation provides no information on how to use Git GUI.
 
 ![git-bash](img/git-open-bash.PNG)
 
-If you are new to **git**, you can check out this [simple git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
+If you are new to **Git**, you can check out this [simple Git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [Git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [Git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
-
 
 ### Git configuration
 
-The local configuration of git has to be done only once.
-From a terminal (linux terminal, mac terminal, or Git Bash Here on Windows), you can indicate your name and you email address with the command lines (without the `<` and `>`) :
+The local configuration of Git has to be done only once.
+From a terminal (Linux terminal, Mac terminal, or Git Bash Here on Windows), you can indicate your name and your email address with the command lines (without the `<` and `>`) :
 
 ```
 git config --global user.email "<the email you use on GitHub>"
@@ -69,40 +68,36 @@ You can verify your configuration using :
 git config --list
 ```
 
-The complete documentation of the git config command is available on [git official website](https://git-scm.com/docs/git-config).
+The complete documentation of the Git config command is available on [Git official website](https://git-scm.com/docs/git-config).
 
 ### Join GitHub
 
 Create a GitHub profile on [https://github.com/](https://github.com/).
 
 If you are an INRA agent, you have to specify it on your profile, using the `@INRA` tag.
-You can find more INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
+You can find more INRA recommendations regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
 ### SSH connexion
 
-You can link your GitHub account to your local **git** using a SSH key.
-See GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
-According to this tutorial, generating both a public and a private RSA key is done with a `ssh-keygen` command :
+You can link your GitHub account to your local **Git** using a SSH key.
 
-```
-ssh-keygen -t rsa -b 4096 -C "<the email you use on GitHub>"
-```
+Follow the steps in the GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
 
-You can then copy the generated public key displayed in the text file `id_rsa.pub`.
+This procedure generates a public key in the text file `/home/<you>/.ssh/id_rsa.pub`. Copy it.
 
-Go to [GitHub Settings > SSH and GPG keys](https://github.com/settings/keys) when you are signed in.
+Sign in GitHub and go to [GitHub Settings > SSH and GPG keys](https://github.com/settings/keys).
 Click on the `New SSH key` button.
 
 ![GitHub-SSH-keys](img/github-ssh-new.png)
 
 Paste the copied public key in the empty **Key** field.
-You can then check if the connection is open from a linux terminal :
+You can then check if the connection is open from a Linux terminal :
 
 ```
 ssh -T git@github.com
 ```
 
-The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear : it works !
+The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear: it works !
 
 Official help pages are listed in the [Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) webpage.
 
@@ -169,7 +164,7 @@ From your repository's GitHub page, copy the URL of the branch you want to clone
 
 Another option is to download a compressed version of the repository using the **Download ZIP** button below, but the OpenSILEX community strongly advises otherwise.
 
-Choose a local directory on your computer where you want the git repository to be cloned.
+Choose a local directory on your computer where you want the Git repository to be cloned.
 There, you can open a terminal (linux) or Git Bash Here (Windows) and use the `git clone` command.
 From an UNIX terminal and using the SSH protocol, the command would be `git clone git@github.com:[your_username]/[repository_name].git`. Using the HTTPS protocol, the command would be `git clone https://github.com/[your_username]/[repository_name].git`.
 However, using SSH is preferable to HTTPS (in order not to have to provide your username every time you want to update your branch).
@@ -247,7 +242,7 @@ You can change the branch you are working on using `git checkout <name of the br
 
 ![git-checkout](img/git-checkout.png)
 
-Be carefull when using git checkout, since you can also create additionnal branches (not recommanded) using `git checkout -b <new_branch_name>`.
+Be carefull when using `git checkout`, since you can also create additionnal branches (not recommanded) using `git checkout -b <new_branch_name>`.
 When adding a new branch, the `git branch <new_branch_name>` is preferred.
 The difference between the two commands is that `git checkout -b <new_branch_name>` creates a new branch and then switches to the new branch, while `git branch <new_branch_name>` only creates a new branch.
 
