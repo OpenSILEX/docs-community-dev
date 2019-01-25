@@ -1,5 +1,5 @@
 ---
-title: OpenSILEX Deployment
+title: Phis Deployment
 layout: default
 ---
 # OpenSILEX Deployment
