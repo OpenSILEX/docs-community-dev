@@ -379,7 +379,7 @@ Preferably, get the source from the last release at [ontology-vocabularies/relea
 
 #### Database file
 
-Download the database dump file [opensilex_st_dump.sql](docs-community-dev/docs/assets/opensilex_st_dump).
+Download the database dump file [opensilex_st_dump.sql](assets/opensilex_st_dump).
 
 ##  OpenSILEX PHIS Installation
 
