@@ -106,7 +106,7 @@ Official help pages are listed in the [Connecting to GitHub with SSH](https://he
 ### OpenSILEX repositories
 
 OpenSILEX development projects are organized in separate repositories.
-All OpenSILEX repositories are listed in the [Open SILEX GitHub webpage](https://github.com/OpenSILEX/).
+All OpenSILEX repositories are listed in the [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/).
 
 The present repository, *docs-community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
 When collaborating to an other repository, just change *docs-community-dev* displayed in the examples to the name of the repository you are interested in.
