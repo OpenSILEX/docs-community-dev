@@ -19,7 +19,7 @@ layout: default
       - [Web service folder](#web-service-folder)
       - [Web application folder](#web-application-folder)
       - [Database and ontologies](#database-and-ontologies)
-+ [Installation](#opensilex-installation)
++ [Installation](#phis-installation)
     - [MongoDB Database](#mongodb-database)
     - [PostgreSQL Database](#postgresql-database)
     - [Rdf4j ontologies](#rdf4j-ontologies)
@@ -365,7 +365,7 @@ Preferably, get the source from the last release at [phis-ws/releases](https://g
 
 #### Web application folder
 
-Get source from GitHub, directly from the OpenSILEX-webapp development repository:
+Get source from GitHub, directly from the phis-webapp development repository:
 ```bash
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-webapp.git
@@ -385,7 +385,7 @@ Preferably, get the source from the last release at [ontology-phis-oepo-field/re
 
 Download the database dump file [phis_st_dump.sql](assets/phis_st_dump.sql).
 
-## OpenSILEX Installation
+##  OpenSILEX PHIS Installation
 
 ### MongoDB database
 
@@ -394,7 +394,7 @@ Run MongoDB:
 ```bash
 sudo mongod --config /etc/mongod.conf
 ```
-Run robot3t:
+Run Robo 3T:
 ```bash
 ~/robo3t/bin/robo3t
 ```
@@ -403,7 +403,7 @@ Create a connection:
 Configure your connection:
 ![robo3t-connection2](img/robo3t-connexion2.png)
 Create your database:
-right click on connection name -> `Create Database` -> enter a name (`opensilex` in this document).
+Right click on connection name -> `Create Database` -> enter a name (`phis` in this document).
 
 ### Rdf4j Ontologies
 
@@ -429,10 +429,9 @@ Now, Click `Add` in the `Modify` submenu.
 
 Click on the button next to `RDF Data File` in order to select a RDF Data File.
 
-Click **Parcourir...** selection **oeso.owl** file get previously from GitHub repository **ontology-vocabularies**
-Selec the `oepo.owl` file got previously from GitHub in the repository `ontology-phis-oepo-field`.
+Select the `oeso.owl` file got previously from GitHub repository `ontology-vocabularies`
 
-Add it in the context  **<http://www.opensilex.org/vocabulary/oeso>** with base URI and context fields.
+Add it in the context  `<http://www.opensilex.org/vocabulary/oeso>` with base URI and context fields.
 Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
 
 In the `Data format` field, select `RDF/XML`.
@@ -508,7 +507,7 @@ You can find [dump file](phis_st_dump.sql).
 With specific access rights, you can get a dump from the demonstration version:
 ```bash
 # from postres server
-pg_dump -O -U phis phis > phis_st_dump.sql
+pg_dump -O -U phis phis > opensilex_st_dump.sql
 # -O : --no-owner
 # -s : only schema
 # -h <IP> : postgres host
@@ -538,15 +537,15 @@ To generate a war file from a project, the easiest solution is to use Netbeans.
 
 Create directories for images and layers:
 ```bash
-mkdir -p ~/opensilex-ws/documents/instance
+mkdir -p ~/phis-ws/documents/instance
 sudo mkdir /var/www/html/images
 sudo mkdir /var/www/html/layers
 sudo chown -R <user>:<user> /var/www/html/images
 sudo chown -R <user>:<user> /var/www/html/layers
-sudo chown -R <user>:<user> ~/opensilex-ws/documents/
+sudo chown -R <user>:<user> ~/phis-ws/documents/
 sudo chmod -R 775 /var/www/html/images
 sudo chmod -R 775 /var/www/html/layers
-sudo chmod -R 775 ~/opensilex-ws/documents/
+sudo chmod -R 775 ~/phis-ws/documents/
 ```
 
 #### Open project
@@ -619,7 +618,7 @@ rdf.infra=opensilex
 rdf.repo=opensilex
 
 # Webservice configuration
-ws.log.dir=/home/tomcat/apache-tomcat<versions>/logs/opensilex-ws
+ws.log.dir=/home/tomcat/apache-tomcat<versions>/logs/phis-ws
 
 ws.host=127.0.0.1
 ws.port=8080
@@ -633,7 +632,7 @@ ws.doc.name=phis2ws
 ws.updir.host=127.0.0.1
 ws.updir.user=<Linux session name>
 ws.updir.password=<Linux session password>
-ws.updir.doc=~/opensilex-ws/documents/instance
+ws.updir.doc=~/phis-ws/documents/instance
 
 ws.images.dir=/var/www/html/images
 ws.images.url=http://127.0.0.1/images
@@ -848,7 +847,7 @@ uploadFileServerPort=22
 uploadFileServerIP=127.0.0.1
 uploadFileServerUsername=<linux session username>
 uploadFileServerPassword=<linux session password>
-uploadFileServerDirectory=/home/<user>/opensilex-ws/documents/instance
+uploadFileServerDirectory=/home/<user>/phis-ws/documents/instance
 uploadImageServerDirectory=/var/www/html/images
 layerFileServerDirectory=/var/www/html/layers
 layerFileServerAddress=http://127.0.0.1/layers
