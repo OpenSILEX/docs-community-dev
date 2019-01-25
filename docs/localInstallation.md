@@ -448,7 +448,7 @@ Connect to Postgre:
 sudo -i -u postgres
 ```
 
-#### Create the opensilex user
+#### Create the phis user
 
 Start the SQL editor:
 ```bash
@@ -457,10 +457,10 @@ psql
 
 Run the following commands:
 ```sql
-CREATE USER opensilex;
-ALTER ROLE opensilex WITH CREATEDB;
-ALTER ROLE opensilex WITH SUPERUSER;
-ALTER USER opensilex WITH ENCRYPTED PASSWORD 'azerty';
+CREATE USER phis;
+ALTER ROLE phis WITH CREATEDB;
+ALTER ROLE phis WITH SUPERUSER;
+ALTER USER phis WITH ENCRYPTED PASSWORD 'azerty';
 ```
 
 #### Create the database
@@ -476,19 +476,19 @@ Exit the SQL connection:
 
 #### Create the PostGIS extension
 
-Connect to the database with the `opensilex` user:
+Connect to the database with the `phis` user:
 
 ```bash
-psql -U opensilex -h 127.0.0.1 -d opensilex
+psql -U opensilex -h 127.0.0.1 -d phis
 ```
-and enter opensilex's current password `azerty` when asked.
+and enter phis's current password `azerty` when asked.
 
 Finally run these commands to create the extension:
 ```SQL
 CREATE EXTENSION postgis;
 select postgis_full_version();
 ```
-If you have an error connecting to the user phis (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
+If you have an error connecting to the phis user (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
 
 Exit the SQL editor:
 ```
@@ -508,7 +508,7 @@ You can find [dump file](phis_st_dump.sql).
 With specific access rights, you can get a dump from the demonstration version:
 ```bash
 # from postres server
-pg_dump -O -U opensilex opensilex > opensilex_st_dump.sql
+pg_dump -O -U phis phis > phis_st_dump.sql
 # -O : --no-owner
 # -s : only schema
 # -h <IP> : postgres host
