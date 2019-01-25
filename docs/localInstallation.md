@@ -485,7 +485,7 @@ Finally run these commands to create the extension:
 CREATE EXTENSION postgis;
 select postgis_full_version();
 ```
-If you have an error connecting to the phis user (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
+If you have an error connecting to the phis user (+ FATAL: authentification peer:), see [Errors with PostgreSQL](#errors-with-postgresql) in the error section.
 
 Exit the SQL editor:
 ```
