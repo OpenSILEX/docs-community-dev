@@ -500,7 +500,7 @@ Import data with :
 ```bash
 psql -U opensilex -h 127.0.0.1 <experimental_installation_name> < /var/lib/postgresql/opensilex_st_dump.sql
 ```
-You can find [dump file](opensilex_st_dump.sql).
+ You can find [dump file](assets/opensilex_st_dump.sql).
 
 With specific access rights, you can get a dump from the demonstration version:
 ```bash
