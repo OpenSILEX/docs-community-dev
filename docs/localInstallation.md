@@ -37,9 +37,6 @@ layout: default
 This document explains you how to deploy OpenSILEX PHIS on your personnal computer.  
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
-This document explains you how to deploy OpenSILEX on your personnal computer.  
-In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
-
 ## Prerequisite
 
 ### Software
