@@ -432,7 +432,7 @@ Click on the button next to `RDF Data File` in order to select a RDF Data File.
 Click **Parcourir...** selection **oeso.owl** file get previously from GitHub repository **ontology-vocabularies**
 Selec the `oepo.owl` file got previously from GitHub in the repository `ontology-phis-oepo-field`.
 
-Add it in the context   **<http://www.opensilex.org/vocabulary/oeso>** with base URI and context fields.
+Add it in the context  **<http://www.opensilex.org/vocabulary/oeso>** with base URI and context fields.
 Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
 
 In the `Data format` field, select `RDF/XML`.
@@ -497,7 +497,7 @@ Exit the SQL editor:
 
 #### Set up the database
 
-Download the dump file to import [here](opensilex_st_dump.sql) (make shure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder -  because of PosgreSQL ownership issue when importing data).
+Download the dump file to import [here](opensilex_st_dump.sql) (make shure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder - because of PosgreSQL ownership issue when importing data).
 
 Import data with :
 ```bash
@@ -521,13 +521,13 @@ If you need to generate a MD5 password, you can use:
 ```
 
 #### Initialising Users
-To start using or try Phis, two users are created automatically:
+To start using or trying OpenSILEX PHIS, two users are created automatically:
 * admin@opensilex.org/admin for administrative rights
 * guest@opensilex.org/guest for restricted rights
 See [Phis user documentation](https://opensilex.github.io/phis-docs-community/) for further explanation on users management and how to add new users.
 We recommand you to change the admin password.
 
-Check the OpenSILEX [user documentation](https://github.com/OpenSILEX/phis-docs-community) for more informations and to add other users.
+Check the [OpenSILEX user documentation](https://github.com/OpenSILEX/phis-docs-community) for more informations about users (eg. adding other users).
 
 ### Web Service
 
@@ -858,7 +858,7 @@ layerFileServerAddress=http://127.0.0.1/layers
 + Error with test `brapiv1token`
 
 Your database is inaccessible or is wrongly set up.
-Check your PostgreSQL server with `nmap` or any  tool for port management.
+Check your PostgreSQL server with `nmap` or any tool for port management.
 If PostgreSQL isn't running, restart the service:
 ```bash
 sudo systemctl restart postgresql
