@@ -2,7 +2,7 @@
 title: Phis Deployment
 layout: default
 ---
-# OpenSILEX Deployment
+# Phis Deployment
 
 1. [Prerequisite](#prerequisite)  
   + [Software](#software)  
