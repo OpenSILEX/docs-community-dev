@@ -1,15 +1,15 @@
 ---
-title: Phis Deployment
+title: OpenSILEX PHIS Deployment
 layout: default
 ---
-# Phis Deployment
+# OpenSILEX PHIS Deployment
 
 1. [Prerequisite](#prerequisite)  
   + [Software](#software)  
-      - [MongoDB and Robo3t](#mongodb-and-robo3t)
-      - [Postgresql and Postgis](#postgresql-and-postgis)
+      - [MongoDB and Robo 3T](#mongodb-and-robo3t)
       - [Netbeans and JDK](#netbeans-and-jdk)
-      - [Php](#php)
+      - [Postgresql and PostGIS](#postgresql-and-postgis)
+      - [PHP](#php)
       - [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
       - [Apache2](#apache2)
       - [Composer](#composer)
@@ -19,41 +19,61 @@ layout: default
       - [Web service folder](#web-service-folder)
       - [Web application folder](#web-application-folder)
       - [Database and ontologies](#database-and-ontologies)
-+ [Installation](#phis-installation)
-    - [Mongodb Database](#mongodb-database)
-    - [Postgresql Database](#postgresql-database)
++ [Installation](#opensilex-phis-installation)
+    - [MongoDB Database](#mongodb-database)
+    - [PostgreSQL Database](#postgresql-database)
     - [Rdf4j ontologies](#rdf4j-ontologies)
     - [Web service](#web-service)
     - [Web application](#web-application)
 + [Current errors](#current-errors)
-    - [Problems with netbeans](#problems-with-netbeans)
+    - [Problems with Netbeans](#problems-with-netbeans)
     - [Problems with Composer](#problems-with-composer)
-    - [Errors with postgresql](#errors-with-postgresql)
+    - [Errors with PostgreSQL](#errors-with-postgresql)
     - [Errors with the web service](#errors-with-the-web-service)
     - [Errors with the web application](#errors-with-the-web-application)
-    - [Other problems concerned webapp and web service](#other-problems-concerned-webapp-and-web-service)
+    - [Other problems concerning the web application and the web service](#other-problems-concerned-webapp-and-web-service)
 
 ## Introduction  
-This document explains you how to deploy Phis on your personnal computer.  
+This document explains you how to deploy OpenSILEX PHIS on your personnal computer.  
+In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
+
+This document explains you how to deploy OpenSILEX on your personnal computer.  
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
 ## Prerequisite
 
 ### Software
 
-#### MongoDB and Robo3t
+#### MongoDB and Robo 3T
 
 ##### MongoDB
 All the information needed to install MongoDB is available at [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
+The next release (v2.7) will require at least MongoDB v4.0, which can already be used for the current release (v2.6), the following links detail how to install or upgrade MongoDB for Ubuntu and Debian system:
+
+- In case of a new installation, please follow: [V2.7 - Install MongoDB 4.0](./MongoDBInstallv4.md)
+
+- In case of an upgrade of a previously installed MongoDB version, please follow: [V2.7 - Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
+
 Now you have a Mongodb service.
 
-You can change path to database in the **/etc/mongod.conf** file. But your location need to exist before starting mongodb service and you have to attribute correct rights on this folder:
+Now MongoDB is installed.
+
+**Note**<br/>
+The path to the database can be changed in the `etc/mongod.conf` file.
+Set the owner on the MongoDB file:
+```bash
+sudo chown -R mongodb:mongodb <path_to_mongo_db_file>
 ```
-    chown -R mongodb:mongodb <path_to_mongo_db_file>
+In `/etc/mongod.conf` file, you should add line: `fork: true` after
 ```
-In **/etc/mongod.conf** file, you should add line
+# how the process run
+processManagement:*
 ```
+as follows :
+```
+# how the process run
+processManagement:*
   fork: true
 ```
 after
@@ -61,140 +81,158 @@ after
   # how the process runs
   processManagement:*
 ```
-(In classical case newline should be line 29)  
-This line is not mandatory, in default mode mongodb runs as fork (i.e. as a deamon) but it is advised to force it by *fork: true* and avoid problems.
+This line is not an obligation, in default mode mongodb runs as fork (i.e. as a deamon) but I prefer force it by *fork: true* for no doubt.
 
-Every time you change **mongod.conf** file, you need restart mongod service.
-```
-  sudo systemctl restart mongod
-```
-In this document, we use default folder **/var/lib/mongodb**.  
-To run mongodb, use following command line:
-```
-  sudo mongod --config /etc/mongod.conf
-```
+**Note**<br/>
+This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` to be sure.
 
-
-##### Robo3t
-
-Download [robomongo](https://robomongo.org/download).
-Extract:
+Every time you change the `mongod.conf` file, you need to restart the `mongod` service:
+```bash  
+sudo systemctl restart mongod
 ```
-  tar -xvf ~/Downloads/robo3t[...].tar.gz ~
-```
-Now to run robo3t do:
-```
-  cd
-  ./robo3t/bin/robo3t
+In this document, we use default folder `var/lib/mongodb`  
+To run MongoDB, use following command line:
+```bash  
+sudo mongod --config /etc/mongod.conf
 ```
 
+##### Robo 3T
 
-#### Postgresql + postgis
+Download Robomongo [here](https://robomongo.org/download).
 
-##### Postgresql Installation
-Open a terminal and run:
+Extract the downloaded archive (replace `<version>` with your version of Robot3t):
+```bash  
+tar -xvf ~/Downloads/robo3t<version>  .tar.gz <Robo 3T repository location>
 ```
+Go to Robo 3T repository location:
+```bash  
+cd <Robo 3T repository location>
+```
+
+Run the installation program:
+```bash  
+./robo3t<version>  /bin/robo3t
+```
+
+#### PostgreSQL and PostGIS
+
+##### PostgreSQL and PostGIS installation
+
+##### PostgreSQL Installation
+In a terminal, run these commands:
+```bash  
  sudo apt-get update
  sudo apt-get install postgresql
  sudo apt-get install postgresql-9.5-postgis-2.2
 ```
 
-##### Postgresql configuration
-Configuration files are in **/etc/postgresql/9.5/main** folder.  
-To change port, edit **postgresql.conf** file:
+##### PostgreSQL configuration
+
+The configuration files are in the `etc/postgresql/9.5/main` folder.  
+To change the port of the service, edit the `postgresql.conf` file:
+```bash  
+nano /etc/postgresql/9.5/main/postgresql.conf
 ```
-  nano /etc/postgresql/9.5/main/postgresql.conf
-```
-and in the **CONNECTION AND AUTHENTICATION** section change **port = XXXX** by **port = 5432**.
-Restart service:
-```
-  sudo systemctl restart postgresql
+In the `Connection and Authentication` section, replace `port = XXXX` by `port = 5432`.
+
+Then restart the service to take the changes into account:
+```bash
+sudo systemctl restart postgresql
 ```
 
 #### Netbeans and JDK
 
 
 ##### Jdk
-Install jdk where you want but you need to keep in mind its location.  
-If jdk is already installed you can go to the next section, [Netbeans](#netbeans).
+If JDK is already installed you can go to the next section, [Netbeans](#netbeans).
 
-Download the jdk 8 sources (e.g. tar.gz archive) [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).  
-Create a jdk folder.  
-For example:
+Otherwise, download the JDK 8 sources (e.g. `tar.gz` archive) at [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+
+Create a JDK folder wherever you want. For example:
 ```bash
-  mkdir ~/jdk
+mkdir ~/jdk
 ```
 
-Extract the archive in this folder:
+In the created folder, extract the archive with this command:
 ```bash
-  tar -xvf ~/Downloads/jdk-X.X.X_linux-x64_bin.tar.gz ~/jdk/
+tar -xvf ~/Downloads/jdk-X.X.X_linux-x64_bin.tar.gz ~/jdk/
 ```
 
+When the installation is done, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`
 
 ##### Netbeans
 
-Download the full version [netbeans.org](https://netbeans.org/downloads/start.html?platform=linux&lang=en&option=all).  
-Run the script:
+Download the full version of Netbeans at [netbeans.org](https://netbeans.org/downloads/start.html?platform=linux&lang=en&option=all).
+
+Run the downloaded script:
 ```bash
-  sh ~/Downloads/netbeans-X.X-linux.sh
+sh ~/Downloads/netbeans-X.X-linux.sh
 ```
 Follow the installation steps.
 
-Check **PHP** and **Glassfish/JEE** module are installed.
+Check that the **PHP** and **Glassfish/JEE** modules are installed.
 
-Choose your installation folder for Netbeans (for us is ~/netbeans) and indicate the jdk installation folder. In our case it is ~/jdk.
-
+Choose your installation folder for Netbeans (here `~/netbeans`) and select the JDK installation folder (in our case `~/jdk`).
 
 #### PHP
+
+Install PHP by running the following commands:
 ```bash
-  sudo apt-get update
-  sudo apt-get install php php-mbstring php-dom
+sudo apt-get update
+sudo apt-get install php php-mbstring php-dom
 ```
 
+#### Apache Tomcat + RDF4J
 
 #### Apache Tomcat and RDF4J
 
-
 ##### Apache Tomcat installation
 
-To have a better control over the installation of Tomcat you will install Tomcat from sources files (e.g. tar.gz archive).  
+To have a better control on the installation of Tomcat, install Tomcat from sources files (e.g. `tar.gz` archive).  
 
-You can download Tomcat9.0 archive, core distribution, [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
+You can download Tomcat9.0 archive, core distribution, at [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
 
-Create an installation folder for Tomcat. To simplify what follows you should create the Tomcat folder in /home:
+Create an installation folder for Tomcat. We advise you to create the Tomcat folder in `/home`:
 
 ```bash
-  sudo mkdir /home/tomcat
+sudo mkdir /home/tomcat
 ```
 
-and extract archive in this folder:
+Extract the archive in this folder (replace `<user>` by your user and `<version>` by the version you downloaded):
 ```bash
-  cd /home/tomcat/
-  sudo tar --owner=<user> -xvzf ~/Downloads/apache-tomcat.tar.gz
+cd /home/tomcat/
+tar --owner=<user> -xvzf ~/Downloads/apache-tomcat<version>.tar.gz
 ```
 
-With this procedure, Tomcat is not recognized by Ubuntu services control (systemctl or services). So you need to execute scripts which are in Tomcat **bin** folder (ex: **startup.sh** to run and **shutdown.sh** to stop). You also need to change rights on files.
+To be consistent with the OpenSILEX PHIS documentation, we recommand you to rename the Apache Tomcat folder so that the version does not appear :
+```bash
+mv apache-tomcat<version> apache-tomcat
+```
 
+
+With this procedure, Tomcat is not recognized by Ubuntu services control (`systemctl` or `services`). So you need to execute scripts which are in Tomcat `bin` folder (e.g: `startup.sh` to run and `shutdown.sh` to stop). You also need to change rights on files.
+
+##### Apache-Tomcat configuration
 
 ##### Apache Tomcat configuration
-Tomcat configuration files are located in the **/home/tomcat/apache-tomcat/conf** folder.  
+Tomcat configuration files are located in the `/home/tomcat/apache-tomcat/conf` folder.  
 To use Tomcat manager page you need to define an admin user.  
-To do that edit the **tomcat-users** file:
+To do that edit the `tomcat-users` file:
 ```bash
-  nano /home/tomcat/apache-tomcat/conf/tomcat-users.xml
+nano /home/tomcat/apache-tomcat/conf/tomcat-users.xml
 ```
 and add lines:
 ```bash
 <role rolename="manager"/>
 <role rolename="manager-gui"/>
-<user username="tomcat-admin" password="azerty" roles="manager, manager-gui"/>
+<user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
 
-To configure port, edit **server.xml**:
+To configure port, edit `server.xml`:
 ```bash
-  nano /home/tomcat/apache-tomcat/conf/server.xml
+nano /home/tomcat/apache-tomcat/conf/server.xml
 ```
-and change:
+and replace:
 
 ```XML
 <Connector port="XXXX" protocol="HTTP/1.1"
@@ -208,249 +246,266 @@ by:
               connectionTimeout="20000"
               redirectPort="8443" />
 ```
-You have to allow **encoded slash** in **/home/tomcat/apache-tomcat/conf/catalina.properties**. If you have the line **"org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=false"**, change false value by true.  
-If you don't have this line add **"org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true"** at the end of file.
+You have to allow `encoded slash` in `/home/tomcat/apache-tomcat/conf/catalina.properties`. If you have the line `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=false`, change `false` value by `true`.  
+If you don't have this line, add `org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true` at the end of file.
 
 Start the service:
 ```bash
-  /home/tomcat/apache-tomcat/bin/startup.sh
+/home/tomcat/apache-tomcat/bin/startup.sh
 ```
-
 
 ##### RDF4J
 
-Download archive zip file [rdf4j.org](http://rdf4j.org/download/).
-Extract, for example:
+Download archive zip file [rdf4j.org](http://rdf4j.org/download/) and extract it (replace `<version>` by the version downloaded):
 ```bash
-  unzip ~/Downloads/eclipse-rdf4j-x.x.x-sdk.zip -d ~/
+unzip ~/Downloads/eclipse-rdf4j-<version>-sdk.zip -d ~/
 ```
-You can already copy .war files to the Tomcat webapps folder:
+You can already copy `.war` files to the Tomcat webapps folder:
 ```bash
-  cp ~/eclipse-rdf4j-x.x.x/war/* /home/tomcat/apache-tomcat/webapps/
+cp ~/eclipse-rdf4j-<version>/war/* /home/tomcat/apache-tomcat/webapps/
 ```
-
 
 #### Apache2
 
 ##### Apache Installation
 
 ```bash
-  sudo apt-get update
-  sudo apt-get install apache2 libapache2-mod-php7.0
+sudo apt-get update
+sudo apt-get install apache2 libapache2-mod-php7.0
 ```
-
 
 ##### Apache Configuration
 
-With this installation configuration files are in /etc/apache2 folder.  
-To change the port you need to edit the file port.conf:
+With this installation configuration files are in `/etc/apache2` folder.  
+To change the port you need to edit the file `port.conf`:
 ```bash
-  nano /etc/apache2/ports.conf
+sudo nano /etc/apache2/ports.conf
 ```
-change line **LISTEN xx** to **LISTEN 80**.
+change line `LISTEN XX` to `LISTEN 80`.
 
 Restart service apache2:
 
 ```bash
-  sudo systemctl restart apache2
+sudo systemctl restart apache2
 ```
-
 
 #### Composer
-Sometimes when you install composer from ubuntu package, composer does not run correctly. To avoid problems, you should install composer from the composer installer file, via the following command line:
 
+Sometimes when installing Composer from the Ubuntu package, it does not run correctly. To avoid any problem, you should install Composer from the Composer installer file via the following command line (**Curl** must be already installed):
 ```bash
-  sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+sudo curl -sS https://getcomposer.org/installer
+sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
-Maybe you should create a symbolic link between the new version of composer in /usr/bin or use the complete command. e.g. php /usr/local/bin/composer
+Maybe you should create a symbolic link between the new version of composer in `/usr/bin` or use the complete command. e.g. php `/usr/local/bin/composer`.
 
-
-Install now the plugin that you need to use composer.
-
+Now install the plugin that you need to use Composer:
 ```bash
-  sudo composer global require "fxp/composer-asset-plugin:^1.2.0"
+sudo composer global require "fxp/composer-asset-plugin:^1.2.0"
 ```
-
-
-
 
 #### Git
-You need git to download phis web service and web application.  
-Git is already installed on ubuntu 16 default install, but if it is not, you can install it :
-```bash
-  sudo apt-get install git
-```
-Go to the [Using git](github.md) section of this documentation to check how OpenSILEX developpers use git.
 
+Git is needed to download the OpenSILEX PHIS's web service and web application. Git is already installed on most Linux native installations but if it is not your case, you can install it as follows:
+```bash
+sudo apt-get install git
+```
+Go to the [Using Git](github.md) section of this documentation to check how OpenSILEX developpers use Git.
 
 #### Check install
 
-For a good start you shall check  the configuration of apache2, tomcat and postgresql servers.
-
-To do a rapid check, run the following commands lines:
+Check the configuration of Apache2, Tomcat and PostgreSQL servers (nmap must be intalled, if it is not, do not install it because it is only used for checking ports.):
 ```bash
-  sudo systemctl start apache2
-  sudo systemctl start postgresql
-  /home/tomcat/apache-tomcat/bin/startup.sh
-  nmap 127.0.0.1
+sudo systemctl start apache2
+sudo systemctl start postgresql
+/home/tomcat/apache-tomcat/bin/startup
+nmap 127.0.0.1
 ```
-If nmap is not installed on your PC, don't install it because it is only used for checking ports.
 
 The answer should be:
 ```
 PORT     STATE SERVICE
 80/tcp   open  http
-631/tcp  open  ipp
 5432/tcp open  postgresql
-8009/tcp open  ajp13
 8080/tcp open  http-proxy
 ```
 For information:
-- http is your Apache2 server
-- postgresql is your Postgresql server
-- http-proxy is your Tomcat server
+- `http` is your Apache2 server
+- `postgresql` is your PostgreSQL server
+- `http-proxy` is your Tomcat server
 
+They are the three services that you need so if the previous command's result is correct, you can continue to the next section [Prerequisite Files](#files).
 
-They are the three services that you need. So if they are like previously (80 -> http, 5432 -> postgresql and 8080 -> http-proxy), you can continue to the next section [Prerequisite Files](#files).
-But if you are one or plus which are different you have two options:  
-- remember the differences and adapt yourself for the next. You can continue too.
-- Please return to the concern program section ([tomcat](#apache-tomcat-configuration), [apache2](#apache-configuration),[postgresql](#postgresql-configuration))
+Otherwise you have two options:  
+- remember the differences and ajust for the next steps
+- return to the related section ([Tomcat](#apache-tomcat-configuration), [Apache2](#apache-configuration), [PostgreSQL](#postgresql-configuration))
 
-N.B.: If you didn't install programs exactly like in this document, it is possible that configurations files aren't located exactly like us.
-
-
+**Note**<br/>
+ If you didn't install the programs exactly like in this document, it is possible that configuration files aren't located exactly like us.
 
 ### Files
-I recommand you to create a folder where you will download all the required files.
+
+I recommand you to create a folder where you will download all the required files:
 ```bash
-  mkdir ~/Phis
+mkdir ~/OpenSILEX
 ```
 
-
 #### Web service folder
-Get source from github, directly from the phis-ws development repository:
+
+Get source from GitHub, directly from the `phis-ws` development repository:
 ```bash
-  cd ~Phis
-  git clone https://github.com/OpenSILEX/phis-ws.git
+cd ~/OpenSILEX
+git clone https://github.com/OpenSILEX/phis-ws.git
 ```
 Preferably, get the source from the last release at [phis-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
 
 #### Web application folder
-Get source from github, directly from the phis-webapp development repository:
+
+Get source from GitHub, directly from the phis-webapp development repository:
 ```bash
-  cd ~Phis
-  git clone https://github.com/OpenSILEX/phis-webapp.git
+cd ~/OpenSILEX
+git clone https://github.com/OpenSILEX/phis-webapp.git
 ```
 Preferably, get the source from the last release at [phis-webapp/releases](https://github.com/OpenSILEX/phis-webapp/releases).
 
 #### Ontology files
-Get source from github, directly from the ontology-phis-oepo-field development repository:
+
+Get the source from GitHub, directly from the `ontology-vocabularies` development repository:
 ```bash
-  cd ~Phis
-  git clone https://github.com/OpenSILEX/ontology-phis-oepo-field
+cd ~OpenSILEX
+git clone https://github.com/OpenSILEX/ontology-vocabularies
 ```
-Preferably, get the source from the last release at [ontology-phis-oepo-field/releases](https://github.com/OpenSILEX/ontology-phis-oepo-field/releases).
+Preferably, get the source from the last release at [ontology-vocabularies/releases](https://github.com/OpenSILEX/ontology-vocabularies/releases).
 
 #### Database file
 
-Download the database dump file [phis_st_dump.sql](assets/phis_st_dump.sql).
+Download the database dump file [opensilex_st_dump.sql](assets/opensilex_st_dump).
 
+##  OpenSILEX PHIS Installation
 
-## Phis Installation
-
-### Mongodb database
+### MongoDB database
 
 You only create a connection to a collection.
-Run mongodb:
+Run MongoDB:
 ```bash
-  sudo mongod --config /etc/mongod.conf
+sudo mongod --config /etc/mongod.conf
 ```
-Run robot3t:
+Run Robo 3T:
 ```bash
-  ~/robo3t/bin/robo3t
+~/robo3t/bin/robo3t
 ```
-Create a connexion:
-![robo3t-connexion1](img/robo3t-connexion1.png)
+Create a connection:
+![robo3t-connection1](img/robo3t-connexion1.png)
 Configure your connection:
-![robo3t-connexion2](img/robo3t-connexion2.png)
+![robo3t-connection2](img/robo3t-connexion2.png)
 Create your database:
-Right click on connection name -> create a database -> enter a name (in this document it will be "diaphen")
-Now, you can close robo3t.
+Right click on connection name -> `Create Database` -> enter a name (`phis` in this document).
 
+### Rdf4j Ontologies
 
+Go to http://localhost:8080/. You are in Tomcat server home page.
 
-### Rdf4j ontologies
+Click on `Manager App`, connect with your  Tomcat user (a default user is configured in the `home/tomcat/apache-tomcat/tomcat-users.xml` configuration file).  
 
-Go to http://localhost:8080/
-You are in Tomcat server home page, click on **manager app**, connect with tomcat-admin user.  
-Search **rdf4j-workbench** in the list, if it isn't in the list,deploy it, and click on the name **rdf4j-workbench**.  
-Click **New repository** and complete as in the picture:
+Search `rdf4j-workbench` in the list, if isn't running, click on `Start`)
+
+Click on the `rdf4j-workbench` link.
+
+Click `New repository` and complete as in the picture:
 ![rdf4j-nr1](img/rdf4j-nr1.png)
-Click **next**, check if all is as on this second picture:
+Click `Next` and check if is corresponds to this:
 ![rdf4j-nr2](img/rdf4j-nr2.png)
-Click **create**.  
+Click `Create`.  
 
-You will do these steps many times :  
+You will do these steps many times:  
 
-Now, click **Add** in *Modify* menu.  
+Now, Click `Add` in the `Modify` submenu.  
 
 ![rdf4j-add](img/rdf4j-add.png)
 
+Click on the button next to `RDF Data File` in order to select a RDF Data File.
 
-Click **Parcourir...** selection **oepo.owl** file get previously from GitHub repository **ontology-phis-oepo-field**
+Select the `oeso.owl` file got previously from GitHub repository `ontology-vocabularies`
 
-Add it in the context   **<http://www.phenome-fppn.fr/vocabulary/2017>** with base URI and context fields.
+Add it in the context  `<http://www.opensilex.org/vocabulary/oeso>` with base URI and context fields.
+Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
 
-In **RDFData format** select **RDF/XML**.
+In the `Data format` field, select `RDF/XML`.
 
-Click **Upload**  
+Click `Upload`.
 
+Add also a new context for the Ontology Annotation (with the `RDF Data File` `oa.rdf` downloadedable [here](http://www.w3.org/ns/oa.rdf) and with the `Base URI` value `http://www.w3.org/ns/oa`.
 
-Add also a new context for the ontology annotation
-Add [oa.rdf](assets/oa.rdf) file in **<http://www.w3.org/ns/oa>** context.
+### PostgreSQL database
 
-
-### Postgresql and Postgis
-
-
-#### Creating phis users
-```SQL
-  sudo -i -u postgres
-  psql
-  CREATE USER phis;
-  ALTER ROLE phis WITH CREATEDB;
-  ALTER ROLE phis WITH SUPERUSER;
-  ALTER USER phis WITH ENCRYPTED PASSWORD 'azerty';
-  \q #leave psql
-  exit #disconnect postgre
-```
-
-#### Creating Database
-```SQL
-  sudo -i -u postgres
-  psql
-  CREATE DATABASE diaphen OWNER phis;
-  \q
-  exit
-  psql -U phis diaphen #connection like phis user on the diaphen database
-  CREATE EXTENSION postgis;
-  select postgis_full_version();
-  \q
-```
-If you have an error connecting to the user phis (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
-
-#### Initialising Database
-Importing data with:
+Connect to Postgre:
 ```bash
-  psql -U phis diaphen < ~/Phis/phis_st_dump.sql
+sudo -i -u postgres
 ```
-You can find [dump file](assets/phis_st_dump.sql).
 
-With specific access rights you can get a dump from demonstration version.
+#### Create the opensilex user
+
+Start the SQL editor:
+```bash
+psql
+```
+
+Run the following commands:
+```sql
+CREATE USER opensilex;
+ALTER ROLE opensilex WITH CREATEDB;
+ALTER ROLE opensilex WITH SUPERUSER;
+ALTER USER opensilex WITH ENCRYPTED PASSWORD 'azerty';
+```
+
+#### Create the database
+
+We recommand to name the PostgreSQL database with your experimental installation's name.
+Create the PostgreSQL database with the following command:
+```sql
+CREATE DATABASE <experimental_installation_name> OWNER opensilex;
+```
+
+Exit the SQL connection:
+```bash
+\q
+```
+
+#### Create the PostGIS extension
+
+Connect to the database with the `opensilex` user:
+
+```bash
+psql -U opensilex -h 127.0.0.1 -d <experimental_installation_name>
+```
+and enter opensilex's current password `azerty` when asked.
+
+Finally run these commands to create the extension:
+```SQL
+CREATE EXTENSION postgis;
+select postgis_full_version();
+```
+If you have an error connecting to the phis user (+ FATAL: authentification peer:), see [Errors with postgresql](#Errors-with-postgresql) in the error section.
+
+Exit the SQL editor:
+```
+\q
+```
+
+#### Set up the database
+
+Download the dump file to import [here](opensilex_st_dump.sql) (make shure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder - because of PosgreSQL ownership issue when importing data).
+
+Import data with :
+```bash
+psql -U opensilex -h 127.0.0.1 <experimental_installation_name> < /var/lib/postgresql/opensilex_st_dump.sql
+```
+ You can find [dump file](assets/opensilex_st_dump.sql).
+
+With specific access rights, you can get a dump from the demonstration version:
 ```bash
 # from postres server
-pg_dump -O -U phis diaphen > phis_st_dump.sql
+pg_dump -O -U opensilex <experimental_installation_name> > opensilex_st_dump.sql
 # -O : --no-owner
 # -s : only schema
 # -h <IP> : postgres host
@@ -459,49 +514,51 @@ pg_dump -O -U phis diaphen > phis_st_dump.sql
 
 If you need to generate a MD5 password, you can use:
 ```bash
-   echo -n bonjour | md5sum
+ echo -n bonjour | md5sum
 ```
 
 #### Initialising Users
-To start using or try Phis, two users are created automatically:
-* admin@phis.fr/admin for administrative rights
-* guest@phis.fr/guest for restricted rights
-See Phis user documentation for explanation and add other users.
+To start using or trying OpenSILEX PHIS, two users are created automatically:
+* admin@opensilex.org/admin for administrative rights
+* guest@opensilex.org/guest for restricted rights
+See [OpenSILEX PHIS user documentation](https://opensilex.github.io/phis-docs-community/) for further explanation on users management and how to add new users.
+We recommand you to change the admin password.
 
+Check the [OpenSILEX PHIS user documentation](https://github.com/OpenSILEX/phis-docs-community) for more informations about users (eg. adding other users).
 
-### Web service
+### Web Service
 
-To deploy a webservice with Tomcat you need a war file.  
-To generate a war file from a project the easiest solution is to use Netbeans.
-
+To deploy a web service with Tomcat, you need a war file.  
+To generate a war file from a project, the easiest solution is to use Netbeans.
 
 #### Folders
-Create directories for images and
-```bash
-  mkdir -p /home/<user>/phis2ws/documents/instance
-  mkdir /var/www/html/images
-  mkdir /var/www/html/layers
-  chown -R [username]:[username] /var/www/html/images
-  chown -R [username]:[username] /var/www/html/layers
-  chown -R [username]:[username] /home/<user>/phis2ws/documents/
-  chmod -R 775 /var/www/html/images
-  chmod -R 775 /var/www/html/layers
-  chmod -R 775 /home/<user>/phis2ws/documents/
-```
 
+Create directories for images and layers:
+```bash
+mkdir -p ~/opensilex-ws/documents/instance
+sudo mkdir /var/www/html/images
+sudo mkdir /var/www/html/layers
+sudo chown -R <user>:<user> /var/www/html/images
+sudo chown -R <user>:<user> /var/www/html/layers
+sudo chown -R <user>:<user> ~/opensilex-ws/documents/
+sudo chmod -R 775 /var/www/html/images
+sudo chmod -R 775 /var/www/html/layers
+sudo chmod -R 775 ~/opensilex-ws/documents/
+```
 
 #### Open project
+
 Run netbeans:
 ```
-  ~/netbeans/bin/netbeans
+~/netbeans/bin/netbeans
 ```
+**Note**<br/>
 Netbeans frequently meets error when he starts. If you have an error please go to the [current error](#problems-with-netbeans) section.
 
-When netbeans starts, open phis2ws project. It is located in ~/Phis/phis-ws/.
+When Netbeans starts, open the `phis2-ws` project located in the `phis-ws` GitHub project.
 
-If problems are detected in the project: right click on the project name -> resolve problems -> resolve.  
+If problems are detected in the project: click right on the project name -> `Resolve problems` -> `Resolve`.  
 If problems can't be resolved like that please go to the [current error](#errors-with-the-web-service) section.
-
 
 #### Configuration Files
 
@@ -510,70 +567,70 @@ You don't need to edit your configuration files specifically with netbeans, you 
 Maven profiles are used to generate war files with different configurations.
 
 Three profiles exists by default:
-- **dev** (default): Profile used for local developpement with default values
-- **test**: Profile used for testing purpose with no values by default
-- **prod**: Profile used for production with no values by default
+- `dev` (default): Profile used for local developpement with default values
+- `test`: Profile used for testing purpose with no values by default
+- `prod`: Profile used for production with no values by default
 
-Specific profiles configurations are defined in a **config.properties** file which is located in folder **phis2-ws/src/main/{profile name}/**
+Specific profile configurations are defined in the `config.properties` file which is located in `phis2-ws/src/main/<profile name>/`.
 
-Netbeans users: configuration files are located in `~/Phis/phis-ws/phis2-ws/src/main/profiles {profile name}`.
+Netbeans users: configuration files are located in `~/OpenSILEX/phis-ws/phis2-ws/src/main/profiles {profile name}`.
 
-Profile could be used with the following command line (-P option):
+Profile could be used with the following command line (`-P` option):
 
 ```bash
 mvn install -Ptest
 ```
 
-Without -P option dev profile is used.
+With no `-P` option, `dev` profile is used.
 
-_Informations:  
-If you use netbeans to deploy war file in tomcat server, default port is 8084 but in this document we choose to deploy ourselves war file so the port need to be tomcat service port (8080).  
-The choice of deploying ourselves is justified by the universality of the procedure. Netbeans is heavy and some computer can have hard time running netbeans and other softwares at the same time.  
-If you can use netbeans you have the advantage to modify files and deploy them faster._
+**Note**<br/>
+If you use netbeans to deploy war file in the Tomcat server, the default port is **8084** but in this document we choose to deploy ourselves our war files so the port need to be the Tomcat service port **8080**.  
+The choice of deploying ourselves our war files is justified by the universality of the procedure. Netbeans is heavy and some pc can have difficulty to run it and other softwares at the same time.
+Using Netbeans enables you to deploy more quickly.
 
-_Attention:
-Every time you use localhost address you need use ip address 127.0.0.1 and not the name localhost_
+**Warning**
 
-Edit the file **config.properties** of the **dev** profile:
-You have to adapt values between **< >** but if you are doing exactly like in this document, other values are good.
-You need change port with the port choose for Tomcat, in our case 8080.
+Every time you use the localhost address, you need to use the IP address `127.0.0.1` and not the name `localhost`.
+
+Edit the file `config.properties` of the `dev` profile (you have to adapt values between `< >`).
+You need to change the port with the value chosen for Tomcat (in our case 8080):
 
 ```properties
 # MongoDB configuration
 mongo.host=127.0.0.1
 mongo.port=27017
-mongo.db=<MongoDB database name, eg. diaphen>
+mongo.db=<experimental_installation_name>
 
 # PostgreSQL configuration
 pg.host=127.0.0.1
 pg.port=5432
-pg.db=<PostgreSQL database name, eg. diaphen>
-pg.user=<PostgreSQL user name, eg. phis>
-pg.password=<PostgreSQL user password, eg. azerty>
+pg.db=<experimental_installation_name>
+pg.user=opensilex
+pg.password=azerty
 
 # RDF4J Configuration
 rdf.host=127.0.0.1
-rdf.port=<8080>
-rdf.path=<Rdf4j .war file name, eg. rdf4j-server>
-rdf.infra=<Rdf4j infrastructure name, eg. diaphen>
-rdf.repo=<Rdf4j repository name, eg. diaphen>
+rdf.port=8080
+rdf.path=rdf4j-server
+rdf.infra=opensilex
+rdf.repo=opensilex
 
 # Webservice configuration
-ws.log.dir=/home/tomcat/phis2ws/logs
+ws.log.dir=/home/tomcat/apache-tomcat/logs/opensilex-ws
 
 ws.host=127.0.0.1
-ws.port=<8080>
+ws.port=8080
 ws.target=phis2ws
 ws.baseUrl=rest
 
 ws.doc.host=127.0.0.1
-ws.doc.port=<8080>
+ws.doc.port=8080
 ws.doc.name=phis2ws
 
 ws.updir.host=127.0.0.1
 ws.updir.user=<Linux session name>
 ws.updir.password=<Linux session password>
-ws.updir.doc=/home/<user>/phis2ws/documents/instance
+ws.updir.doc=~/opensilex/documents/instance
 
 ws.images.dir=/var/www/html/images
 ws.images.url=http://127.0.0.1/images
@@ -582,157 +639,155 @@ ws.layers.dir=/var/www/html/layers
 ws.layers.url=http://127.0.0.1/layers
 ```
 
-#### Generate war file
+#### Generate WAR file
 
-When all configuration files are correct you can generate the war file.  
-To do that, in netbeans:  
-**click right on project -> build with depedencies**
-Your war is generated in **~/Phis/phis-ws/target**
-
+When all configuration files are correctly set up you can generate the `.war` file: right click on the project's name -> `Build with depedencies`.
+The `.war` file is generated in `<phis-ws git repository>/phis2-ws/target/phis2ws.war`.
 
 #### Deploy war file
 
-Copy the war archive in tomcat webapps folder:
+Copy the WAR archive into the Tomcat `webapps` folder (replace `<>` with the right phis-ws git repository and the Tomcat version):
 ```bash
-  cp ~/Phis/phis-ws/target/phis2ws.war /home/tomcat/apache-tomcat/webapps/phis2ws.war
+cp <phis-ws git repository>/target/phis2ws.war /home/tomcat/apache-tomcat/webapps/phis2ws.war
 ```
-
 
 #### Check web service
 
-Your webservice is directly deployed. You can check that:  
-Go to http://127.0.0.1:8080/  
+Your web service is directly deployed. You can check that at http://127.0.0.1:8080/ (it is necessary not to use `localhost`).
 
-_It is necessary you don't use localhost._  
-You are in Tomcat server home page, click on **manager app**, connect with *tomcat-admin* user.  
-Search **phis2ws** in the list, if it isn't in the list, deploy it, then click on the name **phis2ws**.  
-You are on your service web, if it is correctly configurated you have 2 opperationnal links.  
+On the Tomcat server home page, click on `Manager App` and connect with the Tomcat user.  
+Search `phis2ws` in the list (if it isn't running, click on `Start`) and click on the name `/phis2ws`.  
+You are now on your web service! if it is correctly set up, you have 2 opperationnal links.  
 
-_You can go directly with http://127.0.0.1:8080/phis2ws __
+**Note** </br>
+You can directly go on the web service with the URL http://127.0.0.1:8080/phis2ws
 
-To check you are correctly configurating your web service:
-Go to **Documentation link**, try **brapiv1token**:
-post -> click on example -> try it out  
-If you haven't:
+To check if you have correctly set up your web service :
+ - Click on the `Documentation link`
+ - Find the line `brapiv1token` and click on it
+ - Click on `POST`
+ - Click on the example field
+ - Click on the `Try it out!` button  
+
+The `Response Code` you get should be:
 ```
-Response Code
-
 201
 ```
-please go to [current error](#errors-with-th-web-service) section.
 
-
+Otherwise, please go to the [current error](#errors-with-th-web-service) section.
 
 ### Web application
 
-
 #### Folder
 
-
-The web application deployment is done by apache2. You have to copy webapp folder in apache root folder. In our case /var/www/html.
+The web application deployment is done by Apache2. You have to copy the webapp folder in the Apache root folder (in our case `/var/www/html`).
+```bash
+sudo cp -r <Git folder>/phis-webapp /var/www/html
 ```
-  sudo cp -r ~/Phis/phis-webapp /var/www/html
+Change the permissions of this folder:
 ```
-Change right on this folder:
+sudo chown -R <username>:www-data /var/www/html/phis-webapp
+sudo chmod 775 -R /var/www/html/phis-webapp
 ```
-  sudo chown -R [username]:www-data /var/www/html/phis-webapp
-  sudo chmod 775 -R /var/www/html/phis-webapp
-```
-*information:  
-www-data is the default apache2 username. But in rare case it can be a different name, you can check that in /etc/apache2/envars file.*
-
+**Note**</br>
+`www-data` is the default Apache2 username. But in rare case it can be different. You can check the value of `APACHE_RUN_USER` it in the `/etc/apache2/envars` file to be sure.
 
 #### Configuration
 
+To deploy the web application in localhost, it isn't necessary to open it with Netbeans:
+- Edit `/var/www/html/phis-webapp/config/web_services.php`
+- Set the value of `WS_PHIS_PATH_DOC`to `http://127.0.0.1:8080/phis2ws`
 
-To deploy in localhost it isn't necessary to open webapp with netbeans, you only need to adapt configuration files so you can use classical editor.  
+To deploy in localhost it isn't necessary to open webapp with netbeans , you only need adapt configuration files so you can use classical editor.  
 Netbeans users:  
 Open the webapp folder with netbeans, like a php project.
 
-open project -> **/var/www/html/phis-webapp** -> open  
-Configuration files are in: *phis-webapp* -> *sources files* -> *config*  
+open project ->  `/var/www/html/phis-webapp` -> open  
+Configuration files are in: `phis-webapp` -> `Source files` -> `config`  
 Other users:  
-Configuration files are in: **/var/www/html/phis-webapp/config**   
+Configuration files are in: `/var/www/html/phis-webapp/config`  
 
 Edit:
   - *web_services.php*  
-Adapt the last lines with the correct URL in our case is:  
-**define('WS_PHIS_PATH', 'http://localhost:8080/phis2ws/rest/');**
-**define('WS_PHIS_PATH_DOC', 'http://localhost:8080/phis2ws');**
+Adapt the last lines with the correct URL in our case with:  
+```
+define('WS_PHIS_PATH', 'http://localhost:8080/phis2ws/rest/');
+define('WS_PHIS_PATH_DOC', 'http://localhost:8080/phis2ws');
+```
 
-If you are doing exactly like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
-
-
+If you are all exactly doing like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
 
 #### Composer
 
-Go to your webapp folder and applicate **composer update**:
+Go to your webapp folder:
+```bash
+cd /var/www/html/phis-webapp
 ```
-  cd /var/www/html/phis-webapp
-  sudo composer update
+Run `composer update`:
+```bash
+sudo composer update
 ```
-It can be very long, and perhaps you will need install some php-smth packages:  
-```
-  sudo apt-get install php-smth1 php-smth2
-```
-*(adapt smth with name given by composer)*
+It takes some time.  
 
-While you don't obtain a successful issue, fix errors and rerun **composer update**.
-
-Maybe you need to change some owner and rights properties of new files. So, you can do :
+It may end in error telling that a PHP package is missing. In this case, install this package:  
 ```
-  sudo chown -R [username]:www-data /var/www/html/phis-webapp
-  sudo chmod 775 -R /var/www/html/phis-webapp
+sudo apt-get install php-<name of the package given by composer>
 ```
+Re-run `composer update`. It may end again in error like previously.
 
-So now, normally you have a operationnal phis application on your localhost.
-Go to **http://127.0.0.1:80/phis-webapp** and test with log in.
-You need to start `apache-tomcat` in order to deploy the service.
+Repeat the steps until it ends successfully.
 
-If you have problems search on **Current errors** section.
+You may need to change some owner and permission properties of the new files:
+```bash
+sudo chown -R <username>:www-data /var/www/html/phis-webapp
+sudo chmod 775 -R /var/www/html/phis-webapp
+```
+You should now have an operationnal OpenSILEX PHIS application on your localhost!
+Go to http://127.0.0.1:80/phis-webapp and test it by logging in.
 
-In the future, to start Phis Localhost, you'll only need to run apache-tomcat service.You can also create an alias using this command :
+If you have any problem, please check the following **Current errors** section.
+
+In the future, to start OpenSILEX PHIS in Localhost, you'll only need to run apache-tomcat service. You can also create an alias using this command :
 ```
 alias phis='apache-tomcat/bin/startup.sh;xdg-open http://localhost/phis-webapp/web'
 ```
+
 ## Current errors
 
-### Problems with netbeans
+### Problems with Netbeans
 
-+ Exit without error message when he is starting  
++ Exit without error message when starting  
 
-Some ressources are not found or not accessible.
-Check rights on files/folders in ~/.netbeans/8.2.
-```
+Some ressources are not found or accessible.
+Check rights on files/folders in `~/.netbeans/8.2`.
+```bash
 ls -l ~/.netbeans/8.2
 ```
-To run netbeans, owner of all files/folders should be the regular pc user. You can fix it with:
+To run Netbeans, the owner of all files/folders should be the your username. You can fix it with:
+```bash
+sudo chown -R <username>:<username> ~/.netbeans
 ```
-sudo chown -R [username]:[username] ~/.netbeans
-```
-Netbeans need also regular user can read and write all files of the folder. To fix it:
-```
+Netbeans need also the user to be able to read and write all the files in the folder:
+```bash
 sudo chmod -R ug+rw ~/.netbeans
 ```
 
 + Errors concerned jdk/jre:
 
-Netbeans doesn't find jdk installation, to fix it check if you indicate the correct jdk folder to netbeans. To do that edit file ~/netbeans-8.2/etc/netbeans.conf and adapt jdk path line 57.
-If the error persists it can be your jdk installation wasn't done correctly, uninstall jdk and use [this procedure](#jdk) to reinstall.
+Netbeans doesn't find your JDK installation. To fix it, check if you have indicated the correct JDK folder to Netbeans in the `~/netbeans-8.2/etc/netbeans.conf` file (line 57).
+If the error persists, your JDK installation may haven't been done correctly. Uninstall JDK and use [this procedure](#jdk) to reinstall.
 
+### Issues with Composer
 
-### Problems with composer
+If you have installed Composer with `apt` from Ubuntu packages, please uninstall Composer (consider deleting the cache and the configuration files in the `~/.cache` and `/etc` folders) and reinstall Composer with [this porcedure](#composer).
 
-If you installed composer with apt from ubuntu packages, please uninstall composer (think to remove cache and configuration files in ~/.cache and /etc folders) and reinstall with [this porcedure](#composer).
+If it doesn't fix the problem, please check the [composer troubleshooting page](https://getcomposer.org/doc/articles/troubleshooting.md).
 
-If it doesn't fix the problem please check [composer troubleshooting page](#https://getcomposer.org/doc/articles/troubleshooting.md).
-
-
-### Errors with postgresql
+### Errors with PostgreSQL
 
 + FATAL: authentification peer:  
 
-Edit file **/etc/postgresql/9.5/main/pg_hba.conf** and change line 90:
+Edit file `/etc/postgresql/9.5/main/pg_hba.conf` and change the line 90:
 ```bash
 local all all peer
 ```
@@ -740,47 +795,47 @@ by
 ```bash
 local all all md5
 ```
-and restart service:
+and restart the service:
 ```bash
 sudo systemctl restart postgresql
 ```
 + Distance connection impossible
 
-Edit file /etc/var/postgresql/9.5/main/pg_hba.conf
-You need to adapt all with correct ip address, for example:
+Edit the `/etc/var/postgresql/9.5/main/pg_hba.conf` file.
+You need to adapt the values with the correct IP address:
 ```
 hosts all all <ipaddress> md5
 ```
-Edit file /etc/var/postgresql/9.5/main/postgresql.conf
-change line:
+Edit the `/etc/var/postgresql/9.5/main/postgresql.conf` file and edit the line:
 ```
 listen_addresses: '*'
 ```
-and restart service:
-```
+and restart the service:
+```bash
 sudo systemctl restart postgresql
 ```
 
-
 ### Errors with the web service
 
-+ Errors with generation of war file  
++ Errors with the generation of the WAR file  
 
-In netbeans:
-Click right on project name -> resolve problems
-If it detects plugins problems I recommand you to fix them yourself with tool menu -> plugins.
-If you still have problems you can try fix them with resolve button. But if the problem persists it probably comes from a modification in a project files you can try find it or close project and reopen or remove all phis web service files and download again.
+In Netbeans, right click on the project name -> `Resolve problems`.
 
-+ Not ressources / 404 or other problems with web service
+If it detects plugin problems, I recommand you to fix them yourself with the menu : `Tools` -> `Plugins`.
+If it appears to be another problem, you can try to fix it with the `Resolve` button.
 
-Recheck path and port in web service file services.properties. If every lines are exactly like this:
+But if the problem persists, it probably comes from a modification in a project file. You can try to find it, to reopen the project or to remove all the OpenSILEX web service files and reload them).
+
++ No ressources / 404 or other problems with the web service
+
+Recheck paths and ports in the web service file `services.properties`. If all was done exactly like this:
 ```
 [...]
 logDirectory=/home/tomcat/phis2ws/logs
 
 [...]
 host=127.0.0.1:8080
-basePath=/phis2ws/rest
+basePath=/phisws/rest
 [...]
 webAppHost=127.0.0.1
 webAppPort=8080
@@ -793,59 +848,64 @@ webAppApiBasePath=/phis2ws/resources
 uploadFileServerPort=22
 # Adresse de sauvegarde des donn\u00e9es
 uploadFileServerIP=127.0.0.1
-uploadFileServerUsername=[linux session username]
-uploadFileServerPassword=[linux session password]
-uploadFileServerDirectory=/home/<user>/phis2ws/documents/instance
+uploadFileServerUsername=<linux session username>
+uploadFileServerPassword=<linux session password>
+uploadFileServerDirectory=/home/<user>/phis-ws/documents/instance
 uploadImageServerDirectory=/var/www/html/images
 layerFileServerDirectory=/var/www/html/layers
 layerFileServerAddress=http://127.0.0.1/layers
 [...]
 
 ```
-+ Error with test brapiv1token
++ Error with test `brapiv1token`
 
-Your database is inaccessible or wrong.
-Verify you postgresql server with nmap or your favorite tool for port gestion.
-If it isn't running, restart the service:
-```
+Your database is inaccessible or is wrongly set up.
+Check your PostgreSQL server with `nmap` or any tool for port management.
+If PostgreSQL isn't running, restart the service:
+```bash
 sudo systemctl restart postgresql
 ```
-If the service is running but you have a problem it comes from the configurations files, verify paths, URL and port in service.properties file and URL, port and database name in phis_sql_config file.
+If the service is running but you still have an issue, it comes from the configuration files.
+Check paths, URLs and ports in the `service.properties` file and check the URLs, ports and database name in the `opensilex_sql_config` file.
 
-If all your configurations files are good it can be a mistake in your database.
-
-
+If all these configuration files are correct, it probably is an error in your database.
 
 ### Errors with the web application
 
 + No home page
 
-Browser can't access to the page, it can come from right on the web application files in /var/www/html/phis-webapp. Check rights with `ls -l` command line, and make change if something is wrong.  
-Each file has:  
-owner: username (name of your session on the pc)  
-group: www-data (or the name of you apache user)  
-```
-  sudo chown -R [username]:www-data /var/html/phis-webapp
-```
+If your web browser can't access to the home page, it may come from the permissions on the web application files in `/var/www/html/phis-webapp`. Check the permissions with the `ls -l` command line and make changes if something is wrong. You must have all files set up as follows:
+```  
+owner: <username of your session>
+group: <www-data or the name of you apache user>
 rights: rwxrwxr-x  
 ```
-  sudo chmod -R 775 /var/html/phis-webapp
+To set the files up correctly with the right permissions, run the following commends:
+```bash
+sudo chown -R <username>:www-data /var/html/phis-webapp
+sudo chmod -R 775 /var/html/phis-webapp
 ```
-+ Can't log in
++ Cannot log in
 
-It can be a configuration file of the web application (/var/www/html/phis-webapp/config) or a configuration file of the web service or a problem with de postgresql database.
-In your configurations file check URL and port.
-With psql check if your database isn't wrong.
+It can be
+- A problem with the configuration file of the web application (`/var/www/html/phis-webapp/config`)
+- A problem with the configuration file of the web service
+- A problem with the PostgreSQL database.
 
-+ Github token
+In your configuration files, check the URLs and ports.
+With `psql`, check if your database isn't malfunctionning.
 
-If you get an error "GitHub API limit (60 calls/hr) is exhausted..." during composer insallation, you need to connect Github and get a Personal access tokens. See https://github.com/settings/tokens.
++ GitHub token
 
+If you get an error `GitHub API limit (60 calls/hr) is exhausted...` during the installation of Composer, you need to connect Github and get a Personal access token (see https://github.com/settings/tokens).
 
+#### Other problems with the webapp and the web service
 
-#### Other problems concerning the webapp and the web service
+In lots of cases, problems come from configuration files. Check every informations in these files.
 
-In most cases problems come from configuration files, verify every informations in these files.
-
-When you modify a web service configuration you have to rebuild and redeploy war file.
-Think to remove old version in tomcat webapp folder before copy your new version.
+When you modify a web service configuration file, you have to rebuild and redeploy the WAR file.
+Consider to remove the old version in the Tomcat webapp folder before copying the new version.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTYzNTc4MjA2NiwtMTcyMzM0Njc1OCwtMT
+A5OTg1NTI4MiwtOTUyOTI4MTM4XX0=
+-->

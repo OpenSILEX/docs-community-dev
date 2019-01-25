@@ -1,13 +1,13 @@
 ---
-title: Versionning using git
+title: Versionning using Git
 layout: default
 ---
-# Versionning using git
+# Versionning using Git
 
 This page explains how to contribute to an ongoing OpenSILEX development and what good practices are recommended within the community.
 
 Summary of this chapter's recommendations :
-- you can install **git** from [https://git-scm.com/](https://git-scm.com/)
+- you can install **Git** from [https://git-scm.com/](https://git-scm.com/)
 - OpenSILEX repositories are hosted on [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/)
 - checkout [GitHub guides](https://guides.github.com) recommendations
 - create your own branch of the repository you want to contribute to
@@ -24,7 +24,7 @@ If the concepts of repositories and branches are confusing, go to the [Repositor
 
 ### Installing git
 
-Install the version control system **git** from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a linux terminal :
+Install the version control system **Git** from [https://git-scm.com/](https://git-scm.com/) or from a terminal, e.g. on a Linux terminal :
 
 ```
 apt-get install git
@@ -32,31 +32,30 @@ apt-get install git
 
 Super-user priviledge may be required. If so, execute `sudo apt-get install git`.
 
-On linux, you can check your version of **git** and display its documentation from the terminal :
+On Linux, you can check your version of **Git** and display its documentation from the terminal :
 
 ```
 git --version
 git --help
 ```
 
-These commands can also be used on Windows operating system through **Git Bash Here**.
-When installing **git** on Windows, make sure you include Git Bash Here in Windows Explorer.
+These commands can also be used on Windows operating systems through `Git Bash Here`.
+When installing **Git** on Windows, make sure you include Git Bash Here in Windows Explorer:
 
 ![github-windows](img/git-windows.PNG)
 
-On Windows, open **git** from any Explorer window with a right-click > Git Bash Here (instead of Git GUI Here) in order to be able to use the commands presented in this documentation.
+On Windows, open **Git** from any Explorer window with a right-click > Git Bash Here (instead of Git GUI Here) in order to be able to use the commands presented in this documentation.
 At the moment, the present documentation provides no information on how to use Git GUI.
 
 ![git-bash](img/git-open-bash.PNG)
 
-If you are new to **git**, you can check out this [simple git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
+If you are new to **Git**, you can check out this [simple Git guide](http://rogerdudler.github.io/git-guide/index.html) and its associated [Git cheat sheet](http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf), or this other [Git cheat sheet](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf).
 The [official GitHub guide](https://guides.github.com/activities/hello-world/) is also worth a read.
-
 
 ### Git configuration
 
-The local configuration of git has to be done only once.
-From a terminal (linux terminal, mac terminal, or Git Bash Here on Windows), you can indicate your name and you email address with the command lines (without the `<` and `>`) :
+The local configuration of Git has to be done only once.
+From a terminal (Linux terminal, Mac terminal, or Git Bash Here on Windows), you can indicate your name and your email address with the command lines (without the `<` and `>`) :
 
 ```
 git config --global user.email "<the email you use on GitHub>"
@@ -69,40 +68,36 @@ You can verify your configuration using :
 git config --list
 ```
 
-The complete documentation of the git config command is available on [git official website](https://git-scm.com/docs/git-config).
+The complete documentation of the Git config command is available on [Git official website](https://git-scm.com/docs/git-config).
 
 ### Join GitHub
 
 Create a GitHub profile on [https://github.com/](https://github.com/).
 
 If you are an INRA agent, you have to specify it on your profile, using the `@INRA` tag.
-You can find more INRA recommendation regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
+You can find more INRA recommendations regarding the use of GitHub on this [document](http://pfl.grignon.inra.fr/gmpaDocs/INRA_UtiliserForge.pdf) from 2017.
 
 ### SSH connexion
 
-You can link your GitHub account to your local **git** using a SSH key.
-See GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
-According to this tutorial, generating both a public and a private RSA key is done with a `ssh-keygen` command :
+You can link your GitHub account to your local **Git** using a SSH key.
 
-```
-ssh-keygen -t rsa -b 4096 -C "<the email you use on GitHub>"
-```
+Follow the steps in the GitHub help webpage [Generating a new SSH key](https://help.github.com/enterprise/2.12/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) for the local generation of a SSH key.
 
-You can then copy the generated public key displayed in the text file `id_rsa.pub`.
+This procedure generates a public key in the text file `/home/<you>/.ssh/id_rsa.pub`. Copy it.
 
-Go to [GitHub Settings > SSH and GPG keys](https://github.com/settings/keys) when you are signed in.
+Sign in GitHub and go to [GitHub Settings > SSH and GPG keys](https://github.com/settings/keys).
 Click on the `New SSH key` button.
 
 ![GitHub-SSH-keys](img/github-ssh-new.png)
 
 Paste the copied public key in the empty **Key** field.
-You can then check if the connection is open from a linux terminal :
+You can then check if the connection is open from a Linux terminal :
 
 ```
 ssh -T git@github.com
 ```
 
-The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear : it works !
+The message `You've successfully authenticated, but GitHub does not provide shell access.` should appear: it works !
 
 Official help pages are listed in the [Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) webpage.
 
@@ -113,9 +108,9 @@ Official help pages are listed in the [Connecting to GitHub with SSH](https://he
 OpenSILEX development projects are organized in separate repositories.
 All OpenSILEX repositories are listed in the [OpenSILEX GitHub webpage](https://github.com/OpenSILEX/).
 
-The present repository, *community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
-When collaborating to an other repository, just change *community-dev* displayed in the examples to the name of the repository you are interested in.
-Note that the present *community-dev* repository differs from the other repositories since it displays no code, but only a developper-orientated documentation.
+The present repository, *docs-community-dev*, will be used as an example in this section in order to illustrate how to take part in the collaborative development of an OpenSILEX project.
+When collaborating to an other repository, just change *docs-community-dev* displayed in the examples to the name of the repository you are interested in.
+Note that the present *docs-community-dev* repository differs from the other repositories since it displays no code, but only a developper-orientated documentation.
 
 When joining an ongoing OpenSILEX development project, there are two initial steps that need to be executed :
 
@@ -126,12 +121,12 @@ When joining an ongoing OpenSILEX development project, there are two initial ste
 
 As the [first GitHub guide](https://guides.github.com/activities/hello-world/) states, **repositories** are used to organize single projects. They can contain folders and files, images, videos, spreadsheets and data sets, while **branches** are different versions of a repository. By default, a repository has only one branch named `master` which is considered to be the definitive branch.
 
-Let's consider the *community-dev* development project :
-- *OpenSILEX/community-dev* is the main repository
-- *pierreetiennealary/community-dev* is a repository that I have created when I forked the master branch of the *OpenSILEX/community-dev* repository
+Let's consider the *docs-community-dev* development project :
+- *OpenSILEX/docs-community-dev* is the main repository
+- *pierreetiennealary/community-dev* is a repository that I have created when I forked the master branch of the *OpenSILEX/docs-community-dev* repository (you'll notice that it can display a different name, but it is not advised)
 - both repository display only one branch each : a main branch named "master"
 
-From my perspective, *OpenSILEX/community-dev* is the "upstream" repository, while *pierreetiennealary/community-dev* is my own repository, which I named locally "origin".
+From my perspective, *OpenSILEX/docs-community-dev* is the "upstream" repository, while *pierreetiennealary/community-dev* is my own repository, which I named locally "origin".
 
 In order to fix a bug or to add a new developments, I can create additionnal branches to my repository.
 Once the changes made to these new branches have been completed and checked, the new branches' code is merged into the master branch, and the new branches are deleted.
@@ -141,7 +136,7 @@ This procedure is described in [GitHub Flow](https://guides.github.com/introduct
 
 The instructions for creating a branch are available on the official GitHub tutorial : https://help.github.com/articles/fork-a-repo/
 
-First, go with a browser to the URL of the repository you are interested in, e.g. https://github.com/OpenSILEX/community-dev.
+First, go with a browser to the URL of the repository you are interested in, e.g. https://github.com/OpenSILEX/docs-community-dev.
 From this GitHub webpage, create your own branch of the development project by forking the repository (top-right **Fork** button) :
 
 <!---
@@ -154,7 +149,7 @@ The workflow described in [GitHub guide](https://guides.github.com/introduction/
 When the aim of a new branch has been achieved, e.g. fixing a given bug, the new branch should be pushed to the master branch and then deleted.
 
 Forking the master branch should lead you to your own branch, accessible through GitHub.
-In our example, the branch that has been created by forking *OpenSILEX/community-dev* is accessed to through the a new URL of the form `https://github.com/[your_username]/community-dev`.
+In our example, the branch that has been created by forking *OpenSILEX/docs-community-dev* is accessed to through the a new URL of the form `https://github.com/[your_username]/docs-community-dev`.
 
 ![github-branch](img/github-branch.png)
 
@@ -169,7 +164,7 @@ From your repository's GitHub page, copy the URL of the branch you want to clone
 
 Another option is to download a compressed version of the repository using the **Download ZIP** button below, but the OpenSILEX community strongly advises otherwise.
 
-Choose a local directory on your computer where you want the git repository to be cloned.
+Choose a local directory on your computer where you want the Git repository to be cloned.
 There, you can open a terminal (linux) or Git Bash Here (Windows) and use the `git clone` command.
 From an UNIX terminal and using the SSH protocol, the command would be `git clone git@github.com:[your_username]/[repository_name].git`. Using the HTTPS protocol, the command would be `git clone https://github.com/[your_username]/[repository_name].git`.
 However, using SSH is preferable to HTTPS (in order not to have to provide your username every time you want to update your branch).
@@ -205,7 +200,7 @@ The `git remote -v` command gets you the list of the remote repositories.
 You can add upstream repositories associated to the list of the remotes using `git remote add <name remote> <path remote>`.
 If you choose to name "upstream" (recommended) the main remote repository owned by OpenSILEX, the command line would be :
 ```
-git remote add upstream https://github.com/OpenSILEX/community-dev.git
+git remote add upstream https://github.com/OpenSILEX/docs-community-dev.git
 ```
 
 ![git-remote-add](img/git-remote-add.png)
@@ -247,7 +242,7 @@ You can change the branch you are working on using `git checkout <name of the br
 
 ![git-checkout](img/git-checkout.png)
 
-Be carefull when using git checkout, since you can also create additionnal branches (not recommanded) using `git checkout -b <new_branch_name>`.
+Be carefull when using `git checkout`, since you can also create additionnal branches (not recommanded) using `git checkout -b <new_branch_name>`.
 When adding a new branch, the `git branch <new_branch_name>` is preferred.
 The difference between the two commands is that `git checkout -b <new_branch_name>` creates a new branch and then switches to the new branch, while `git branch <new_branch_name>` only creates a new branch.
 
@@ -332,7 +327,7 @@ A good practice would be to push to the master branch local changes made during 
 
 ### Request your changes to be pulled
 
-The changes pushed to the master branch of the origin remote should be integrated into the upstream repository, *OpenSILEX/community-dev* in our example.
+The changes pushed to the master branch of the origin remote should be integrated into the upstream repository, *OpenSILEX/docs-community-dev* in our example.
 This can be achieved directly from the GitHub page of your own repository through the **New pull request** button.
 Maintainers of the upstream repository would then have to accept your pull request.
 
