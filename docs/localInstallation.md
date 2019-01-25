@@ -37,9 +37,6 @@ layout: default
 This document explains you how to deploy OpenSILEX PHIS on your personnal computer.  
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
-This document explains you how to deploy OpenSILEX on your personnal computer.  
-In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
-
 ## Prerequisite
 
 ### Software
@@ -708,9 +705,12 @@ Other users:
 Configuration files are in: `/var/www/html/phis-webapp/config`  
 
 Edit:
-  - `webservices.php`  
-Adapt the last line with the correct URL. In our case:
-**http://127.0.0.1:8080/phis2ws/rest**
+  - *web_services.php*  
+Adapt the last lines with the correct URL in our case with:  
+```
+define('WS_PHIS_PATH', 'http://localhost:8080/phis2ws/rest/');
+define('WS_PHIS_PATH_DOC', 'http://localhost:8080/phis2ws');
+```
 
 If you are all exactly doing like in this document, it's the only configuration file you need to change. But you can check other configuration files: compare paths and URL with information written in web services configuration files.
 
@@ -739,11 +739,15 @@ You may need to change some owner and permission properties of the new files:
 sudo chown -R <username>:www-data /var/www/html/phis-webapp
 sudo chmod 775 -R /var/www/html/phis-webapp
 ```
-
 You should now have an operationnal OpenSILEX PHIS application on your localhost!
 Go to http://127.0.0.1:80/phis-webapp and test it by logging in.
 
 If you have any problem, please check the following **Current errors** section.
+
+In the future, to start OpenSILEX PHIS in Localhost, you'll only need to run apache-tomcat service. You can also create an alias using this command :
+```
+alias phis='apache-tomcat/bin/startup.sh;xdg-open http://localhost/phis-webapp/web'
+```
 
 ## Current errors
 
