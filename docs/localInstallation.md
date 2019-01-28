@@ -19,25 +19,25 @@ layout: default
       - [Web service folder](#web-service-folder)
       - [Web application folder](#web-application-folder)
       - [Database and ontologies](#database-and-ontologies)
-+ [Installation](#opensilex-phis-installation)
-    - [MongoDB Database](#mongodb-database)
-    - [PostgreSQL Database](#postgresql-database)
-    - [Rdf4j ontologies](#rdf4j-ontologies)
-    - [Web service](#web-service)
-    - [Web application](#web-application)
-+ [Current errors](#current-errors)
-    - [Problems with Netbeans](#problems-with-netbeans)
-    - [Problems with Composer](#problems-with-composer)
-    - [Errors with PostgreSQL](#errors-with-postgresql)
-    - [Errors with the web service](#errors-with-the-web-service)
-    - [Errors with the web application](#errors-with-the-web-application)
-    - [Other problems concerning the web application and the web service](#other-problems-concerned-webapp-and-web-service)
+2. [OpenSILEX PHIS Installation](#opensilex-phis-installation)
+  + [MongoDB Database](#mongodb-database)
+  + [PostgreSQL Database](#postgresql-database)
+  + [Rdf4j ontologies](#rdf4j-ontologies)
+  + [Web service](#web-service)
+  + [Web application](#web-application)
+3. [Current errors](#current-errors)
+  + [Problems with Netbeans](#problems-with-netbeans)
+  + [Problems with Composer](#problems-with-composer)
+  + [Errors with PostgreSQL](#errors-with-postgresql)
+  + [Errors with the web service](#errors-with-the-web-service)
+  + [Errors with the web application](#errors-with-the-web-application)
+  + [Other problems concerning the web application and the web service](#other-problems-concerned-webapp-and-web-service)
 
 ## Introduction  
 This document explains you how to deploy OpenSILEX PHIS on your personnal computer.  
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
-## Prerequisite
+## 1. Prerequisite
 
 ### Software
 
@@ -378,7 +378,7 @@ Preferably, get the source from the last release at [ontology-vocabularies/relea
 
 Download the database dump file [opensilex_st_dump.sql](assets/opensilex_st_dump.sql).
 
-##  OpenSILEX PHIS Installation
+## 2. OpenSILEX PHIS Installation
 
 ### MongoDB database
 
@@ -749,7 +749,7 @@ In the future, to start OpenSILEX PHIS in Localhost, you'll only need to run apa
 alias phis='apache-tomcat/bin/startup.sh;xdg-open http://localhost/phis-webapp/web'
 ```
 
-## Current errors
+## 3. Current errors
 
 ### Problems with Netbeans
 
