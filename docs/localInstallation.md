@@ -5,25 +5,25 @@ layout: default
 # OpenSILEX PHIS Deployment
 
 1. [Prerequisite](#1-prerequisite)  
-  * [Software](#software)  
-      - [MongoDB and Robo 3T](#mongodb-and-robo-3t)
-      - [Netbeans and JDK](#netbeans-and-jdk)
-      - [Postgresql and PostGIS](#postgresql-and-postgis)
-      - [PHP](#php)
-      - [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
-      - [Apache2](#apache2)
-      - [Composer](#composer)
-      - [Git](#git)
-      - [Check install](#check-install)
-  * [Files](#files)
-      - [Web service folder](#web-service-folder)
-      - [Web application folder](#web-application-folder)
-      - [Ontology files](#ontology-files)
-      - [Database file](#database-file)
+  - [Software](#software)  
+        - [MongoDB and Robo 3T](#mongodb-and-robo-3t)
+        - [Netbeans and JDK](#netbeans-and-jdk)
+        - [Postgresql and PostGIS](#postgresql-and-postgis)
+        - [PHP](#php)
+        - [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
+        - [Apache2](#apache2)
+        - [Composer](#composer)
+        - [Git](#git)
+        - [Check install](#check-install)
+  - [Files](#files)
+        - [Web service folder](#web-service-folder)
+        - [Web application folder](#web-application-folder)
+        - [Ontology files](#ontology-files)
+        - [Database file](#database-file)
 2. [OpenSILEX PHIS Installation](#2-opensilex-phis-installation)
   + [MongoDB Database](#mongodb-database)
   + [PostgreSQL Database](#postgresql-database)
-  + [Rdf4j ontologies](#rdf4j-ontologies)
+  + [RDF4J ontologies](#rdf4j-ontologies)
   + [Web service](#web-service)
   + [Web application](#web-application)
 3. [Common errors](#3-common-errors)
@@ -399,7 +399,7 @@ Configure your connection:
 Create your database:
 Right click on connection name -> `Create Database` -> enter a name (`phis` in this document).
 
-### Rdf4j Ontologies
+### RDF4J Ontologies
 
 Go to http://localhost:8080/. You are in Tomcat server home page.
 
