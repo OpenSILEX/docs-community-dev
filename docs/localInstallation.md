@@ -25,7 +25,7 @@ layout: default
   + [Rdf4j ontologies](#rdf4j-ontologies)
   + [Web service](#web-service)
   + [Web application](#web-application)
-3. [Current errors](#current-errors)
+3. [Common errors](#common-errors)
   + [Problems with Netbeans](#problems-with-netbeans)
   + [Problems with Composer](#problems-with-composer)
   + [Errors with PostgreSQL](#errors-with-postgresql)
@@ -550,12 +550,12 @@ Run netbeans:
 ~/netbeans/bin/netbeans
 ```
 **Note**<br/>
-Netbeans frequently meets error when he starts. If you have an error please go to the [current error](#problems-with-netbeans) section.
+Netbeans frequently meets error when he starts. If you have an error please go to the [common error](#problems-with-netbeans) section.
 
 When Netbeans starts, open the `phis2-ws` project located in the `phis-ws` GitHub project.
 
 If problems are detected in the project: click right on the project name -> `Resolve problems` -> `Resolve`.  
-If problems can't be resolved like that please go to the [current error](#errors-with-the-web-service) section.
+If problems can't be resolved like that please go to the [common error](#errors-with-the-web-service) section.
 
 #### Configuration Files
 
@@ -671,7 +671,7 @@ The `Response Code` you get should be:
 201
 ```
 
-Otherwise, please go to the [current error](#errors-with-th-web-service) section.
+Otherwise, please go to the [common error](#errors-with-the-web-service) section.
 
 ### Web application
 
@@ -742,14 +742,14 @@ sudo chmod 775 -R /var/www/html/phis-webapp
 You should now have an operationnal OpenSILEX PHIS application on your localhost!
 Go to http://127.0.0.1:80/phis-webapp and test it by logging in.
 
-If you have any problem, please check the following **Current errors** section.
+If you have any problem, please check the following [Common errors](#common-errors) section.
 
 In the future, to start OpenSILEX PHIS in Localhost, you'll only need to run apache-tomcat service. You can also create an alias using this command :
 ```
 alias phis='apache-tomcat/bin/startup.sh;xdg-open http://localhost/phis-webapp/web'
 ```
 
-## 3. Current errors
+## 3. Common errors
 
 ### Problems with Netbeans
 
