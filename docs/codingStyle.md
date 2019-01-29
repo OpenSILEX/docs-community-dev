@@ -26,8 +26,8 @@ Date must be in english format, for example "27 Aug, 2018"
 ```java
 /**
  * Generate differents kinds of uris (vector, sensor, ...)
- * @update [Morgane Vidal] 04 July, 2018 : explanation
- * @update [Arnaud Charleroy] 18 July, 2018 : explanation
+ * @update [Morgane Vidal] 04 July, 2018: explanation
+ * @update [Arnaud Charleroy] 18 July, 2018: explanation
  * @see link to class or website
  * @author Morgane Vidal <morgane.vidal@inra.fr>, Arnaud Charleroy <arnaud.charleroy@inra.fr>
  */
@@ -40,7 +40,7 @@ Date must be in english format, for example "27 Aug, 2018"
 
 ```java
 /**
-  * Generate a new vector uri. A vector uri has the following form :
+  * Generate a new vector uri. A vector uri has the following form:
   * <prefix>:<year>/<unic_code>
   * <unic_code> = 1 letter type + 2 numbers year + auto incremented number
   * with 3 digits (per year)
@@ -59,7 +59,7 @@ Date must be in english format, for example "27 Aug, 2018"
   }
 ```
 
-If the function returns a boolean, the @return should be presented as the following example :
+If the function returns a boolean, the @return should be presented as the following example:
 ```java
 /**
   * @return true explanation
@@ -151,7 +151,7 @@ a = (a + b) / (c * d);
 
 We are using SILEX tags to highlight some code blocks or add some additional information.
 
-List of the actual existing tags :
+List of the actual existing tags:
 
 ```java
 //SILEX:login
