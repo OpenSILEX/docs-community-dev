@@ -4,36 +4,37 @@ layout: default
 ---
 # OpenSILEX PHIS Deployment
 
-1. [Prerequisite](#prerequisite)  
-  + [Software](#software)  
-      - [MongoDB and Robo 3T](#mongodb-and-robo3t)
-      - [Netbeans and JDK](#netbeans-and-jdk)
-      - [Postgresql and PostGIS](#postgresql-and-postgis)
-      - [PHP](#php)
-      - [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
-      - [Apache2](#apache2)
-      - [Composer](#composer)
-      - [Git](#git)
-      - [Check install](#check-install)
-  + [Files](#files)
-      - [Web service folder](#web-service-folder)
-      - [Web application folder](#web-application-folder)
-      - [Database and ontologies](#database-and-ontologies)
-2. [OpenSILEX PHIS Installation](#opensilex-phis-installation)
-  + [MongoDB Database](#mongodb-database)
-  + [PostgreSQL Database](#postgresql-database)
-  + [Rdf4j ontologies](#rdf4j-ontologies)
-  + [Web service](#web-service)
-  + [Web application](#web-application)
-3. [Common errors](#common-errors)
-  + [Problems with Netbeans](#problems-with-netbeans)
-  + [Problems with Composer](#problems-with-composer)
-  + [Errors with PostgreSQL](#errors-with-postgresql)
-  + [Errors with the web service](#errors-with-the-web-service)
-  + [Errors with the web application](#errors-with-the-web-application)
-  + [Other problems concerning the web application and the web service](#other-problems-concerned-webapp-and-web-service)
+1. [Prerequisite](#1-prerequisite)  
+  * [Software](#software)  
+      + [MongoDB and Robo 3T](#mongodb-and-robo-3t)
+      + [Netbeans and JDK](#netbeans-and-jdk)
+      + [Postgresql and PostGIS](#postgresql-and-postgis)
+      + [PHP](#php)
+      + [Apache Tomcat and RDF4J](#apache-tomcat-and-rdf4j)
+      + [Apache2](#apache2)
+      + [Composer](#composer)
+      + [Git](#git)
+      + [Check install](#check-install)
+  * [Files](#files)
+      + [Web service folder](#web-service-folder)
+      + [Web application folder](#web-application-folder)
+      + [Ontology files](#ontology-files)
+      + [Database file](#database-file)
+2. [OpenSILEX PHIS Installation](#2-opensilex-phis-installation)
+  * [MongoDB Database](#mongodb-database)
+  * [PostgreSQL Database](#postgresql-database)
+  * [RDF4J ontologies](#rdf4j-ontologies)
+  * [Web service](#web-service)
+  * [Web application](#web-application)
+3. [Common errors](#3-common-errors)
+  * [Problems with Netbeans](#problems-with-netbeans)
+  * [Issues with Composer](#issues-with-composer)
+  * [Errors with PostgreSQL](#errors-with-postgresql)
+  * [Errors with the web service](#errors-with-the-web-service)
+  * [Errors with the web application](#errors-with-the-web-application)
+  * [Other problems concerning the web application and the web service](#other-problems-with-the-webapp-and-the-web-service)
 
-## Introduction  
+## Introduction
 This document explains you how to deploy OpenSILEX PHIS on your personnal computer.  
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
@@ -398,7 +399,7 @@ Configure your connection:
 Create your database:
 Right click on connection name -> `Create Database` -> enter a name (`phis` in this document).
 
-### Rdf4j Ontologies
+### RDF4J Ontologies
 
 Go to http://localhost:8080/. You are in Tomcat server home page.
 
