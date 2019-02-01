@@ -326,8 +326,8 @@ COPY public.trial (uri, start_date, end_date, field, campaign, place, alias, com
 --
 
 COPY public.users (email, first_name, family_name, address, password, available, phone, orcid, affiliation, isadmin, uri) FROM stdin;
-admin@phis.fr	Admin	Phis	2 Place Pierre Viala, 34000 Montpellier	21232f297a57a5a743894a0e4a801fc3	t			PHIS	t	http://www.phenome-fppn.fr/diaphen/id/agent/admin_phis
-guest@phis.fr	Guest	Phis	2 Place Pierre Viala, 34000 Montpellier	084e0343a0486ff05530df6c705c8bb4	t			PHIS	t	http://www.phenome-fppn.fr/diaphen/id/agent/guest_phis
+admin@opensilex.org	Admin	OpenSILEX	2 Place Pierre Viala, 34000 Montpellier	21232f297a57a5a743894a0e4a801fc3	t			OpenSILEX	t	http://www.opensilex.org/demo/id/agent/admin_phis
+guest@opensilex.org	Guest	OpenSILEX	2 Place Pierre Viala, 34000 Montpellier	084e0343a0486ff05530df6c705c8bb4	f			OpenSILEX	f	http://www.opensilex.org/demo/id/agent/guest_phis
 \.
 
 
