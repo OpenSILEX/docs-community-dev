@@ -53,6 +53,12 @@ The new OpenSILEX release (v3.0) requires at least MongoDB v4.0, which could alr
 
 - In case of an upgrade of a previously installed MongoDB version, please follow: [Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
 
+You can check your current MongoDB version with:
+
+ ```
+ mongod --version
+ ```
+
 Now you have a Mongodb service.
 
 Now MongoDB is installed.
