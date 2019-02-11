@@ -5,10 +5,13 @@ If you already have an installed version of MongoDB please follow this tutorial:
 
 ## Install MongoDB on Ubuntu or Debian
 
-You can find install process for other Linux distribution on [Install on linux](https://docs.mongodb.com/manual/administration/install-on-linux/)
+You can find install process for other Linux distribution on [Install on linux](https://docs.mongodb.com/manual/administration/install-on-linux/).
 
+All of the command lines presented here come from the official documentation [Install MongoDB Community Edition on Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition-on-ubuntu).
 
 ### 1. Register MongoDB 4.0 public GPG Key
+
+Import the public key used by the package management system as described in the [MongoDB official documentation](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#import-the-public-key-used-by-the-package-management-system):
 
 ```
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
@@ -49,14 +52,14 @@ MongoDB shell version v4.0.4
 connecting to: mongodb://127.0.0.1:27017
 Implicit session: session { "id" : UUID("bca506e0-589d-482d-a8f2-6da60e56b80c") }
 MongoDB server version: 4.0.4
-Server has startup warnings: 
-2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten] 
+Server has startup warnings:
+2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten]
 2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
 2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] 
+2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten]
 2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
 2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] 
+2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten]
 ---
 Enable MongoDB's free cloud-based monitoring service, which will then receive and display
 metrics about your deployment (disk utilization, CPU, operation statistics, etc).
