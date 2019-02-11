@@ -15,20 +15,17 @@ layout: default
      + [Composer](#composer)
      + [Git](#git)
      + [Check install](#check-install)
-
    * [Files](#files)
      + [Web service folder](#web-service-folder)
      + [Web application folder](#web-application-folder)
      + [Ontology files](#ontology-files)
      + [Database file](#database-file)
-
 2. [OpenSILEX PHIS Installation](#2-opensilex-phis-installation)
    * [MongoDB Database](#mongodb-database)
    * [PostgreSQL Database](#postgresql-database)
    * [RDF4J ontologies](#rdf4j-ontologies)
    * [Web service](#web-service)
    * [Web application](#web-application)
-
 3. [Common errors](#3-common-errors)
    * [Problems with Netbeans](#problems-with-netbeans)
    * [Issues with Composer](#issues-with-composer)
