@@ -47,7 +47,7 @@ In this document, commands are for **Ubuntu 16.04**. However, the majority of th
 ##### MongoDB
 All the information needed to install MongoDB is available at [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
-The next release (v2.7) will require at least MongoDB v4.0, which can already be used for the current release (v2.6), the following links detail how to install or upgrade MongoDB for Ubuntu and Debian system:
+The next OpenSILEX release (v3.0) will require at least MongoDB v4.0, which can already be used for the current release (v2.6). The following links describes how to install or upgrade MongoDB for Ubuntu and Debian systems:
 
 - In case of a new installation, please follow: [V2.7 - Install MongoDB 4.0](./MongoDBInstallv4.md)
 
@@ -174,11 +174,13 @@ Choose your installation folder for Netbeans (here `~/netbeans`) and select the 
 
 #### PHP
 
-Install PHP by running the following commands:
+Install PHP 7.0 by running the following commands:
 ```bash
 sudo apt-get update
 sudo apt-get install php php-mbstring php-dom
 ```
+
+OpenSILEX does currently not support PHP 7.2. Developments are being made to provide this compatibility.
 
 #### Apache Tomcat + RDF4J
 
