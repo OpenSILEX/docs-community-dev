@@ -47,11 +47,11 @@ In this document, commands are for **Ubuntu 16.04**. However, the majority of th
 ##### MongoDB
 All the information needed to install MongoDB is available at [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
-The next OpenSILEX release (v3.0) will require at least MongoDB v4.0, which can already be used for the current release (v2.6). The following links describes how to install or upgrade MongoDB for Ubuntu and Debian systems:
+The next OpenSILEX release (v3.0) will require at least MongoDB v4.0, which can already be used for the current release (v2.6). The following links describe how to install or upgrade MongoDB for Ubuntu and Debian systems:
 
-- In case of a new installation, please follow: [V2.7 - Install MongoDB 4.0](./MongoDBInstallv4.md)
+- In case of a new installation, please follow: [V3.0 - Install MongoDB 4.0](./MongoDBInstallv4.md)
 
-- In case of an upgrade of a previously installed MongoDB version, please follow: [V2.7 - Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
+- In case of an upgrade of a previously installed MongoDB version, please follow: [V3.0 - Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
 
 Now you have a Mongodb service.
 
