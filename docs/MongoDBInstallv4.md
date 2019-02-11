@@ -124,3 +124,7 @@ You can check the status of the replica set with the following command:
 ```
 > rs.status()
 ```
+
+~~~
+
+Go back to the parent page, the [OpenSILEX local installation documentation](./MongoDBInstallv4.md#mongodb-and-robo-3t).
