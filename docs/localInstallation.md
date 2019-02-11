@@ -65,12 +65,12 @@ sudo chown -R mongodb:mongodb <path_to_mongo_db_file>
 ```
 In `/etc/mongod.conf` file, you should add line: `fork: true` after
 ```
-# how the process run
+# how the process runs
 processManagement:*
 ```
 as follows :
 ```
-# how the process run
+# how the process runs
 processManagement:*
   fork: true
 ```
