@@ -174,11 +174,13 @@ Choose your installation folder for Netbeans (here `~/netbeans`) and select the 
 
 #### PHP
 
-Install PHP by running the following commands:
+Install PHP 7.0 by running the following commands:
 ```bash
 sudo apt-get update
 sudo apt-get install php php-mbstring php-dom
 ```
+
+OpenSILEX does currently not support PHP 7.2. Developments are being made to provide this compatibility.
 
 #### Apache Tomcat + RDF4J
 
