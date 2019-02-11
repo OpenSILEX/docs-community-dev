@@ -27,7 +27,7 @@ This command line is specific to Debian 9, to get the right one for your distrib
 ```
 echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 ```
-### 3. Update apt and install new version
+### 3. Update apt and install new MongoDB version
 
 ```
 sudo apt-get update
@@ -46,6 +46,8 @@ Try to connect
 ```
 mongo
 ```
+
+The following text should appear:
 
 ```
 MongoDB shell version v4.0.4
@@ -73,6 +75,8 @@ To permanently disable this reminder, run the following command: db.disableFreeM
 ---
 ```
 
+You can quit mongo by entering `exit`.
+
 ## Enable transaction features
 
 This is achieved by creating a replica set
@@ -82,12 +86,20 @@ This is achieved by creating a replica set
 ### 1. Edit your config file
 
 Edit the configuration file /etc/mongod.conf and add the following config
-You can choose any name to replace "opensilex"
+You can choose any name to replace "opensilex" in the /etc/mongod.conf file:
 
 ```
 replication:
   replSetName: "opensilex"
 ```
+
+To change the configuration file, you should access it with super-user privilege, using the text editor of you choice, for instance:
+
+```
+sudo gedit /etc/mongod.conf
+```
+
+Do not forget to uncomment the line displaying `replication:` by removing the `#` at the start of the line.
 
 ### 2. Restart MongoDB service
 
@@ -104,6 +116,8 @@ mongo
 ```
 > rs.initiate()
 ```
+
+Here, the name you gave to your replica set (e.g. opensilex) by changing the /etc/mongod.conf file should be displayed.
 
 You can check the status of the replica set with the following command:
 
