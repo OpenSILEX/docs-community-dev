@@ -74,11 +74,6 @@ as follows :
 processManagement:*
   fork: true
 ```
-after
-```
-  # how the process runs
-  processManagement:*
-```
 
 **Note**<br/>
 This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` to be sure.
