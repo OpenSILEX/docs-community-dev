@@ -79,7 +79,6 @@ after
   # how the process runs
   processManagement:*
 ```
-This line is not an obligation, in default mode mongodb runs as fork (i.e. as a deamon) but I prefer force it by *fork: true* for no doubt.
 
 **Note**<br/>
 This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` to be sure.
