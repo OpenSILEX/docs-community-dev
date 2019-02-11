@@ -63,25 +63,40 @@ Now you have a Mongodb service.
 
 Now MongoDB is installed.
 
-**Note**<br/>
-The path to the database can be changed in the `etc/mongod.conf` file.
-Set the owner on the MongoDB file:
-```bash
-sudo chown -R mongodb:mongodb <path_to_mongo_db_file>
+**Note 1**<br/>
+The path to the database can be changed in the _etc/mongod.conf_ file.
+
+Open the _mongod.conf_ configuration file with any text editor, for instance with gedit: `sudo gedit /etc/mongod.conf`.
+You'll see what is the path to the Mongo database (in my case it is _/var/lib/mongodb_):
+
 ```
+# Where and how to store data.
+storage:
+  dbPath: /var/lib/mongodb
+```
+
+Set mongodb as owner of the MongoDB files, replacing \<dbPath> by the path displayed after _dbPath_:
+
+```bash
+sudo chown -R mongodb:mongodb <dbPath>
+```
+
+**Note 2**<br/>
 In `/etc/mongod.conf` file, you should add line: `fork: true` after
+
 ```
 # how the process runs
 processManagement:*
 ```
+
 as follows :
+
 ```
 # how the process runs
 processManagement:*
   fork: true
 ```
 
-**Note**<br/>
 This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` to be sure.
 
 Every time you change the `mongod.conf` file, you need to restart the `mongod` service:
