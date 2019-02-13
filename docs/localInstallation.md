@@ -139,6 +139,11 @@ In a terminal, run these commands:
  sudo apt-get install postgresql-9.5-postgis-2.2
 ```
 
+You can check if PostgreSQl has been installed and where with:
+```{bash}
+which psql
+```
+
 ##### PostgreSQL configuration
 
 The configuration files are in the `etc/postgresql/9.5/main` folder.  
