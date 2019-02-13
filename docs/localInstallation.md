@@ -183,8 +183,8 @@ tar -xvf ~/Downloads/jdk-X.X.X_linux-x64_bin.tar.gz ~/jdk/
 Once the installation completed, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`.
 
 ##### Netbeans
-
-Download the full version of Netbeans at [netbeans.org](https://netbeans.org/downloads/start.html?platform=linux&lang=en&option=all).
+The documentation needed to install Netbeans is available at [netbeans.org](https://netbeans.org/community/releases/82/install.html).
+Download the full version of Netbeans at [netbeans.org/downloads](https://netbeans.org/downloads/start.html?platform=linux&lang=en&option=all).
 
 Run the downloaded script:
 ```bash
