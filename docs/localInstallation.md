@@ -160,23 +160,27 @@ sudo systemctl restart postgresql
 
 #### Netbeans and JDK
 
-
 ##### Jdk
+You can check if Java Development Kit has already been installed (and with which version) from a terminal:
+```{bash}
+java -version
+```
+
 If JDK is already installed you can go to the next section, [Netbeans](#netbeans).
 
 Otherwise, download the JDK 8 sources (e.g. `tar.gz` archive) at [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 Create a JDK folder wherever you want. For example:
-```bash
+```{bash}
 mkdir ~/jdk
 ```
 
 In the created folder, extract the archive with this command:
-```bash
+```{bash}
 tar -xvf ~/Downloads/jdk-X.X.X_linux-x64_bin.tar.gz ~/jdk/
 ```
 
-When the installation is done, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`
+Once the installation completed, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`.
 
 ##### Netbeans
 
