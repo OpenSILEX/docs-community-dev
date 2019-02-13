@@ -196,6 +196,11 @@ Check that the **PHP** and **Glassfish/JEE** modules are installed.
 
 Choose your installation folder for Netbeans (here `~/netbeans`) and select the JDK installation folder (in our case `~/jdk`).
 
+You can launch Netbeans from its installation folder by executing the `netbeans` file (in the bin directory):
+```{bash}
+./bin/netbeans
+```
+
 #### PHP
 
 Install PHP 7.0 by running the following commands:
