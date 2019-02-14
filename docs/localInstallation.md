@@ -47,41 +47,56 @@ In this document, commands are for **Ubuntu 16.04**. However, the majority of th
 ##### MongoDB
 All the information needed to install MongoDB is available at [docs.mongodb.com](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition/).
 
-The next OpenSILEX release (v3.0) will require at least MongoDB v4.0, which can already be used for the current release (v2.6). The following links describe how to install or upgrade MongoDB for Ubuntu and Debian systems:
+The new OpenSILEX release (v3.0) requires at least MongoDB v4.0, which could already be used for the previous release (v2.6). The following links describe how to install or upgrade MongoDB for Ubuntu and Debian systems:
 
-- In case of a new installation, please follow: [V3.0 - Install MongoDB 4.0](./MongoDBInstallv4.md)
+- In case of a new installation, please follow: [Install MongoDB 4.0](./MongoDBInstallv4.md)
 
-- In case of an upgrade of a previously installed MongoDB version, please follow: [V3.0 - Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
+- In case of an upgrade of a previously installed MongoDB version, please follow: [Upgrade MongoDB from 3.4 to 4.0](./MongoDBUpgradeTov4.md)
+
+You can check your current MongoDB version with:
+
+ ```
+ mongod --version
+ ```
 
 Now you have a Mongodb service.
 
 Now MongoDB is installed.
 
-**Note**<br/>
-The path to the database can be changed in the `etc/mongod.conf` file.
-Set the owner on the MongoDB file:
+**Note 1**<br/>
+The path to the database can be changed in the _etc/mongod.conf_ file.
+
+Open the _mongod.conf_ configuration file with any text editor, for instance with gedit: `sudo gedit /etc/mongod.conf`.
+You'll see what is the path to the Mongo database (in my case it is _/var/lib/mongodb_):
+
+```
+# Where and how to store data.
+storage:
+  dbPath: /var/lib/mongodb
+```
+
+Set mongodb as owner of the MongoDB files, replacing \<dbPath> by the path displayed after _dbPath_:
+
 ```bash
-sudo chown -R mongodb:mongodb <path_to_mongo_db_file>
+sudo chown -R mongodb:mongodb <dbPath>
 ```
+
+**Note 2**<br/>
 In `/etc/mongod.conf` file, you should add line: `fork: true` after
+
 ```
-# how the process run
+# how the process runs
 processManagement:*
 ```
+
 as follows :
+
 ```
-# how the process run
+# how the process runs
 processManagement:*
   fork: true
 ```
-after
-```
-  # how the process runs
-  processManagement:*
-```
-This line is not an obligation, in default mode mongodb runs as fork (i.e. as a deamon) but I prefer force it by *fork: true* for no doubt.
 
-**Note**<br/>
 This line is not an obligation, in default mode MongoDB runs as fork (i.e. as a deamon) but it is preffered to force it by `fork: true` to be sure.
 
 Every time you change the `mongod.conf` file, you need to restart the `mongod` service:
@@ -124,6 +139,11 @@ In a terminal, run these commands:
  sudo apt-get install postgresql-9.5-postgis-2.2
 ```
 
+You can check if PostgreSQl has been installed and where with:
+```{bash}
+which psql
+```
+
 ##### PostgreSQL configuration
 
 The configuration files are in the `etc/postgresql/9.5/main` folder.  
@@ -140,23 +160,27 @@ sudo systemctl restart postgresql
 
 #### Netbeans and JDK
 
-
 ##### Jdk
+You can check if Java Development Kit has already been installed (and with which version) from a terminal:
+```{bash}
+java -version
+```
+
 If JDK is already installed you can go to the next section, [Netbeans](#netbeans).
 
 Otherwise, download the JDK 8 sources (e.g. `tar.gz` archive) at [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 Create a JDK folder wherever you want. For example:
-```bash
+```{bash}
 mkdir ~/jdk
 ```
 
 In the created folder, extract the archive with this command:
-```bash
+```{bash}
 tar -xvf ~/Downloads/jdk-X.X.X_linux-x64_bin.tar.gz ~/jdk/
 ```
 
-When the installation is done, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`
+Once the installation completed, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`.
 
 ##### Netbeans
 
@@ -172,12 +196,20 @@ Check that the **PHP** and **Glassfish/JEE** modules are installed.
 
 Choose your installation folder for Netbeans (here `~/netbeans`) and select the JDK installation folder (in our case `~/jdk`).
 
-#### PHP
+You can launch Netbeans from its installation folder by executing the `netbeans` file (in the bin directory):
+```{bash}
+./bin/netbeans
+```
 
-Install PHP 7.0 by running the following commands:
-```bash
+#### PHP
+Install PHP 7.0 executing the following commands:
+```{bash}
 sudo apt-get update
 sudo apt-get install php php-mbstring php-dom
+```
+Check your PHP version from a terminal:
+```{bash}
+php --version
 ```
 
 OpenSILEX does currently not support PHP 7.2. Developments are being made to provide this compatibility.

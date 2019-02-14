@@ -76,7 +76,7 @@ This command line is specific to Debian 9, to get the right one for your distrib
 echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 ```
 
-Eventually, remove older list file for previous mongodb versions in folder 
+Eventually, remove older list file for previous mongodb versions in folder
 ```
 ls -lrt /etc/apt/sources.list.d/
 ```
@@ -117,14 +117,14 @@ MongoDB shell version v4.0.4
 connecting to: mongodb://127.0.0.1:27017
 Implicit session: session { "id" : UUID("bca506e0-589d-482d-a8f2-6da60e56b80c") }
 MongoDB server version: 4.0.4
-Server has startup warnings: 
-2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten] 
+Server has startup warnings:
+2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten]
 2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
 2018-12-10T12:28:02.828+0100 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] 
+2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten]
 2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
 2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten] 
+2018-12-10T12:28:03.489+0100 I CONTROL  [initandlisten]
 ---
 Enable MongoDB's free cloud-based monitoring service, which will then receive and display
 metrics about your deployment (disk utilization, CPU, operation statistics, etc).
@@ -185,3 +185,6 @@ You can check the status of the replica set with the following command:
 ```
 
 
+***
+
+Go back to the parent page, the [OpenSILEX local installation documentation](./MongoDBInstallv4.md#mongodb-and-robo-3t).
