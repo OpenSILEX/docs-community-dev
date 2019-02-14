@@ -139,7 +139,7 @@ In a terminal, run these commands:
  sudo apt-get install postgresql-9.5-postgis-2.2
 ```
 
-You can check if PostgreSQl has been installed and where with:
+Locate the PostgreSQL client with:
 ```{bash}
 which psql
 ```
@@ -210,8 +210,6 @@ sudo apt-get install php php-mbstring php-dom
 ```
 
 OpenSILEX does currently not support PHP 7.2. Developments are being made to provide this compatibility.
-
-#### Apache Tomcat + RDF4J
 
 #### Apache Tomcat and RDF4J
 
