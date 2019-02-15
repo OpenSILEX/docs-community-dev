@@ -211,12 +211,9 @@ sudo apt-get install php php-mbstring php-dom
 
 OpenSILEX does currently not support PHP 7.2. Developments are being made to provide this compatibility.
 
-#### Apache Tomcat + RDF4J
-
 #### Apache Tomcat and RDF4J
 
 ##### Apache Tomcat installation
-
 To have a better control on the installation of Tomcat, install Tomcat from sources files (e.g. `tar.gz` archive).  
 
 You can download Tomcat9.0 archive, core distribution, at [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
@@ -238,10 +235,7 @@ To be consistent with the OpenSILEX PHIS documentation, we recommand you to rena
 mv apache-tomcat<version> apache-tomcat
 ```
 
-
 With this procedure, Tomcat is not recognized by Ubuntu services control (`systemctl` or `services`). So you need to execute scripts which are in Tomcat `bin` folder (e.g: `startup.sh` to run and `shutdown.sh` to stop). You also need to change rights on files.
-
-##### Apache-Tomcat configuration
 
 ##### Apache Tomcat configuration
 Tomcat configuration files are located in the `/home/tomcat/apache-tomcat/conf` folder.  
@@ -251,10 +245,11 @@ To do that edit the `tomcat-users` file:
 nano /home/tomcat/apache-tomcat/conf/tomcat-users.xml
 ```
 and add lines:
-```bash
-<role rolename="manager"/>
-<role rolename="manager-gui"/>
-<user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
+```{bash}
+  <role rolename="manager"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-gui"/>
+  <user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
 
 To configure port, edit `server.xml`:
