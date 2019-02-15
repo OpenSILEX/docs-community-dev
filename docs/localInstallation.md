@@ -316,9 +316,9 @@ sudo systemctl restart apache2
 #### Composer
 
 Sometimes when installing Composer from the Ubuntu package, it does not run correctly. To avoid any problem, you should install Composer from the Composer installer file via the following command line (**Curl** must be already installed):
-```bash
-sudo curl -sS https://getcomposer.org/installer
-sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+```{bash}
+sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
 Maybe you should create a symbolic link between the new version of composer in `/usr/bin` or use the complete command. e.g. php `/usr/local/bin/composer`.
