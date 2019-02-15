@@ -372,7 +372,7 @@ Get source from GitHub, directly from the `phis-ws` development repository:
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-ws.git
 ```
-Preferably, get the source from the last release at [phis-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
+Preferably, get the source from the last release at [phis-ws/releases](https://github.com/OpenSILEX/phis-ws/releases) (for example, use `git clone --branch 3.0 https://github.com/OpenSILEX/phis-ws.git` if you want to install the release 3.0).
 
 #### Web application folder
 
@@ -381,16 +381,16 @@ Get source from GitHub, directly from the phis-webapp development repository:
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-webapp.git
 ```
-Preferably, get the source from the last release at [phis-webapp/releases](https://github.com/OpenSILEX/phis-webapp/releases).
+Preferably, get the source from the last release at [phis-webapp/releases](https://github.com/OpenSILEX/phis-webapp/releases) (for example, use `git clone --branch 3.0 https://github.com/OpenSILEX/phis-webapp.git` if you want to install the release 3.0).
 
 #### Ontology files
 
 Get the source from GitHub, directly from the `ontology-vocabularies` development repository:
 ```bash
 cd ~OpenSILEX
-git clone https://github.com/OpenSILEX/ontology-vocabularies
+git clone https://github.com/OpenSILEX/ontology-vocabularies.git
 ```
-Preferably, get the source from the last release at [ontology-vocabularies/releases](https://github.com/OpenSILEX/ontology-vocabularies/releases).
+Preferably, get the source from the last release at [ontology-vocabularies/releases](https://github.com/OpenSILEX/ontology-vocabularies/releases) (for example, use `git clone --branch 3.0 https://github.com/OpenSILEX/ontology-vocabularies.git` if you want to install the release 3.0).
 
 #### Database file
 
