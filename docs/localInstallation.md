@@ -247,7 +247,6 @@ nano /home/tomcat/apache-tomcat/conf/tomcat-users.xml
 and add lines:
 ```{bash}
   <role rolename="manager"/>
-  <role rolename="manager-script"/>
   <role rolename="manager-gui"/>
   <user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
