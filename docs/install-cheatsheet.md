@@ -7,7 +7,7 @@ Suggested Linux distribution: [Ubuntu 16.04 LTS](http://releases.ubuntu.com/16.0
 <style>
 div.orange { background-color:#ffe1a2; border-radius: 5px; padding: 20px;}
 </style>
-<div class = "orange">
+<div class = "orange" markdown="1">
 Environment:
 
 - [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (minimal Java version, compatibility up to java version 11.0.1)
@@ -21,7 +21,7 @@ Environment:
 <style>
 div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 </style>
-<div class = "blue">
+<div class = "blue" markdown="1">
 Web servers:
 
 - [Tomcat 9.0](https://tomcat.apache.org/download-90.cgi?Preferred=ftp://ftp.osuosl.org/pub/apache/) *Java Servlet Container*
@@ -35,7 +35,7 @@ Web servers:
 <style>
 div.pink { background-color:#f7e4ee; border-radius: 5px; padding: 20px;}
 </style>
-<div class = "pink">
+<div class = "pink" markdown="1">
 Database management systems:
 
 - [MongoDB 4.0]((https://docs.mongodb.com/manual/administration/install-on-linux/)) *for noSQL databases*
@@ -52,7 +52,7 @@ Database management systems:
 <style>
 div.green { background-color:#c8eec8; border-radius: 5px; padding: 20px;}
 </style>
-<div class = "green">
+<div class = "green" markdown="1">
 Suggested tools:
 
 - [Robo 3T](https://robomongo.org/download) *GUI client for MongoDB*
