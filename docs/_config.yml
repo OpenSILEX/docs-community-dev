@@ -4,6 +4,7 @@ include:
   - Home: index.md
   - Using git: github.md
   - Local Installation: localInstallation.md
+  - Quick Installation Cheatsheet: install-cheatsheet.md
   - Coding Style: codingStyle.md
   - Functionality Validation: functionalityValidation.md
   - BrAPI Implementation: brapiImplementation.md
