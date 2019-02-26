@@ -2,7 +2,7 @@
 
 ##Prerequisite
 Required operating system : Linux.
-Suggested Linux distribution: [Ubuntu 16.04 LTS](http://releases.ubuntu.com/16.04/) (alternative: [Ubuntu 14.04 LTS](http://releases.ubuntu.com/14.04/)).
+Suggested Linux distribution: [Ubuntu 16.04 LTS](http://releases.ubuntu.com/16.04/).
 
 <style>
 div.orange { background-color:#ffe1a2; border-radius: 5px; padding: 20px;}
