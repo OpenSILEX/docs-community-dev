@@ -111,7 +111,7 @@ sudo mongod --config /etc/mongod.conf
 
 ##### Robo 3T
 
-Download Robomongo [here](https://robomongo.org/download).
+Download Robo 3T at [robomongo.org](https://robomongo.org/download).
 
 Extract the downloaded archive (replace `<version>` with your version of Robot3t):
 ```bash  
