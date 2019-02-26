@@ -1,6 +1,6 @@
 # OpenSILEX installation cheatsheet
 
-##Prerequisite
+## Prerequisite
 Required operating system : Linux.
 Suggested Linux distribution: [Ubuntu 16.04 LTS](http://releases.ubuntu.com/16.04/).
 
