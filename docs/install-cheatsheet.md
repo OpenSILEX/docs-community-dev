@@ -38,7 +38,7 @@ div.pink { background-color:#f7e4ee; border-radius: 5px; padding: 20px;}
 <div class = "pink" markdown="1">
 Database management systems:
 
-- [MongoDB 4.0]((https://docs.mongodb.com/manual/administration/install-on-linux/)) *for noSQL databases*
+- [MongoDB 4.0](https://docs.mongodb.com/manual/administration/install-on-linux/) *for noSQL databases*
 - [PostgreSQL 9.5](https://www.postgresql.org/docs/9.5/release-9-5.html) *for SQL databases*
 - [PostGIS 2.2](https://postgis.net/docs/postgis_installation.html#install_short_version) (minimal PostGIS version)
 - [RDF4J 2.4.5](http://rdf4j.org/download/) *for triplestores*
