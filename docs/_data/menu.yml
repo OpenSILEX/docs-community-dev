@@ -16,7 +16,7 @@ toc:
     subItems:
       -
         page: Quick Installation Cheatsheet
-        url: installation-cheatsheet
+        url: install-cheatsheet
       -
         page: Local Installation
         url: localInstallation
