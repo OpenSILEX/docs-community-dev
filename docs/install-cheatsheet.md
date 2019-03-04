@@ -93,7 +93,7 @@ Import ontologies :
 <br/>
 <div class = "pink" markdown="1">
 ## MongoDB
-Create database `opensilex`.
+Create an `opensilex` database.
 </div>
 <br/>
 
