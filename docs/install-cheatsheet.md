@@ -68,32 +68,32 @@ CREATE DATABASE opensilex OWNER opensilex;
 CREATE EXTENSION postgis;
 select postgis_full_version();
 ```
-Importer le dump:
+import dump:
 `psql -U opensilex opensilex < Documents/opensilex_st_dump.sql`
 </div>
 <br>
 
 <div class = "blue" markdown="1">
 ### Rdf4J
-Créer le repository :
+Create repository :
 - Type : **Native Java Store**
 - ID : opensilex
 - Title : opensilex
-Ajouter les ontologies :
+Import ontologies :
 - OESO :
-  - Téléchargeable sur Github : https://github.com/OpenSILEX/ontology-vocabularies
-  - URI du contexte : http://www.opensilex.org/vocabularies/oeso
+  - Downloadable on Github : https://github.com/OpenSILEX/ontology-vocabularies
+  - URI of the context : http://www.opensilex.org/vocabularies/oeso
 - OEEV :
-  - Téléchargeable sur Github : https://github.com/OpenSILEX/ontology-vocabularies
-  - URI du contexte : http://www.opensilex.org/vocabularies/oeev
+  - Downloadable on Github : https://github.com/OpenSILEX/ontology-vocabularies
+  - URI of the context : http://www.opensilex.org/vocabularies/oeev
 - OA :
-  - Téléchargeable via le lien : http://www.w3.org/ns/oa.rdf
-  - URI du contexte : http://www.w3.org/ns/oa
+  - Downloadable on : http://www.w3.org/ns/oa.rdf
+  - URI of the context : http://www.w3.org/ns/oa
 </div>
 <br/>
 <div class = "pink" markdown="1">
 ## MongoDB
-Créer la base `opensilex`.
+Create database `opensilex`.
 </div>
 <br/>
 
@@ -101,22 +101,27 @@ Créer la base `opensilex`.
 
 <div class = "green" markdown="1">
 ### MongoDB configuration
+```
 mongo.host=localhost
 mongo.port=27017
 mongo.db=opensilex
+```
 </div>
 <br/>
 <div class = "orange" markdown="1">
 ### PostgreSQL configuration
+```
 pg.host=localhost
 pg.port=5432
 pg.db=opensilex
 pg.user=username
 pg.password=password
+```
 </div>
 <br/>
 <div class = "blue" markdown="1">
 ### RDF4J Configuration
+```
 rdf.base.uri=http://www.opensilex.org/
 rdf.host=localhost
 rdf.port=8084
@@ -125,10 +130,12 @@ rdf.infra=opensilex
 rdf.infra.code=DMO
 rdf.repo=opensilex
 rdf.vocabulary.context=http://www.opensilex.org/vocabulary/oeso
+```
 </div>
 <br/>
 <div class = "green" markdown="1">
 ### Others configurations
+```
 ws.log.dir=/home/tomcat/phis2ws/logs
 
 ws.host=localhost
@@ -150,6 +157,7 @@ ws.images.url=http://localhost/images
 
 ws.layers.dir=/var/www/html/layers
 ws.layers.url=http://localhost/layers
+```
 </div>
 
 </div>
@@ -185,12 +193,7 @@ $hostname = 'localhost';
 <div class = "green" markdown="1">
 ### index.php
 ```php
-<meta http-equiv="refresh" content="0;URL=http://localhost/phis-webapp/web">
+<meta http-equiv="refresh" content="0;URL=http://localhost/phis/web">
 ```
 </div>
 <br/>
-
-<!---
-Jersey
-Yii2
---->
