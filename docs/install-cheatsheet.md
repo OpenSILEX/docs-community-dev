@@ -68,7 +68,7 @@ CREATE DATABASE opensilex OWNER opensilex;
 CREATE EXTENSION postgis;
 select postgis_full_version();
 ```
-import dump:
+import [dump](https://opensilex.github.io/docs-community-dev/assets/opensilex_st_dump.sql):
 `psql -U opensilex opensilex < Documents/opensilex_st_dump.sql`
 </div>
 <br>
