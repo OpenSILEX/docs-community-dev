@@ -125,6 +125,71 @@ You can check the status of the replica set with the following command:
 > rs.status()
 ```
 
+
+## Enable authentication
+
+### 1. create superadmin user :
+
+```javascript
+use admin
+db.createUser(
+  {
+    user: "useradmin",
+    pwd: "pwd",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+```
+
+### 2. activate authentication:
+
+In the config file `/etc/mongod.conf`, add the following config :
+```properties
+security:
+    authorization: "disabled"
+```
+If you want autorize the remote connection (mongodb server is installed remotely) you must comment the following lines :
+```properties
+# network interfaces
+net:
+ port: 27017
+ bindIp: 127.0.0.1
+```
+
+3. Optional - you can test authenfication:
+```javascript
+use admin
+db.auth("superadmin", "mydatabase")
+```
+
+4. Create an admin account for the opensilex database:
+
+The role readWrite allow to :
+
+- create collection
+- create, modify, read and delete data
+- create index
+
+If the mongo server hosts several opensilex instances you can create one user per database.
+
+```javascript
+db.createUser(
+ {
+   user: "opensilex",
+   pwd: "azerty",
+   roles: [ { role: "readWrite", db: "opensilex" } ]
+ }
+)
+
+```
+Check access :
+
+```
+mongo -u "opensilex" -p "azerty" --authenticationDatabase "mydatabase" "mydatabase"
+```
+
 ***
 
-Go back to the parent page, the [OpenSILEX local installation documentation](./MongoDBInstallv4.md#mongodb-and-robo-3t).
+Go back to the parent page, the [OpenSILEX local installation documentation](./localInstallation.md#mongodb-and-robo-3t).
+
+
