@@ -177,7 +177,7 @@ db.createUser(
  {
    user: "opensilex",
    pwd: "azerty",
-   roles: [ { role: "readWrite", db: "mydatabase" } ]
+   roles: [ { role: "readWrite", db: "opensilex" } ]
  }
 )
 
