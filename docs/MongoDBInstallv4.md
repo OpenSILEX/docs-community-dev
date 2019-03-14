@@ -125,7 +125,6 @@ You can check the status of the replica set with the following command:
 > rs.status()
 ```
 
-***
 
 ## Enable authentication
 
@@ -185,6 +184,8 @@ db.createUser(
 Check access :
 
 `mongo -u "opensilex" -p "azerty" --authenticationDatabase "mydatabase" "mydatabase"`
+
+***
 
 Go back to the parent page, the [OpenSILEX local installation documentation](./MongoDBInstallv4.md#mongodb-and-robo-3t).
 
