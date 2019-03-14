@@ -184,7 +184,9 @@ db.createUser(
 ```
 Check access :
 
-`mongo -u "opensilex" -p "azerty" --authenticationDatabase "mydatabase" "mydatabase"`
+```
+mongo -u "opensilex" -p "azerty" --authenticationDatabase "mydatabase" "mydatabase"
+```
 
 ***
 
