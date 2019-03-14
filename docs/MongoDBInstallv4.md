@@ -188,6 +188,6 @@ Check access :
 
 ***
 
-Go back to the parent page, the [OpenSILEX local installation documentation](./MongoDBInstallv4.md#mongodb-and-robo-3t).
+Go back to the parent page, the [OpenSILEX local installation documentation](./localInstallation.md#mongodb-and-robo-3t).
 
 
