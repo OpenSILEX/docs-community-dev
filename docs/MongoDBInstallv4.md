@@ -165,6 +165,7 @@ db.auth("superadmin", "mydatabase")
 4. Create an admin account for the opensilex database:
 
 The role readWrite allow to :
+
 - create collection
 - create, modify, read and delete data
 - create index
@@ -176,17 +177,19 @@ db.createUser(
  {
    user: "opensilex",
    pwd: "azerty",
-   roles: [ { role: "readWrite", db: "mydatabase" } ]
+   roles: [ { role: "readWrite", db: "opensilex" } ]
  }
 )
 
 ```
 Check access :
 
-`mongo -u "opensilex" -p "azerty" --authenticationDatabase "mydatabase" "mydatabase"`
+```
+mongo -u "opensilex" -p "azerty" --authenticationDatabase "mydatabase" "mydatabase"
+```
 
 ***
 
-Go back to the parent page, the [OpenSILEX local installation documentation](./MongoDBInstallv4.md#mongodb-and-robo-3t).
+Go back to the parent page, the [OpenSILEX local installation documentation](./localInstallation.md#mongodb-and-robo-3t).
 
 
