@@ -626,6 +626,9 @@ You need to change the port with the value chosen for Tomcat (in our case 8080):
 mongo.host=127.0.0.1
 mongo.port=27017
 mongo.db=<experimental_installation_name>
+mongo.user=opensilex
+mongo.password=azerty
+mongo.authdb=opensilex
 
 # PostgreSQL configuration
 pg.host=127.0.0.1
