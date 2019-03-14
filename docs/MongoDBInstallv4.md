@@ -165,6 +165,7 @@ db.auth("superadmin", "mydatabase")
 4. Create an admin account for the opensilex database:
 
 The role readWrite allow to :
+
 - create collection
 - create, modify, read and delete data
 - create index
