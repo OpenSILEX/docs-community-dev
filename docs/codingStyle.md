@@ -10,7 +10,7 @@ Comments must be only in english. Each complicated code should be explained with
 
 ### Files headers
 
-Date must be in english format, for example "27 Aug, 2018"
+The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
 
 ```java
 //******************************************************************************
