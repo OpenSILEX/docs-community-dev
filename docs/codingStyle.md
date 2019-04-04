@@ -85,28 +85,28 @@ Function names must be meaningful. The name must specify the exact action of the
 
 ## Blank Lines
 
-**Two blank lines** should always be used in the following circumstances:
-* Between sections of a source file
-* Between class and interface definitions
+**Two blank lines** should only be used in the following circumstances:
+* between sections of a source file
+* between class and interface definitions
 
-**One blank line** should always be used in the following circumstances:
-* Between methods
-* Between the local variables in a method and its first statement
-* Before a block or single-line comment
-* Between logical sections inside a method to improve readability
+**One blank line** should only be used in the following circumstances:
+* between methods
+* between the local variables in a method and its first statement
+* before a block or single-line comment
+* between logical sections inside a method to improve readability
 
 ```java
 /**
-* comment
-**/
+ * Comment.
+ */
 public interface MyInterface {
     Boolean isEmptyMethod();
 }
 
 
 /**
-* comment
-**/
+ * Comment.
+ */
 class Sample extends Object {
     int ivar1;
     int ivar2;
@@ -116,7 +116,7 @@ class Sample extends Object {
 
         i = k;
 
-        /* comment */
+        /* Comment. */
         ivar1 = i;
         ivar2 = j;     
     }
@@ -154,10 +154,10 @@ this.myMethod();
 
 * Variable affectation: a space between *=* is also required.
 ```java
-  myVariable = 33 ;
+  myVariable = 33;
 ```
 
-* All **binary operators** (+, +=, ++, etc.) except *.* should be separated from their operands by spaces. Blank spaces should never separate unary operators such as unary minus, increment ("++"), and decrement ("--") from their operands.
+* All **binary operators** (+, +=, ++, etc.) besides *.* should be separated from their operands by spaces. Blank spaces should never separate unary operators such as unary minus, increment ("++"), and decrement ("--") from their operands.
 ```java
 a += c + d;
 a = (a + b) / (c * d);
