@@ -14,7 +14,7 @@ The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
 
 ```java
 //******************************************************************************
-//                                       ${nameAndExt}
+//                                ${nameAndExt}
 // SILEX-PHIS
 // Copyright © INRA ${date?date?string("yyyy")}
 // Creation date: ${date}
@@ -25,15 +25,26 @@ The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
 
 ```java
 /**
- * Generate differents kinds of uris (vector, sensor, ...)
- * @update [Morgane Vidal] 04 July, 2018: explanation
- * @update [Arnaud Charleroy] 18 July, 2018: explanation
+ * DAO mother class. 
+ * Provides generic functions to query the storage. 
+ * @update [Morgane Vidal] 4 Sept. 2018: explanation
+ * @update [Arnaud Charleroy] 18 Sept. 2018: explanation
  * @see link to class or website
+ * @param <T> the type of object handled.
  * @author Morgane Vidal <morgane.vidal@inra.fr>, Arnaud Charleroy <arnaud.charleroy@inra.fr>
  */
- public class UriGenerator {
-   //comment which explains the attribute purpose with an example if needed
-   String attribute;
+ public class DAO<T> {
+   
+   /**
+    * Comment which explains the complexeAttribute purpose.
+    * All attributes are private. They are accessible from other classes throught the
+    * getters and setters functions.
+    * @example possible value for this attribute without parenthesis
+    */
+   private String complexeAttribute;
+   
+   // Comment which explains the simpleAttribute purpose.
+   private String simpleAttribute;
  }
 ```
 ### Functions
