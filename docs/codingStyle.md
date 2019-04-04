@@ -168,8 +168,8 @@ a += c + d;
 a = (a + b) / (c * d);
 ```
 
-## Variables
-Follow the coding global best practices. See for example this article https://dzone.com/articles/best-practices-variable-and.
+## Variables, constants, classes, packages naming
+Follow the coding global best practices. See for instance [this article](https://dzone.com/articles/best-practices-variable-and).
 
 Main rules to follow :
 * use meaningful names
@@ -178,8 +178,8 @@ Main rules to follow :
 * use Lower Case for packages: com.company.project.ui
 * use Mixed Case (aka Lower Camel Case) for variables: studentName
 * use Upper Case for constants : MAX_PARAMETER_COUNT = 100
-* use Camel Case for enum class names and Upper Case for enum values.
-* don't use '_' anywhere except constants and enum values (which are constants).
+* use Camel Case for enum class names and Upper Case for enum values
+* don't use '_' anywhere except constants and enum values (which are constants)
 
 ## Tags
 
