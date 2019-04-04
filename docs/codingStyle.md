@@ -21,6 +21,11 @@ The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
 // Contact: ${userEmail}, anne.tireau@inra.fr, pascal.neveu@inra.fr
 //******************************************************************************
 ```
+### Right margin
+A right margin has to be set to avoid too large code files that force the contributor to scroll horizontally to see the end of a line.
+
+For the project, the margin is set to 120 pixels. It can be configured in your IDE to show a line that indicates the margin ([here](http://netbeans-org.1045718.n5.nabble.com/Limit-code-format-line-length-td2924485.html) for Netbeans).
+
 ### Classes
 
 ```java
