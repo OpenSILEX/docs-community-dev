@@ -54,10 +54,11 @@ The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
 
 ```java
 /**
-  * Generate a new vector uri. A vector uri has the following form:
+  * Generates a new vector URI. A vector URI has follow this pattern:
   * <prefix>:<year>/<unic_code>
   * <unic_code> = 1 letter type + 2 numbers year + auto incremented number
-  * with 3 digits (per year)
+  * with 3 digits (per year).
+  * Functions comment generally starts with a verb in the third person.
   * @error the error message possible or what happends if an error occured.
   * @example http://www.phenome-fppn.fr/diaphen/2017/v1702
   * @example
@@ -66,18 +67,18 @@ The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
   *     ?uri rdf:type <http://www.phenome-fppn.fr/vocabulary/2017#Vector>   
   * }
   * @param year the insertion year of the vector.
-  * @return the new vector uri
+  * @return the new vector URI.
   */
   public String generateVectorUri(String year) {
     ...
   }
 ```
 
-If the function returns a boolean, the @return should be presented as the following example:
+If the function returns a boolean, the @return tag should be presented as follows:
 ```java
 /**
-  * @return true explanation
-  *         false explanation
+  * @return true explanation.
+  *         false explanation.
   */
 ```
 
