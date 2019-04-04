@@ -163,6 +163,19 @@ a += c + d;
 a = (a + b) / (c * d);
 ```
 
+## Variables
+Follow the coding global best practices. See for example this article https://dzone.com/articles/best-practices-variable-and.
+
+Main rules to follow :
+* use meaningful names
+* avoid abbreviations: "connection" instead of "con" 
+* use Camel Case (aka Upper Camel Case) for classes: VelocityResponseWriter
+* use Lower Case for packages: com.company.project.ui
+* use Mixed Case (aka Lower Camel Case) for variables: studentName
+* use Upper Case for constants : MAX_PARAMETER_COUNT = 100
+* use Camel Case for enum class names and Upper Case for enum values.
+* don't use '_' anywhere except constants and enum values (which are constants).
+
 ## Tags
 
 We are using SILEX tags to highlight some code blocks or add some additional information.
