@@ -57,9 +57,11 @@ For the project, the margin is set to 120 pixels. It can be configured in your I
 ```
 ### Functions
 
+Besides simple getters and setters, all functions declaration must be documented as follows:
+
 ```java
 /**
-  * Generates a new vector URI. A vector URI has follow this pattern:
+  * Generates a new vector URI. A vector URI follows this pattern:
   * <prefix>:<year>/<unic_code>
   * <unic_code> = 1 letter type + 2 numbers year + auto incremented number
   * with 3 digits (per year).
@@ -79,7 +81,7 @@ For the project, the margin is set to 120 pixels. It can be configured in your I
   }
 ```
 
-If the function returns a boolean, the @return tag should be presented as follows:
+If the function returns a boolean, the `@return` tag should be presented as follows:
 ```java
 /**
   * @return true explanation.
