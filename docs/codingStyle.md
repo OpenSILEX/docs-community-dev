@@ -81,6 +81,7 @@ If the function returns a boolean, the @return tag should be presented as follow
   *         false explanation.
   */
 ```
+Function names must be meaningful. The name must specify the exact action of the function and for most cases must start with a verb. (e.g. createPasswordHash).
 
 ## Blank Lines
 
