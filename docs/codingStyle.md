@@ -30,10 +30,10 @@ The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
  * Comments begins with a capital letter and ends with a dot.
  * The @author tag designates the first contributors of the class. A contributor that 
  * updates the class won't be considered as an @author.
- * @update [Alice Boizet, Michel Simon] 4 Sept. 2018: explanation
- * @update [Andréas Garcia] 18 Sept. 2018: explanation
- * @see optional link to class or website that helps the comprehension of the class
- * @param <T> the type of object handled
+ * @update [Alice Boizet, Michel Simon] 4 Sept. 2018: explanation.
+ * @update [Andréas Garcia] 18 Sept. 2018: explanation.
+ * @see optional link to class or website that helps the comprehension of the class.
+ * @param <T> the type of object handled.
  * @author Morgane Vidal <morgane.vidal@inra.fr>, Arnaud Charleroy <arnaud.charleroy@inra.fr>
  */
  public class DAO<T> {
@@ -42,7 +42,7 @@ The date must be in the "DD MM YYYY" English format (e.g "27 Aug. 2018").
     * Comment which explains the complexeAttribute purpose.
     * All attributes are private. They are accessible from other classes throught the
     * getters and setters functions.
-    * @example possible value for this attribute without parenthesis
+    * @example possible value for this attribute without parenthesis.
     */
    private String complexeAttribute;
    
