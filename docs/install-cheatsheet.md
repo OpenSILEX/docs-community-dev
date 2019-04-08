@@ -160,8 +160,6 @@ ws.layers.url=http://localhost/layers
 ```
 </div>
 
-</div>
-
 ## OpenSILEX webapp configurations
 
 <div class = "orange" markdown="1">
