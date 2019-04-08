@@ -39,6 +39,14 @@ A few services returns more or less the same rdf resource definition JSON format
 ### Property DAO
 To manipulate the properties extracted from a semantic triplestore, we use the PropertyDAOSesame class.
 
+## How to create new services ?
+You can base your new service on the Provenance and Radiometric Target services.
+1. Create the service class in the resources package (e.g. phis2ws.service.resources.ProvenanceResourceService).
+2. Create the DTO (e.g. phis2ws.service.resources.dto.provenance.ProvenanceDTO).
+3. Create the model (e.g. phis2ws.service.view.model.phis.provenance.Provenance).
+4. Create the DAO if needed (e.g. phis2ws.service.dao.mongo.ProvenanceDAOMongo).
+5. Create the ResponseForm (e.g. phis2ws.service.view.brapi.form.ResponseFormProvenance).
+
 
 ## Java Bean Validation (JSR 380)
 
