@@ -1,34 +1,37 @@
 toc:
-  - 
+  -
     title: Collaborate to OpenSILEX
     subItems:
-      - 
+      -
         page: Versionning using git
         url: github
-      - 
+      -
         page: Functionality Validation
         url: functionalityValidation
-      - 
+      -
         page: Coding Style
         url: codingStyle
-  - 
+  -
     title: Install and use Phis
     subItems:
-      - 
+      -
+        page: Quick Installation Cheatsheet
+        url: install-cheatsheet
+      -
         page: Local Installation
         url: localInstallation
-      - 
+      -
         page: BrAPI Implementation
         url: brapiImplementation
-      - 
+      -
         page: Contributing to the Webservice
         url: webService
-      - 
+      -
         page: Contributing to the Web app
-        url: webapp   
-  - 
+        url: webapp
+  -
     title: Specific installations
-    subItems:         
-        - 
+    subItems:
+        -
           page: INRA Avignon - 4P
-          url: 4p              
+          url: 4p

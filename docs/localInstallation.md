@@ -111,7 +111,7 @@ sudo mongod --config /etc/mongod.conf
 
 ##### Robo 3T
 
-Download Robomongo [here](https://robomongo.org/download).
+Download Robo 3T at [robomongo.org](https://robomongo.org/download).
 
 Extract the downloaded archive (replace `<version>` with your version of Robot3t):
 ```bash  
@@ -202,11 +202,14 @@ You can launch Netbeans from its installation folder by executing the `netbeans`
 ```
 
 #### PHP
-
-Install PHP 7.0 by running the following commands:
-```bash
+Install PHP 7.0 executing the following commands:
+```{bash}
 sudo apt-get update
 sudo apt-get install php php-mbstring php-dom
+```
+Check your PHP version from a terminal:
+```{bash}
+php --version
 ```
 
 OpenSILEX does currently not support PHP 7.2. Developments are being made to provide this compatibility.
@@ -214,7 +217,6 @@ OpenSILEX does currently not support PHP 7.2. Developments are being made to pro
 #### Apache Tomcat and RDF4J
 
 ##### Apache Tomcat installation
-
 To have a better control on the installation of Tomcat, install Tomcat from sources files (e.g. `tar.gz` archive).  
 
 You can download Tomcat9.0 archive, core distribution, at [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
@@ -236,10 +238,7 @@ To be consistent with the OpenSILEX PHIS documentation, we recommand you to rena
 mv apache-tomcat<version> apache-tomcat
 ```
 
-
 With this procedure, Tomcat is not recognized by Ubuntu services control (`systemctl` or `services`). So you need to execute scripts which are in Tomcat `bin` folder (e.g: `startup.sh` to run and `shutdown.sh` to stop). You also need to change rights on files.
-
-##### Apache-Tomcat configuration
 
 ##### Apache Tomcat configuration
 Tomcat configuration files are located in the `/home/tomcat/apache-tomcat/conf` folder.  
@@ -249,10 +248,10 @@ To do that edit the `tomcat-users` file:
 nano /home/tomcat/apache-tomcat/conf/tomcat-users.xml
 ```
 and add lines:
-```bash
-<role rolename="manager"/>
-<role rolename="manager-gui"/>
-<user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
+```{bash}
+  <role rolename="manager"/>
+  <role rolename="manager-gui"/>
+  <user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
 
 To configure port, edit `server.xml`:
@@ -319,9 +318,9 @@ sudo systemctl restart apache2
 #### Composer
 
 Sometimes when installing Composer from the Ubuntu package, it does not run correctly. To avoid any problem, you should install Composer from the Composer installer file via the following command line (**Curl** must be already installed):
-```bash
-sudo curl -sS https://getcomposer.org/installer
-sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+```{bash}
+sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
 Maybe you should create a symbolic link between the new version of composer in `/usr/bin` or use the complete command. e.g. php `/usr/local/bin/composer`.
@@ -627,6 +626,9 @@ You need to change the port with the value chosen for Tomcat (in our case 8080):
 mongo.host=127.0.0.1
 mongo.port=27017
 mongo.db=<experimental_installation_name>
+mongo.user=opensilex
+mongo.password=azerty
+mongo.authdb=opensilex
 
 # PostgreSQL configuration
 pg.host=127.0.0.1
