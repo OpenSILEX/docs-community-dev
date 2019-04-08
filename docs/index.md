@@ -13,7 +13,7 @@ The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), w
 
 | Collaborate to OpenSILEX        | Install and use Phis          |
 |:------------- |:--------------|
-| - code versionning and integration workflow : [Versionning using git](github)<br>- validation of development tasks : [Functionality Validation](functionalityValidation)<br>- learning the code style used in OpenSILEX developments : [Coding Style](codingStyle)<br><br>| - Phis setup essentials : [Quick Installation Cheatsheet](installation-cheatsheet)<br>- instructions for the deployment of Phis : [Local Installation](localInstallation)<br>- instructions for integrating BrAPI calls : [BrAPI Implementation](brapiImplementation)<br>- contributing to the WS : [Web Service](webService)<br>- contributing to the App : [Web App](webapp) |
+| - code versionning and integration workflow : [Versionning using git](github)<br>- validation of development tasks : [Functionality Validation](functionalityValidation)<br>- learning the code style used in OpenSILEX developments : [Coding Style](codingStyle)<br><br>| - Phis setup essentials : [Quick Installation Cheatsheet](install-cheatsheet)<br>- instructions for the deployment of Phis : [Local Installation](localInstallation)<br>- instructions for integrating BrAPI calls : [BrAPI Implementation](brapiImplementation)<br>- contributing to the WS : [Web Service](webService)<br>- contributing to the App : [Web App](webapp) |
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
