@@ -191,5 +191,3 @@ mongo -u "opensilex" -p "azerty" --authenticationDatabase "mydatabase" "mydataba
 ***
 
 Go back to the parent page, the [OpenSILEX local installation documentation](./localInstallation.md#mongodb-and-robo-3t).
-
-

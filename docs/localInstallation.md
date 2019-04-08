@@ -139,7 +139,7 @@ In a terminal, run these commands:
  sudo apt-get install postgresql-9.5-postgis-2.2
 ```
 
-You can check if PostgreSQl has been installed and where with:
+Locate the PostgreSQL client with:
 ```{bash}
 which psql
 ```
@@ -180,7 +180,7 @@ In the created folder, extract the archive with this command:
 tar -xvf ~/Downloads/jdk-X.X.X_linux-x64_bin.tar.gz ~/jdk/
 ```
 
-Once the installation completed, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`.
+Once the installation has been completed, make sure that the value of the property `netbeans_jdkhome` of the file `~/netbeans-X.X/etc/netbeans.conf` is `"/usr/lib/jvm/java-8-openjdk-amd64"`.
 
 ##### Netbeans
 The documentation needed to install Netbeans is available at [netbeans.org](https://netbeans.org/community/releases/82/install.html).
