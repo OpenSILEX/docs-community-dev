@@ -4,7 +4,8 @@ layout: default
 ---
 # OpenSILEX PHIS Deployment
 
-1. [Prerequisite](#1-prerequisite)  
+1. [Prerequisite](#1-prerequisite)
+   * [Hardware](#hardware)  
    * [Software](#software)  
      + [MongoDB and Robo 3T](#mongodb-and-robo-3t)
      + [Netbeans and JDK](#netbeans-and-jdk)
@@ -39,6 +40,13 @@ This document explains you how to deploy OpenSILEX PHIS on your personnal comput
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
 ## 1. Prerequisite
+
+### Hardware
+We strongly recommend a server or a virtual machines on a cloud compute with :
+- Processor: recommended 4 CPU 2.30GHz
+- Ethernet connection
+- Hard Drive: minimum 500 Go, depend of you data.
+- Memory (RAM): recommended 32 GB or above
 
 ### Software
 

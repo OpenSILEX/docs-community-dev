@@ -30,28 +30,26 @@ For the project, the margin is set to 120 pixels. It can be configured in your I
 
 ```java
 /**
- * DAO mother class. 
- * Provides generic functions to query the storage. 
+ * DAO mother class.
+ * Provides generic functions to query the storage.
  * Comments begins with a capital letter and ends with a dot.
- * The @author tag designates the first contributors of the class. A contributor that 
- * updates the class won't be considered as an @author.
- * @update [Alice Boizet, Michel Simon] 4 Sept. 2018: explanation.
- * @update [Andréas Garcia] 18 Sept. 2018: explanation.
+ * The @author tag designates the main contributors of the class. A contributor that
+ * updates the class won't be considered as an @author. The case of a reworked class will be discussed.
+ * @update [Arnaud Charleroy] 4 Sept. 2018: explanation.
+ * @update [Morgane Vidal, Andréas Garcia] 18 Sept. 2018: explanation.
  * @see optional link to class or website that helps the comprehension of the class.
  * @param <T> the type of object handled.
  * @author Morgane Vidal <morgane.vidal@inra.fr>, Arnaud Charleroy <arnaud.charleroy@inra.fr>
  */
- public class DAO<T> {
-   
+ public class UriGenerator {
+
    /**
     * Comment which explains the complexeAttribute purpose.
-    * All attributes are private. They are accessible from other classes throught the
-    * getters and setters functions.
     * @example possible value for this attribute without parenthesis.
     */
    private String complexeAttribute;
-   
-   // Comment which explains the simpleAttribute purpose.
+
+   // Comment which explains the simpleAttribute purpose with an example if needed.
    private String simpleAttribute;
  }
 ```
@@ -84,8 +82,8 @@ Besides simple getters and setters, all functions declaration must be documented
 If the function returns a boolean, the `@return` tag should be presented as follows:
 ```java
 /**
-  * @return true explanation.
-  *         false explanation.
+  * @return true explanation
+  *         false explanation
   */
 ```
 Function names must be meaningful. The name must specify the exact action of the function and for most cases must start with a verb. (e.g. createPasswordHash).
@@ -171,17 +169,9 @@ a = (a + b) / (c * d);
 ```
 
 ## Variables, constants, classes, packages naming
-Follow the coding global best practices. See for instance [this article](https://dzone.com/articles/best-practices-variable-and).
+Follow the coding global best practices of the language.
+See for instance [this article](https://dzone.com/articles/best-practices-variable-and) or The Clean Coder: A Code of Conduct for Professional Programmers by Robert Martin .
 
-Main rules to follow :
-* use meaningful names
-* avoid abbreviations: "connection" instead of "con" 
-* use Camel Case (aka Upper Camel Case) for classes: VelocityResponseWriter
-* use Lower Case for packages: com.company.project.ui
-* use Mixed Case (aka Lower Camel Case) for variables: studentName
-* use Upper Case for constants : MAX_PARAMETER_COUNT = 100
-* use Camel Case for enum class names and Upper Case for enum values
-* don't use '_' anywhere except constants and enum values (which are constants)
 
 ## Tags
 
