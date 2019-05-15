@@ -5,9 +5,9 @@ layout: default
 # OpenSILEX developpers documentation
 
 ## Background
-OpenSILEX is a collaborative meta-project developped at MISTEA joint research unit (INRA - SupAgro).
-More information on OpenSILEX is available at [montpellier.inra.fr](https://www6.montpellier.inra.fr/mistea/Projets/Silex "SILEX Main Page").
-The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), which is developped for high-throughput plant phenotyping in close interaction to plant phenotyping communities.
+OpenSILEX is collaborative meta-project developped at MISTEA joint research unit (INRA - SupAgro) at [MISTEA web page](https://www6.montpellier.inra.fr/mistea).
+More information on OpenSILEX is available at [OpenSILEX web page](http://www.opensilex.org/).
+The main product of OpenSILEX is Phis (Phenotyping Hybrid Information System), which is developped for high-throughput plant phenotyping in close interaction to plant phenotyping communities. See at [PHIS web page](http://www.phis.inra.fr/) and at [publication](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.15385).
 
 ## Documentation structure
 
@@ -28,4 +28,4 @@ If an user of OpenSILEX developments wish to point out a flaw in this documentat
 Concerning issues with developments of OpenSILEX, users are invited to report them via another channel, which has not been set up to this day.
 
 ## Version
-&copy; OpenSILEX - PHIS v.2.6 - 20 September 2018 ; Software is licensed under AGPL-3.0 and data under CC BY-NC-SA 4.0
+&copy; OpenSILEX - PHIS v.3.2 - 16 January 2019 ; Software is licensed under AGPL-3.0 and data under CC BY-NC-SA 4.0
