@@ -17,6 +17,7 @@ Concerning other issues with OpenSILEX developments, users are invited to report
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
+
 Pierre-Etienne Alary, Morgane Vidal, Anne Tireau, Alice Boizet, Sammy Gilles, Vincent Migot, Andreas Garcia, Arnaud Charleroy and Pascal Neveu.
 
 Every OpenSILEX main developper or contributor is welcomed to enrich this repository with its experience of the development of information systems (e.g. PHIS) produced within OpenSILEX.
