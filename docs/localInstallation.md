@@ -421,9 +421,13 @@ Run Robo 3T:
 ~/robo3t/bin/robo3t
 ```
 Create a connection:
+
 ![robo3t-connection1](img/robo3t-connexion1.png)
+
 Configure your connection:
+
 ![robo3t-connection2](img/robo3t-connexion2.png)
+
 Create your database:
 Right click on connection name -> `Create Database` -> enter a name (`phis` in this document).
 
@@ -438,10 +442,14 @@ Search `rdf4j-workbench` in the list, if isn't running, click on `Start`)
 Click on the `rdf4j-workbench` link.
 
 Click `New repository` and complete as in the picture:
+
 ![rdf4j-nr1](img/rdf4j-nr1.png)
+
 Click `Next` and check if is corresponds to this:
+
 ![rdf4j-nr2](img/rdf4j-nr2.png)
-Click `Create`.  
+
+Click `Create`.
 
 You will do these steps many times:  
 
