@@ -132,7 +132,7 @@ In order to fix a bug or to add a new developments, I can create additionnal bra
 Once the changes made to these new branches have been completed and checked, the new branches' code is merged into the master branch, and the new branches are deleted.
 This procedure is described in [GitHub Flow](https://guides.github.com/introduction/flow/).
 
-### Create a branch
+### Create a branch
 
 The instructions for creating a branch are available on the official GitHub tutorial : https://help.github.com/articles/fork-a-repo/
 
