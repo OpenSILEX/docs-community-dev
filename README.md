@@ -12,7 +12,15 @@ This documentation is currently under developpement.
 If an user of OpenSILEX developments wish to point out a flaw in this documentation, (s)he is welcomed to do so in this repository's [GitHub issues](https://github.com/OpenSILEX/docs-community-dev/issues).
 
 Concerning issues with OpenSILEX PHIS itself, users are invited to report them via the GitHub issues of the repositories causing trouble, for instance [phis-ws/issues](https://github.com/OpenSILEX/phis-ws/issues) for problems concerning the Web services and [phis-webapp/issues](https://github.com/OpenSILEX/phis-webapp/issues) for issues with the Web client.
-Concerning other issues with OpenSILEX developments, users are invited to report them via OpenSILEX development team email address: [opensilex@gmail.com](mailto:opensilex@gmail.com).
+
+OpenSILEX development team can also be contacted through its official email address [opensilex@gmail.com](mailto:opensilex@gmail.com) or through the mailing list [opensilex-help@groupes.renater.fr](mailto:opensilex-help@groupes.renater.fr) when reporting a bug or seeking help.
+
+## Keep up to date
+In order to keep abreast of the latest OpenSILEX PHIS development, one can :
+
+- follow our twitter feed [@OpenSilex](https://twitter.com/OpenSilex)
+- subscribe to the [opensilex@groupes.renater.fr mailing list](https://groupes.renater.fr/sympa/subscribe/opensilex) for generic information
+- subscribe to the [opensilex-dev@groupes.renater.fr mailing list](https://groupes.renater.fr/sympa/subscribe/opensilex-dev) for technical updates
 
 ## Contributors
 Contributors to this documentation are agents of the joint research unit MISTEA (INRA - SupAgro) in Montpellier :
