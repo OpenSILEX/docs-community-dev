@@ -45,7 +45,7 @@ In this document, commands are for **Ubuntu 16.04**. However, the majority of th
 We strongly recommend a server or a virtual machines on a cloud compute with :
 - Processor: recommended 4 CPU 2.30GHz
 - Ethernet connection
-- Hard Drive: minimum 500 Go, depend of you data.
+- Hard Drive: minimum 500 Go, depending on your data volume.
 - Memory (RAM): recommended 32 GB or above
 
 ### Software
