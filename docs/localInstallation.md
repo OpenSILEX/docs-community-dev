@@ -42,7 +42,7 @@ In this document, commands are for **Ubuntu 16.04**. However, the majority of th
 ## 1. Prerequisite
 
 ### Hardware
-We strongly recommend a server or a virtual machines on a cloud compute with :
+We strongly recommend a server or virtual machines on a compute cloud with :
 - Processor: recommended 4 CPU 2.30GHz
 - Ethernet connection
 - Hard Drive: minimum 500 Go, depending on your data volume.
