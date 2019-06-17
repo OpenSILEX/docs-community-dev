@@ -4,7 +4,8 @@ layout: default
 ---
 # OpenSILEX PHIS Deployment
 
-1. [Prerequisite](#1-prerequisite)  
+1. [Prerequisite](#1-prerequisite)
+   * [Hardware](#hardware)  
    * [Software](#software)  
      + [MongoDB and Robo 3T](#mongodb-and-robo-3t)
      + [Netbeans and JDK](#netbeans-and-jdk)
@@ -39,6 +40,13 @@ This document explains you how to deploy OpenSILEX PHIS on your personnal comput
 In this document, commands are for **Ubuntu 16.04**. However, the majority of these commands are compatible with all Debian distributions which have the package manager Aptitude.
 
 ## 1. Prerequisite
+
+### Hardware
+We strongly recommend a server or virtual machines on a compute cloud with :
+- Processor: recommended 4 CPU 2.30GHz
+- Ethernet connection
+- Hard Drive: minimum 500 Go, depending on your data volume.
+- Memory (RAM): recommended 32 GB or above
 
 ### Software
 
@@ -421,9 +429,13 @@ Run Robo 3T:
 ~/robo3t/bin/robo3t
 ```
 Create a connection:
+
 ![robo3t-connection1](img/robo3t-connexion1.png)
+
 Configure your connection:
+
 ![robo3t-connection2](img/robo3t-connexion2.png)
+
 Create your database:
 Right click on connection name -> `Create Database` -> enter a name (`phis` in this document).
 
@@ -438,10 +450,14 @@ Search `rdf4j-workbench` in the list, if isn't running, click on `Start`)
 Click on the `rdf4j-workbench` link.
 
 Click `New repository` and complete as in the picture:
+
 ![rdf4j-nr1](img/rdf4j-nr1.png)
+
 Click `Next` and check if is corresponds to this:
+
 ![rdf4j-nr2](img/rdf4j-nr2.png)
-Click `Create`.  
+
+Click `Create`.
 
 You will do these steps many times:  
 
