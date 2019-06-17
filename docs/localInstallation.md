@@ -229,7 +229,7 @@ To have a better control on the installation of Tomcat, install Tomcat from sour
 
 You can download Tomcat9.0 archive, core distribution, at [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
 
-Create an installation folder for Tomcat. We advise you to create the Tomcat folder in `/home`:
+Create an installation folder for Tomcat. We advise you to create the Tomcat folder in `/home` (or /home/<username>/) :
 
 ```bash
 sudo mkdir /home/tomcat
@@ -261,6 +261,8 @@ and add lines:
   <role rolename="manager-gui"/>
   <user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
+
+As stated in the file `tomcat-users.xml`, "do not forget to remove the <!.. ..> [around the role entries]".
 
 To configure port, edit `server.xml`:
 ```bash
@@ -467,16 +469,16 @@ Now, Click `Add` in the `Modify` submenu.
 
 Click on the button next to `RDF Data File` in order to select a RDF Data File.
 
-Select the `oeso.owl` file got previously from GitHub repository `ontology-vocabularies`
+Select the `oeso.owl` file downloaded previously from the GitHub repository [`ontology-vocabularies`](https://github.com/OpenSILEX/ontology-vocabularies/releases).
 
-Add it in the context  `<http://www.opensilex.org/vocabulary/oeso>` with base URI and context fields.
-Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
+Add it in the context  `<http://www.opensilex.org/vocabulary/oeso>` with base URI and context fields (check the box "use base URI as context identifier").
+Fill the field `Base URI` with a value of the form `<base-url-of-your domain>/vocabularies/oeso`. For example, the development team in Montpellier uses the base URI `http://www.opensilex.org/vocabularies/oeso`. Please use another one if your install your own version of OpenSILEX, for instance `https://www.<your-institution-name>/vocabularies/oeso`.
 
-In the `Data format` field, select `RDF/XML`.
+In the `Data format` field, select `RDF/XML` and then click on `Upload`.
 
-Click `Upload`.
+Repeat this operation with the `oeev.owl` file downloaded previously from the GitHub repository [`ontology-vocabularies`](https://github.com/OpenSILEX/ontology-vocabularies/releases), with the `Base URI` (and context) of the form `<base-url-of-your domain>/vocabularies/oeev`.
 
-Add also a new context for the Ontology Annotation (with the `RDF Data File` `oa.rdf` downloadedable [here](http://www.w3.org/ns/oa.rdf) and with the `Base URI` value `http://www.w3.org/ns/oa`.
+Add also a new context for the Ontology Annotation (with the `RDF Data File` `oa.rdf` downloadable [here](http://www.w3.org/ns/oa.rdf) and with the `Base URI` value `http://www.w3.org/ns/oa`.
 
 ### PostgreSQL database
 
