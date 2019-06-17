@@ -538,13 +538,12 @@ Exit the SQL editor:
 
 #### Set up the database
 
-Download the dump file to import [here](assets/opensilex_st_dump.sql) (make sure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder - because of PosgreSQL ownership issue when importing data).
+Download the template dump file from this documentation [opensilex_st_dump.sql](assets/opensilex_st_dump.sql) (make sure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder - because of PosgreSQL ownership issue when importing data).
 
 Import data with :
 ```bash
 psql -U opensilex -h 127.0.0.1 <experimental_installation_name> < /var/lib/postgresql/opensilex_st_dump.sql
 ```
- You can find [dump file](assets/opensilex_st_dump.sql).
 
 With specific access rights, you can get a dump from the demonstration version:
 ```bash
