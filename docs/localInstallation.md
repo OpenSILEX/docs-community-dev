@@ -200,7 +200,7 @@ sh ~/Downloads/netbeans-X.X-linux.sh
 ```
 Follow the installation steps.
 
-Check that the **PHP** and **Glassfish/JEE** modules are installed.
+Check that the **PHP** and **Glassfish/JEE** modules are installed from the Netbeans `Tools > Plugins` menu.
 
 Choose your installation folder for Netbeans (here `~/netbeans`) and select the JDK installation folder (in our case `~/jdk`).
 
@@ -597,7 +597,7 @@ Run netbeans:
 ```
 **Note**<br/>
 Netbeans frequently meets error when he starts. If you have an error please go to the [common error](#problems-with-netbeans) section.
-
+Make sure that you have correctly installed Netbeans and linked it to java (see the [Netbeans and JDK](#netbeans-and-jdk) section above). 
 When Netbeans starts, open the `phis2-ws` project located in the `phis-ws` GitHub project.
 
 If problems are detected in the project: click right on the project name -> `Resolve problems` -> `Resolve`.  
@@ -703,7 +703,7 @@ Your web service is directly deployed. You can check that at http://127.0.0.1:80
 
 On the Tomcat server home page, click on `Manager App` and connect with the Tomcat user.  
 Search `phis2ws` in the list (if it isn't running, click on `Start`) and click on the name `/phis2ws`.  
-You are now on your web service! if it is correctly set up, you have 2 opperationnal links.  
+You are now on your web service! if it is correctly set up, you have 2 operationnal links.  
 
 **Note** </br>
 You can directly go on the web service with the URL http://127.0.0.1:8080/phis2ws
