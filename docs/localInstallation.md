@@ -618,7 +618,7 @@ Specific profile configurations are defined in the `config.properties` file whic
 
 Netbeans users: configuration files are located in `~/OpenSILEX/phis-ws/phis2-ws/src/main/profiles {profile name}`.
 
-Profile could be used with the following command line (`-P` option):
+Profile could be used with the following command line (`-P` option) from a terminal opened at `~/OpenSILEX/phis-ws/phis2-ws` :
 
 ```bash
 mvn install -Ptest
