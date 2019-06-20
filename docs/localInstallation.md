@@ -690,6 +690,8 @@ ws.layers.url=http://127.0.0.1/layers
 When all configuration files are correctly set up you can generate the `.war` file: right click on the project's name -> `Build with depedencies`.
 The `.war` file is generated in `<phis-ws git repository>/phis2-ws/target/phis2ws.war`.
 
+Every time you will change source files, such as the configuration file, you will need to generate and deploy once again the `.war` file.
+
 #### Deploy war file
 
 Copy the WAR archive into the Tomcat `webapps` folder (replace `<>` with the right phis-ws git repository and the Tomcat version):
