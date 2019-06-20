@@ -728,7 +728,7 @@ Otherwise, please go to the [common error](#errors-with-the-web-service) section
 
 #### Folder
 
-The web application deployment is done by Apache2. You have to copy the webapp folder in the Apache root folder (in our case `/var/www/html`).
+The web application deployment is done by Apache2. You have to copy the webapp folder (downloaded from [OpenSILEX/phis-webapp](https://github.com/OpenSILEX/phis-webapp)) in the Apache root folder (in our case `/var/www/html`).
 ```bash
 sudo cp -r <Git folder>/phis-webapp /var/www/html
 ```
@@ -738,7 +738,7 @@ sudo chown -R <username>:www-data /var/www/html/phis-webapp
 sudo chmod 775 -R /var/www/html/phis-webapp
 ```
 **Note**</br>
-`www-data` is the default Apache2 username. But in rare case it can be different. You can check the value of `APACHE_RUN_USER` it in the `/etc/apache2/envars` file to be sure.
+`www-data` is the default Apache2 username. But in rare case it can be different. You can check the value of `APACHE_RUN_USER` it in the `/etc/apache2/envvars` file to be sure.
 
 #### Configuration
 
