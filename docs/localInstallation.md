@@ -827,7 +827,11 @@ If the error persists, your JDK installation may haven't been done correctly. Un
 
 ### Issues with Composer
 
-If you have installed Composer with `apt` from Ubuntu packages, please uninstall Composer (consider deleting the cache and the configuration files in the `~/.cache` and `/etc` folders) and reinstall Composer with [this porcedure](#composer).
+If you have installed Composer with `apt` from Ubuntu packages, please uninstall Composer (consider deleting the cache and the configuration files in the `~/.cache` and `/etc` folders) and reinstall Composer with [this procedure](#composer), or the official one : [getcomposer.org/download/](https://getcomposer.org/download/), using the following *install-dir* and *filename* options :
+
+```
+php composer-setup.php --install-dir=bin --filename=composer
+```
 
 If it doesn't fix the problem, please check the [composer troubleshooting page](https://getcomposer.org/doc/articles/troubleshooting.md).
 
