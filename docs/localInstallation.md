@@ -200,7 +200,7 @@ sh ~/Downloads/netbeans-X.X-linux.sh
 ```
 Follow the installation steps.
 
-Check that the **PHP** and **Glassfish/JEE** modules are installed.
+Check that the **PHP** and **Glassfish/JEE** modules are installed from the Netbeans `Tools > Plugins` menu.
 
 Choose your installation folder for Netbeans (here `~/netbeans`) and select the JDK installation folder (in our case `~/jdk`).
 
@@ -229,7 +229,7 @@ To have a better control on the installation of Tomcat, install Tomcat from sour
 
 You can download Tomcat9.0 archive, core distribution, at [tomcat.apache.org](https://tomcat.apache.org/download-90.cgi).
 
-Create an installation folder for Tomcat. We advise you to create the Tomcat folder in `/home`:
+Create an installation folder for Tomcat. We advise you to create the Tomcat folder in `/home` (or /home/<username>/) :
 
 ```bash
 sudo mkdir /home/tomcat
@@ -261,6 +261,8 @@ and add lines:
   <role rolename="manager-gui"/>
   <user username="tomcat-admin" password="azerty" roles="manager, manager-script, manager-gui"/>
 ```
+
+As stated in the file `tomcat-users.xml`, "do not forget to remove the <!.. ..> [around the role entries]".
 
 To configure port, edit `server.xml`:
 ```bash
@@ -391,7 +393,7 @@ Get source from GitHub, directly from the `phis-ws` development repository:
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-ws.git
 ```
-Preferably, get the source from the last release at [phis-ws/releases](https://github.com/OpenSILEX/phis-ws/releases).
+Preferably, get the source from the last release at [phis-ws/releases](https://github.com/OpenSILEX/phis-ws/releases) (for example, use `git clone --branch 3.0 https://github.com/OpenSILEX/phis-ws.git` if you want to install the release 3.0).
 
 #### Web application folder
 
@@ -400,16 +402,16 @@ Get source from GitHub, directly from the phis-webapp development repository:
 cd ~/OpenSILEX
 git clone https://github.com/OpenSILEX/phis-webapp.git
 ```
-Preferably, get the source from the last release at [phis-webapp/releases](https://github.com/OpenSILEX/phis-webapp/releases).
+Preferably, get the source from the last release at [phis-webapp/releases](https://github.com/OpenSILEX/phis-webapp/releases) (for example, use `git clone --branch 3.0 https://github.com/OpenSILEX/phis-webapp.git` if you want to install the release 3.0).
 
 #### Ontology files
 
 Get the source from GitHub, directly from the `ontology-vocabularies` development repository:
 ```bash
-cd ~OpenSILEX
-git clone https://github.com/OpenSILEX/ontology-vocabularies
+cd ~/OpenSILEX
+git clone https://github.com/OpenSILEX/ontology-vocabularies.git
 ```
-Preferably, get the source from the last release at [ontology-vocabularies/releases](https://github.com/OpenSILEX/ontology-vocabularies/releases).
+Preferably, get the source from the last release at [ontology-vocabularies/releases](https://github.com/OpenSILEX/ontology-vocabularies/releases) (for example, use `git clone --branch 3.0 https://github.com/OpenSILEX/ontology-vocabularies.git` if you want to install the release 3.0).
 
 #### Database file
 
@@ -467,16 +469,16 @@ Now, Click `Add` in the `Modify` submenu.
 
 Click on the button next to `RDF Data File` in order to select a RDF Data File.
 
-Select the `oeso.owl` file got previously from GitHub repository `ontology-vocabularies`
+Select the `oeso.owl` file downloaded previously from the GitHub repository [`ontology-vocabularies`](https://github.com/OpenSILEX/ontology-vocabularies/releases).
 
-Add it in the context  `<http://www.opensilex.org/vocabulary/oeso>` with base URI and context fields.
-Fill the field `Base URI` with the value `http://www.phenome-fppn.fr/vocabulary/2017`.
+Add it in the context  `<http://www.opensilex.org/vocabulary/oeso>` with base URI and context fields (check the box "use base URI as context identifier").
+Fill the field `Base URI` with a value of the form `<base-url-of-your domain>/vocabularies/oeso`. For example, the development team in Montpellier uses the base URI `http://www.opensilex.org/vocabularies/oeso`. Please use another one if your install your own version of OpenSILEX, for instance `https://www.<your-institution-name>/vocabularies/oeso`.
 
-In the `Data format` field, select `RDF/XML`.
+In the `Data format` field, select `RDF/XML` and then click on `Upload`.
 
-Click `Upload`.
+Repeat this operation with the `oeev.owl` file downloaded previously from the GitHub repository [`ontology-vocabularies`](https://github.com/OpenSILEX/ontology-vocabularies/releases), with the `Base URI` (and context) of the form `<base-url-of-your domain>/vocabularies/oeev`.
 
-Add also a new context for the Ontology Annotation (with the `RDF Data File` `oa.rdf` downloadedable [here](http://www.w3.org/ns/oa.rdf) and with the `Base URI` value `http://www.w3.org/ns/oa`.
+Add also a new context for the Ontology Annotation (with the `RDF Data File` `oa.rdf` downloadable [here](http://www.w3.org/ns/oa.rdf) and with the `Base URI` value `http://www.w3.org/ns/oa`.
 
 ### PostgreSQL database
 
@@ -536,13 +538,12 @@ Exit the SQL editor:
 
 #### Set up the database
 
-Download the dump file to import [here](assets/opensilex_st_dump.sql) (make sure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder - because of PosgreSQL ownership issue when importing data).
+Download the template dump file from this documentation [opensilex_st_dump.sql](assets/opensilex_st_dump.sql) (make sure you download it in a folder where you are fully owner - like the `/var/lib/postgresql/` folder - because of PosgreSQL ownership issue when importing data).
 
 Import data with :
 ```bash
 psql -U opensilex -h 127.0.0.1 <experimental_installation_name> < /var/lib/postgresql/opensilex_st_dump.sql
 ```
- You can find [dump file](assets/opensilex_st_dump.sql).
 
 With specific access rights, you can get a dump from the demonstration version:
 ```bash
@@ -596,7 +597,7 @@ Run netbeans:
 ```
 **Note**<br/>
 Netbeans frequently meets error when he starts. If you have an error please go to the [common error](#problems-with-netbeans) section.
-
+Make sure that you have correctly installed Netbeans and linked it to java (see the [Netbeans and JDK](#netbeans-and-jdk) section above). 
 When Netbeans starts, open the `phis2-ws` project located in the `phis-ws` GitHub project.
 
 If problems are detected in the project: click right on the project name -> `Resolve problems` -> `Resolve`.  
@@ -617,7 +618,7 @@ Specific profile configurations are defined in the `config.properties` file whic
 
 Netbeans users: configuration files are located in `~/OpenSILEX/phis-ws/phis2-ws/src/main/profiles {profile name}`.
 
-Profile could be used with the following command line (`-P` option):
+Profile could be used with the following command line (`-P` option) from a terminal opened at `~/OpenSILEX/phis-ws/phis2-ws` :
 
 ```bash
 mvn install -Ptest
@@ -689,6 +690,8 @@ ws.layers.url=http://127.0.0.1/layers
 When all configuration files are correctly set up you can generate the `.war` file: right click on the project's name -> `Build with depedencies`.
 The `.war` file is generated in `<phis-ws git repository>/phis2-ws/target/phis2ws.war`.
 
+Every time you will change source files, such as the configuration file, you will need to generate and deploy once again the `.war` file.
+
 #### Deploy war file
 
 Copy the WAR archive into the Tomcat `webapps` folder (replace `<>` with the right phis-ws git repository and the Tomcat version):
@@ -702,7 +705,7 @@ Your web service is directly deployed. You can check that at http://127.0.0.1:80
 
 On the Tomcat server home page, click on `Manager App` and connect with the Tomcat user.  
 Search `phis2ws` in the list (if it isn't running, click on `Start`) and click on the name `/phis2ws`.  
-You are now on your web service! if it is correctly set up, you have 2 opperationnal links.  
+You are now on your web service! if it is correctly set up, you have 2 operationnal links.  
 
 **Note** </br>
 You can directly go on the web service with the URL http://127.0.0.1:8080/phis2ws
@@ -725,7 +728,7 @@ Otherwise, please go to the [common error](#errors-with-the-web-service) section
 
 #### Folder
 
-The web application deployment is done by Apache2. You have to copy the webapp folder in the Apache root folder (in our case `/var/www/html`).
+The web application deployment is done by Apache2. You have to copy the webapp folder (downloaded from [OpenSILEX/phis-webapp](https://github.com/OpenSILEX/phis-webapp)) in the Apache root folder (in our case `/var/www/html`).
 ```bash
 sudo cp -r <Git folder>/phis-webapp /var/www/html
 ```
@@ -735,7 +738,7 @@ sudo chown -R <username>:www-data /var/www/html/phis-webapp
 sudo chmod 775 -R /var/www/html/phis-webapp
 ```
 **Note**</br>
-`www-data` is the default Apache2 username. But in rare case it can be different. You can check the value of `APACHE_RUN_USER` it in the `/etc/apache2/envars` file to be sure.
+`www-data` is the default Apache2 username. But in rare case it can be different. You can check the value of `APACHE_RUN_USER` it in the `/etc/apache2/envvars` file to be sure.
 
 #### Configuration
 
@@ -824,7 +827,11 @@ If the error persists, your JDK installation may haven't been done correctly. Un
 
 ### Issues with Composer
 
-If you have installed Composer with `apt` from Ubuntu packages, please uninstall Composer (consider deleting the cache and the configuration files in the `~/.cache` and `/etc` folders) and reinstall Composer with [this porcedure](#composer).
+If you have installed Composer with `apt` from Ubuntu packages, please uninstall Composer (consider deleting the cache and the configuration files in the `~/.cache` and `/etc` folders) and reinstall Composer with [this procedure](#composer), or the official one : [getcomposer.org/download/](https://getcomposer.org/download/), using the following *install-dir* and *filename* options :
+
+```
+php composer-setup.php --install-dir=bin --filename=composer
+```
 
 If it doesn't fix the problem, please check the [composer troubleshooting page](https://getcomposer.org/doc/articles/troubleshooting.md).
 
