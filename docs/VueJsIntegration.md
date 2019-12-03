@@ -48,6 +48,6 @@ new Vue({
 If you want to add Vue.js plugins, you need to register the
 js and css file of this plugin using the function
 ```php
-this->registerJsFile("{url of plugin Vue.js js file}");
+$this->registerJsFile("{url of plugin Vue.js js file}");
 $this->registerCssFile("{url of plugin Vue.js css file}");
 ```
