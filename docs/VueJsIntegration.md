@@ -2,19 +2,19 @@
 
 ## Plugin application integration
 
-Add this plugin to composer.json
+Add 'antkaz/yii2-vue' plugin to your ``composer.json`` file :
 ```bash
-composer require antkaz/yii2-vue  --ignore-platform-reqs 
+composer require antkaz/yii2-vue  --ignore-platform-reqs
 ```
 
 ## View file  integration
 
-In your php view files add this following code at the beginning :
+Add this following code at the beginning of php view files  :
 ```php
 use antkaz\vue\VueAsset;
 VueAsset::register($this);
 ```
-Now you can create Vue.js (v2) applications and component inside of your php view files.
+Now you can add Vue.js (v2) applications and components inside of your php view files.
 
 ## Running example
 
@@ -41,4 +41,13 @@ new Vue({
   }
 })
 </script>
+```
+
+## Add Vue;js plugins
+
+If you want to add Vue.js plugins, you need to register the
+js and css file of this plugin using the function
+```php
+this->registerJsFile("{url of plugin Vue.js js file}");
+$this->registerCssFile("{url of plugin Vue.js css file}");
 ```
